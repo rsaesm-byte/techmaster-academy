@@ -6,6 +6,14 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola A — "Fundamentos da Computação"** (5 aulas completas): Bits e binário,
+  Texto e hexadecimal, Portas lógicas, CPU e memória, Arquivos e terminal;
+  15 termos novos no glossário.
+- Laboratórios novos: **Binário** (bits, soma com vai-um, texto em bytes),
+  **Portas lógicas** (AND/OR/XOR..., meio-somador e somador completo),
+  **CPU e memória** (assembly didático com ciclo buscar–decodificar–executar) e
+  **Terminal** simulado (sistema de arquivos de mentira, com missões).
+- Montador de aulas (`content/fundamentos/montar.ts`) para as aulas da escola A.
 - **Módulo 2 de Lógica — "Organizando dados e código"**: Vetores, Funções e
   procedimentos, Busca linear e binária, Ordenação e Recursividade (5 aulas
   completas, 13 termos novos no glossário).

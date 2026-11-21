@@ -31,3 +31,33 @@ test('editor web roda o código isolado do app', async ({ page }) => {
   });
   expect(isolado).toBe(true);
 });
+
+test('laboratório de portas: AND só acende com as duas entradas', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/lab/portas');
+  await expect(page.getByRole('img', { name: 'Saída: 0' })).toBeVisible();
+  await page.getByRole('button', { name: 'Entrada A: 0' }).click();
+  await page.getByRole('button', { name: 'Entrada B: 0' }).click();
+  await expect(page.getByRole('img', { name: 'Saída: 1' })).toBeVisible();
+  expectSemErros();
+});
+
+test('laboratório de CPU executa o programa até o fim', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/lab/cpu');
+  await page.getByRole('button', { name: 'Executar tudo' }).click();
+  await expect(page.getByLabel('Memória 0: 15')).toBeVisible();
+  expectSemErros();
+});
+
+test('terminal simulado: criar pasta e arquivo', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/lab/terminal');
+  const campo = page.getByLabel(/aluno@techmaster/);
+  await campo.fill('mkdir fotos');
+  await campo.press('Enter');
+  await campo.fill('ls');
+  await campo.press('Enter');
+  await expect(page.getByRole('log')).toContainText('fotos/');
+  expectSemErros();
+});

@@ -125,3 +125,18 @@ fimalgoritmo
 - Use `**negrito**` e `` `código` `` (é o único formato aceito no texto).
 - Exemplos ligados a situações reais de TI.
 - Feedback de erro explica **por que** está errado, sem culpar o aluno.
+
+## Simulações disponíveis na etapa `demo`
+
+| `tipo`                              | Para que serve                 | Opções                                      |
+| ----------------------------------- | ------------------------------ | ------------------------------------------- |
+| `visualizador`                      | Executa Portugol passo a passo | `codigo`, `entradas`                        |
+| `robo`, `laco-grafico`, `expressao` | Lógica visual                  | —                                           |
+| `ordenacao`                         | Ordenação e busca              | `algoritmo`                                 |
+| `binario`                           | Bits, soma e texto em bytes    | `modo`: bits, soma ou texto; `bits`: 4 ou 8 |
+| `portas`                            | Portas lógicas e somadores     | `modo`, `porta`, `fixo`                     |
+| `cpu`                               | CPU didática com assembly      | `programa`, `memoria`, `editavel`           |
+| `terminal`                          | Terminal simulado com missões  | `cenario`: livre, navegar ou arquivos       |
+
+As aulas de `content/fundamentos/` usam `montar()` e os ajudantes `mc`, `prever`,
+`associar`, `ordenar` e `completar`, que geram os ids e o critério de domínio.

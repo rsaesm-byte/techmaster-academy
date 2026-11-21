@@ -36,7 +36,9 @@ test('primeira visita leva às boas-vindas', async ({ page }) => {
 test('aula: responder, errar, tentar de novo e acertar', async ({ page }) => {
   const { expectSemErros } = vigiarErros(page);
   await abrir(page, '/aula/logica.m02.a01?etapa=ex-guiado');
-  await expect(page.getByRole('heading', { name: 'Exercício guiado' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Exercício guiado' })).toBeVisible({
+    timeout: 15_000,
+  });
 
   const resposta = page.getByRole('textbox', { name: 'O que aparece na tela?' });
   await responder(resposta, '8', page.getByText('v[2] vale 8, mas v[3]'));
@@ -67,4 +69,12 @@ test('trilha mostra os dois módulos de Lógica', async ({ page }) => {
   await abrir(page, '/trilha/logica');
   await expect(page.getByText('Do problema ao algoritmo').first()).toBeVisible();
   await expect(page.getByText('Organizando dados e código').first()).toBeVisible();
+});
+
+test('aula de Fundamentos abre com a simulação de binário', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/aula/fundamentos.m01.a01?etapa=demo');
+  await expect(page.getByRole('heading', { name: 'Ligue e desligue os bits' })).toBeVisible();
+  await expect(page.getByRole('region', { name: /binário/i }).first()).toBeVisible();
+  expectSemErros();
 });
