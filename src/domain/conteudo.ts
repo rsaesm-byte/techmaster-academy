@@ -139,7 +139,38 @@ export const ModoSchema = z.enum(['essencial', 'guiado', 'tecnico']);
 
 const etapaBase = { id: IdSchema };
 
+/** Simulações disponíveis para a etapa "demo". Cada uma é um componente carregado sob demanda. */
+export const SimulacaoSchema = z.discriminatedUnion('tipo', [
+  z.object({
+    tipo: z.literal('visualizador'),
+    codigo: z.string().min(1),
+    entradas: z.array(z.string()).default([]),
+    editavel: z.boolean().default(true),
+  }),
+  z.object({ tipo: z.literal('robo') }),
+  z.object({
+    tipo: z.literal('expressao'),
+    expressoes: z
+      .array(
+        z.object({
+          texto: z.string().min(1),
+          variaveis: z.record(z.string(), z.number()).default({}),
+        }),
+      )
+      .min(1),
+  }),
+  z.object({ tipo: z.literal('laco-grafico') }),
+]);
+
 export const EtapaSchema = z.discriminatedUnion('tipo', [
+  z.object({
+    ...etapaBase,
+    tipo: z.literal('demo'),
+    titulo: TextoSchema,
+    /** O que o aluno deve fazer e observar na simulação. */
+    instrucoes: TextoSchema,
+    simulacao: SimulacaoSchema,
+  }),
   z.object({
     ...etapaBase,
     tipo: z.literal('diagnostico'),
@@ -235,6 +266,7 @@ export const REQUISITOS_PUBLICACAO: { descricao: string; atende: (e: Etapa) => b
     atende: (e) => e.tipo === 'explicacao' && e.nivel === 'tecnica',
   },
   { descricao: 'diagrama', atende: (e) => e.tipo === 'diagrama' },
+  { descricao: 'demonstração interativa', atende: (e) => e.tipo === 'demo' },
   { descricao: 'exemplo comentado', atende: (e) => e.tipo === 'exemplo' },
   { descricao: 'exercício guiado', atende: (e) => e.tipo === 'exercicio' && e.modo === 'guiado' },
   {
@@ -337,6 +369,7 @@ export type Aula = z.infer<typeof AulaSchema>;
 export type Modulo = z.infer<typeof ModuloSchema>;
 export type Disciplina = z.infer<typeof DisciplinaSchema>;
 export type Modo = z.infer<typeof ModoSchema>;
+export type Simulacao = z.infer<typeof SimulacaoSchema>;
 
 /** Tipo de ENTRADA: o que se escreve nos arquivos de conteúdo (campos com default são opcionais). */
 export type AulaEntrada = z.input<typeof AulaSchema>;

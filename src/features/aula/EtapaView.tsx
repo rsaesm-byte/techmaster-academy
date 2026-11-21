@@ -2,6 +2,7 @@ import type { Etapa, Modo } from '@/domain/conteudo';
 import type { Tentativa } from '@/domain/progresso';
 import { Diagrama } from '@/features/aula/Diagrama';
 import { Flashcards } from '@/features/aula/Flashcards';
+import { Demo } from '@/features/labs/Demo';
 import { QuestaoCard, type NovaTentativa } from '@/features/exercicios/QuestaoCard';
 import { BlocoCodigo } from '@/ui/BlocoCodigo';
 import { TextoRico } from '@/ui/TextoRico';
@@ -40,6 +41,18 @@ export function EtapaView({
   );
 
   switch (etapa.tipo) {
+    case 'demo':
+      return (
+        <>
+          <div className="flex gap-3 rounded-2xl border border-border bg-primary-soft px-5 py-4">
+            <span aria-hidden="true" className="text-xl">
+              ▶
+            </span>
+            <TextoRico texto={etapa.instrucoes} />
+          </div>
+          <Demo simulacao={etapa.simulacao} />
+        </>
+      );
     case 'diagnostico':
       return (
         <>

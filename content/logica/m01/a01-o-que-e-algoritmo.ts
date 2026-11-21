@@ -2,13 +2,13 @@ import type { AulaEntrada } from '@/domain/conteudo';
 
 export const aula01: AulaEntrada = {
   id: 'logica.m01.a01',
-  versao: 1,
+  versao: 2,
   status: 'publicada',
   titulo: 'O que é um algoritmo',
   objetivo:
     'Definir algoritmo, reconhecer suas características (finitude, clareza, entrada e saída) e decompor uma tarefa do dia a dia em passos.',
   preRequisitos: [],
-  duracaoMin: 20,
+  duracaoMin: 25,
   etapas: [
     {
       id: 'diag',
@@ -68,6 +68,14 @@ export const aula01: AulaEntrada = {
         'Receitas aceitam instruções vagas como "sal a gosto" ou "asse até dourar", porque uma pessoa interpreta. O computador não interpreta: cada passo precisa ser exato.',
     },
     {
+      id: 'demo-robo',
+      tipo: 'demo',
+      titulo: 'Programe o robô',
+      instrucoes:
+        'O robô só entende três comandos exatos. Monte a sequência e aperte **Executar**.\n\nExperimente também o comando "Ir mais ou menos para lá" e veja o que acontece. Depois, tente resolver cada fase com o menor número de comandos.',
+      simulacao: { tipo: 'robo' },
+    },
+    {
       id: 'exp-tecnica',
       tipo: 'explicacao',
       nivel: 'tecnica',
@@ -117,6 +125,19 @@ export const aula01: AulaEntrada = {
         },
         { linha: 10, texto: 'Saída: o resultado é mostrado na tela.' },
       ],
+    },
+    {
+      id: 'demo-media',
+      tipo: 'demo',
+      titulo: 'Veja o algoritmo da média rodar',
+      instrucoes:
+        'Aperte **Avançar** e acompanhe: a linha destacada é a que está executando, as "gavetas" mostram o valor de cada variável e a tela mostra o que o programa escreveu.\n\nDepois, troque as notas no campo de entradas e rode de novo.',
+      simulacao: {
+        tipo: 'visualizador',
+        codigo:
+          'algoritmo "MediaDeDuasNotas"\nvar\n  nota1, nota2, media: real\ninicio\n  escreva("Digite a primeira nota: ")\n  leia(nota1)\n  escreva("Digite a segunda nota: ")\n  leia(nota2)\n  media <- (nota1 + nota2) / 2\n  escreva("Média: ", media)\nfimalgoritmo',
+        entradas: ['7', '8.5'],
+      },
     },
     {
       id: 'ex-guiado',

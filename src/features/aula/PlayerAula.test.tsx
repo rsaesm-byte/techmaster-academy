@@ -72,7 +72,7 @@ describe('player de aula', () => {
     render(<App repositorio={repo} />);
     await screen.findByRole('heading', { level: 1, name: /Antes de começar/ });
     await u.click(screen.getByText(/ver todas/));
-    await u.click(screen.getByRole('button', { name: /^13\. / }));
+    await u.click(screen.getByRole('button', { name: /^15\. / }));
     await u.click(await screen.findByRole('button', { name: 'Concluir aula' }));
     expect(await screen.findByRole('heading', { name: 'Aula concluída' })).toBeVisible();
     expect(screen.getByText(/0% das questões/)).toBeVisible();

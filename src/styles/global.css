@@ -94,3 +94,23 @@ body {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* Pulso suave quando uma variável muda de valor (desligado com "reduzir movimento"). */
+@keyframes tm-pulso {
+  0% {
+    background-color: var(--tm-accent-soft);
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Preferência de movimento reduzido escolhida nas Configurações da plataforma. */
+html.reduzir-movimento *,
+html.reduzir-movimento *::before,
+html.reduzir-movimento *::after {
+  animation-duration: 0.01ms !important;
+  transition-duration: 0.01ms !important;
+  scroll-behavior: auto !important;
+}

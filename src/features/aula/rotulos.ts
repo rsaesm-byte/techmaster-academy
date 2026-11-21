@@ -23,6 +23,7 @@ export function faseEtapa(e: Etapa): 'Entender' | 'Ver' | 'Praticar' | 'Lembrar'
       return e.nivel === 'simples' ? 'Entender' : 'Ver';
     case 'diagrama':
     case 'exemplo':
+    case 'demo':
       return 'Ver';
     case 'exercicio':
       return 'Praticar';

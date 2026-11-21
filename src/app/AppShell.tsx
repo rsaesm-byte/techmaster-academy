@@ -3,6 +3,7 @@ import { Logo } from '@/ui/Logo';
 
 const itens = [
   { para: '/', rotulo: 'Painel', fim: true },
+  { para: '/labs', rotulo: 'Laboratórios', fim: false },
   { para: '/configuracoes', rotulo: 'Configurações', fim: false },
 ] as const;
 
