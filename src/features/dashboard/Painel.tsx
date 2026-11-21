@@ -142,10 +142,6 @@ export function Painel() {
                 );
               })}
             </ol>
-            <p className="m-0 text-sm text-muted">
-              As próximas aulas do módulo (variáveis, operadores, condicionais e repetição) estão em
-              produção.
-            </p>
           </section>
         )),
       )}

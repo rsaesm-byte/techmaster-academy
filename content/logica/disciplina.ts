@@ -12,8 +12,13 @@ export const logica: DisciplinaEntrada = {
       titulo: 'Do problema ao algoritmo',
       descricao:
         'O que é um algoritmo, como guardar dados em variáveis, fazer contas, tomar decisões e repetir tarefas.',
-      // As aulas 2 a 5 entram aqui conforme forem escritas (item 11 do backlog).
-      aulas: ['logica.m01.a01'],
+      aulas: [
+        'logica.m01.a01',
+        'logica.m01.a02',
+        'logica.m01.a03',
+        'logica.m01.a04',
+        'logica.m01.a05',
+      ],
     },
   ],
 };

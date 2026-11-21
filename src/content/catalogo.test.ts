@@ -42,7 +42,9 @@ describe('a validação barra erros de autoria', () => {
       a.status = 'rascunho';
       a.etapas = a.etapas.filter((e) => e.tipo !== 'flashcards');
     });
-    expect(problemasDe(() => montarCatalogo(disciplinas, [rascunho]))).toEqual([]);
+    expect(problemasDe(() => montarCatalogo(disciplinas, [rascunho, ...aulas.slice(1)]))).toEqual(
+      [],
+    );
   });
 
   it('alternativa errada sem feedback', () => {
