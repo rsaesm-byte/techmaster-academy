@@ -27,20 +27,26 @@ export function registrarOffline() {
     window.location.reload();
   });
   window.addEventListener('load', () => {
-    void navigator.serviceWorker.register('./sw.js').then((reg) => {
-      const avisar = (sw: ServiceWorker | null) => {
-        if (sw && navigator.serviceWorker.controller) {
-          esperando = sw;
-          ouvintes.forEach((o) => o());
-        }
-      };
-      avisar(reg.waiting);
-      reg.addEventListener('updatefound', () => {
-        const novo = reg.installing;
-        novo?.addEventListener('statechange', () => {
-          if (novo.state === 'installed') avisar(novo);
+    void navigator.serviceWorker
+      .register('./sw.js')
+      .then((reg) => {
+        if (!reg) return;
+        const avisar = (sw: ServiceWorker | null) => {
+          if (sw && navigator.serviceWorker.controller) {
+            esperando = sw;
+            ouvintes.forEach((o) => o());
+          }
+        };
+        avisar(reg.waiting);
+        reg.addEventListener('updatefound', () => {
+          const novo = reg.installing;
+          novo?.addEventListener('statechange', () => {
+            if (novo.state === 'installed') avisar(novo);
+          });
         });
+      })
+      .catch(() => {
+        // Sem service worker (navegador bloqueou, modo privado...): o app funciona, só não offline.
       });
-    });
   });
 }

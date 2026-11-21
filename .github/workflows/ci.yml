@@ -26,3 +26,28 @@ jobs:
         run: npm run typecheck
       - name: Testes
         run: npm test
+
+  ponta-a-ponta:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - name: Gerar o site
+        run: npm run build
+      - name: Orçamento de tamanho
+        run: npm run budget
+      - name: Instalar o navegador
+        run: npx playwright install --with-deps chromium
+      - name: Testes de ponta a ponta
+        run: npm run e2e
+      - name: Guardar evidências se falhar
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: relatorio-e2e
+          path: test-results
+          retention-days: 7
