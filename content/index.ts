@@ -44,6 +44,11 @@ import { j07 } from './javascript/b02-desestruturacao';
 import { j08 } from './javascript/b03-dom';
 import { j09 } from './javascript/b04-erros';
 import { j10 } from './javascript/b05-assincrono';
+import { j11 } from './javascript/c01-estado';
+import { j12 } from './javascript/c02-lista-tarefas';
+import { j13 } from './javascript/c03-persistencia';
+import { j14 } from './javascript/c04-api';
+import { j15 } from './javascript/c05-testes';
 import { logica } from './logica/disciplina';
 import { aula01 } from './logica/m01/a01-o-que-e-algoritmo';
 import { aula02 } from './logica/m01/a02-variaveis';
@@ -98,6 +103,11 @@ export const aulas = [
   j08,
   j09,
   j10,
+  j11,
+  j12,
+  j13,
+  j14,
+  j15,
   p01,
   p02,
   p03,

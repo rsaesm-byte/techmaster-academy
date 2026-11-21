@@ -669,4 +669,36 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Mapa hash com chaves únicas, acessado por d[chave]; base do JSON.',
     aulas: ['python.m01.a05'],
   },
+  {
+    id: 'funcao-pura',
+    termo: 'Função pura',
+    simples:
+      'Função que, com a mesma entrada, sempre devolve a mesma saída e não mexe em nada fora dela.',
+    tecnico: 'Função sem efeitos colaterais, determinística; base de código previsível e testável.',
+    aulas: ['javascript.m03.a01'],
+  },
+  {
+    id: 'local-storage',
+    termo: 'localStorage',
+    simples: 'Gaveta do navegador que guarda textos e os mantém depois de recarregar a página.',
+    tecnico:
+      'Armazenamento chave-valor síncrono por origem, de cerca de 5 MB, que só aceita strings.',
+    aulas: ['javascript.m03.a03'],
+  },
+  {
+    id: 'api',
+    termo: 'API',
+    simples: 'Endereço que recebe pedidos e devolve dados para outros programas.',
+    tecnico:
+      'Interface de comunicação entre sistemas; em web, normalmente HTTP com respostas em JSON.',
+    aulas: ['javascript.m03.a04'],
+  },
+  {
+    id: 'teste-automatizado',
+    termo: 'Teste automatizado',
+    simples: 'Código que confere sozinho se outra parte do código dá o resultado esperado.',
+    tecnico:
+      'Verificação repetível de entradas e saídas, executada localmente e na integração contínua.',
+    aulas: ['javascript.m03.a05'],
+  },
 ];

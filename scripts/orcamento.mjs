@@ -7,7 +7,8 @@ import { gzipSync } from 'node:zlib';
 const LIMITES = {
   entrada: 190, // index-*.js: tudo que carrega na primeira tela
   pedaco: 60, // qualquer outro pedaço carregado sob demanda
-  total: 400, // soma de todo o JavaScript
+  total: 260, // soma do JavaScript do app (sem as aulas)
+  conteudo: 700, // soma dos pedaços de aulas (carregados só quando a disciplina é aberta)
 };
 
 const pasta = 'dist/assets';
@@ -19,18 +20,21 @@ const arquivos = readdirSync(pasta)
 
 const problemas = [];
 let total = 0;
+let conteudo = 0;
 for (const { nome, gz } of arquivos) {
-  total += gz;
+  if (nome.startsWith('aulas-')) conteudo += gz;
+  else total += gz;
   const limite = nome.startsWith('index-') ? LIMITES.entrada : LIMITES.pedaco;
   if (kb(gz) > limite) problemas.push(`${nome}: ${kb(gz)} KB (limite ${limite} KB)`);
 }
-if (kb(total) > LIMITES.total)
-  problemas.push(`total: ${kb(total)} KB (limite ${LIMITES.total} KB)`);
+if (kb(total) > LIMITES.total) problemas.push(`app: ${kb(total)} KB (limite ${LIMITES.total} KB)`);
 
 console.log('Maiores arquivos JS (gzip):');
 for (const a of arquivos.slice(0, 6))
   console.log(`  ${kb(a.gz).toString().padStart(6)} KB  ${a.nome}`);
-console.log(`  total: ${kb(total)} KB em ${arquivos.length} arquivos`);
+console.log(`  app: ${kb(total)} KB; aulas: ${kb(conteudo)} KB; ${arquivos.length} arquivos`);
+if (kb(conteudo) > LIMITES.conteudo)
+  problemas.push(`aulas: ${kb(conteudo)} KB (limite ${LIMITES.conteudo} KB)`);
 
 if (problemas.length) {
   console.error('\nOrçamento estourado:\n  ' + problemas.join('\n  '));

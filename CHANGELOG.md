@@ -6,6 +6,14 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **JavaScript, módulo 3 "Projeto: app de tarefas"** (5 aulas): estado e funções
+  puras, tela com DOM, salvar no navegador, consumir uma API e testar.
+
+### Alterado
+
+- Orçamento de tamanho: o limite agora separa o app (260 KB) das aulas (700 KB,
+  carregadas só ao abrir a disciplina); Fundamentos foi dividido em dois pedaços.
+
 - **JavaScript, módulo 2 "JavaScript na web"** (5 aulas): JSON, desestruturação e
   spread, DOM e eventos, erros com try/catch, assíncrono com Promises e async/await.
 - **Fundamentos, módulo 4 "Infraestrutura moderna"** (5 aulas): Virtualização,

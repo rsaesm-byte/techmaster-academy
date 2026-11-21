@@ -33,5 +33,18 @@ export const javascript: DisciplinaEntrada = {
         'javascript.m02.a05',
       ],
     },
+    {
+      id: 'javascript.m03',
+      titulo: 'Projeto: app de tarefas',
+      descricao:
+        'Um app completo passo a passo: estado e funções puras, tela com DOM, salvar no navegador, consumir uma API e testar.',
+      aulas: [
+        'javascript.m03.a01',
+        'javascript.m03.a02',
+        'javascript.m03.a03',
+        'javascript.m03.a04',
+        'javascript.m03.a05',
+      ],
+    },
   ],
 };
