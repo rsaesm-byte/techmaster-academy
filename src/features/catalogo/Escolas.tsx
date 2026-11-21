@@ -9,8 +9,8 @@ export default function Escolas() {
       <div>
         <h1 className="m-0 text-3xl font-bold tracking-tight">Escolas</h1>
         <p className="mt-2 mb-0 max-w-[70ch] text-muted">
-          O currículo completo tem 12 escolas. A primeira já está aberta; as outras entram uma de
-          cada vez, sempre com aulas completas — nada de página vazia.
+          O currículo completo tem 12 escolas. As primeiras já estão abertas; as outras entram uma
+          de cada vez, sempre com aulas completas — nada de página vazia.
         </p>
       </div>
       <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">

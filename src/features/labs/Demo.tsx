@@ -57,6 +57,7 @@ const CompressaoSim = lazy(() =>
 const CesarSim = lazy(() =>
   import('@/features/labs/armazenamento/CesarSim').then((m) => ({ default: m.CesarSim })),
 );
+const JsSim = lazy(() => import('@/features/labs/js/JsSim').then((m) => ({ default: m.JsSim })));
 const LacoGrafico = lazy(() =>
   import('@/features/labs/laco/LacoGrafico').then((m) => ({ default: m.LacoGrafico })),
 );
@@ -112,6 +113,8 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <CompressaoSim {...(simulacao.texto ? { inicial: simulacao.texto } : {})} />;
           case 'cesar':
             return <CesarSim {...(simulacao.texto ? { inicial: simulacao.texto } : {})} />;
+          case 'js':
+            return <JsSim codigo={simulacao.codigo} />;
           case 'cpu':
             return (
               <CpuSim

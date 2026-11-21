@@ -137,6 +137,7 @@ fimalgoritmo
 | `portas`                            | Portas lógicas e somadores     | `modo`, `porta`, `fixo`                     |
 | `cpu`                               | CPU didática com assembly      | `programa`, `memoria`, `editavel`           |
 | `terminal`                          | Terminal simulado com missões  | `cenario`: livre, navegar ou arquivos       |
+| `js`                                | Console de JavaScript          | `codigo` (programa inicial, editável)       |
 
 As aulas de `content/fundamentos/` usam `montar()` e os ajudantes `mc`, `prever`,
 `associar`, `ordenar` e `completar`, que geram os ids e o critério de domínio.

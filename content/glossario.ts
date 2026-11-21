@@ -541,4 +541,59 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Ataque exaustivo sobre o espaço de chaves; inviável quando a entropia é alta.',
     aulas: ['fundamentos.m03.a05'],
   },
+  {
+    id: 'comparacao-estrita',
+    termo: 'Comparação estrita (===)',
+    simples: 'Comparar valor e tipo ao mesmo tempo, sem conversões escondidas.',
+    tecnico:
+      'Operador que devolve true só se os valores e os tipos forem iguais; evita a coerção do ==.',
+    aulas: ['javascript.m01.a02'],
+  },
+  {
+    id: 'template-string',
+    termo: 'Template string',
+    simples: 'Texto entre crases que aceita variáveis dentro de ${}.',
+    tecnico: 'Literal de string delimitado por crases que permite interpolar expressões com ${}.',
+    aulas: ['javascript.m01.a01'],
+  },
+  {
+    id: 'array',
+    termo: 'Array',
+    simples: 'Lista ordenada de valores, com posições numeradas a partir do zero.',
+    tecnico:
+      'Estrutura indexada que guarda elementos em sequência; tem length e métodos como push, map e filter.',
+    aulas: ['javascript.m01.a03'],
+  },
+  {
+    id: 'arrow-function',
+    termo: 'Arrow function',
+    simples: 'Jeito curto de escrever uma função: (n) => n * 2.',
+    tecnico:
+      'Sintaxe compacta de função que devolve a expressão sem precisar de return quando não usa chaves.',
+    aulas: ['javascript.m01.a04'],
+  },
+  {
+    id: 'objeto',
+    termo: 'Objeto',
+    simples: 'Conjunto de dados relacionados, guardados com nomes.',
+    tecnico:
+      'Estrutura de pares chave-valor acessada por ponto ou colchetes; é a base do formato JSON.',
+    aulas: ['javascript.m01.a05'],
+  },
+  {
+    id: 'map-filter-reduce',
+    termo: 'map, filter e reduce',
+    simples: 'Três métodos para transformar, selecionar e resumir listas.',
+    tecnico:
+      'Métodos de array que recebem um callback e devolvem um novo valor sem alterar o original.',
+    aulas: ['javascript.m01.a05'],
+  },
+  {
+    id: 'let-const',
+    termo: 'let e const',
+    simples: 'let cria variável que muda; const cria uma que não é reatribuída.',
+    tecnico:
+      'Declarações de escopo de bloco; const impede reatribuição, mas não torna o conteúdo imutável.',
+    aulas: ['javascript.m01.a01'],
+  },
 ];

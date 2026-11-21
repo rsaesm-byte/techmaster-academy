@@ -84,3 +84,11 @@ test('trilha de Fundamentos mostra os dois módulos', async ({ page }) => {
   await expect(page.getByText('Como o computador pensa')).toBeVisible();
   await expect(page.getByText('Sistemas, redes e segurança').first()).toBeVisible();
 });
+
+test('aula de JavaScript executa o código no console', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/aula/javascript.m01.a01?etapa=demo');
+  await page.getByRole('button', { name: /executar/i }).click();
+  await expect(page.getByRole('log')).toContainText('Ana tem 21 anos', { timeout: 15_000 });
+  expectSemErros();
+});

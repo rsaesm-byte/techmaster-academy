@@ -91,6 +91,7 @@ export default defineConfig(({ command }) => ({
           groups: [
             { name: 'aulas-logica', test: /[\\/]content[\\/]logica[\\/]/ },
             { name: 'aulas-fundamentos', test: /[\\/]content[\\/]fundamentos[\\/]/ },
+            { name: 'aulas-javascript', test: /[\\/]content[\\/]javascript[\\/]/ },
           ],
         },
       },

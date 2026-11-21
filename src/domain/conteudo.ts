@@ -290,6 +290,11 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
     quantum: z.number().int().min(1).max(5).default(2),
   }),
   z.object({ tipo: z.literal('senha') }),
+  z.object({
+    tipo: z.literal('js'),
+    /** Código inicial, editável pelo aluno; `console.log` aparece na saída. */
+    codigo: z.string().min(1),
+  }),
   z.object({ tipo: z.literal('unidades') }),
   z.object({ tipo: z.literal('cache'), sequencia: z.string().optional() }),
   z.object({ tipo: z.literal('raid') }),

@@ -9,6 +9,7 @@ type Etapas = AulaEntrada['etapas'];
 type Etapa = Etapas[number];
 type Questao = Extract<Etapa, { questoes: unknown[] }>['questoes'][number];
 type Q = Omit<Questao, 'id'>;
+type Linguagem = 'pseudocodigo' | 'javascript' | 'python';
 type Simulacao = Extract<Etapa, { tipo: 'demo' }>['simulacao'];
 
 /** Questão de múltipla escolha: a correta vem primeiro; `pos` (0–2) escolhe onde ela aparece. */
@@ -45,11 +46,12 @@ export function prever(
   explicacao: string,
   erros: { resposta: string; feedback: string }[] = [],
   pistas: string[] = [],
+  linguagem: Linguagem = 'pseudocodigo',
 ): Q {
   return {
     tipo: 'prever-saida',
     enunciado,
-    codigo: { linguagem: 'pseudocodigo', fonte },
+    codigo: { linguagem, fonte },
     respostasAceitas: aceitas,
     errosComuns: erros,
     pistas,
@@ -80,12 +82,35 @@ export function completar(
   fonte: string,
   lacunas: { aceitas: string[]; feedback?: string }[],
   explicacao: string,
+  linguagem: Linguagem = 'pseudocodigo',
 ): Q {
   return {
     tipo: 'completar-codigo',
     enunciado,
-    codigo: { linguagem: 'pseudocodigo', fonte },
+    codigo: { linguagem, fonte },
     lacunas,
+    explicacao,
+  } as Q;
+}
+
+/** Exercício de programação em JavaScript, corrigido por casos de teste. */
+export function programaJs(
+  enunciado: string,
+  codigoInicial: string,
+  solucao: string,
+  funcao: string,
+  casos: { argumentos: unknown[]; esperado: unknown }[],
+  pistas: string[],
+  explicacao: string,
+): Q {
+  return {
+    tipo: 'programa-js',
+    enunciado,
+    codigoInicial,
+    solucao,
+    funcao,
+    casos,
+    pistas,
     explicacao,
   } as Q;
 }

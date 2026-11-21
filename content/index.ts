@@ -22,6 +22,12 @@ import { f12 } from './fundamentos/c02-cache';
 import { f13 } from './fundamentos/c03-armazenamento-raid';
 import { f14 } from './fundamentos/c04-compressao';
 import { f15 } from './fundamentos/c05-criptografia';
+import { javascript } from './javascript/disciplina';
+import { j01 } from './javascript/a01-variaveis';
+import { j02 } from './javascript/a02-condicionais';
+import { j03 } from './javascript/a03-lacos-arrays';
+import { j04 } from './javascript/a04-funcoes';
+import { j05 } from './javascript/a05-objetos-arrays';
 import { logica } from './logica/disciplina';
 import { aula01 } from './logica/m01/a01-o-que-e-algoritmo';
 import { aula02 } from './logica/m01/a02-variaveis';
@@ -34,7 +40,7 @@ import { m02a03 } from './logica/m02/a03-busca';
 import { m02a04 } from './logica/m02/a04-ordenacao';
 import { m02a05 } from './logica/m02/a05-recursividade';
 
-export const disciplinas = [logica, fundamentos];
+export const disciplinas = [logica, fundamentos, javascript];
 export const aulas = [
   aula01,
   aula02,
@@ -61,5 +67,10 @@ export const aulas = [
   f13,
   f14,
   f15,
+  j01,
+  j02,
+  j03,
+  j04,
+  j05,
 ];
 export { glossario };

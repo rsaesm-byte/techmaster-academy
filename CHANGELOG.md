@@ -6,6 +6,12 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola C — JavaScript, módulo 1 "Primeiros passos em JavaScript"** (5 aulas
+  completas): Variáveis e tipos, Condicionais, Laços e arrays, Funções e arrow
+  functions, Objetos com map/filter/reduce; 7 termos novos no glossário.
+- Console de JavaScript nas demonstrações (simulação `js`) e exercícios de
+  programação corrigidos automaticamente por casos de teste, executados num
+  Web Worker isolado, sem rede e com limite de 2 s.
 - **Fundamentos, módulo 3 — "Dados: guardar, acelerar, comprimir e proteger"**
   (5 aulas completas): Unidades de dados, Hierarquia de memória e cache,
   Armazenamento (SSD, HD, RAID e backup), Compressão e Criptografia; 8 termos

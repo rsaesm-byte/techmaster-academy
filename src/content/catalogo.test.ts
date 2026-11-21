@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { aulas, disciplinas, glossario } from '@content/index';
+import { executarCasos } from '@/engines/sandbox/casos';
 import { aula01 } from '@content/logica/m01/a01-o-que-e-algoritmo';
 import { ConteudoInvalidoError, montarCatalogo } from '@/content/catalogo';
 
@@ -104,7 +105,6 @@ describe('soluções de referência', () => {
   it('toda questão de programa tem uma solução que passa em todos os testes', async () => {
     const { corrigirPortugol, resultadoJsParaCorrecao } =
       await import('@/engines/grading/corrigir');
-    const { executarCasos } = await import('@/engines/sandbox/casos');
     const catalogo = montarCatalogo(disciplinas, aulas);
     const falhas: string[] = [];
     for (const aula of catalogo.aulas.values()) {
@@ -136,6 +136,22 @@ describe('demonstrações', () => {
         if (etapa.tipo !== 'demo' || etapa.simulacao.tipo !== 'visualizador') continue;
         const r = executar(etapa.simulacao.codigo, etapa.simulacao.entradas ?? []);
         if (r.erro) falhas.push(`${aula.id} ${etapa.id}: ${r.erro.mensagem}`);
+      }
+    }
+    expect(falhas).toEqual([]);
+  });
+
+  it('todo código JavaScript das demonstrações executa sem erro', () => {
+    const catalogo = montarCatalogo(disciplinas, aulas);
+    const falhas: string[] = [];
+    for (const aula of catalogo.aulas.values()) {
+      for (const etapa of aula.etapas) {
+        if (etapa.tipo !== 'demo' || etapa.simulacao.tipo !== 'js') continue;
+        const r = executarCasos(`function __p() {\n${etapa.simulacao.codigo}\n}`, '__p', [
+          { argumentos: [], esperado: undefined },
+        ]);
+        const erro = r.erroGeral ?? r.casos[0]?.erro;
+        if (erro) falhas.push(`${aula.id} ${etapa.id}: ${erro}`);
       }
     }
     expect(falhas).toEqual([]);
