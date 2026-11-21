@@ -1,5 +1,32 @@
-import { expect, test } from '@playwright/test';
+import { expect, test, type Locator, type Page } from '@playwright/test';
 import { abrir, vigiarErros } from './apoio';
+
+/** Responde uma questão de texto e espera o retorno aparecer. */
+async function responder(resposta: Locator, texto: string, retorno: Locator) {
+  // A aula carrega o progresso salvo logo depois de aparecer; se a resposta for
+  // digitada nesse instante, a tela é redesenhada. Por isso tentamos até o retorno aparecer.
+  await expect(async () => {
+    if (await retorno.isVisible()) return;
+    await resposta.fill(texto);
+    await resposta.press('Enter');
+    await expect(retorno).toBeVisible({ timeout: 1500 });
+  }).toPass({ timeout: 10_000 });
+}
+
+const contarTentativas = (page: Page) =>
+  page.evaluate(
+    () =>
+      new Promise<number>((ok) => {
+        const req = indexedDB.open('techmaster');
+        req.onsuccess = () => {
+          const db = req.result;
+          if (!db.objectStoreNames.contains('tentativas')) return ok(0);
+          const c = db.transaction('tentativas', 'readonly').objectStore('tentativas').count();
+          c.onsuccess = () => ok(c.result);
+        };
+        req.onerror = () => ok(0);
+      }),
+  );
 
 test('primeira visita leva às boas-vindas', async ({ page }) => {
   await page.goto('');
@@ -12,14 +39,10 @@ test('aula: responder, errar, tentar de novo e acertar', async ({ page }) => {
   await expect(page.getByRole('heading', { name: 'Exercício guiado' })).toBeVisible();
 
   const resposta = page.getByRole('textbox', { name: 'O que aparece na tela?' });
-  await resposta.fill('8');
-  await resposta.press('Enter');
-  await expect(page.getByText('v[2] vale 8, mas v[3]')).toBeVisible();
+  await responder(resposta, '8', page.getByText('v[2] vale 8, mas v[3]'));
 
   await page.getByRole('button', { name: 'Tentar de novo' }).first().click();
-  await resposta.fill('12');
-  await resposta.press('Enter');
-  await expect(page.getByText('v[1] = 4; v[2] = 4 * 2 = 8')).toBeVisible();
+  await responder(resposta, '12', page.getByText('v[1] = 4; v[2] = 4 * 2 = 8'));
   expectSemErros();
 });
 
@@ -27,21 +50,12 @@ test('o progresso sobrevive a recarregar a página', async ({ page }) => {
   await abrir(page, '/aula/logica.m01.a01?etapa=diag');
   await page.locator('input[type=radio]').first().check();
   await page.getByRole('button', { name: 'Verificar' }).first().click();
+  await expect.poll(() => contarTentativas(page)).toBeGreaterThan(0);
+
   await page.reload();
   await page.goto('#/progresso');
   await expect(page.getByRole('heading', { level: 1 })).toBeVisible();
-  const tentativas = await page.evaluate(
-    () =>
-      new Promise<number>((ok) => {
-        const req = indexedDB.open('techmaster');
-        req.onsuccess = () => {
-          const tx = req.result.transaction('tentativas', 'readonly');
-          const c = tx.objectStore('tentativas').count();
-          c.onsuccess = () => ok(c.result);
-        };
-      }),
-  );
-  expect(tentativas).toBeGreaterThan(0);
+  expect(await contarTentativas(page)).toBeGreaterThan(0);
 });
 
 test('busca encontra aulas e termos', async ({ page }) => {

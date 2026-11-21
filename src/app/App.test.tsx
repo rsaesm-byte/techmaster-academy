@@ -86,7 +86,7 @@ describe('Seus dados', () => {
     expect(await repo.listarProgressos()).toHaveLength(1);
 
     await usuario.click(screen.getByRole('button', { name: 'Sim, apagar' }));
-    expect(await screen.findByText('Todo o progresso foi apagado deste navegador.')).toBeVisible();
+    expect(await screen.findByText(/Todo o progresso foi apagado/)).toBeVisible();
     expect(await repo.listarProgressos()).toEqual([]);
   });
 

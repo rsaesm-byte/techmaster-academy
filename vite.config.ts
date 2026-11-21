@@ -18,7 +18,7 @@ const CSP = [
   "style-src 'self'",
   "img-src 'self' data:",
   "font-src 'self'",
-  "connect-src 'self'",
+  "connect-src 'self' https://api.github.com https://gist.githubusercontent.com",
   "worker-src 'self' blob:",
   "object-src 'none'",
   "base-uri 'self'",

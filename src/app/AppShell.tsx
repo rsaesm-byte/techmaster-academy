@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { aoTerAtualizacao, aplicarAtualizacao } from '@/app/offline';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router';
+import { IndicadorSync } from '@/app/IndicadorSync';
+import { useVersaoDados } from '@/sync/sincronizador';
 import { usePreferencias } from '@/app/preferencias';
 import { Logo } from '@/ui/Logo';
 
@@ -16,6 +18,7 @@ const itens = [
 
 /** Moldura comum a todas as páginas: cabeçalho, navegação e área principal. */
 export function AppShell() {
+  const versaoDados = useVersaoDados();
   const { pathname } = useLocation();
   const { prefs } = usePreferencias();
   // Modo foco: dentro de uma aula, o menu some para reduzir distrações.
@@ -82,6 +85,7 @@ export function AppShell() {
             />
           </label>
         </form>
+        <IndicadorSync />
       </header>
       <div className="flex flex-1 flex-wrap content-start sm:content-stretch">
         <nav
@@ -108,7 +112,10 @@ export function AppShell() {
         </nav>
         <main id="conteudo" tabIndex={-1} className="min-w-0 flex-[999_1_560px] px-4 py-8 sm:px-10">
           <div className="mx-auto max-w-4xl">
-            <Outlet />
+            {/* Quando chega progresso de outro aparelho, a tela é remontada e relê os dados. */}
+            <div key={versaoDados} className="contents">
+              <Outlet />
+            </div>
           </div>
         </main>
       </div>

@@ -9,6 +9,7 @@ import { NaoEncontrada } from '@/features/NaoEncontrada';
 import { DexieProgressRepository } from '@/persistence/dexie';
 import type { ProgressRepository } from '@/persistence/ProgressRepository';
 import { RepositorioProvider } from '@/persistence/RepositorioProvider';
+import { comSincronizacao, iniciarSincronizacao } from '@/sync/sincronizador';
 
 const Escolas = lazy(() => import('@/features/catalogo/Escolas'));
 const Trilha = lazy(() => import('@/features/trilha/Trilha'));
@@ -34,7 +35,15 @@ const carregando = <p role="status">Carregando…</p>;
 const preguicoso = (el: ReactNode) => <Suspense fallback={carregando}>{el}</Suspense>;
 
 let repositorioPadrao: ProgressRepository | undefined;
-const obterRepositorioPadrao = () => (repositorioPadrao ??= new DexieProgressRepository());
+function obterRepositorioPadrao() {
+  if (!repositorioPadrao) {
+    const base = new DexieProgressRepository();
+    // O sincronizador lê e grava direto no banco; as telas usam a versão que avisa a nuvem.
+    iniciarSincronizacao(base);
+    repositorioPadrao = comSincronizacao(base);
+  }
+  return repositorioPadrao;
+}
 
 /**
  * Rotas com hash (/#/configuracoes): o GitHub Pages só entrega arquivos,

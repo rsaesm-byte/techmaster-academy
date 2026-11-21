@@ -2,6 +2,7 @@ import { useTema } from '@/app/ThemeProvider';
 import type { PreferenciaTema } from '@/app/theme';
 import { Leitura } from '@/features/configuracoes/Leitura';
 import { SeusDados } from '@/features/configuracoes/SeusDados';
+import { Sincronizacao } from '@/features/configuracoes/Sincronizacao';
 
 const opcoes: { valor: PreferenciaTema; rotulo: string; dica: string }[] = [
   { valor: 'sistema', rotulo: 'Automático', dica: 'Segue o tema do seu aparelho' },
@@ -45,6 +46,7 @@ export function Configuracoes() {
         </div>
       </fieldset>
       <Leitura />
+      <Sincronizacao />
       <SeusDados />
       <p className="text-sm text-muted">
         Nenhum dado é enviado para servidores: tema e progresso ficam só neste navegador.

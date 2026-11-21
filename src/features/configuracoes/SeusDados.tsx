@@ -40,7 +40,11 @@ export function SeusDados() {
   async function apagar() {
     await repo.apagarTudo();
     setConfirmando(false);
-    setAviso({ tipo: 'ok', texto: 'Todo o progresso foi apagado deste navegador.' });
+    setAviso({
+      tipo: 'ok',
+      texto:
+        'Todo o progresso foi apagado (e dos outros aparelhos, se a sincronização estiver ligada).',
+    });
   }
 
   const botao =
@@ -55,8 +59,8 @@ export function SeusDados() {
         Seus dados
       </h2>
       <p className="mt-1 text-sm text-muted">
-        Seu progresso fica só neste navegador. Exporte para guardar uma cópia ou levar para outro
-        aparelho.
+        Seu progresso fica neste navegador (e no seu Gist, se a sincronização estiver ligada).
+        Exporte para guardar uma cópia em arquivo.
       </p>
       <div className="mt-4 flex flex-wrap gap-3">
         <button type="button" className={botao} onClick={exportar}>
