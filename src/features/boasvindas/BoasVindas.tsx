@@ -16,7 +16,7 @@ function Ciclo() {
   ];
   return (
     <svg
-      viewBox="-30 -10 260 220"
+      viewBox="-40 -20 280 240"
       role="img"
       aria-label="Ciclo de aprendizagem: entender, ver, fazer, lembrar — e de volta ao começo"
       className="mx-auto h-auto w-full max-w-72"
@@ -329,7 +329,7 @@ export default function BoasVindas() {
         {atual?.titulo}
       </h1>
       {atual?.corpo}
-      <div className="flex justify-between gap-3">
+      <div className="flex items-end justify-between gap-3">
         {passo > 0 ? (
           <button
             type="button"
