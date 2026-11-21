@@ -12,6 +12,9 @@ const RoboSim = lazy(() =>
 const ExpressaoDemo = lazy(() =>
   import('@/features/labs/expressao/ExpressaoDemo').then((m) => ({ default: m.ExpressaoDemo })),
 );
+const OrdenacaoSim = lazy(() =>
+  import('@/features/labs/ordenacao/OrdenacaoSim').then((m) => ({ default: m.OrdenacaoSim })),
+);
 const LacoGrafico = lazy(() =>
   import('@/features/labs/laco/LacoGrafico').then((m) => ({ default: m.LacoGrafico })),
 );
@@ -41,6 +44,8 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <ExpressaoDemo expressoes={simulacao.expressoes} />;
           case 'laco-grafico':
             return <LacoGrafico />;
+          case 'ordenacao':
+            return <OrdenacaoSim algoritmoInicial={simulacao.algoritmo} fixo={simulacao.fixo} />;
         }
       })()}
     </Suspense>

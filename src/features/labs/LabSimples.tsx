@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { LacoGrafico } from '@/features/labs/laco/LacoGrafico';
+import { OrdenacaoSim } from '@/features/labs/ordenacao/OrdenacaoSim';
 import { RoboSim } from '@/features/labs/robo/RoboSim';
 
 function Pagina({
@@ -45,6 +46,18 @@ export function LabLaco() {
       descricao="Cada repetição do para desenha um ponto. Mude um número e veja milhares de repetições mudarem juntas."
     >
       <LacoGrafico />
+    </Pagina>
+  );
+}
+
+export function LabOrdenacao() {
+  return (
+    <Pagina
+      numero="Laboratório"
+      titulo="Busca e ordenação"
+      descricao="Veja Bolha, Seleção e Inserção ordenarem, compare quantas comparações cada um faz e descubra por que a busca binária é tão rápida."
+    >
+      <OrdenacaoSim />
     </Pagina>
   );
 }

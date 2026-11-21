@@ -245,6 +245,12 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
       .min(1),
   }),
   z.object({ tipo: z.literal('laco-grafico') }),
+  z.object({
+    tipo: z.literal('ordenacao'),
+    algoritmo: z.enum(['bolha', 'selecao', 'insercao', 'linear', 'binaria']).default('bolha'),
+    /** Fixa o algoritmo (sem o seletor), para a aula focar em um só. */
+    fixo: z.boolean().default(false),
+  }),
 ]);
 
 export const EtapaSchema = z.discriminatedUnion('tipo', [

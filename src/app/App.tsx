@@ -23,6 +23,9 @@ const LabAlgoritmos = lazy(() => import('@/features/labs/algoritmos/LabAlgoritmo
 const LabRobo = lazy(() =>
   import('@/features/labs/LabSimples').then((m) => ({ default: m.LabRobo })),
 );
+const LabOrdenacao = lazy(() =>
+  import('@/features/labs/LabSimples').then((m) => ({ default: m.LabOrdenacao })),
+);
 const LabLaco = lazy(() =>
   import('@/features/labs/LabSimples').then((m) => ({ default: m.LabLaco })),
 );
@@ -58,6 +61,7 @@ export function App({ repositorio }: { repositorio?: ProgressRepository }) {
               <Route path="lab/algoritmos" element={preguicoso(<LabAlgoritmos />)} />
               <Route path="lab/web" element={preguicoso(<LabWeb />)} />
               <Route path="lab/robo" element={preguicoso(<LabRobo />)} />
+              <Route path="lab/ordenacao" element={preguicoso(<LabOrdenacao />)} />
               <Route path="lab/laco" element={preguicoso(<LabLaco />)} />
               <Route path="*" element={<NaoEncontrada />} />
             </Route>
