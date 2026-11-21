@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { Link, useParams } from 'react-router';
+import { Link, useParams, useSearchParams } from 'react-router';
+import { Tutor } from '@/features/aula/Tutor';
 import { MODOS, useModo } from '@/app/modo';
 import { catalogo } from '@/content';
 import type { Aula } from '@/domain/conteudo';
@@ -20,6 +21,8 @@ function PlayerAula({ aula }: { aula: Aula }) {
   const { modo, escolher } = useModo();
   const [resultado, setResultado] = useState<ResultadoDominio | null>(null);
   const [listaAberta, setListaAberta] = useState(false);
+  const [tutorAberto, setTutorAberto] = useState(false);
+  const [params, setParams] = useSearchParams();
   const tituloRef = useRef<HTMLHeadingElement>(null);
   const primeiraRenderizacao = useRef(true);
   const local = catalogo.localizar(aula.id);
@@ -37,6 +40,15 @@ function PlayerAula({ aula }: { aula: Aula }) {
     }
     tituloRef.current?.focus();
   }, [indice, resultado, progresso]);
+
+  // Link direto para uma etapa (?etapa=id), usado pelas recomendações do painel.
+  const etapaPedida = params.get('etapa');
+  useEffect(() => {
+    if (!progresso || !etapaPedida) return;
+    const i = aula.etapas.findIndex((e) => e.id === etapaPedida);
+    setParams({}, { replace: true });
+    if (i >= 0) void irPara(i);
+  }, [progresso, etapaPedida, aula, irPara, setParams]);
 
   if (!progresso || !etapa) {
     return <p role="status">Carregando aula…</p>;
@@ -75,6 +87,29 @@ function PlayerAula({ aula }: { aula: Aula }) {
           ))}
         </div>
       </div>
+
+      <div className="flex flex-wrap gap-2">
+        <button
+          type="button"
+          aria-expanded={tutorAberto}
+          aria-controls="tutor-painel"
+          onClick={() => setTutorAberto((a) => !a)}
+          className="min-h-10 rounded-lg border border-border px-3 text-sm font-medium hover:bg-surface-2"
+        >
+          {tutorAberto ? 'Fechar tutor' : 'Precisa de ajuda? Tutor'}
+        </button>
+      </div>
+      {tutorAberto && (
+        <div id="tutor-painel">
+          <Tutor
+            aula={aula}
+            indice={indice}
+            modo={modo}
+            irPara={(i) => void irPara(i)}
+            escolherModo={escolher}
+          />
+        </div>
+      )}
 
       <div className="flex flex-col gap-2">
         <div
@@ -182,6 +217,9 @@ function PlayerAula({ aula }: { aula: Aula }) {
             modo={modo}
             tentativas={tentativas}
             aoRegistrar={registrar}
+            aula={aula}
+            irPara={(i) => void irPara(i)}
+            escolherModo={escolher}
           />
         </article>
       )}

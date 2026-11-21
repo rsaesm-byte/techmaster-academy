@@ -15,6 +15,7 @@ const Trilha = lazy(() => import('@/features/trilha/Trilha'));
 const BoasVindas = lazy(() => import('@/features/boasvindas/BoasVindas'));
 const Glossario = lazy(() => import('@/features/glossario/Glossario'));
 const Busca = lazy(() => import('@/features/busca/Busca'));
+const MeuProgresso = lazy(() => import('@/features/progresso/MeuProgresso'));
 const Revisao = lazy(() => import('@/features/revisao/Revisao'));
 const Labs = lazy(() => import('@/features/labs/Labs'));
 const LabWeb = lazy(() => import('@/features/labs/web/LabWeb'));
@@ -51,6 +52,7 @@ export function App({ repositorio }: { repositorio?: ProgressRepository }) {
               <Route path="trilha/:disciplinaId" element={preguicoso(<Trilha />)} />
               <Route path="glossario" element={preguicoso(<Glossario />)} />
               <Route path="busca" element={preguicoso(<Busca />)} />
+              <Route path="progresso" element={preguicoso(<MeuProgresso />)} />
               <Route path="revisao" element={preguicoso(<Revisao />)} />
               <Route path="labs" element={preguicoso(<Labs />)} />
               <Route path="lab/algoritmos" element={preguicoso(<LabAlgoritmos />)} />

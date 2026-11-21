@@ -8,6 +8,7 @@ const itens = [
   { para: '/', rotulo: 'Painel', fim: true },
   { para: '/escolas', rotulo: 'Trilhas', fim: false },
   { para: '/revisao', rotulo: 'Revisão', fim: false },
+  { para: '/progresso', rotulo: 'Meu progresso', fim: false },
   { para: '/labs', rotulo: 'Laboratórios', fim: false },
   { para: '/glossario', rotulo: 'Glossário', fim: false },
   { para: '/configuracoes', rotulo: 'Configurações', fim: false },

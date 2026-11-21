@@ -2,6 +2,7 @@ import { Link, Navigate } from 'react-router';
 import { usePreferencias } from '@/app/preferencias';
 import { catalogo } from '@/content';
 import { dataLocal } from '@/engines/srs/sm2';
+import { recomendacoes } from '@/engines/pedagogia/analise';
 import { boasVindasFeitas } from '@/features/boasvindas/estado';
 import { vencidos } from '@/features/revisao/fila';
 import { MapaJornada } from '@/features/trilha/MapaJornada';
@@ -59,6 +60,7 @@ export function Painel() {
   const dias = diasEstudados(dados);
   const hoje = new Date().getDay();
   const dominadas = [...dados.progressos.values()].filter((p) => p.status === 'dominada').length;
+  const sugestoes = recomendacoes(catalogo, dados.progressos, dados.tentativas);
 
   return (
     <div className="flex flex-col gap-8">
@@ -110,6 +112,41 @@ export function Painel() {
           >
             {emAndamento ? 'Continuar aula' : 'Começar aula'}
           </Link>
+        </section>
+      )}
+
+      {sugestoes.length > 0 && (
+        <section aria-labelledby="recomendado" className="flex flex-col gap-3">
+          <h2 id="recomendado" className="m-0 text-xl font-semibold">
+            Recomendado para você
+          </h2>
+          <ul className="m-0 grid list-none gap-3 p-0">
+            {sugestoes.map((r) => (
+              <li key={r.rota}>
+                <Link
+                  to={r.rota}
+                  className="flex gap-4 rounded-2xl border border-border bg-surface p-4 no-underline hover:border-primary"
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`grid size-10 shrink-0 place-items-center rounded-xl text-lg ${
+                      r.tipo === 'reforcar-questao'
+                        ? 'bg-danger-soft text-danger'
+                        : r.tipo === 'dominar-aula'
+                          ? 'bg-accent-soft text-accent'
+                          : 'bg-primary-soft text-primary'
+                    }`}
+                  >
+                    {r.tipo === 'reforcar-questao' ? '↻' : r.tipo === 'dominar-aula' ? '★' : '←'}
+                  </span>
+                  <span className="flex flex-col">
+                    <span className="font-semibold text-text">{r.titulo}</span>
+                    <span className="text-sm text-muted">{r.motivo}</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
         </section>
       )}
 

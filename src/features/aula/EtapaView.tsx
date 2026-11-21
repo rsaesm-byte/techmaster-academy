@@ -1,4 +1,5 @@
-import type { Etapa, Modo } from '@/domain/conteudo';
+import type { Aula, Etapa, Modo } from '@/domain/conteudo';
+import { DiagnosticoResultado } from '@/features/aula/DiagnosticoResultado';
 import type { Tentativa } from '@/domain/progresso';
 import { Diagrama } from '@/features/aula/Diagrama';
 import { Flashcards } from '@/features/aula/Flashcards';
@@ -19,11 +20,17 @@ export function EtapaView({
   modo,
   tentativas,
   aoRegistrar,
+  aula,
+  irPara,
+  escolherModo,
 }: {
   etapa: Etapa;
   modo: Modo;
   tentativas: readonly Tentativa[];
   aoRegistrar: (t: NovaTentativa) => void | Promise<void>;
+  aula: Aula;
+  irPara: (i: number) => void;
+  escolherModo: (m: Modo) => void;
 }) {
   const jaAcertou = (id: string) => tentativas.some((t) => t.questaoId === id && t.correta);
   const questoes = (lista: Extract<Etapa, { questoes: unknown }>['questoes']) => (
@@ -60,6 +67,13 @@ export function EtapaView({
             Sem nota e sem pressão: serve para você (e a plataforma) saber de onde partir.
           </p>
           {questoes(etapa.questoes)}
+          <DiagnosticoResultado
+            aula={aula}
+            tentativas={tentativas}
+            irPara={irPara}
+            modo={modo}
+            escolherModo={escolherModo}
+          />
         </>
       );
     case 'explicacao':

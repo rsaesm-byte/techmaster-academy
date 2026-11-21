@@ -79,3 +79,42 @@ describe('player de aula', () => {
     expect(await repo.obterProgresso('logica.m01.a01')).toMatchObject({ status: 'concluida' });
   });
 });
+
+describe('tutor, diagnóstico e links diretos', () => {
+  it('tutor mostra a analogia e leva à simulação', async () => {
+    const u = userEvent.setup();
+    window.location.hash = '#/aula/logica.m01.a01';
+    render(<App repositorio={new MemoriaProgressRepository()} />);
+    await u.click(await screen.findByRole('button', { name: 'Precisa de ajuda? Tutor' }));
+    await u.click(screen.getByRole('button', { name: 'Me dê uma analogia' }));
+    expect(screen.getAllByText(/Uma receita tem ingredientes/).length).toBeGreaterThan(0);
+    await u.click(screen.getByRole('button', { name: 'Mostre visualmente' }));
+    await u.click(screen.getByRole('button', { name: /Simulação: Programe o robô/ }));
+    expect(await screen.findByRole('heading', { level: 1, name: 'Programe o robô' })).toBeVisible();
+  });
+
+  it('acertar o diagnóstico de primeira sugere pular para o exemplo', async () => {
+    const u = userEvent.setup();
+    window.location.hash = '#/aula/logica.m01.a01';
+    render(<App repositorio={new MemoriaProgressRepository()} />);
+    await u.click(
+      await screen.findByRole('radio', { name: /Uma receita com os passos numerados/ }),
+    );
+    await u.click(screen.getByRole('button', { name: 'Verificar' }));
+    await u.click(await screen.findByRole('button', { name: /Ir para: Média de duas notas/ }));
+    expect(
+      await screen.findByRole('heading', {
+        level: 1,
+        name: 'Média de duas notas, em pseudocódigo',
+      }),
+    ).toBeVisible();
+  });
+
+  it('?etapa= abre a aula direto na etapa pedida', async () => {
+    window.location.hash = '#/aula/logica.m01.a02?etapa=desafio';
+    render(<App repositorio={new MemoriaProgressRepository()} />);
+    expect(
+      await screen.findByRole('heading', { level: 1, name: 'Desafio: o caixa da loja' }),
+    ).toBeVisible();
+  });
+});

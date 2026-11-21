@@ -31,6 +31,9 @@ const TELAS: [string, string, RegExp][] = [
   ['Visualizador', '#/lab/algoritmos', /Visualizador de Algoritmos/],
   ['Robô', '#/lab/robo', /Robô do tabuleiro/],
   ['Configurações', '#/configuracoes', /Configurações/],
+  ['Meu progresso', '#/progresso', /Meu progresso/],
+  ['Glossário', '#/glossario', /Glossário/],
+  ['Editor Web', '#/lab/web', /Editor Web/],
 ];
 
 describe('acessibilidade (axe)', () => {
@@ -41,6 +44,7 @@ describe('acessibilidade (axe)', () => {
     const r = await axe.run(container, {
       runOnly: { type: 'tag', values: ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa'] },
       rules: { 'color-contrast': { enabled: false } },
+      iframes: false, // a prévia do Editor Web é conteúdo do aluno, isolado
     });
     expect(
       r.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).join(', ')}`),
