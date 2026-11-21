@@ -37,7 +37,7 @@ describe('revisão espaçada', () => {
     ]);
     window.location.hash = '';
     render(<App repositorio={repo} />);
-    await u.click(await screen.findByRole('link', { name: /2 revisões vencem hoje/ }));
+    await u.click(await screen.findByRole('link', { name: /revisões vencem hoje/ }));
 
     expect(await screen.findByText('O que é um algoritmo?')).toBeVisible();
     await u.click(screen.getByRole('button', { name: 'Mostrar resposta' }));

@@ -10,6 +10,9 @@ import { DexieProgressRepository } from '@/persistence/dexie';
 import type { ProgressRepository } from '@/persistence/ProgressRepository';
 import { RepositorioProvider } from '@/persistence/RepositorioProvider';
 
+const Escolas = lazy(() => import('@/features/catalogo/Escolas'));
+const Trilha = lazy(() => import('@/features/trilha/Trilha'));
+const BoasVindas = lazy(() => import('@/features/boasvindas/BoasVindas'));
 const Revisao = lazy(() => import('@/features/revisao/Revisao'));
 const Labs = lazy(() => import('@/features/labs/Labs'));
 const LabAlgoritmos = lazy(() => import('@/features/labs/algoritmos/LabAlgoritmos'));
@@ -40,6 +43,9 @@ export function App({ repositorio }: { repositorio?: ProgressRepository }) {
               <Route index element={<Painel />} />
               <Route path="configuracoes" element={<Configuracoes />} />
               <Route path="aula/:aulaId" element={<PlayerAulaRota />} />
+              <Route path="boas-vindas" element={preguicoso(<BoasVindas />)} />
+              <Route path="escolas" element={preguicoso(<Escolas />)} />
+              <Route path="trilha/:disciplinaId" element={preguicoso(<Trilha />)} />
               <Route path="revisao" element={preguicoso(<Revisao />)} />
               <Route path="labs" element={preguicoso(<Labs />)} />
               <Route path="lab/algoritmos" element={preguicoso(<LabAlgoritmos />)} />

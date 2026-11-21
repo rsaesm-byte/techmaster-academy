@@ -1,8 +1,10 @@
-import { NavLink, Outlet } from 'react-router';
+import { NavLink, Outlet, useLocation } from 'react-router';
+import { usePreferencias } from '@/app/preferencias';
 import { Logo } from '@/ui/Logo';
 
 const itens = [
   { para: '/', rotulo: 'Painel', fim: true },
+  { para: '/escolas', rotulo: 'Trilhas', fim: false },
   { para: '/revisao', rotulo: 'Revisão', fim: false },
   { para: '/labs', rotulo: 'Laboratórios', fim: false },
   { para: '/configuracoes', rotulo: 'Configurações', fim: false },
@@ -10,6 +12,10 @@ const itens = [
 
 /** Moldura comum a todas as páginas: cabeçalho, navegação e área principal. */
 export function AppShell() {
+  const { pathname } = useLocation();
+  const { prefs } = usePreferencias();
+  // Modo foco: dentro de uma aula, o menu some para reduzir distrações.
+  const esconder = prefs.modoFoco && pathname.startsWith('/aula/');
   return (
     <div className="flex min-h-screen flex-col">
       <a
@@ -25,6 +31,7 @@ export function AppShell() {
       </header>
       <div className="flex flex-1 flex-wrap content-start sm:content-stretch">
         <nav
+          hidden={esconder}
           aria-label="Principal"
           className="flex w-full gap-1 border-b border-border bg-surface p-3 text-sm font-medium sm:w-56 sm:flex-col sm:border-r sm:border-b-0"
         >

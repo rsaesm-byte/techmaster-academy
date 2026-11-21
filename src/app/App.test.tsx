@@ -15,11 +15,15 @@ beforeAll(() => {
 });
 
 describe('App', () => {
-  it('abre no painel', () => {
+  it('abre no painel, sugerindo a primeira aula', async () => {
     render(<App repositorio={new MemoriaProgressRepository()} />);
     expect(
-      screen.getByRole('heading', { level: 1, name: 'Bem-vindo à TechMaster Academy' }),
+      await screen.findByRole('heading', { level: 1, name: /Pronto para o próximo passo/ }),
     ).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: 'Começar aula' })).toHaveAttribute(
+      'href',
+      '#/aula/logica.m01.a01',
+    );
   });
 
   it('troca para o tema escuro e lembra da escolha', async () => {
@@ -36,6 +40,31 @@ describe('App', () => {
     window.location.hash = '#/nao-existe';
     render(<App repositorio={new MemoriaProgressRepository()} />);
     expect(screen.getByRole('heading', { name: 'Página não encontrada' })).toBeInTheDocument();
+  });
+});
+
+describe('boas-vindas', () => {
+  it('na primeira visita, leva às boas-vindas e aplica as escolhas', async () => {
+    const u = userEvent.setup();
+    localStorage.removeItem('tm:boasVindas');
+    render(<App repositorio={new MemoriaProgressRepository()} />);
+    expect(
+      await screen.findByRole('heading', { name: 'Bem-vindo à TechMaster Academy' }),
+    ).toBeVisible();
+    await u.click(screen.getByRole('button', { name: 'Vamos lá' }));
+    expect(screen.getByRole('button', { name: 'Continuar' })).toBeDisabled();
+    await u.click(screen.getByRole('button', { name: /Já programo/ }));
+    await u.click(screen.getByRole('button', { name: 'Continuar' }));
+    expect(screen.getByRole('button', { name: /Técnico/ })).toHaveAttribute('aria-pressed', 'true');
+    await u.click(screen.getByRole('button', { name: 'Continuar' }));
+    await u.click(screen.getByRole('button', { name: 'Grande' }));
+    expect(document.documentElement).toHaveClass('texto-grande');
+    await u.click(screen.getByRole('button', { name: 'Continuar' }));
+    await u.click(screen.getByRole('button', { name: 'Começar a Aula 1' }));
+    expect(
+      await screen.findByRole('heading', { level: 1, name: /Antes de começar/ }),
+    ).toBeVisible();
+    expect(localStorage.getItem('tm:boasVindas')).toBe('feita');
   });
 });
 

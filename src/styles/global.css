@@ -91,6 +91,7 @@ body {
   *::before,
   *::after {
     animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
   }
 }
@@ -111,6 +112,31 @@ html.reduzir-movimento *,
 html.reduzir-movimento *::before,
 html.reduzir-movimento *::after {
   animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
   transition-duration: 0.01ms !important;
   scroll-behavior: auto !important;
+}
+
+/* Tamanho do texto: tudo usa rem, então mudar a base escala a interface inteira. */
+html.texto-grande {
+  font-size: 112.5%;
+}
+html.texto-muito-grande {
+  font-size: 125%;
+}
+
+/* Densidade compacta: menos espaço vertical entre blocos. */
+html.densidade-compacta main .gap-8 {
+  gap: 1.25rem;
+}
+html.densidade-compacta main .gap-6 {
+  gap: 1rem;
+}
+html.densidade-compacta main .gap-5 {
+  gap: 0.875rem;
+}
+
+/* Modo foco: dentro da aula, esconde a navegação para reduzir distrações. */
+html.modo-foco [data-esconder-no-foco] {
+  display: none;
 }
