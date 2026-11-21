@@ -35,6 +35,7 @@ const TELAS: [string, string, RegExp][] = [
   ['Glossário', '#/glossario', /Glossário/],
   ['Editor Web', '#/lab/web', /Editor Web/],
   ['Ordenação', '#/lab/ordenacao', /Busca e ordenação/],
+  ['Binário', '#/lab/binario', /Binário: a língua do computador/],
 ];
 
 describe('acessibilidade (axe)', () => {

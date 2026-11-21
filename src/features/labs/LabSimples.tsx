@@ -1,4 +1,5 @@
-import type { ReactNode } from 'react';
+import { useState, type ReactNode } from 'react';
+import { BinarioSim, type ModoBinario } from '@/features/labs/binario/BinarioSim';
 import { LacoGrafico } from '@/features/labs/laco/LacoGrafico';
 import { OrdenacaoSim } from '@/features/labs/ordenacao/OrdenacaoSim';
 import { RoboSim } from '@/features/labs/robo/RoboSim';
@@ -58,6 +59,58 @@ export function LabOrdenacao() {
       descricao="Veja Bolha, Seleção e Inserção ordenarem, compare quantas comparações cada um faz e descubra por que a busca binária é tão rápida."
     >
       <OrdenacaoSim />
+    </Pagina>
+  );
+}
+
+const MODOS_BINARIO: { valor: ModoBinario; rotulo: string }[] = [
+  { valor: 'bits', rotulo: 'Ligar e desligar bits' },
+  { valor: 'soma', rotulo: 'Somar em binário' },
+  { valor: 'texto', rotulo: 'Texto em bytes' },
+];
+
+export function LabBinario() {
+  const [modo, setModo] = useState<ModoBinario>('bits');
+  const [bits, setBits] = useState<4 | 8>(8);
+  return (
+    <Pagina
+      numero="Laboratório"
+      titulo="Binário: a língua do computador"
+      descricao="Computadores só sabem ligado e desligado. Veja como esses dois estados viram números, somas e letras."
+    >
+      <div className="flex flex-wrap items-center gap-3">
+        <div role="group" aria-label="O que explorar" className="flex flex-wrap gap-2">
+          {MODOS_BINARIO.map((m) => (
+            <button
+              key={m.valor}
+              type="button"
+              aria-pressed={modo === m.valor}
+              onClick={() => setModo(m.valor)}
+              className={`min-h-11 rounded-lg border px-4 font-medium ${
+                modo === m.valor
+                  ? 'border-primary bg-primary-soft'
+                  : 'border-border hover:bg-surface-2'
+              }`}
+            >
+              {m.rotulo}
+            </button>
+          ))}
+        </div>
+        {modo !== 'texto' && (
+          <label className="ml-auto flex items-center gap-2 text-sm font-medium">
+            Tamanho
+            <select
+              value={bits}
+              onChange={(e) => setBits(e.target.value === '4' ? 4 : 8)}
+              className="min-h-11 rounded-lg border border-border bg-surface px-3"
+            >
+              <option value={4}>4 bits</option>
+              <option value={8}>8 bits (1 byte)</option>
+            </select>
+          </label>
+        )}
+      </div>
+      <BinarioSim key={`${modo}-${bits}`} modo={modo} bits={bits} />
     </Pagina>
   );
 }

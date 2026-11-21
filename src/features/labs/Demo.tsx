@@ -15,6 +15,9 @@ const ExpressaoDemo = lazy(() =>
 const OrdenacaoSim = lazy(() =>
   import('@/features/labs/ordenacao/OrdenacaoSim').then((m) => ({ default: m.OrdenacaoSim })),
 );
+const BinarioSim = lazy(() =>
+  import('@/features/labs/binario/BinarioSim').then((m) => ({ default: m.BinarioSim })),
+);
 const LacoGrafico = lazy(() =>
   import('@/features/labs/laco/LacoGrafico').then((m) => ({ default: m.LacoGrafico })),
 );
@@ -46,6 +49,8 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <LacoGrafico />;
           case 'ordenacao':
             return <OrdenacaoSim algoritmoInicial={simulacao.algoritmo} fixo={simulacao.fixo} />;
+          case 'binario':
+            return <BinarioSim modo={simulacao.modo} bits={simulacao.bits} />;
         }
       })()}
     </Suspense>

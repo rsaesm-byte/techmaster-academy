@@ -17,6 +17,16 @@ const LABS = [
     descricao: 'Veja milhares de repetições formarem um desenho (WebGL).',
   },
   {
+    para: '/lab/ordenacao',
+    nome: 'Busca e ordenação',
+    descricao: 'Compare bolha, seleção, inserção e as buscas linear e binária, passo a passo.',
+  },
+  {
+    para: '/lab/binario',
+    nome: 'Binário',
+    descricao: 'Ligue bits, some em binário e veja letras virarem bytes.',
+  },
+  {
     para: '/lab/web',
     nome: 'Editor Web',
     descricao: 'HTML, CSS e JavaScript com prévia ao vivo, isolada e segura.',

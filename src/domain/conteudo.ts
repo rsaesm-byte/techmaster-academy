@@ -251,6 +251,12 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
     /** Fixa o algoritmo (sem o seletor), para a aula focar em um só. */
     fixo: z.boolean().default(false),
   }),
+  z.object({
+    tipo: z.literal('binario'),
+    /** bits: clicar nos bits; soma: somar coluna por coluna; texto: letras viram bytes. */
+    modo: z.enum(['bits', 'soma', 'texto']).default('bits'),
+    bits: z.union([z.literal(4), z.literal(8)]).default(8),
+  }),
 ]);
 
 export const EtapaSchema = z.discriminatedUnion('tipo', [

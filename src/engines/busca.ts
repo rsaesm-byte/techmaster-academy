@@ -66,6 +66,20 @@ const LABS: Documento[] = [
   },
   {
     tipo: 'laboratorio',
+    titulo: 'Busca e ordenação',
+    subtitulo: 'Laboratório',
+    rota: '/lab/ordenacao',
+    texto: 'ordenacao bolha selecao insercao busca linear binaria comparacoes trocas',
+  },
+  {
+    tipo: 'laboratorio',
+    titulo: 'Binário',
+    subtitulo: 'Laboratório',
+    rota: '/lab/binario',
+    texto: 'binario bits bytes hexadecimal complemento de dois soma vai-um ascii utf-8 texto',
+  },
+  {
+    tipo: 'laboratorio',
     titulo: 'Editor Web',
     subtitulo: 'Laboratório',
     rota: '/lab/web',
