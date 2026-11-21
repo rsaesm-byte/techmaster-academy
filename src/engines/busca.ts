@@ -80,6 +80,14 @@ const LABS: Documento[] = [
   },
   {
     tipo: 'laboratorio',
+    titulo: 'Portas lógicas',
+    subtitulo: 'Laboratório',
+    rota: '/lab/portas',
+    texto:
+      'portas logicas and or not xor nand nor tabela verdade circuito somador meio somador hardware',
+  },
+  {
+    tipo: 'laboratorio',
     titulo: 'Editor Web',
     subtitulo: 'Laboratório',
     rota: '/lab/web',

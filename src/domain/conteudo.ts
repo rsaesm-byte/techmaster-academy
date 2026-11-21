@@ -257,6 +257,13 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
     modo: z.enum(['bits', 'soma', 'texto']).default('bits'),
     bits: z.union([z.literal(4), z.literal(8)]).default(8),
   }),
+  z.object({
+    tipo: z.literal('portas'),
+    modo: z.enum(['porta', 'meio-somador', 'somador-completo']).default('porta'),
+    porta: z.enum(['and', 'or', 'not', 'xor', 'nand', 'nor']).default('and'),
+    /** Fixa a porta (sem o seletor), para a aula focar em uma só. */
+    fixo: z.boolean().default(false),
+  }),
 ]);
 
 export const EtapaSchema = z.discriminatedUnion('tipo', [

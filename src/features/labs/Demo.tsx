@@ -18,6 +18,9 @@ const OrdenacaoSim = lazy(() =>
 const BinarioSim = lazy(() =>
   import('@/features/labs/binario/BinarioSim').then((m) => ({ default: m.BinarioSim })),
 );
+const PortasSim = lazy(() =>
+  import('@/features/labs/portas/PortasSim').then((m) => ({ default: m.PortasSim })),
+);
 const LacoGrafico = lazy(() =>
   import('@/features/labs/laco/LacoGrafico').then((m) => ({ default: m.LacoGrafico })),
 );
@@ -51,6 +54,10 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <OrdenacaoSim algoritmoInicial={simulacao.algoritmo} fixo={simulacao.fixo} />;
           case 'binario':
             return <BinarioSim modo={simulacao.modo} bits={simulacao.bits} />;
+          case 'portas':
+            return (
+              <PortasSim modo={simulacao.modo} porta={simulacao.porta} fixo={simulacao.fixo} />
+            );
         }
       })()}
     </Suspense>

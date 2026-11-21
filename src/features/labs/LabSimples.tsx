@@ -1,4 +1,5 @@
 import { useState, type ReactNode } from 'react';
+import { PortasSim, type ModoPortas } from '@/features/labs/portas/PortasSim';
 import { BinarioSim, type ModoBinario } from '@/features/labs/binario/BinarioSim';
 import { LacoGrafico } from '@/features/labs/laco/LacoGrafico';
 import { OrdenacaoSim } from '@/features/labs/ordenacao/OrdenacaoSim';
@@ -111,6 +112,42 @@ export function LabBinario() {
         )}
       </div>
       <BinarioSim key={`${modo}-${bits}`} modo={modo} bits={bits} />
+    </Pagina>
+  );
+}
+
+const MODOS_PORTAS: { valor: ModoPortas; rotulo: string }[] = [
+  { valor: 'porta', rotulo: 'Portas lógicas' },
+  { valor: 'meio-somador', rotulo: 'Meio-somador' },
+  { valor: 'somador-completo', rotulo: 'Somador completo' },
+];
+
+export function LabPortas() {
+  const [modo, setModo] = useState<ModoPortas>('porta');
+  return (
+    <Pagina
+      numero="Laboratório"
+      titulo="Portas lógicas: de onde vem o processador"
+      descricao="Pequenos circuitos que decidem 0 ou 1. Combinados, eles somam, comparam e executam programas."
+    >
+      <div role="group" aria-label="O que explorar" className="flex flex-wrap gap-2">
+        {MODOS_PORTAS.map((m) => (
+          <button
+            key={m.valor}
+            type="button"
+            aria-pressed={modo === m.valor}
+            onClick={() => setModo(m.valor)}
+            className={`min-h-11 rounded-lg border px-4 font-medium ${
+              modo === m.valor
+                ? 'border-primary bg-primary-soft'
+                : 'border-border hover:bg-surface-2'
+            }`}
+          >
+            {m.rotulo}
+          </button>
+        ))}
+      </div>
+      <PortasSim key={modo} modo={modo} />
     </Pagina>
   );
 }

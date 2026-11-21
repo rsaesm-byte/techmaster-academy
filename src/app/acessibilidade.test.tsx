@@ -36,6 +36,7 @@ const TELAS: [string, string, RegExp][] = [
   ['Editor Web', '#/lab/web', /Editor Web/],
   ['Ordenação', '#/lab/ordenacao', /Busca e ordenação/],
   ['Binário', '#/lab/binario', /Binário: a língua do computador/],
+  ['Portas lógicas', '#/lab/portas', /Portas lógicas: de onde vem o processador/],
 ];
 
 describe('acessibilidade (axe)', () => {

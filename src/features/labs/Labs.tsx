@@ -27,6 +27,11 @@ const LABS = [
     descricao: 'Ligue bits, some em binário e veja letras virarem bytes.',
   },
   {
+    para: '/lab/portas',
+    nome: 'Portas lógicas',
+    descricao: 'AND, OR, XOR... monte um somador e veja como o hardware soma.',
+  },
+  {
     para: '/lab/web',
     nome: 'Editor Web',
     descricao: 'HTML, CSS e JavaScript com prévia ao vivo, isolada e segura.',
