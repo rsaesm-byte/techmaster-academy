@@ -32,23 +32,29 @@ function PlayerAula({ aula }: { aula: Aula }) {
   const ultima = indice === aula.etapas.length - 1;
 
   // Ao trocar de etapa, o foco vai para o título: quem usa leitor de tela sabe onde está.
+  // Depende só da etapa e do resultado — NÃO de cada gravação do progresso, senão o foco
+  // fugiria do campo enquanto o aluno responde.
+  const carregado = progresso !== null;
   useEffect(() => {
-    if (!progresso) return;
+    if (!carregado) return;
     if (primeiraRenderizacao.current) {
       primeiraRenderizacao.current = false;
       return;
     }
     tituloRef.current?.focus();
-  }, [indice, resultado, progresso]);
+  }, [indice, resultado, carregado]);
 
   // Link direto para uma etapa (?etapa=id), usado pelas recomendações do painel.
+  // Atende o pedido UMA vez: depois disso, o aluno navega normalmente.
   const etapaPedida = params.get('etapa');
+  const pedidoAtendido = useRef(false);
   useEffect(() => {
-    if (!progresso || !etapaPedida) return;
+    if (!carregado || !etapaPedida || pedidoAtendido.current) return;
+    pedidoAtendido.current = true;
     const i = aula.etapas.findIndex((e) => e.id === etapaPedida);
     setParams({}, { replace: true });
     if (i >= 0) void irPara(i);
-  }, [progresso, etapaPedida, aula, irPara, setParams]);
+  }, [carregado, etapaPedida, aula, irPara, setParams]);
 
   if (!progresso || !etapa) {
     return <p role="status">Carregando aula…</p>;
