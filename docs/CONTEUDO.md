@@ -72,7 +72,8 @@ mínimo (usamos 80). Questões `resposta-aberta` não podem entrar no critério.
 | `programa-portugol` | `codigoInicial`, `solucao`, `casos` (entradas e saída)     |
 | `programa-js`       | `funcao`, `codigoInicial`, `solucao`, `casos`              |
 | `consulta-sql`      | `codigoInicial`, `solucao`, `ordenada`                     |
-| `resposta-aberta`   | `respostaModelo`, `rubrica` (o aluno se autoavalia)        |
+
+| `resposta-aberta` | `respostaModelo`, `rubrica` (o aluno se autoavalia) |
 
 Toda questão tem `enunciado` e `explicacao`; `pistas` é opcional.
 
@@ -143,3 +144,20 @@ fimalgoritmo
 
 As aulas de `content/fundamentos/` usam `montar()` e os ajudantes `mc`, `prever`,
 `associar`, `ordenar` e `completar`, que geram os ids e o critério de domínio.
+
+## Motor de SQL e correção de consultas
+
+O motor (`src/engines/computacao/sql.ts`) trabalha sobre o banco de treino
+(`clientes` e `pedidos`) e aceita: SELECT (DISTINCT, apelidos com AS, COUNT, SUM,
+AVG, MIN, MAX), [LEFT] JOIN, WHERE (AND, OR, comparações, LIKE, IN, IS [NOT] NULL),
+GROUP BY (uma coluna), HAVING, ORDER BY, LIMIT, INSERT, UPDATE e DELETE. A chave
+primária `id` não pode repetir nem ficar vazia.
+
+- Questões `consulta-sql` com solução SELECT comparam colunas e linhas do
+  resultado (a ordem só conta se `ordenada` for verdadeira).
+- Se a solução começa com INSERT, UPDATE ou DELETE, a correção compara o **estado
+  final das tabelas** com o da solução de referência.
+- Questões `prever-saida` com `simulacao` SQL não alteram dados (usam `consultar`);
+  respostas numéricas são conferidas contra o motor em `catalogo.test.ts`.
+- Em Python não há executor: respostas de `prever-saida` com `linguagem: 'python'`
+  são conferidas à mão, então revise-as com cuidado.
