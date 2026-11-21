@@ -3,7 +3,8 @@
  * Recebe a questão e a resposta do aluno e devolve se acertou e um feedback
  * ESPECÍFICO: explicar o erro provável ensina mais do que só dizer "errado".
  */
-import { LACUNA, type ProgramaPortugol, type Questao } from '@/domain/conteudo';
+import { LACUNA, type ConsultaSql, type ProgramaPortugol, type Questao } from '@/domain/conteudo';
+import { consultar } from '@/engines/computacao/sql';
 import { executar } from '@/engines/portugol/interpretador';
 import { descrever, type ResultadoJs } from '@/engines/sandbox/casos';
 
@@ -17,6 +18,7 @@ export type Resposta =
   | { tipo: 'identificar-erro'; linha: number }
   | { tipo: 'programa-portugol'; codigo: string }
   | { tipo: 'programa-js'; codigo: string }
+  | { tipo: 'consulta-sql'; codigo: string }
   | { tipo: 'resposta-aberta'; texto: string; criteriosCumpridos: number };
 
 export interface Correcao {
@@ -110,6 +112,9 @@ export function corrigir(questao: Questao, resposta: Resposta): Correcao {
         (resposta as Extract<Resposta, { tipo: 'programa-portugol' }>).codigo,
       );
 
+    case 'consulta-sql':
+      return corrigirSql(questao, (resposta as Extract<Resposta, { tipo: 'consulta-sql' }>).codigo);
+
     case 'programa-js':
       throw new Error(
         'Programa em JavaScript é corrigido de forma assíncrona: use corrigirQuestao().',
@@ -158,6 +163,39 @@ export function resultadoJsParaCorrecao(r: ResultadoJs, explicacao: string): Cor
       f?.erro ? `deu erro: ${f.erro}` : `sua função devolveu ${descrever(f?.obtido)}`
     }.`,
   };
+}
+
+/** Roda a consulta do aluno e a da solução e compara colunas e linhas. */
+export function corrigirSql(questao: ConsultaSql, codigo: string): Correcao {
+  const esperado = consultar(questao.solucao);
+  if (!esperado.ok) throw new Error(`Solução de referência inválida: ${esperado.erro}`);
+  const obtido = consultar(codigo);
+  if (!obtido.ok) return { correta: false, feedback: `Erro na consulta: ${obtido.erro}` };
+  if (obtido.colunas.length !== esperado.colunas.length)
+    return {
+      correta: false,
+      feedback: `Sua consulta devolveu ${obtido.colunas.length} coluna(s), mas o pedido precisa de ${esperado.colunas.length}. Confira o que vem depois do SELECT.`,
+    };
+  const texto = (linhas: (string | number | null)[][]) => linhas.map((l) => JSON.stringify(l));
+  let a = texto(obtido.linhas);
+  let b = texto(esperado.linhas);
+  if (!questao.ordenada) {
+    a = [...a].sort();
+    b = [...b].sort();
+  }
+  if (a.length !== b.length)
+    return {
+      correta: false,
+      feedback: `Sua consulta devolveu ${a.length} linha(s), mas o esperado são ${b.length}. Revise o WHERE (ou o LIMIT).`,
+    };
+  if (a.join('\n') !== b.join('\n'))
+    return {
+      correta: false,
+      feedback: questao.ordenada
+        ? 'As linhas estão certas em quantidade, mas os valores ou a ordem diferem do pedido. Confira o ORDER BY (ASC ou DESC) e as colunas.'
+        : 'A quantidade bate, mas os valores diferem do pedido. Confira as colunas escolhidas e as condições do WHERE.',
+    };
+  return { correta: true, feedback: questao.explicacao };
 }
 
 /** Roda o programa do aluno em cada caso e compara a saída, linha por linha. */
@@ -213,6 +251,7 @@ export function respostaCompleta(questao: Questao, resposta: Resposta | undefine
       return resposta.linha > 0;
     case 'programa-portugol':
     case 'programa-js':
+    case 'consulta-sql':
       return resposta.codigo.trim() !== '';
     case 'resposta-aberta':
       return resposta.texto.trim().length >= 20;

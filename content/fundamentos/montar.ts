@@ -115,6 +115,26 @@ export function programaJs(
   } as Q;
 }
 
+/** Exercício de SQL, corrigido comparando o resultado com o da solução. */
+export function consultaSql(
+  enunciado: string,
+  codigoInicial: string,
+  solucao: string,
+  pistas: string[],
+  explicacao: string,
+  ordenada = false,
+): Q {
+  return {
+    tipo: 'consulta-sql',
+    enunciado,
+    codigoInicial,
+    solucao,
+    ordenada,
+    pistas,
+    explicacao,
+  } as Q;
+}
+
 export interface Spec {
   id: string;
   titulo: string;

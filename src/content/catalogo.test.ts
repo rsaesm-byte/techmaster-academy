@@ -104,7 +104,7 @@ describe('a validação barra erros de autoria', () => {
 
 describe('soluções de referência', () => {
   it('toda questão de programa tem uma solução que passa em todos os testes', async () => {
-    const { corrigirPortugol, resultadoJsParaCorrecao } =
+    const { corrigirPortugol, corrigirSql, resultadoJsParaCorrecao } =
       await import('@/engines/grading/corrigir');
     const catalogo = montarCatalogo(disciplinas, aulas);
     const falhas: string[] = [];
@@ -114,6 +114,10 @@ describe('soluções de referência', () => {
         for (const q of etapa.questoes) {
           if (q.tipo === 'programa-portugol') {
             const r = corrigirPortugol(q, q.solucao);
+            if (!r.correta) falhas.push(`${aula.id} ${q.id}: ${r.feedback}`);
+          }
+          if (q.tipo === 'consulta-sql') {
+            const r = corrigirSql(q, q.solucao);
             if (!r.correta) falhas.push(`${aula.id} ${q.id}: ${r.feedback}`);
           }
           if (q.tipo === 'programa-js') {

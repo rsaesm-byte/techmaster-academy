@@ -6,6 +6,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- Novo tipo de questão **consulta SQL**: você escreve a consulta e o app compara
+  as colunas e as linhas do resultado com o esperado (a ordem só conta quando o
+  exercício pede ORDER BY), com feedback específico. Os desafios das 5 aulas de SQL
+  agora usam esse tipo, e o CI confere que cada solução de referência passa.
 - **Escola C — SQL, módulo 1 "Consultando dados"** (5 aulas): SELECT, WHERE,
   ORDER BY e LIMIT, agregações com GROUP BY e JOIN; 5 termos novos no glossário.
 - Banco de dados de treino dentro do app (simulação `sql`): motor de SQL próprio

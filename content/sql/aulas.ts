@@ -1,4 +1,12 @@
-import { associar, completar, mc, montar, ordenar, prever } from '../fundamentos/montar';
+import {
+  associar,
+  completar,
+  consultaSql,
+  mc,
+  montar,
+  ordenar,
+  prever,
+} from '../fundamentos/montar';
 
 const conexoesBase = (extra: string[], prof: string) => ({
   disciplinas: [
@@ -103,12 +111,13 @@ export const s01 = montar({
       'SELECT é só leitura.',
     ),
   ],
-  desafio: prever(
-    'Quantas colunas tem o resultado de SELECT * FROM pedidos? (só o número)',
-    'SELECT * FROM pedidos;',
-    ['4'],
-    'A tabela pedidos tem id, cliente_id, produto e valor.',
-    [{ resposta: '7', feedback: '7 é o número de linhas, não de colunas.' }],
+  desafio: consultaSql(
+    'Escreva uma consulta que mostre o nome e a idade de todos os clientes.',
+    'SELECT FROM clientes;',
+    'SELECT nome, idade FROM clientes;',
+    ['Complete o que vem depois de SELECT com as duas colunas, separadas por vírgula.'],
+    'Duas colunas pedidas, todas as linhas: SELECT nome, idade FROM clientes.',
+    false,
   ),
   rec: [
     mc(
@@ -258,12 +267,13 @@ export const s02 = montar({
       'LIKE com % faz buscas por padrão.',
     ),
   ],
-  desafio: prever(
-    "Quantas linhas devolve WHERE cidade = 'Sorocaba' AND idade > 25? (só o número)",
-    "SELECT * FROM clientes WHERE cidade = 'Sorocaba' AND idade > 25;",
-    ['1'],
-    'Só Ana (28) cumpre as duas: Carla tem 22.',
-    [{ resposta: '2', feedback: 'Com AND as duas condições são exigidas; Carla tem 22.' }],
+  desafio: consultaSql(
+    'Escreva uma consulta que mostre o nome dos clientes de Sorocaba com mais de 25 anos.',
+    'SELECT nome FROM clientes;',
+    "SELECT nome FROM clientes WHERE cidade = 'Sorocaba' AND idade > 25;",
+    ['Use WHERE com duas condições ligadas por AND.', 'Texto vai entre aspas simples.'],
+    'Duas condições exigidas ao mesmo tempo pedem AND.',
+    false,
   ),
   rec: [
     mc(
@@ -411,12 +421,13 @@ export const s03 = montar({
       [{ resposta: '5', feedback: 'LIMIT 3 devolve no máximo 3.' }],
     ),
   ],
-  desafio: prever(
-    'Qual é o valor do pedido mais caro? (só o número)',
-    'SELECT valor FROM pedidos ORDER BY valor DESC LIMIT 1;',
-    ['120'],
-    'O maior valor na tabela pedidos é 120.',
-    [{ resposta: '305', feedback: '305 é a soma de todos os pedidos, não o maior.' }],
+  desafio: consultaSql(
+    'Escreva uma consulta que mostre o produto e o valor dos 3 pedidos mais caros, do maior para o menor.',
+    'SELECT produto, valor FROM pedidos;',
+    'SELECT produto, valor FROM pedidos ORDER BY valor DESC LIMIT 3;',
+    ['ORDER BY valor DESC ordena do maior ao menor.', 'LIMIT 3 mantém só os três primeiros.'],
+    'Primeiro ordena por valor decrescente e depois corta nos 3 primeiros. A ordem das linhas importa aqui.',
+    true,
   ),
   rec: [
     mc(
@@ -566,12 +577,16 @@ export const s04 = montar({
       'COUNT(*) conta; GROUP BY separa por cidade.',
     ),
   ],
-  desafio: prever(
-    'Qual é o MAIOR valor entre os pedidos? (só o número)',
-    'SELECT MAX(valor) FROM pedidos;',
-    ['120'],
-    'O maior valor é 120 (a mochila).',
-    [{ resposta: '5', feedback: '5 é o MIN.' }],
+  desafio: consultaSql(
+    'Escreva uma consulta que mostre cada produto e o total vendido dele (soma dos valores).',
+    'SELECT produto FROM pedidos;',
+    'SELECT produto, SUM(valor) FROM pedidos GROUP BY produto;',
+    [
+      'Use SUM(valor) para somar.',
+      'Como há uma coluna comum no SELECT, ela precisa estar no GROUP BY.',
+    ],
+    'SUM resume por produto; GROUP BY produto separa os grupos.',
+    false,
   ),
   rec: [
     associar(
@@ -739,12 +754,13 @@ export const s05 = montar({
       'JOIN tabela ON condição.',
     ),
   ],
-  desafio: prever(
-    'Quanto Carla gastou no total? (só o número)',
-    "SELECT SUM(valor) FROM clientes JOIN pedidos ON clientes.id = pedidos.cliente_id WHERE nome = 'Carla';",
-    ['150'],
-    '25 + 120 + 5 = 150.',
-    [{ resposta: '305', feedback: '305 é o total de todos os clientes.' }],
+  desafio: consultaSql(
+    'Escreva uma consulta que mostre o nome do cliente e o produto de cada pedido, ligando as tabelas.',
+    'SELECT nome, produto FROM clientes;',
+    'SELECT nome, produto FROM clientes JOIN pedidos ON clientes.id = pedidos.cliente_id;',
+    ['Acrescente JOIN pedidos depois do FROM.', 'A ligação é clientes.id = pedidos.cliente_id.'],
+    'JOIN ... ON liga cada pedido ao seu cliente pela chave estrangeira.',
+    false,
   ),
   rec: [
     mc(

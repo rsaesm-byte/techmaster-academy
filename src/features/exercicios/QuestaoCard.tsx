@@ -15,6 +15,7 @@ import {
   EntradaMultiplaEscolha,
   EntradaOrdenacao,
   EntradaPreverSaida,
+  EntradaConsultaSql,
   EntradaPrograma,
 } from '@/features/exercicios/Entradas';
 import { RespostaAbertaCard } from '@/features/exercicios/RespostaAbertaCard';
@@ -32,7 +33,7 @@ function respostaInicial(q: Questao): Resposta | undefined {
   }
   if (q.tipo === 'completar-codigo')
     return { tipo: 'completar-codigo', lacunas: q.lacunas.map(() => '') };
-  if (q.tipo === 'programa-portugol' || q.tipo === 'programa-js')
+  if (q.tipo === 'programa-portugol' || q.tipo === 'programa-js' || q.tipo === 'consulta-sql')
     return { tipo: q.tipo, codigo: q.codigoInicial };
   return undefined;
 }
@@ -53,6 +54,7 @@ function respostaCertaEmTexto(q: Questao): string {
       return `Linha ${q.linhaErrada}: \`${q.codigo.fonte.split('\n')[q.linhaErrada - 1]?.trim() ?? ''}\``;
     case 'programa-portugol':
     case 'programa-js':
+    case 'consulta-sql':
       return q.solucao;
     case 'resposta-aberta':
       return q.respostaModelo;
@@ -202,6 +204,15 @@ function QuestaoFechada({
             aoMudar={setResposta}
           />
         );
+      case 'consulta-sql':
+        return (
+          <EntradaConsultaSql
+            {...comum}
+            questao={questao}
+            resposta={resposta?.tipo === 'consulta-sql' ? resposta : undefined}
+            aoMudar={setResposta}
+          />
+        );
       case 'resposta-aberta':
         return null; // tratada por RespostaAbertaCard
     }
@@ -276,7 +287,9 @@ function QuestaoFechada({
           {revelada && (
             <div className="rounded-xl border border-border bg-surface-2 px-4 py-3">
               <p className="m-0 font-bold">Resposta</p>
-              {questao.tipo === 'programa-portugol' || questao.tipo === 'programa-js' ? (
+              {questao.tipo === 'programa-portugol' ||
+              questao.tipo === 'programa-js' ||
+              questao.tipo === 'consulta-sql' ? (
                 <div className="mt-2">
                   <BlocoCodigo
                     codigo={{

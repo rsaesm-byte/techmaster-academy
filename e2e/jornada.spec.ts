@@ -103,3 +103,17 @@ test('aula de SQL executa a consulta e mostra a tabela', async ({ page }) => {
   await expect(page.getByRole('columnheader', { name: 'cidade' })).toBeVisible();
   expectSemErros();
 });
+
+test('exercício de SQL: escrever a consulta e ser corrigido pelo resultado', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/aula/sql.m01.a01?etapa=desafio');
+  const campo = page.getByLabel('Sua consulta (SQL)');
+  await campo.fill('SELECT nome FROM clientes;');
+  await page.getByRole('button', { name: 'Verificar' }).first().click();
+  await expect(page.getByText(/devolveu 1 coluna/)).toBeVisible({ timeout: 15_000 });
+  await page.getByRole('button', { name: 'Tentar de novo' }).click();
+  await campo.fill('SELECT nome, idade FROM clientes;');
+  await page.getByRole('button', { name: 'Verificar' }).first().click();
+  await expect(page.getByText('Correto!')).toBeVisible({ timeout: 15_000 });
+  expectSemErros();
+});

@@ -71,6 +71,7 @@ mínimo (usamos 80). Questões `resposta-aberta` não podem entrar no critério.
 | `identificar-erro`  | `codigo`, `linhaErrada`, `feedbackPorLinha`                |
 | `programa-portugol` | `codigoInicial`, `solucao`, `casos` (entradas e saída)     |
 | `programa-js`       | `funcao`, `codigoInicial`, `solucao`, `casos`              |
+| `consulta-sql`      | `codigoInicial`, `solucao`, `ordenada`                     |
 | `resposta-aberta`   | `respostaModelo`, `rubrica` (o aluno se autoavalia)        |
 
 Toda questão tem `enunciado` e `explicacao`; `pistas` é opcional.

@@ -194,6 +194,16 @@ export const ProgramaJsSchema = z.object({
   casos: z.array(z.object({ argumentos: z.array(z.unknown()), esperado: z.unknown() })).min(1),
 });
 
+/** Escrever uma consulta SQL, corrigida comparando o resultado com o da solução. */
+export const ConsultaSqlSchema = z.object({
+  ...questaoBase,
+  tipo: z.literal('consulta-sql'),
+  codigoInicial: z.string(),
+  solucao: z.string().min(1),
+  /** Se verdadeiro, a ORDEM das linhas também precisa bater (para ORDER BY). */
+  ordenada: z.boolean().default(false),
+});
+
 /**
  * Resposta aberta: explicar com as próprias palavras. Não há correção automática
  * (não fingimos entender texto livre): o aluno compara com uma resposta-modelo
@@ -215,6 +225,7 @@ export const QuestaoSchema = z.discriminatedUnion('tipo', [
   IdentificarErroSchema,
   ProgramaPortugolSchema,
   ProgramaJsSchema,
+  ConsultaSqlSchema,
   RespostaAbertaSchema,
 ]);
 
@@ -526,6 +537,7 @@ export type CompletarCodigo = z.infer<typeof CompletarCodigoSchema>;
 export type IdentificarErro = z.infer<typeof IdentificarErroSchema>;
 export type ProgramaPortugol = z.infer<typeof ProgramaPortugolSchema>;
 export type ProgramaJs = z.infer<typeof ProgramaJsSchema>;
+export type ConsultaSql = z.infer<typeof ConsultaSqlSchema>;
 export type RespostaAberta = z.infer<typeof RespostaAbertaSchema>;
 export type Etapa = z.infer<typeof EtapaSchema>;
 export type Aula = z.infer<typeof AulaSchema>;

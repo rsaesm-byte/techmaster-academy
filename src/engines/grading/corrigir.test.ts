@@ -223,3 +223,29 @@ describe('sandbox JavaScript (lógica dos casos)', async () => {
     ).toBe('oi 2');
   });
 });
+
+describe('consulta SQL', () => {
+  const q = {
+    id: 'q',
+    tipo: 'consulta-sql',
+    enunciado: 'x',
+    codigoInicial: '',
+    solucao: "SELECT nome FROM clientes WHERE cidade = 'Sorocaba'",
+    ordenada: false,
+    pistas: [],
+    explicacao: 'ok',
+  } as unknown as Questao;
+  const c = (codigo: string) => corrigir(q, { tipo: 'consulta-sql', codigo });
+
+  it('aceita outra consulta com o mesmo resultado, em outra ordem', () => {
+    expect(
+      c("SELECT nome FROM clientes WHERE cidade = 'Sorocaba' ORDER BY nome DESC").correta,
+    ).toBe(true);
+  });
+  it('explica quando faltam colunas, linhas ou há erro', () => {
+    expect(c('SELECT nome, cidade FROM clientes').feedback).toMatch(/coluna/);
+    expect(c('SELECT nome FROM clientes').feedback).toMatch(/linha/);
+    expect(c('SELECT nome FROM nada').feedback).toMatch(/Erro na consulta/);
+    expect(c("SELECT cidade FROM clientes WHERE cidade = 'Sorocaba'").correta).toBe(false);
+  });
+});

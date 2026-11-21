@@ -8,6 +8,7 @@ import {
   LACUNA,
   type Associacao,
   type CompletarCodigo,
+  type ConsultaSql,
   type IdentificarErro,
   type MultiplaEscolha,
   type Ordenacao,
@@ -337,6 +338,37 @@ export function EntradaPrograma({
         {questao.tipo === 'programa-js'
           ? ', isolado do resto da página e com limite de 2 segundos.'
           : '.'}
+      </p>
+    </div>
+  );
+}
+
+export function EntradaConsultaSql({
+  questao,
+  resposta,
+  aoMudar,
+  travada,
+}: Props<ConsultaSql, RespostaDe<'consulta-sql'>>) {
+  const codigo = resposta?.codigo ?? questao.codigoInicial;
+  const id = `${questao.id}-sql`;
+  return (
+    <div className="flex flex-col gap-2">
+      <label htmlFor={id} className="font-medium">
+        Sua consulta (SQL)
+      </label>
+      <textarea
+        id={id}
+        value={codigo}
+        disabled={travada}
+        spellCheck={false}
+        rows={Math.max(4, codigo.split('\n').length + 1)}
+        onChange={(e) => aoMudar({ tipo: 'consulta-sql', codigo: e.target.value })}
+        className="w-full resize-y rounded-xl border border-border bg-bg p-3 font-mono text-[14px] leading-7 [font-variant-ligatures:none] disabled:opacity-80"
+      />
+      <p className="m-0 text-xs text-muted">
+        Tabelas: clientes (id, nome, cidade, idade) e pedidos (id, cliente_id, produto, valor). A
+        consulta é corrigida comparando o resultado com o esperado
+        {questao.ordenada ? ', inclusive a ordem das linhas.' : '; a ordem das linhas não importa.'}
       </p>
     </div>
   );
