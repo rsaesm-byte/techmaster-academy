@@ -2,6 +2,7 @@ import { HashRouter, Route, Routes } from 'react-router';
 import { AppShell } from '@/app/AppShell';
 import { ThemeProvider } from '@/app/ThemeProvider';
 import { Configuracoes } from '@/features/configuracoes/Configuracoes';
+import { PlayerAulaRota } from '@/features/aula/PlayerAula';
 import { Painel } from '@/features/dashboard/Painel';
 import { NaoEncontrada } from '@/features/NaoEncontrada';
 import { DexieProgressRepository } from '@/persistence/dexie';
@@ -24,6 +25,7 @@ export function App({ repositorio }: { repositorio?: ProgressRepository }) {
             <Route element={<AppShell />}>
               <Route index element={<Painel />} />
               <Route path="configuracoes" element={<Configuracoes />} />
+              <Route path="aula/:aulaId" element={<PlayerAulaRota />} />
               <Route path="*" element={<NaoEncontrada />} />
             </Route>
           </Routes>
