@@ -4,7 +4,17 @@
  * e associação usa listas de seleção.
  */
 import { useMemo, useState } from 'react';
-import type { Associacao, MultiplaEscolha, Ordenacao, PreverSaida } from '@/domain/conteudo';
+import {
+  LACUNA,
+  type Associacao,
+  type CompletarCodigo,
+  type IdentificarErro,
+  type MultiplaEscolha,
+  type Ordenacao,
+  type PreverSaida,
+  type ProgramaJs,
+  type ProgramaPortugol,
+} from '@/domain/conteudo';
 import { embaralhar, type Resposta } from '@/engines/grading/corrigir';
 import { formatarLinha } from '@/ui/formatarLinha';
 
@@ -204,6 +214,130 @@ export function EntradaAssociacao({
           </div>
         );
       })}
+    </div>
+  );
+}
+
+export function EntradaCompletar({
+  questao,
+  resposta,
+  aoMudar,
+  travada,
+}: Props<CompletarCodigo, RespostaDe<'completar-codigo'>>) {
+  const partes = questao.codigo.fonte.split(LACUNA);
+  const lacunas = resposta?.lacunas ?? questao.lacunas.map(() => '');
+  return (
+    <pre className="m-0 overflow-x-auto rounded-xl border border-border bg-surface-2 p-4 font-mono text-[14px] leading-9 whitespace-pre-wrap [font-variant-ligatures:none]">
+      {partes.map((p, i) => (
+        <span key={i}>
+          {p}
+          {i < partes.length - 1 && (
+            <input
+              aria-label={`Lacuna ${i + 1}`}
+              value={lacunas[i] ?? ''}
+              disabled={travada}
+              autoComplete="off"
+              spellCheck={false}
+              size={Math.max(4, (lacunas[i] ?? '').length + 1)}
+              onChange={(e) => {
+                const novas = [...lacunas];
+                novas[i] = e.target.value;
+                aoMudar({ tipo: 'completar-codigo', lacunas: novas });
+              }}
+              className="mx-1 min-h-9 rounded-md border-2 border-dashed border-primary bg-bg px-2 font-mono text-[14px] disabled:opacity-80"
+            />
+          )}
+        </span>
+      ))}
+    </pre>
+  );
+}
+
+export function EntradaIdentificarErro({
+  questao,
+  resposta,
+  aoMudar,
+  travada,
+}: Props<IdentificarErro, RespostaDe<'identificar-erro'>>) {
+  const linhas = questao.codigo.fonte.split('\n');
+  return (
+    <fieldset className="m-0 border-0 p-0">
+      <legend className="mb-2 text-sm font-medium text-muted">
+        Toque na linha que tem o erro:
+      </legend>
+      <div className="overflow-hidden rounded-xl border border-border bg-surface-2 py-1 font-mono text-[14px] [font-variant-ligatures:none]">
+        {linhas.map((l, i) => {
+          const n = i + 1;
+          const marcada = resposta?.linha === n;
+          return (
+            <label
+              key={i}
+              className={`flex min-h-10 cursor-pointer items-center gap-3 px-3 ${marcada ? 'bg-primary-soft font-semibold' : 'hover:bg-surface'}`}
+            >
+              <input
+                type="radio"
+                name={`${questao.id}-linha`}
+                checked={marcada}
+                disabled={travada}
+                onChange={() => aoMudar({ tipo: 'identificar-erro', linha: n })}
+                className="size-4 accent-[var(--tm-primary)]"
+                aria-label={`Linha ${n}: ${l.trim() || '(vazia)'}`}
+              />
+              <span aria-hidden="true" className="w-5 text-right text-muted">
+                {n}
+              </span>
+              <span aria-hidden="true" className="whitespace-pre">
+                {l || ' '}
+              </span>
+            </label>
+          );
+        })}
+      </div>
+    </fieldset>
+  );
+}
+
+export function EntradaPrograma({
+  questao,
+  resposta,
+  aoMudar,
+  travada,
+}: Props<
+  ProgramaPortugol | ProgramaJs,
+  RespostaDe<'programa-portugol'> | RespostaDe<'programa-js'>
+>) {
+  const codigo = resposta?.codigo ?? questao.codigoInicial;
+  const id = `${questao.id}-editor`;
+  return (
+    <div className="flex flex-col gap-2">
+      <label htmlFor={id} className="font-medium">
+        Seu código ({questao.tipo === 'programa-js' ? 'JavaScript' : 'Portugol'})
+      </label>
+      <textarea
+        id={id}
+        value={codigo}
+        disabled={travada}
+        spellCheck={false}
+        rows={Math.max(6, codigo.split('\n').length + 1)}
+        onChange={(e) => aoMudar({ tipo: questao.tipo, codigo: e.target.value })}
+        onKeyDown={(e) => {
+          if (e.key === 'Tab' && !e.shiftKey) {
+            e.preventDefault();
+            const el = e.currentTarget;
+            const { selectionStart: a, selectionEnd: b } = el;
+            aoMudar({ tipo: questao.tipo, codigo: codigo.slice(0, a) + '  ' + codigo.slice(b) });
+            requestAnimationFrame(() => el.setSelectionRange(a + 2, a + 2));
+          }
+        }}
+        className="w-full resize-y rounded-xl border border-border bg-bg p-3 font-mono text-[14px] leading-7 [font-variant-ligatures:none] disabled:opacity-80"
+      />
+      <p className="m-0 text-xs text-muted">
+        Tab insere espaços. O código é testado com {questao.casos.length}{' '}
+        {questao.casos.length === 1 ? 'caso' : 'casos'}
+        {questao.tipo === 'programa-js'
+          ? ', isolado do resto da página e com limite de 2 segundos.'
+          : '.'}
+      </p>
     </div>
   );
 }

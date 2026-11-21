@@ -130,3 +130,96 @@ describe('utilitários', () => {
     expect(() => corrigir(me, { tipo: 'prever-saida', texto: 'x' })).toThrow();
   });
 });
+
+describe('exercícios de código', () => {
+  const completar: Questao = {
+    ...base,
+    id: 'q-comp',
+    tipo: 'completar-codigo',
+    codigo: {
+      linguagem: 'pseudocodigo',
+      fonte: 'soma <- ___\npara i de 1 ate 3 faca\n  soma <- soma ___ i\nfimpara',
+    },
+    lacunas: [{ aceitas: ['0'] }, { aceitas: ['+'], feedback: 'Somar acumula.' }],
+  };
+  it('completar: aceita espaços e maiúsculas diferentes', () => {
+    expect(corrigir(completar, { tipo: 'completar-codigo', lacunas: [' 0 ', '+'] }).correta).toBe(
+      true,
+    );
+  });
+  it('completar: aponta a lacuna errada com o feedback dela', () => {
+    const r = corrigir(completar, { tipo: 'completar-codigo', lacunas: ['0', '*'] });
+    expect(r.feedback).toMatch(/1 de 2 lacunas/);
+    expect(r.feedback).toMatch(/Lacuna 2: Somar acumula/);
+  });
+
+  const identificar: Questao = {
+    ...base,
+    id: 'q-id',
+    tipo: 'identificar-erro',
+    codigo: {
+      linguagem: 'pseudocodigo',
+      fonte: 'c <- 1\nenquanto c <= 3 faca\n escreva(c)\nfimenquanto',
+    },
+    linhaErrada: 3,
+    feedbackPorLinha: { '2': 'A condição está certa.' },
+  };
+  it('identificar erro', () => {
+    expect(corrigir(identificar, { tipo: 'identificar-erro', linha: 3 }).correta).toBe(true);
+    expect(corrigir(identificar, { tipo: 'identificar-erro', linha: 2 }).feedback).toBe(
+      'A condição está certa.',
+    );
+  });
+
+  const programa: Questao = {
+    ...base,
+    id: 'q-prog',
+    tipo: 'programa-portugol',
+    codigoInicial: 'leia(n)\n',
+    solucao: 'leia(n)\nescreva(n * 2)',
+    casos: [
+      { entradas: ['2'], saidaEsperada: ['4'] },
+      { entradas: ['5'], saidaEsperada: ['10'] },
+    ],
+  };
+  it('programa Portugol: roda os casos no interpretador', () => {
+    expect(
+      corrigir(programa, { tipo: 'programa-portugol', codigo: 'leia(n)\nescreva(n + n)' }).correta,
+    ).toBe(true);
+    const r = corrigir(programa, { tipo: 'programa-portugol', codigo: 'leia(n)\nescreva(n + 2)' });
+    expect(r.feedback).toMatch(/Teste 2 de 2 com as entradas 5/);
+  });
+});
+
+describe('sandbox JavaScript (lógica dos casos)', async () => {
+  const { executarCasos } = await import('@/engines/sandbox/casos');
+  const { resultadoJsParaCorrecao } = await import('@/engines/grading/corrigir');
+  const casos = [
+    { argumentos: [2, 3], esperado: 5 },
+    { argumentos: [-1, 1], esperado: 0 },
+  ];
+  it('todos os casos passam', () => {
+    const r = executarCasos('function somar(a, b) { return a + b; }', 'somar', casos);
+    expect(resultadoJsParaCorrecao(r, 'ok').correta).toBe(true);
+  });
+  it('mostra o primeiro caso que falhou', () => {
+    const r = executarCasos('function somar(a, b) { return a - b; }', 'somar', casos);
+    expect(resultadoJsParaCorrecao(r, 'ok').feedback).toMatch(
+      /Com os argumentos \(2, 3\): esperado 5, sua função devolveu -1/,
+    );
+  });
+  it('nome errado de função e erro de sintaxe', () => {
+    expect(executarCasos('function soma(a,b){return a+b}', 'somar', casos).erroGeral).toMatch(
+      /Não encontrei a função "somar"/,
+    );
+    expect(
+      executarCasos('function somar(a, b) { return a + ; }', 'somar', casos).erroGeral,
+    ).toMatch(/Erro no código/);
+  });
+  it('captura console.log sem sujar o console real', () => {
+    expect(
+      executarCasos('function somar(a,b){ console.log("oi", a); return a+b }', 'somar', casos)
+        .logs[0],
+    ).toBe('oi 2');
+  });
+});

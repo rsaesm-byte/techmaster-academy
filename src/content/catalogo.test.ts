@@ -81,3 +81,29 @@ describe('a validação barra erros de autoria', () => {
     );
   });
 });
+
+describe('soluções de referência', () => {
+  it('toda questão de programa tem uma solução que passa em todos os testes', async () => {
+    const { corrigirPortugol, resultadoJsParaCorrecao } =
+      await import('@/engines/grading/corrigir');
+    const { executarCasos } = await import('@/engines/sandbox/casos');
+    const catalogo = montarCatalogo(disciplinas, aulas);
+    const falhas: string[] = [];
+    for (const aula of catalogo.aulas.values()) {
+      for (const etapa of aula.etapas) {
+        if (!('questoes' in etapa)) continue;
+        for (const q of etapa.questoes) {
+          if (q.tipo === 'programa-portugol') {
+            const r = corrigirPortugol(q, q.solucao);
+            if (!r.correta) falhas.push(`${aula.id} ${q.id}: ${r.feedback}`);
+          }
+          if (q.tipo === 'programa-js') {
+            const r = resultadoJsParaCorrecao(executarCasos(q.solucao, q.funcao, q.casos), '');
+            if (!r.correta) falhas.push(`${aula.id} ${q.id}: ${r.feedback}`);
+          }
+        }
+      }
+    }
+    expect(falhas).toEqual([]);
+  });
+});

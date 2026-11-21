@@ -126,11 +126,83 @@ export const AssociacaoSchema = z
     ),
   );
 
+/** Marcador de lacuna dentro do código de "completar-codigo". */
+export const LACUNA = '___';
+
+export const CompletarCodigoSchema = z
+  .object({
+    ...questaoBase,
+    tipo: z.literal('completar-codigo'),
+    codigo: CodigoSchema,
+    lacunas: z
+      .array(
+        z.object({
+          aceitas: z.array(z.string().min(1)).min(1),
+          /** Explica o erro mais comum nesta lacuna. */
+          feedback: TextoSchema.optional(),
+        }),
+      )
+      .min(1),
+  })
+  .superRefine((q, ctx) => {
+    const n = q.codigo.fonte.split(LACUNA).length - 1;
+    if (n !== q.lacunas.length) {
+      ctx.addIssue({
+        code: 'custom',
+        path: ['lacunas'],
+        message: `o código tem ${n} lacuna(s) "${LACUNA}", mas há ${q.lacunas.length} definida(s)`,
+      });
+    }
+  });
+
+export const IdentificarErroSchema = z
+  .object({
+    ...questaoBase,
+    tipo: z.literal('identificar-erro'),
+    codigo: CodigoSchema,
+    linhaErrada: z.number().int().min(1),
+    /** Feedback para quem escolhe uma linha que está certa (chave = número da linha). */
+    feedbackPorLinha: z.record(z.string(), TextoSchema).default({}),
+  })
+  .superRefine((q, ctx) => {
+    if (q.linhaErrada > q.codigo.fonte.split('\n').length) {
+      ctx.addIssue({ code: 'custom', path: ['linhaErrada'], message: 'linha fora do código' });
+    }
+  });
+
+export const ProgramaPortugolSchema = z.object({
+  ...questaoBase,
+  tipo: z.literal('programa-portugol'),
+  /** Código inicial que o aluno completa. */
+  codigoInicial: z.string(),
+  /** Uma solução de referência: o teste de conteúdo confere que ela passa em todos os casos. */
+  solucao: z.string().min(1),
+  casos: z
+    .array(
+      z.object({ entradas: z.array(z.string()).default([]), saidaEsperada: z.array(z.string()) }),
+    )
+    .min(1),
+});
+
+export const ProgramaJsSchema = z.object({
+  ...questaoBase,
+  tipo: z.literal('programa-js'),
+  codigoInicial: z.string(),
+  solucao: z.string().min(1),
+  /** Nome da função que o aluno deve escrever. */
+  funcao: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+  casos: z.array(z.object({ argumentos: z.array(z.unknown()), esperado: z.unknown() })).min(1),
+});
+
 export const QuestaoSchema = z.discriminatedUnion('tipo', [
   MultiplaEscolhaSchema,
   PreverSaidaSchema,
   OrdenacaoSchema,
   AssociacaoSchema,
+  CompletarCodigoSchema,
+  IdentificarErroSchema,
+  ProgramaPortugolSchema,
+  ProgramaJsSchema,
 ]);
 
 // ---------- Etapas da aula ----------
@@ -364,6 +436,10 @@ export type MultiplaEscolha = z.infer<typeof MultiplaEscolhaSchema>;
 export type PreverSaida = z.infer<typeof PreverSaidaSchema>;
 export type Ordenacao = z.infer<typeof OrdenacaoSchema>;
 export type Associacao = z.infer<typeof AssociacaoSchema>;
+export type CompletarCodigo = z.infer<typeof CompletarCodigoSchema>;
+export type IdentificarErro = z.infer<typeof IdentificarErroSchema>;
+export type ProgramaPortugol = z.infer<typeof ProgramaPortugolSchema>;
+export type ProgramaJs = z.infer<typeof ProgramaJsSchema>;
 export type Etapa = z.infer<typeof EtapaSchema>;
 export type Aula = z.infer<typeof AulaSchema>;
 export type Modulo = z.infer<typeof ModuloSchema>;

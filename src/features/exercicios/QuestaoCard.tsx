@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, useState } from 'react';
 import type { Questao } from '@/domain/conteudo';
 import type { Tentativa } from '@/domain/progresso';
 import {
-  corrigir,
+  corrigirQuestao,
   embaralhar,
   respostaCompleta,
   type Correcao,
@@ -10,9 +10,12 @@ import {
 } from '@/engines/grading/corrigir';
 import {
   EntradaAssociacao,
+  EntradaCompletar,
+  EntradaIdentificarErro,
   EntradaMultiplaEscolha,
   EntradaOrdenacao,
   EntradaPreverSaida,
+  EntradaPrograma,
 } from '@/features/exercicios/Entradas';
 import { BlocoCodigo } from '@/ui/BlocoCodigo';
 import { TextoRico } from '@/ui/TextoRico';
@@ -26,6 +29,10 @@ function respostaInicial(q: Questao): Resposta | undefined {
   if (q.tipo === 'ordenacao') {
     return { tipo: 'ordenacao', ordem: embaralhar(q.itens, q.id).map((i) => i.id) };
   }
+  if (q.tipo === 'completar-codigo')
+    return { tipo: 'completar-codigo', lacunas: q.lacunas.map(() => '') };
+  if (q.tipo === 'programa-portugol' || q.tipo === 'programa-js')
+    return { tipo: q.tipo, codigo: q.codigoInicial };
   return undefined;
 }
 
@@ -39,6 +46,13 @@ function respostaCertaEmTexto(q: Questao): string {
       return q.itens.map((item, i) => `${i + 1}. ${item.texto}`).join('\n');
     case 'associacao':
       return q.pares.map((p) => `${p.esquerda} → ${p.direita}`).join('\n');
+    case 'completar-codigo':
+      return q.lacunas.map((l, i) => `Lacuna ${i + 1}: \`${l.aceitas[0] ?? ''}\``).join('\n');
+    case 'identificar-erro':
+      return `Linha ${q.linhaErrada}: \`${q.codigo.fonte.split('\n')[q.linhaErrada - 1]?.trim() ?? ''}\``;
+    case 'programa-portugol':
+    case 'programa-js':
+      return q.solucao;
   }
 }
 
@@ -62,6 +76,7 @@ export function QuestaoCard({
   const [correcao, setCorrecao] = useState<Correcao | null>(null);
   const [erros, setErros] = useState(0);
   const [revelada, setRevelada] = useState(false);
+  const [verificando, setVerificando] = useState(false);
   // Marca de tempo do início da tentativa (definida no primeiro efeito, não durante a renderização).
   const inicio = useRef(0);
   useEffect(() => {
@@ -70,11 +85,13 @@ export function QuestaoCard({
   const tituloId = useId();
 
   const resolvida = correcao?.correta === true || revelada;
-  const travada = resolvida || correcao !== null;
+  const travada = resolvida || correcao !== null || verificando;
 
-  function verificar() {
-    if (!resposta) return;
-    const r = corrigir(questao, resposta);
+  async function verificar() {
+    if (!resposta || verificando) return;
+    setVerificando(true);
+    const r = await corrigirQuestao(questao, resposta);
+    setVerificando(false);
     setCorrecao(r);
     if (!r.correta) setErros((e) => e + 1);
     void aoRegistrar({
@@ -143,6 +160,38 @@ export function QuestaoCard({
             aoMudar={setResposta}
           />
         );
+      case 'completar-codigo':
+        return (
+          <EntradaCompletar
+            {...comum}
+            questao={questao}
+            resposta={resposta?.tipo === 'completar-codigo' ? resposta : undefined}
+            aoMudar={setResposta}
+          />
+        );
+      case 'identificar-erro':
+        return (
+          <EntradaIdentificarErro
+            {...comum}
+            questao={questao}
+            resposta={resposta?.tipo === 'identificar-erro' ? resposta : undefined}
+            aoMudar={setResposta}
+          />
+        );
+      case 'programa-portugol':
+      case 'programa-js':
+        return (
+          <EntradaPrograma
+            {...comum}
+            questao={questao}
+            resposta={
+              resposta?.tipo === 'programa-portugol' || resposta?.tipo === 'programa-js'
+                ? resposta
+                : undefined
+            }
+            aoMudar={setResposta}
+          />
+        );
     }
   })();
 
@@ -166,12 +215,14 @@ export function QuestaoCard({
         )}
       </header>
 
-      {questao.codigo && <BlocoCodigo codigo={questao.codigo} />}
+      {questao.codigo &&
+        questao.tipo !== 'completar-codigo' &&
+        questao.tipo !== 'identificar-erro' && <BlocoCodigo codigo={questao.codigo} />}
 
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          if (!travada && respostaCompleta(questao, resposta)) verificar();
+          if (!travada && respostaCompleta(questao, resposta)) void verificar();
         }}
         className="flex flex-col gap-4"
       >
@@ -213,7 +264,18 @@ export function QuestaoCard({
           {revelada && (
             <div className="rounded-xl border border-border bg-surface-2 px-4 py-3">
               <p className="m-0 font-bold">Resposta</p>
-              <TextoRico texto={respostaCertaEmTexto(questao)} className="mt-1 font-medium" />
+              {questao.tipo === 'programa-portugol' || questao.tipo === 'programa-js' ? (
+                <div className="mt-2">
+                  <BlocoCodigo
+                    codigo={{
+                      linguagem: questao.tipo === 'programa-js' ? 'javascript' : 'pseudocodigo',
+                      fonte: questao.solucao,
+                    }}
+                  />
+                </div>
+              ) : (
+                <TextoRico texto={respostaCertaEmTexto(questao)} className="mt-1 font-medium" />
+              )}
               <TextoRico texto={questao.explicacao} className="mt-2 text-muted" />
               <p className="mt-2 mb-0 text-sm text-muted">
                 Ela volta na revisão: acertar sozinho depois é o que conta para o domínio.
@@ -233,7 +295,11 @@ export function QuestaoCard({
                 disabled={!respostaCompleta(questao, resposta)}
                 className="min-h-11 rounded-lg bg-primary px-5 font-semibold text-on-primary disabled:opacity-40"
               >
-                Verificar
+                {verificando
+                  ? 'Testando…'
+                  : questao.tipo.startsWith('programa')
+                    ? 'Rodar testes'
+                    : 'Verificar'}
               </button>
             ) : (
               <button
