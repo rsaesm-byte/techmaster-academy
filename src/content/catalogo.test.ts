@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { aulas, disciplinas } from '@content/index';
+import { aulas, disciplinas, glossario } from '@content/index';
 import { aula01 } from '@content/logica/m01/a01-o-que-e-algoritmo';
 import { ConteudoInvalidoError, montarCatalogo } from '@/content/catalogo';
 
@@ -21,8 +21,15 @@ function problemasDe(fn: () => unknown): string[] {
 }
 
 describe('conteúdo válido', () => {
-  it('todo o conteúdo do repositório passa na validação', () => {
-    expect(problemasDe(() => montarCatalogo(disciplinas, aulas))).toEqual([]);
+  it('todo o conteúdo do repositório passa na validação (aulas e glossário)', () => {
+    expect(problemasDe(() => montarCatalogo(disciplinas, aulas, glossario))).toEqual([]);
+  });
+
+  it('glossário apontando para aula inexistente é barrado', () => {
+    const ruim = [{ id: 'x', termo: 'X', simples: 's', tecnico: 't', aulas: ['nao.existe'] }];
+    expect(problemasDe(() => montarCatalogo(disciplinas, aulas, ruim))).toContainEqual(
+      expect.stringContaining('aula "nao.existe" não existe'),
+    );
   });
 });
 
@@ -72,6 +79,15 @@ describe('a validação barra erros de autoria', () => {
     expect(problemasDe(() => montarCatalogo(disciplinas, []))).toContainEqual(
       expect.stringContaining('aula "logica.m01.a01" não existe'),
     );
+  });
+
+  it('resposta aberta não pode medir domínio', () => {
+    const ruim = aulaCom((a) => {
+      a.criterioDominio.questoes.push('rec.explique');
+    });
+    expect(
+      problemasDe(() => montarCatalogo(disciplinas, [ruim, ...aulas.slice(1)])),
+    ).toContainEqual(expect.stringContaining('é resposta aberta'));
   });
 
   it('ids de etapa repetidos', () => {

@@ -194,6 +194,18 @@ export const ProgramaJsSchema = z.object({
   casos: z.array(z.object({ argumentos: z.array(z.unknown()), esperado: z.unknown() })).min(1),
 });
 
+/**
+ * Resposta aberta: explicar com as próprias palavras. Não há correção automática
+ * (não fingimos entender texto livre): o aluno compara com uma resposta-modelo
+ * e marca os critérios da rubrica que sua resposta cumpre.
+ */
+export const RespostaAbertaSchema = z.object({
+  ...questaoBase,
+  tipo: z.literal('resposta-aberta'),
+  respostaModelo: TextoSchema,
+  rubrica: z.array(TextoSchema).min(2).max(5),
+});
+
 export const QuestaoSchema = z.discriminatedUnion('tipo', [
   MultiplaEscolhaSchema,
   PreverSaidaSchema,
@@ -203,6 +215,7 @@ export const QuestaoSchema = z.discriminatedUnion('tipo', [
   IdentificarErroSchema,
   ProgramaPortugolSchema,
   ProgramaJsSchema,
+  RespostaAbertaSchema,
 ]);
 
 // ---------- Etapas da aula ----------
@@ -387,7 +400,15 @@ export const AulaSchema = z
         .filter((e) => e.tipo === 'exercicio' || e.tipo === 'recuperacao')
         .flatMap((e) => e.questoes.map((q) => q.id)),
     );
+    const abertas = new Set(questoes.filter((q) => q.tipo === 'resposta-aberta').map((q) => q.id));
     aula.criterioDominio.questoes.forEach((id, i) => {
+      if (abertas.has(id)) {
+        ctx.addIssue({
+          code: 'custom',
+          path: ['criterioDominio', 'questoes', i],
+          message: `"${id}" é resposta aberta (autoavaliada) e não pode medir domínio`,
+        });
+      }
       if (!avaliaveis.has(id)) {
         ctx.addIssue({
           code: 'custom',
@@ -440,6 +461,7 @@ export type CompletarCodigo = z.infer<typeof CompletarCodigoSchema>;
 export type IdentificarErro = z.infer<typeof IdentificarErroSchema>;
 export type ProgramaPortugol = z.infer<typeof ProgramaPortugolSchema>;
 export type ProgramaJs = z.infer<typeof ProgramaJsSchema>;
+export type RespostaAberta = z.infer<typeof RespostaAbertaSchema>;
 export type Etapa = z.infer<typeof EtapaSchema>;
 export type Aula = z.infer<typeof AulaSchema>;
 export type Modulo = z.infer<typeof ModuloSchema>;

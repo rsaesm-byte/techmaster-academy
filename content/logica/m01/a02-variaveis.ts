@@ -271,6 +271,20 @@ export const aula02: AulaEntrada = {
           correta: 'a',
           explicacao: 'Pago ou não pago tem só dois valores possíveis: é exatamente o tipo logico.',
         },
+        {
+          id: 'rec.explique',
+          tipo: 'resposta-aberta',
+          enunciado:
+            'Explique a diferença entre a variável e o valor guardado nela, e o que acontece numa nova atribuição.',
+          respostaModelo:
+            'A variável é o nome (a etiqueta da gaveta); o valor é o conteúdo guardado. Quando fazemos uma nova atribuição, como idade <- 18, o valor antigo é descartado e substituído pelo novo. O nome continua o mesmo.',
+          rubrica: [
+            'Diferenciou o nome (variável) do conteúdo (valor)',
+            'Disse que a nova atribuição substitui o valor antigo',
+            'Usou um exemplo',
+          ],
+          explicacao: 'Explicar com as próprias palavras revela o que ainda não está claro.',
+        },
       ],
     },
     {

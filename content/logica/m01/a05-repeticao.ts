@@ -301,6 +301,19 @@ export const aula05: AulaEntrada = {
           explicacao:
             'Se a condição depende de uma variável que nunca muda, a resposta será sempre a mesma: o laço repete para sempre.',
         },
+        {
+          id: 'rec.explique',
+          tipo: 'resposta-aberta',
+          enunciado: 'Explique o que é um laço infinito e como evitá-lo.',
+          respostaModelo:
+            'É um laço cuja condição de parada nunca é atingida, então ele repete para sempre. Acontece quando nada dentro do laço muda a variável usada na condição. Para evitar, garanta que o bloco altere essa variável na direção certa, como contador <- contador + 1 num enquanto contador <= 10.',
+          rubrica: [
+            'Disse que a condição de parada nunca é atingida',
+            'Explicou que algo dentro do laço precisa mudar a condição',
+            'Deu um exemplo de correção (como atualizar o contador)',
+          ],
+          explicacao: 'Explicar com as próprias palavras revela o que ainda não está claro.',
+        },
       ],
     },
     {

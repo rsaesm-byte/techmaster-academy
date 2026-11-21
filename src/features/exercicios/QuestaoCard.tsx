@@ -17,6 +17,7 @@ import {
   EntradaPreverSaida,
   EntradaPrograma,
 } from '@/features/exercicios/Entradas';
+import { RespostaAbertaCard } from '@/features/exercicios/RespostaAbertaCard';
 import { BlocoCodigo } from '@/ui/BlocoCodigo';
 import { TextoRico } from '@/ui/TextoRico';
 
@@ -53,6 +54,8 @@ function respostaCertaEmTexto(q: Questao): string {
     case 'programa-portugol':
     case 'programa-js':
       return q.solucao;
+    case 'resposta-aberta':
+      return q.respostaModelo;
   }
 }
 
@@ -60,7 +63,14 @@ function respostaCertaEmTexto(q: Questao): string {
  * Uma questão completa: enunciado, entrada, pistas graduais, verificação,
  * feedback específico e — só depois de errar — a opção de ver a resposta.
  */
-export function QuestaoCard({
+export function QuestaoCard(props: Parameters<typeof QuestaoFechada>[0]) {
+  if (props.questao.tipo === 'resposta-aberta') {
+    return <RespostaAbertaCard questao={props.questao} aoRegistrar={props.aoRegistrar} />;
+  }
+  return <QuestaoFechada {...props} />;
+}
+
+function QuestaoFechada({
   questao,
   numero,
   jaAcertou = false,
@@ -192,6 +202,8 @@ export function QuestaoCard({
             aoMudar={setResposta}
           />
         );
+      case 'resposta-aberta':
+        return null; // tratada por RespostaAbertaCard
     }
   })();
 

@@ -295,6 +295,19 @@ export const aula03: AulaEntrada = {
           correta: 'a',
           explicacao: 'Todo número ímpar (positivo) deixa resto 1 quando dividido por 2.',
         },
+        {
+          id: 'rec.explique',
+          tipo: 'resposta-aberta',
+          enunciado: 'Explique por que `2 + 3 * 4` dá 14 e não 20.',
+          respostaModelo:
+            'Pela precedência, a multiplicação é feita antes da soma: primeiro 3 * 4 = 12, depois 2 + 12 = 14. Para obter 20 seria preciso parênteses: (2 + 3) * 4.',
+          rubrica: [
+            'Citou que a multiplicação vem antes da soma (precedência)',
+            'Mostrou o passo intermediário (3 * 4 = 12)',
+            'Disse como obter 20 (com parênteses)',
+          ],
+          explicacao: 'Explicar com as próprias palavras revela o que ainda não está claro.',
+        },
       ],
     },
     {

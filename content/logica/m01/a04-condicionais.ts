@@ -334,6 +334,19 @@ export const aula04: AulaEntrada = {
           correta: 'a',
           explicacao: 'Basta uma das duas situações: é o operador "ou".',
         },
+        {
+          id: 'rec.explique',
+          tipo: 'resposta-aberta',
+          enunciado: 'Explique por que a ordem dos testes num se / senao se importa.',
+          respostaModelo:
+            'Numa cadeia, só o primeiro teste verdadeiro executa. Se um teste amplo (como media >= 5) vier antes de um mais restrito (media >= 7), ele captura também os casos do restrito, e o aluno com 9 recebe "Recuperação". Por isso testamos primeiro o caso mais restrito.',
+          rubrica: [
+            'Disse que só o primeiro teste verdadeiro executa',
+            'Explicou que um teste amplo antes captura os casos de um mais restrito',
+            'Deu um exemplo (como as médias)',
+          ],
+          explicacao: 'Explicar com as próprias palavras revela o que ainda não está claro.',
+        },
       ],
     },
     {

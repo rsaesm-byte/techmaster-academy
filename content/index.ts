@@ -5,6 +5,7 @@
  * 3. coloque o id dela no módulo, em content/<disciplina>/disciplina.ts
  * O teste "conteúdo válido" (npm test) confere tudo.
  */
+import { glossario } from './glossario';
 import { logica } from './logica/disciplina';
 import { aula01 } from './logica/m01/a01-o-que-e-algoritmo';
 import { aula02 } from './logica/m01/a02-variaveis';
@@ -14,3 +15,4 @@ import { aula05 } from './logica/m01/a05-repeticao';
 
 export const disciplinas = [logica];
 export const aulas = [aula01, aula02, aula03, aula04, aula05];
+export { glossario };

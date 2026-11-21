@@ -16,7 +16,8 @@ export type Resposta =
   | { tipo: 'completar-codigo'; lacunas: string[] }
   | { tipo: 'identificar-erro'; linha: number }
   | { tipo: 'programa-portugol'; codigo: string }
-  | { tipo: 'programa-js'; codigo: string };
+  | { tipo: 'programa-js'; codigo: string }
+  | { tipo: 'resposta-aberta'; texto: string; criteriosCumpridos: number };
 
 export interface Correcao {
   correta: boolean;
@@ -113,6 +114,18 @@ export function corrigir(questao: Questao, resposta: Resposta): Correcao {
       throw new Error(
         'Programa em JavaScript é corrigido de forma assíncrona: use corrigirQuestao().',
       );
+
+    case 'resposta-aberta': {
+      // Autoavaliação: "correta" significa que o aluno marcou a maioria dos critérios.
+      const { criteriosCumpridos } = resposta as Extract<Resposta, { tipo: 'resposta-aberta' }>;
+      const correta = criteriosCumpridos >= Math.ceil(questao.rubrica.length * 0.6);
+      return {
+        correta,
+        feedback: correta
+          ? 'Boa explicação! Explicar com as próprias palavras é um dos jeitos mais fortes de fixar.'
+          : 'Reescreva incluindo os critérios que faltaram — tentar de novo agora vale mais do que acertar de primeira.',
+      };
+    }
   }
 }
 
@@ -201,6 +214,8 @@ export function respostaCompleta(questao: Questao, resposta: Resposta | undefine
     case 'programa-portugol':
     case 'programa-js':
       return resposta.codigo.trim() !== '';
+    case 'resposta-aberta':
+      return resposta.texto.trim().length >= 20;
   }
 }
 

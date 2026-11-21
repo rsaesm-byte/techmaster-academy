@@ -111,3 +111,35 @@ describe('QuestaoCard', () => {
     expect(screen.getByText('Correto!')).toBeVisible();
   });
 });
+
+describe('resposta aberta', () => {
+  it('compara com o modelo, autoavalia pela rubrica e registra', async () => {
+    const u = userEvent.setup();
+    const registrar = vi.fn();
+    const q: Questao = {
+      id: 'q-aberta',
+      tipo: 'resposta-aberta',
+      enunciado: 'Explique o que é uma variável.',
+      pistas: [],
+      explicacao: 'x',
+      respostaModelo: 'Um nome para um espaço da memória.',
+      rubrica: ['Citou memória', 'Citou nome', 'Deu exemplo'],
+    };
+    render(<QuestaoCard questao={q} aoRegistrar={registrar} />);
+    const comparar = screen.getByRole('button', { name: 'Comparar com a resposta-modelo' });
+    expect(comparar).toBeDisabled();
+    await u.type(
+      screen.getByLabelText(/Escreva com suas palavras/),
+      'É uma gaveta com nome na memória do computador.',
+    );
+    await u.click(comparar);
+    expect(screen.getByText('Um nome para um espaço da memória.')).toBeVisible();
+    await u.click(screen.getByRole('checkbox', { name: 'Citou memória' }));
+    await u.click(screen.getByRole('checkbox', { name: 'Citou nome' }));
+    await u.click(screen.getByRole('button', { name: 'Concluir autoavaliação' }));
+    expect(screen.getByText(/2 de 3 critérios/)).toBeVisible();
+    expect(registrar).toHaveBeenCalledWith(
+      expect.objectContaining({ questaoId: 'q-aberta', correta: true }),
+    );
+  });
+});

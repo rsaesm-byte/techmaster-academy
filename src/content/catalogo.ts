@@ -1,4 +1,5 @@
 import type { z } from 'zod';
+import { TermoSchema, type Termo } from '@/domain/glossario';
 import {
   AulaSchema,
   DisciplinaSchema,
@@ -10,6 +11,7 @@ import {
 export interface Catalogo {
   disciplinas: Disciplina[];
   aulas: ReadonlyMap<string, Aula>;
+  glossario: Termo[];
   /** Para cada aula: a disciplina e o módulo a que pertence, e a posição nele. */
   localizar(aulaId: string): { disciplina: Disciplina; modulo: Modulo; indice: number } | undefined;
 }
@@ -30,7 +32,11 @@ function descrever(origem: string, erro: z.ZodError): string[] {
  * módulos apontam para aulas que existem, pré-requisitos existem,
  * cada aula está em exatamente um módulo.
  */
-export function montarCatalogo(disciplinasEntrada: unknown[], aulasEntrada: unknown[]): Catalogo {
+export function montarCatalogo(
+  disciplinasEntrada: unknown[],
+  aulasEntrada: unknown[],
+  glossarioEntrada: unknown[] = [],
+): Catalogo {
   const problemas: string[] = [];
   const aulas = new Map<string, Aula>();
   const disciplinas: Disciplina[] = [];
@@ -74,7 +80,22 @@ export function montarCatalogo(disciplinasEntrada: unknown[], aulasEntrada: unkn
     }
   }
 
+  const glossario: Termo[] = [];
+  for (const [i, bruto] of glossarioEntrada.entries()) {
+    const r = TermoSchema.safeParse(bruto);
+    const origem = `glossário › ${(bruto as { id?: string } | null)?.id ?? `#${i}`}`;
+    if (!r.success) {
+      problemas.push(...descrever(origem, r.error));
+      continue;
+    }
+    if (glossario.some((t) => t.id === r.data.id)) problemas.push(`${origem}: termo repetido`);
+    for (const a of r.data.aulas)
+      if (!aulas.has(a)) problemas.push(`${origem}: aula "${a}" não existe`);
+    glossario.push(r.data);
+  }
+  glossario.sort((a, b) => a.termo.localeCompare(b.termo, 'pt-BR'));
+
   if (problemas.length > 0) throw new ConteudoInvalidoError(problemas);
 
-  return { disciplinas, aulas, localizar: (id) => onde.get(id) };
+  return { disciplinas, aulas, glossario, localizar: (id) => onde.get(id) };
 }

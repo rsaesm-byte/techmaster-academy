@@ -334,6 +334,20 @@ export const aula01: AulaEntrada = {
           explicacao:
             'O processamento transforma as entradas no resultado: aqui, a conta da média.',
         },
+        {
+          id: 'rec.explique',
+          tipo: 'resposta-aberta',
+          enunciado:
+            'Explique, com suas palavras, por que um computador precisa de instruções exatas.',
+          respostaModelo:
+            'O computador não interpreta nem adivinha o que queremos: ele executa exatamente o que está escrito. Se uma instrução for vaga, como "sal a gosto", ela não tem um único significado e não pode ser executada. Por isso cada passo de um algoritmo precisa ser claro e sem ambiguidade.',
+          rubrica: [
+            'Disse que o computador não interpreta nem adivinha',
+            'Mencionou que cada passo precisa ter um único significado',
+            'Deu um exemplo de instrução vaga ou ambígua',
+          ],
+          explicacao: 'Explicar com as próprias palavras revela o que ainda não está claro.',
+        },
       ],
     },
     {

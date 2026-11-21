@@ -1,4 +1,5 @@
-import { NavLink, Outlet, useLocation } from 'react-router';
+import { useState } from 'react';
+import { NavLink, Outlet, useLocation, useNavigate } from 'react-router';
 import { usePreferencias } from '@/app/preferencias';
 import { Logo } from '@/ui/Logo';
 
@@ -7,6 +8,7 @@ const itens = [
   { para: '/escolas', rotulo: 'Trilhas', fim: false },
   { para: '/revisao', rotulo: 'Revisão', fim: false },
   { para: '/labs', rotulo: 'Laboratórios', fim: false },
+  { para: '/glossario', rotulo: 'Glossário', fim: false },
   { para: '/configuracoes', rotulo: 'Configurações', fim: false },
 ] as const;
 
@@ -16,6 +18,8 @@ export function AppShell() {
   const { prefs } = usePreferencias();
   // Modo foco: dentro de uma aula, o menu some para reduzir distrações.
   const esconder = prefs.modoFoco && pathname.startsWith('/aula/');
+  const [consulta, setConsulta] = useState('');
+  const navegar = useNavigate();
   return (
     <div className="flex min-h-screen flex-col">
       <a
@@ -24,16 +28,47 @@ export function AppShell() {
       >
         Pular para o conteúdo
       </a>
-      <header className="flex items-center gap-4 border-b border-border bg-surface px-6 py-3.5">
+      <header className="flex items-center gap-4 border-b border-border bg-surface px-4 py-3 sm:px-6">
         <NavLink to="/" aria-label="TechMaster Academy — ir para o painel" className="rounded-lg">
           <Logo />
         </NavLink>
+        <form
+          role="search"
+          className="ml-auto flex min-w-0 flex-1 justify-end"
+          onSubmit={(e) => {
+            e.preventDefault();
+            void navegar(`/busca?q=${encodeURIComponent(consulta)}`);
+          }}
+        >
+          <label className="flex h-10 w-full max-w-sm items-center gap-2 rounded-lg border border-border bg-bg px-3 text-muted">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              aria-hidden="true"
+            >
+              <circle cx="11" cy="11" r="7" />
+              <path d="M20 20l-3.5-3.5" />
+            </svg>
+            <span className="sr-only">Buscar aulas, termos e laboratórios</span>
+            <input
+              type="search"
+              value={consulta}
+              onChange={(e) => setConsulta(e.target.value)}
+              placeholder="Buscar…"
+              className="min-w-0 flex-1 bg-transparent text-text outline-offset-4"
+            />
+          </label>
+        </form>
       </header>
       <div className="flex flex-1 flex-wrap content-start sm:content-stretch">
         <nav
           hidden={esconder}
           aria-label="Principal"
-          className="flex w-full gap-1 border-b border-border bg-surface p-3 text-sm font-medium sm:w-56 sm:flex-col sm:border-r sm:border-b-0"
+          className="flex w-full gap-1 overflow-x-auto border-b border-border bg-surface p-3 text-sm font-medium whitespace-nowrap sm:w-56 sm:flex-col sm:overflow-visible sm:border-r sm:border-b-0"
         >
           {itens.map((item) => (
             <NavLink
