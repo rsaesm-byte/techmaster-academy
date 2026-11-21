@@ -28,6 +28,12 @@ import { f18 } from './fundamentos/d03-nuvem';
 import { f19 } from './fundamentos/d04-git';
 import { f20 } from './fundamentos/d05-bancos-dados';
 import { sql } from './sql/disciplina';
+import { redes } from './redes/disciplina';
+import { r01 } from './redes/a01-camadas';
+import { r02 } from './redes/a02-subredes';
+import { r03 } from './redes/a03-roteamento';
+import { r04 } from './redes/a04-transporte';
+import { r05 } from './redes/a05-dhcp-nat-firewall';
 import { s01, s02, s03, s04, s05 } from './sql/aulas';
 import { s06, s07, s08, s09, s10 } from './sql/aulas2';
 import { python } from './python/disciplina';
@@ -69,7 +75,7 @@ import { m02a03 } from './logica/m02/a03-busca';
 import { m02a04 } from './logica/m02/a04-ordenacao';
 import { m02a05 } from './logica/m02/a05-recursividade';
 
-export const disciplinas = [logica, fundamentos, javascript, python, sql];
+export const disciplinas = [logica, fundamentos, javascript, python, sql, redes];
 export const aulas = [
   aula01,
   aula02,
@@ -136,5 +142,10 @@ export const aulas = [
   s08,
   s09,
   s10,
+  r01,
+  r02,
+  r03,
+  r04,
+  r05,
 ];
 export { glossario };

@@ -6,6 +6,11 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola I — Arquitetura de Redes**, disciplina "Redes de Computadores",
+  módulo 1 (5 aulas): modelo em camadas e encapsulamento, sub-redes (VLSM),
+  roteamento, TCP, UDP e portas, e DHCP, NAT e firewall; 9 termos novos no
+  glossário e dois desafios de programação. Tem pedaço próprio (`aulas-redes`),
+  então não pesa no app.
 - **Escola C — Python, módulo 2 "Python no dia a dia"** (5 aulas): textos e métodos,
   tuplas e conjuntos, arquivos com open/with, erros com try/except e módulos com
   pip e ambientes virtuais; 5 termos novos no glossário.
