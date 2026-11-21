@@ -36,6 +36,11 @@ import { p02 } from './python/a02-condicionais';
 import { p03 } from './python/a03-listas-lacos';
 import { p04 } from './python/a04-funcoes';
 import { p05 } from './python/a05-dicionarios';
+import { p06 } from './python/b01-textos';
+import { p07 } from './python/b02-tuplas-conjuntos';
+import { p08 } from './python/b03-arquivos';
+import { p09 } from './python/b04-excecoes';
+import { p10 } from './python/b05-modulos';
 import { javascript } from './javascript/disciplina';
 import { j01 } from './javascript/a01-variaveis';
 import { j02 } from './javascript/a02-condicionais';
@@ -116,6 +121,11 @@ export const aulas = [
   p03,
   p04,
   p05,
+  p06,
+  p07,
+  p08,
+  p09,
+  p10,
   s01,
   s02,
   s03,

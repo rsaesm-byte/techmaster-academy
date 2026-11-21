@@ -20,5 +20,17 @@ export const python: DisciplinaEntrada = {
         'python.m01.a05',
       ],
     },
+    {
+      id: 'python.m02',
+      titulo: 'Python no dia a dia',
+      descricao: 'Textos, tuplas e conjuntos, arquivos, tratamento de erros e módulos com pip.',
+      aulas: [
+        'python.m02.a01',
+        'python.m02.a02',
+        'python.m02.a03',
+        'python.m02.a04',
+        'python.m02.a05',
+      ],
+    },
   ],
 };

@@ -6,6 +6,9 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola C — Python, módulo 2 "Python no dia a dia"** (5 aulas): textos e métodos,
+  tuplas e conjuntos, arquivos com open/with, erros com try/except e módulos com
+  pip e ambientes virtuais; 5 termos novos no glossário.
 - **Escola C — SQL, módulo 2 "Refinando e alterando dados"** (5 aulas): DISTINCT,
   IN, NULL e apelidos; HAVING; LEFT JOIN; INSERT e UPDATE; DELETE e cuidados.
   5 termos novos no glossário.

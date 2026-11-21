@@ -772,4 +772,41 @@ export const glossario: TermoEntrada[] = [
       'Confira com SELECT antes, use transação e backup; exclusão lógica preserva histórico.',
     aulas: ['sql.m02.a05'],
   },
+  {
+    id: 'tupla',
+    termo: 'Tupla',
+    simples: 'Sequência de valores que não pode ser alterada depois de criada.',
+    tecnico:
+      'Em Python, (1, 2); imutável, permite desempacotamento e pode ser chave de dicionário.',
+    aulas: ['python.m02.a02'],
+  },
+  {
+    id: 'conjunto',
+    termo: 'Conjunto (set)',
+    simples: 'Coleção de valores únicos, sem posição fixa.',
+    tecnico:
+      'Usa tabela hash; oferece união, interseção e diferença, e testa pertencimento rapidamente.',
+    aulas: ['python.m02.a02'],
+  },
+  {
+    id: 'excecao',
+    termo: 'Exceção',
+    simples: 'Erro que ocorre durante a execução e pode ser tratado pelo programa.',
+    tecnico: 'Em Python, tratada com try/except/else/finally e lançada com raise.',
+    aulas: ['python.m02.a04'],
+  },
+  {
+    id: 'pip',
+    termo: 'pip',
+    simples: 'Instalador de bibliotecas do Python.',
+    tecnico: 'Baixa pacotes do PyPI; o requirements.txt registra as versões do projeto.',
+    aulas: ['python.m02.a05'],
+  },
+  {
+    id: 'ambiente-virtual',
+    termo: 'Ambiente virtual',
+    simples: 'Pasta isolada com as bibliotecas de um projeto.',
+    tecnico: 'Criado com python -m venv; evita conflitos entre versões de projetos diferentes.',
+    aulas: ['python.m02.a05'],
+  },
 ];
