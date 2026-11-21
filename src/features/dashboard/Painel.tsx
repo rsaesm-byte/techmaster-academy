@@ -2,6 +2,8 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router';
 import { catalogo } from '@/content';
 import type { ProgressoAula, StatusAula } from '@/domain/progresso';
+import { dataLocal } from '@/engines/srs/sm2';
+import { vencidos } from '@/features/revisao/fila';
 import { useRepositorio } from '@/persistence/RepositorioProvider';
 
 const STATUS: Record<StatusAula | 'nao-iniciada', { rotulo: string; cor: string; icone: string }> =
@@ -24,11 +26,14 @@ const STATUS: Record<StatusAula | 'nao-iniciada', { rotulo: string; cor: string;
 export function Painel() {
   const repo = useRepositorio();
   const [progressos, setProgressos] = useState<Map<string, ProgressoAula> | null>(null);
+  const [revisoes, setRevisoes] = useState(0);
 
   useEffect(() => {
     let ativo = true;
-    void repo.listarProgressos().then((lista) => {
-      if (ativo) setProgressos(new Map(lista.map((p) => [p.aulaId, p])));
+    void Promise.all([repo.listarProgressos(), repo.listarCartoes()]).then(([lista, cartoes]) => {
+      if (!ativo) return;
+      setProgressos(new Map(lista.map((p) => [p.aulaId, p])));
+      setRevisoes(vencidos(cartoes, dataLocal(new Date())).length);
     });
     return () => {
       ativo = false;
@@ -77,6 +82,19 @@ export function Painel() {
           Aqui você aprende tecnologia em quatro passos: entender, ver, fazer e lembrar. Comece pela
           primeira aula abaixo.
         </p>
+      )}
+
+      {revisoes > 0 && (
+        <Link
+          to="/revisao"
+          className="flex flex-wrap items-center justify-between gap-3 rounded-2xl border-2 border-accent bg-accent-soft px-6 py-4 no-underline"
+        >
+          <span className="text-text">
+            <strong className="text-2xl">{revisoes}</strong>{' '}
+            {revisoes === 1 ? 'revisão vence hoje' : 'revisões vencem hoje'} · poucos minutos
+          </span>
+          <span className="font-semibold text-text">Revisar agora →</span>
+        </Link>
       )}
 
       {catalogo.disciplinas.flatMap((d) =>

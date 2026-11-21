@@ -2,7 +2,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { Aula } from '@/domain/conteudo';
 import type { ProgressoAula, Tentativa } from '@/domain/progresso';
 import { avaliarDominio, calcularStatus, type ResultadoDominio } from '@/engines/mastery/dominio';
+import { dataLocal } from '@/engines/srs/sm2';
 import type { NovaTentativa } from '@/features/exercicios/QuestaoCard';
+import { garantirCartoes } from '@/features/revisao/fila';
 import { useRepositorio } from '@/persistence/RepositorioProvider';
 
 const agora = () => new Date().toISOString();
@@ -56,7 +58,15 @@ export function useProgressoAula(aula: Aula) {
     [repo, aula.versao],
   );
 
-  const irPara = useCallback((indice: number) => gravar({ etapaAtual: indice }), [gravar]);
+  const irPara = useCallback(
+    async (indice: number) => {
+      await gravar({ etapaAtual: indice });
+      // Ao ver os flashcards, eles entram na fila de revisão espaçada (primeira revisão amanhã).
+      if (aula.etapas[indice]?.tipo === 'flashcards')
+        await garantirCartoes(repo, aula, dataLocal(new Date()), false);
+    },
+    [gravar, aula, repo],
+  );
 
   const registrar = useCallback(
     async (nova: NovaTentativa) => {
@@ -79,6 +89,8 @@ export function useProgressoAula(aula: Aula) {
     const lista = await repo.listarTentativas(aula.id);
     const dominio = avaliarDominio(aula.criterioDominio, lista);
     await gravar({ status: calcularStatus(true, dominio, atual.current?.status) });
+    // Concluir a aula põe flashcards e questões do critério na revisão espaçada.
+    await garantirCartoes(repo, aula, dataLocal(new Date()), true);
     return dominio;
   }, [repo, aula, gravar]);
 

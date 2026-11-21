@@ -1,6 +1,7 @@
 import {
   BackupSchema,
   FORMATO_BACKUP,
+  type CartaoRevisao,
   type ProgressoAula,
   type Tentativa,
 } from '@/domain/progresso';
@@ -10,6 +11,7 @@ import type { ProgressRepository } from '@/persistence/ProgressRepository';
 export class MemoriaProgressRepository implements ProgressRepository {
   private progressos = new Map<string, ProgressoAula>();
   private tentativas: Tentativa[] = [];
+  private cartoes = new Map<string, CartaoRevisao>();
 
   async obterProgresso(aulaId: string) {
     const p = this.progressos.get(aulaId);
@@ -35,6 +37,14 @@ export class MemoriaProgressRepository implements ProgressRepository {
       .map((t) => structuredClone(t));
   }
 
+  async listarCartoes() {
+    return [...this.cartoes.values()].map((c) => structuredClone(c));
+  }
+
+  async salvarCartoes(cartoes: CartaoRevisao[]) {
+    for (const c of cartoes) this.cartoes.set(c.id, structuredClone(c));
+  }
+
   async exportar() {
     return {
       formato: FORMATO_BACKUP,
@@ -42,6 +52,7 @@ export class MemoriaProgressRepository implements ProgressRepository {
       exportadoEm: new Date().toISOString(),
       progressos: await this.listarProgressos(),
       tentativas: this.tentativas.map((t) => structuredClone(t)),
+      cartoes: await this.listarCartoes(),
     };
   }
 
@@ -49,10 +60,12 @@ export class MemoriaProgressRepository implements ProgressRepository {
     const dados = BackupSchema.parse(backup);
     this.progressos = new Map(dados.progressos.map((p) => [p.aulaId, p]));
     this.tentativas = [...dados.tentativas];
+    this.cartoes = new Map(dados.cartoes.map((c) => [c.id, c]));
   }
 
   async apagarTudo() {
     this.progressos.clear();
     this.tentativas = [];
+    this.cartoes.clear();
   }
 }

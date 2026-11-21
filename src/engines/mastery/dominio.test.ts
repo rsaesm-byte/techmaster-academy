@@ -39,6 +39,12 @@ describe('avaliarDominio', () => {
     expect(r.acertadas).toEqual(['q1']);
   });
 
+  it('acerto em outro dia, depois de ter visto a resposta, conta (revisão)', () => {
+    const revelou = t('q1', false, 1, true);
+    const diaSeguinte = { ...t('q1', true, 2), em: '2026-11-22T09:00:00.000Z' };
+    expect(avaliarDominio(criterio, [revelou, diaSeguinte]).acertadas).toEqual(['q1']);
+  });
+
   it('questões fora do critério não contam', () => {
     expect(avaliarDominio(criterio, [t('extra', true, 1)]).percentual).toBe(0);
   });

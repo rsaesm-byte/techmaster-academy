@@ -85,6 +85,43 @@ describe.each(implementacoes)('ProgressRepository — %s', (_nome, criar) => {
     expect(await repo.listarTentativas('logica.m01.a01')).toHaveLength(1);
   });
 
+  it('guarda e atualiza cartões de revisão (e eles entram no backup)', async () => {
+    const repo = criar();
+    const cartao = {
+      id: 'fc:logica.m01.a01.fc1',
+      aulaId: 'logica.m01.a01',
+      origem: 'flashcard' as const,
+      itemId: 'logica.m01.a01.fc1',
+      facilidade: 2.5,
+      repeticoes: 0,
+      intervaloDias: 0,
+      proximaRevisao: '2026-11-22',
+      historico: [],
+    };
+    await repo.salvarCartoes([cartao]);
+    await repo.salvarCartoes([{ ...cartao, repeticoes: 1, proximaRevisao: '2026-11-23' }]);
+    expect(await repo.listarCartoes()).toEqual([
+      { ...cartao, repeticoes: 1, proximaRevisao: '2026-11-23' },
+    ]);
+    const backup = await repo.exportar();
+    await repo.apagarTudo();
+    expect(await repo.listarCartoes()).toEqual([]);
+    await repo.importar(JSON.parse(JSON.stringify(backup)));
+    expect(await repo.listarCartoes()).toHaveLength(1);
+  });
+
+  it('aceita backup antigo, sem cartões', async () => {
+    const repo = criar();
+    await repo.importar({
+      formato: 'techmaster-progresso',
+      schemaVersion: 1,
+      exportadoEm: '2026-11-21T10:00:00.000Z',
+      progressos: [],
+      tentativas: [],
+    });
+    expect(await repo.listarCartoes()).toEqual([]);
+  });
+
   it('rejeita backup inválido sem apagar o que existe', async () => {
     const repo = criar();
     await repo.salvarProgresso(progresso('logica.m01.a01', 4));

@@ -1,4 +1,4 @@
-import type { Backup, ProgressoAula, Tentativa } from '@/domain/progresso';
+import type { Backup, CartaoRevisao, ProgressoAula, Tentativa } from '@/domain/progresso';
 
 /**
  * Tudo que a aplicação pode fazer com o progresso do aluno.
@@ -15,6 +15,10 @@ export interface ProgressRepository {
 
   registrarTentativa(tentativa: Tentativa): Promise<void>;
   listarTentativas(aulaId: string): Promise<Tentativa[]>;
+
+  listarCartoes(): Promise<CartaoRevisao[]>;
+  /** Grava vários cartões de uma vez (cria ou atualiza). */
+  salvarCartoes(cartoes: CartaoRevisao[]): Promise<void>;
 
   /** Cópia de tudo, para o aluno guardar ou levar para outro aparelho. */
   exportar(): Promise<Backup>;

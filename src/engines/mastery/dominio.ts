@@ -1,7 +1,8 @@
 /**
  * CRITÉRIO DE DOMÍNIO
- * Uma questão conta como acertada se houve ao menos uma tentativa correta
- * SEM a resposta ter sido revelada antes. Tempo gasto não entra no cálculo.
+ * Uma questão conta como acertada se houve ao menos uma tentativa correta sem
+ * ajuda da resposta revelada: antes de revelar, ou em outro dia (na revisão).
+ * Tempo gasto não entra no cálculo.
  */
 import type { Aula } from '@/domain/conteudo';
 import type { StatusAula, Tentativa } from '@/domain/progresso';
@@ -24,9 +25,13 @@ export function avaliarDominio(
       .filter((t) => t.respostaRevelada)
       .map((t) => t.em)
       .sort()[0];
-    // Conta só o acerto feito ANTES de ver a resposta.
+    // Conta o acerto feito ANTES de ver a resposta, ou num dia DEPOIS (na revisão):
+    // lembrar no dia seguinte mostra aprendizado; acertar logo após ver, não.
     return daQuestao.some(
-      (t) => t.correta && !t.respostaRevelada && (revelacao === undefined || t.em < revelacao),
+      (t) =>
+        t.correta &&
+        !t.respostaRevelada &&
+        (revelacao === undefined || t.em < revelacao || t.em.slice(0, 10) > revelacao.slice(0, 10)),
     );
   };
 
