@@ -7,7 +7,8 @@
 Regras do projeto:
 
 - TypeScript estrito; nada de `any`.
-- Cores só pelos tokens (`bg-surface`, `text-muted`...), nunca hex direto.
+- Cores só pelos tokens (`bg-surface`, `text-muted`...), nunca hex direto (exceção: a marca, em `src/ui/Logo.tsx` e `public/icones/`).
+- Conteúdo novo: siga o [guia de autoria](docs/CONTEUDO.md).
 - Todo controle precisa funcionar pelo teclado e ter rótulo.
 - Testes para toda lógica nova.
 - Dados de exemplo e simulações sempre identificados como tal.
