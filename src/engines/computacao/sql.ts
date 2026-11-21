@@ -75,7 +75,14 @@ function tokenizar(sql: string): Token[] {
 }
 
 type Linha = Record<string, Valor>;
-type Item = { agg?: string; col?: string; texto: string; alias?: string };
+type Item = {
+  agg?: string;
+  col?: string;
+  texto: string;
+  alias?: string;
+  /** Valor literal no lado esquerdo de uma condição (ex.: 1 = 1). */
+  constante?: Valor;
+};
 type Cond = { item: Item; op: string; valor: Valor | Valor[] };
 
 class Leitor {
@@ -174,7 +181,11 @@ function lerValor(l: Leitor): Valor {
 function lerCondicoes(l: Leitor): Cond[][] {
   const grupos: Cond[][] = [[]];
   for (;;) {
-    const item = lerItem(l);
+    const ini = l.ver();
+    let item: Item;
+    if (ini && (ini.t === 'num' || ini.t === 'str'))
+      item = { texto: ini.v, constante: lerValor(l) };
+    else item = lerItem(l);
     const t = l.ver();
     let op: string;
     let valor: Valor | Valor[];
@@ -300,7 +311,11 @@ function cmp(a: Valor, b: Valor): number {
 }
 
 function passa(grupos: Cond[][], valorDe: (it: Item) => Valor): boolean {
-  return grupos.some((g) => g.every((c) => comparar(valorDe(c.item), c.op, c.valor)));
+  return grupos.some((g) =>
+    g.every((c) =>
+      comparar(c.item.constante !== undefined ? c.item.constante : valorDe(c.item), c.op, c.valor),
+    ),
+  );
 }
 
 function textoSql(v: Valor): string {

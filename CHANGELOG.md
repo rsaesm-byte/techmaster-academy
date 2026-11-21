@@ -6,6 +6,12 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola L — Cibersegurança**, disciplina "Fundamentos de Cibersegurança",
+  módulo 1 "Defesa em profundidade" (5 aulas): tríade CIA, senhas com hash e MFA,
+  phishing, injeção de SQL (com demo no banco de treino) e higiene de segurança
+  com backup 3-2-1; 7 termos novos e 4 desafios de programação.
+- O motor de SQL aceita um valor literal no lado esquerdo de uma condição
+  (por exemplo `1 = 1`).
 - **Redes, módulo 2 "Operando e protegendo a rede"** (5 aulas): diagnóstico com
   ping, traceroute e nslookup; Wi-Fi seguro; HTTPS e TLS; VPN e túneis; e o
   projeto da rede de um escritório. Três desafios de programação novos

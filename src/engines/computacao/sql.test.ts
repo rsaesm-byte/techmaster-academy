@@ -136,4 +136,11 @@ describe('mini SQL', () => {
     expect(executarSql('DELETE FROM pedidos').tabelas.pedidos?.linhas).toHaveLength(0);
     expect(executarSql('DROP TABLE pedidos').resultado).toMatchObject({ ok: false });
   });
+
+  it('aceita um valor literal no lado esquerdo da condição (1 = 1)', () => {
+    const r = consultar("SELECT nome FROM clientes WHERE nome = 'zzz' OR 1 = 1");
+    expect(r.ok && r.linhas).toHaveLength(5);
+    const nenhum = consultar('SELECT nome FROM clientes WHERE 1 = 2');
+    expect(nenhum.ok && nenhum.linhas).toHaveLength(0);
+  });
 });
