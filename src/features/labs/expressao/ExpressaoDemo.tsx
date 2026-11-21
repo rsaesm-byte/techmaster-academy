@@ -7,11 +7,13 @@ function calcularPassos(texto: string, variaveis: Record<string, number>) {
     const expr = new LeitorExpressao(tokenizar(texto, 1), 1).lerTudo();
     const vars = Object.fromEntries(Object.entries(variaveis).map(([k, v]) => [normalizar(k), v]));
     return {
-      passos: passosDaExpressao(expr, (chave, nome) => {
-        const v = vars[chave];
-        if (v === undefined)
-          throw new ErroPortugol(1, `A variável "${nome}" não tem valor nesta demonstração.`);
-        return v;
+      passos: passosDaExpressao(expr, {
+        variavel: (chave: string, nome: string) => {
+          const v = vars[chave];
+          if (v === undefined)
+            throw new ErroPortugol(1, `A variável "${nome}" não tem valor nesta demonstração.`);
+          return v;
+        },
       }),
     };
   } catch (e) {

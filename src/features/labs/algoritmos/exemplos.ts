@@ -38,6 +38,25 @@ export const EXEMPLOS: { nome: string; codigo: string; entradas?: string[]; dica
     entradas: ['7'],
   },
   {
+    nome: 'Vetor: maior nota',
+    dica: 'Acompanhe "maior" mudando só quando aparece uma nota maior. E se todas as notas forem negativas?',
+    codigo:
+      'var\n  notas: vetor[1..5] de real\n  i: inteiro\n  maior: real\ninicio\n  para i de 1 ate 5 faca\n    leia(notas[i])\n  fimpara\n  maior <- notas[1]\n  para i de 2 ate 5 faca\n    se notas[i] > maior entao\n      maior <- notas[i]\n    fimse\n  fimpara\n  escreva("Maior nota: ", maior)\nfimalgoritmo',
+    entradas: ['7', '9.5', '4', '8', '6'],
+  },
+  {
+    nome: 'Função: área do retângulo',
+    dica: 'Veja a pilha de chamadas: os parâmetros nascem quando a função é chamada e somem quando ela devolve.',
+    codigo:
+      'funcao area(base, altura: real): real\ninicio\n  retorne base * altura\nfimfuncao\n\ninicio\n  escreva("Sala: ", area(4, 3.5))\n  escreva("Quarto: ", area(3, 3))\nfimalgoritmo',
+  },
+  {
+    nome: 'Recursão: fatorial',
+    dica: 'A pilha cresce até o caso base (n <= 1) e depois "desempilha" multiplicando.',
+    codigo:
+      'funcao fat(n: inteiro): inteiro\ninicio\n  se n <= 1 entao\n    retorne 1\n  fimse\n  retorne n * fat(n - 1)\nfimfuncao\n\ninicio\n  escreva(fat(4))\nfimalgoritmo',
+  },
+  {
     nome: 'Laço infinito (com defeito)',
     dica: 'Este programa nunca termina. Encontre o erro e corrija no editor.',
     codigo: 'c <- 1\nenquanto c <= 3 faca\n  escreva(c)\nfimenquanto',

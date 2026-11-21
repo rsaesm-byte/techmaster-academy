@@ -10,18 +10,20 @@ export type Valor = number | string | boolean;
 export type Expr =
   | { k: 'lit'; v: Valor }
   | { k: 'var'; nome: string; chave: string }
+  | { k: 'indice'; nome: string; chave: string; idx: Expr }
+  | { k: 'chamada'; nome: string; chave: string; args: Expr[] }
   | { k: 'un'; op: '-' | 'nao'; e: Expr }
   | { k: 'bin'; op: OpBinario; a: Expr; b: Expr };
 
 export type OpBinario =
-  '+' | '-' | '*' | '/' | '%' | '=' | '<>' | '<' | '>' | '<=' | '>=' | 'e' | 'ou';
+  '+' | '-' | '*' | '/' | '\\' | '%' | '=' | '<>' | '<' | '>' | '<=' | '>=' | 'e' | 'ou';
 
 const NIVEIS: OpBinario[][] = [
   ['ou'],
   ['e'],
   ['=', '<>', '<', '>', '<=', '>='],
   ['+', '-'],
-  ['*', '/', '%'],
+  ['*', '/', '\\', '%'],
 ];
 
 function precedencia(op: OpBinario): number {
@@ -84,6 +86,36 @@ export class LeitorExpressao {
     if (t.tipo === 'id') {
       if (t.norm === 'verdadeiro') return { k: 'lit', v: true };
       if (t.norm === 'falso') return { k: 'lit', v: false };
+      const prox = this.tokens[this.pos];
+      if (prox?.texto === '[') {
+        this.pos++;
+        const idx = this.ler();
+        if (this.tokens[this.pos]?.texto !== ']')
+          throw new ErroPortugol(this.linha, 'Faltou fechar o colchete "]".');
+        this.pos++;
+        return { k: 'indice', nome: t.texto, chave: t.norm, idx };
+      }
+      if (prox?.texto === '(') {
+        this.pos++;
+        const args: Expr[] = [];
+        if (this.tokens[this.pos]?.texto !== ')') {
+          for (;;) {
+            args.push(this.ler());
+            if (this.tokens[this.pos]?.texto === ',') {
+              this.pos++;
+              continue;
+            }
+            break;
+          }
+        }
+        if (this.tokens[this.pos]?.texto !== ')')
+          throw new ErroPortugol(
+            this.linha,
+            `Faltou fechar o parêntese da chamada ${t.texto}(...).`,
+          );
+        this.pos++;
+        return { k: 'chamada', nome: t.texto, chave: t.norm, args };
+      }
       return { k: 'var', nome: t.texto, chave: t.norm };
     }
     if (t.texto === '(') {
@@ -111,7 +143,7 @@ export class LeitorExpressao {
 function operadorBinario(t: Token): OpBinario | undefined {
   if (
     t.tipo === 'op' &&
-    ['+', '-', '*', '/', '%', '=', '<>', '<', '>', '<=', '>='].includes(t.texto)
+    ['+', '-', '*', '/', '\\', '%', '=', '<>', '<', '>', '<=', '>='].includes(t.texto)
   ) {
     return t.texto as OpBinario;
   }
@@ -137,6 +169,10 @@ export function exprParaTexto(e: Expr, pai?: OpBinario, lado?: 'a' | 'b'): strin
       return formatarValor(e.v, true);
     case 'var':
       return e.nome;
+    case 'indice':
+      return `${e.nome}[${exprParaTexto(e.idx)}]`;
+    case 'chamada':
+      return `${e.nome}(${e.args.map((a) => exprParaTexto(a)).join(', ')})`;
     case 'un':
       return e.op === '-' ? `-${exprParaTexto(e.e)}` : `nao ${exprParaTexto(e.e)}`;
     case 'bin': {
@@ -144,7 +180,7 @@ export function exprParaTexto(e: Expr, pai?: OpBinario, lado?: 'a' | 'b'): strin
       if (!pai) return t;
       const p = precedencia(e.op);
       const pp = precedencia(pai);
-      const precisa = p < pp || (p === pp && lado === 'b' && ['-', '/', '%'].includes(pai));
+      const precisa = p < pp || (p === pp && lado === 'b' && ['-', '/', '\\', '%'].includes(pai));
       return precisa ? `(${t})` : t;
     }
   }
@@ -152,14 +188,54 @@ export function exprParaTexto(e: Expr, pai?: OpBinario, lado?: 'a' | 'b'): strin
 
 // ---------- Calcular ----------
 
-export type Ambiente = (chave: string, nome: string) => Valor;
+/** Como a expressão obtém valores de fora: variáveis, elementos de vetor e chamadas de função. */
+export interface Ambiente {
+  variavel(chave: string, nome: string): Valor;
+  indice?(chave: string, nome: string, i: number): Valor;
+  chamar?(chave: string, nome: string, args: Valor[]): Valor;
+}
+
+/** Funções prontas do Portugol (as mais usadas nas aulas). */
+export const FUNCOES_NATIVAS: Record<string, (args: Valor[], linha: number) => Valor> = {
+  abs: ([x], l) => Math.abs(numero(x, 'abs', l)),
+  int: ([x], l) => Math.trunc(numero(x, 'int', l)),
+  raizq: ([x], l) => Math.sqrt(numero(x, 'raizq', l)),
+  quad: ([x], l) => numero(x, 'quad', l) ** 2,
+  compr: ([x], l) => {
+    if (typeof x !== 'string') throw new ErroPortugol(l, 'compr(...) precisa de um texto.');
+    return x.length;
+  },
+};
+
+function numero(x: Valor | undefined, nome: string, linha: number): number {
+  if (typeof x !== 'number') throw new ErroPortugol(linha, `${nome}(...) precisa de um número.`);
+  return x;
+}
 
 export function avaliar(e: Expr, amb: Ambiente, linha: number): Valor {
   switch (e.k) {
     case 'lit':
       return e.v;
     case 'var':
-      return amb(e.chave, e.nome);
+      return amb.variavel(e.chave, e.nome);
+    case 'indice': {
+      const i = avaliar(e.idx, amb, linha);
+      if (typeof i !== 'number' || !Number.isInteger(i)) {
+        throw new ErroPortugol(
+          linha,
+          `O índice de ${e.nome}[...] precisa ser um número inteiro, mas foi ${formatarValor(i, true)}.`,
+        );
+      }
+      if (!amb.indice) throw new ErroPortugol(linha, `"${e.nome}" não é um vetor.`);
+      return amb.indice(e.chave, e.nome, i);
+    }
+    case 'chamada': {
+      const args = e.args.map((a) => avaliar(a, amb, linha));
+      const nativa = FUNCOES_NATIVAS[e.chave];
+      if (amb.chamar) return amb.chamar(e.chave, e.nome, args);
+      if (nativa) return nativa(args, linha);
+      throw new ErroPortugol(linha, `Função "${e.nome}" não existe.`);
+    }
     case 'un': {
       const v = avaliar(e.e, amb, linha);
       if (e.op === '-') {
@@ -208,6 +284,9 @@ export function aplicar(op: OpBinario, a: Valor, b: Valor, linha: number): Valor
     case '/':
       if (num(b) === 0) throw new ErroPortugol(linha, 'Divisão por zero.');
       return num(a) / num(b);
+    case '\\':
+      if (num(b) === 0) throw new ErroPortugol(linha, 'Divisão por zero.');
+      return Math.trunc(num(a) / num(b));
     case '%':
       if (num(b) === 0) throw new ErroPortugol(linha, 'Resto de divisão por zero.');
       return num(a) % num(b);
@@ -258,7 +337,9 @@ export function passosDaExpressao(e: Expr, amb: Ambiente, linha = 1): string[] {
 function substituirVariaveis(e: Expr, amb: Ambiente): Expr {
   switch (e.k) {
     case 'var':
-      return { k: 'lit', v: amb(e.chave, e.nome) };
+    case 'indice':
+    case 'chamada':
+      return { k: 'lit', v: avaliar(e, amb, 1) };
     case 'un':
       return { ...e, e: substituirVariaveis(e.e, amb) };
     case 'bin':
@@ -271,7 +352,7 @@ function substituirVariaveis(e: Expr, amb: Ambiente): Expr {
 /** Calcula a operação mais "funda" (a primeira que pode ser feita), da esquerda para a direita. */
 function reduzirUm(e: Expr, linha: number): Expr {
   if (e.k === 'un') {
-    if (e.e.k === 'lit') return { k: 'lit', v: avaliar(e, () => 0, linha) };
+    if (e.e.k === 'lit') return { k: 'lit', v: avaliar(e, { variavel: () => 0 }, linha) };
     return { ...e, e: reduzirUm(e.e, linha) };
   }
   if (e.k === 'bin') {

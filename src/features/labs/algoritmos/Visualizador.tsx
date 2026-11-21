@@ -1,6 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { formatarValor } from '@/engines/portugol/expressao';
-import { executar, type Passo } from '@/engines/portugol/interpretador';
+import { executar, type Passo, type VariavelRastro } from '@/engines/portugol/interpretador';
 import { usePrefereMenosMovimento } from '@/ui/usePrefereMenosMovimento';
 
 const VELOCIDADES = [
@@ -211,29 +211,40 @@ export function Visualizador({
             {variaveis.length === 0 ? (
               <p className="m-0 text-sm text-muted">Nenhuma variável ainda.</p>
             ) : (
-              <ul className="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(110px,1fr))] gap-2 p-0">
-                {variaveis.map((v) => {
-                  const mudou = passo?.mudou === v.chave;
-                  return (
-                    <li
-                      key={v.chave}
-                      className={`flex flex-col overflow-hidden rounded-xl border-2 bg-bg ${
-                        mudou ? 'border-accent' : 'border-border'
-                      } ${mudou && !menosMovimento ? 'animate-[tm-pulso_600ms_ease-out]' : ''}`}
-                    >
-                      <span className="bg-surface-2 px-2 py-0.5 text-xs font-semibold">
-                        {v.nome}
-                        {v.tipo && <span className="font-normal text-muted"> · {v.tipo}</span>}
-                      </span>
-                      <span className="px-2 py-1.5 font-mono text-lg [font-variant-ligatures:none]">
-                        {formatarValor(v.valor, true)}
-                      </span>
-                    </li>
-                  );
-                })}
-              </ul>
+              <Gavetas variaveis={variaveis} passo={passo} menosMovimento={menosMovimento} />
             )}
           </section>
+          {passo && passo.pilha.length > 1 && (
+            <section aria-labelledby={`${ids}-pilha`} className="flex flex-col gap-2">
+              <h3 id={`${ids}-pilha`} className="m-0 text-sm font-semibold text-muted">
+                Pilha de chamadas ({passo.pilha.length - 1} ativa{passo.pilha.length > 2 ? 's' : ''}
+                )
+              </h3>
+              <ol className="m-0 flex list-none flex-col-reverse gap-1.5 p-0">
+                {passo.pilha.slice(1).map((q, i, arr) => (
+                  <li
+                    key={i}
+                    aria-current={i === arr.length - 1 ? 'step' : undefined}
+                    className={`rounded-xl border-2 p-2 ${i === arr.length - 1 ? 'border-primary bg-primary-soft' : 'border-border bg-bg opacity-80'}`}
+                  >
+                    <p className="m-0 font-mono text-sm font-semibold [font-variant-ligatures:none]">
+                      {q.nome}
+                    </p>
+                    {q.variaveis.length > 0 && (
+                      <p className="m-0 font-mono text-xs text-muted [font-variant-ligatures:none]">
+                        {q.variaveis
+                          .map((v) => `${v.nome} = ${formatarValor(v.valor, true)}`)
+                          .join(' · ')}
+                      </p>
+                    )}
+                  </li>
+                ))}
+              </ol>
+              <p className="m-0 text-xs text-muted">
+                A chamada mais recente fica em cima; quando ela termina, sai da pilha.
+              </p>
+            </section>
+          )}
           <section aria-labelledby={`${ids}-saida`} className="flex flex-col gap-2">
             <h3 id={`${ids}-saida`} className="m-0 text-sm font-semibold text-muted">
               Tela (saída)
@@ -374,6 +385,81 @@ export function Visualizador({
           />
         </label>
       )}
+    </div>
+  );
+}
+
+/** Variáveis como gavetas; vetores como uma fileira de gavetas numeradas. */
+function Gavetas({
+  variaveis,
+  passo,
+  menosMovimento,
+}: {
+  variaveis: VariavelRastro[];
+  passo: Passo | undefined;
+  menosMovimento: boolean;
+}) {
+  const simples = variaveis.filter((v) => !v.vetor);
+  const vetores = variaveis.filter((v) => v.vetor);
+  const pulso = (ativo: boolean) =>
+    ativo && !menosMovimento ? 'animate-[tm-pulso_600ms_ease-out]' : '';
+  return (
+    <div className="flex flex-col gap-3">
+      {simples.length > 0 && (
+        <ul className="m-0 grid list-none grid-cols-[repeat(auto-fill,minmax(110px,1fr))] gap-2 p-0">
+          {simples.map((v) => {
+            const mudou = passo?.mudou === v.chave;
+            return (
+              <li
+                key={v.chave}
+                className={`flex flex-col overflow-hidden rounded-xl border-2 bg-bg ${mudou ? 'border-accent' : 'border-border'} ${pulso(mudou)}`}
+              >
+                <span className="bg-surface-2 px-2 py-0.5 text-xs font-semibold">
+                  {v.nome}
+                  {v.tipo && <span className="font-normal text-muted"> · {v.tipo}</span>}
+                </span>
+                <span className="px-2 py-1.5 font-mono text-lg [font-variant-ligatures:none]">
+                  {formatarValor(v.valor, true)}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+      {vetores.map((v) => {
+        const vet = v.vetor;
+        if (!vet) return null;
+        return (
+          <div key={v.chave} className="flex flex-col gap-1">
+            <p className="m-0 text-xs font-semibold">
+              {v.nome} <span className="font-normal text-muted">· vetor de {v.tipo}</span>
+            </p>
+            <ol
+              aria-label={`Vetor ${v.nome}`}
+              className="m-0 flex list-none gap-1 overflow-x-auto p-0 pb-1"
+            >
+              {vet.elementos.map((el, i) => {
+                const indice = vet.inicio + i;
+                const mudou = passo?.mudou === v.chave && passo.mudouIndice === indice;
+                return (
+                  <li
+                    key={i}
+                    aria-label={`${v.nome}[${indice}] = ${formatarValor(el, true)}`}
+                    className={`flex min-w-12 flex-col items-center overflow-hidden rounded-lg border-2 bg-bg ${mudou ? 'border-accent' : 'border-border'} ${pulso(mudou)}`}
+                  >
+                    <span className="w-full bg-surface-2 text-center text-[11px] text-muted">
+                      {indice}
+                    </span>
+                    <span className="px-1.5 py-1 font-mono text-base [font-variant-ligatures:none]">
+                      {formatarValor(el, true)}
+                    </span>
+                  </li>
+                );
+              })}
+            </ol>
+          </div>
+        );
+      })}
     </div>
   );
 }

@@ -32,18 +32,23 @@ const OPERADORES = [
   '<>',
   '==',
   '←',
+  '..',
   '+',
   '-',
   '*',
   '/',
+  '\\',
   '%',
   '=',
   '<',
   '>',
   '(',
   ')',
+  '[',
+  ']',
   ',',
   ':',
+  ';',
 ];
 
 export function tokenizar(fonte: string, linha: number): Token[] {

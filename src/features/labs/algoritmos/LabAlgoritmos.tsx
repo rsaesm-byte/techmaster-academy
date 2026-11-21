@@ -60,7 +60,19 @@ export default function LabAlgoritmos() {
             Operadores: <code>+ - * / %</code>, <code>= &lt;&gt; &lt; &gt; &lt;= &gt;=</code>,{' '}
             <code>e ou nao</code>
           </li>
-          <li>Ainda não: vetores, funções e procedimentos (chegam em módulos futuros).</li>
+          <li>
+            Vetores: <code>notas: vetor[1..5] de real</code>, <code>notas[i] &lt;- 7</code>
+          </li>
+          <li>
+            <code>funcao nome(a: inteiro): inteiro</code> ... <code>retorne</code> ...{' '}
+            <code>fimfuncao</code>, <code>procedimento</code> / <code>fimprocedimento</code> e
+            recursão
+          </li>
+          <li>
+            Divisão inteira <code>\</code> e funções prontas <code>abs</code>, <code>int</code>,{' '}
+            <code>raizq</code>, <code>quad</code>, <code>compr</code>
+          </li>
+          <li>Ainda não: matrizes, parâmetros por referência e escolha.</li>
         </ul>
       </details>
     </div>
