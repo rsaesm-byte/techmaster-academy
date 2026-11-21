@@ -4,6 +4,11 @@ import { PermissoesSim } from '@/features/labs/sistemas/PermissoesSim';
 import { RedeSim } from '@/features/labs/sistemas/RedeSim';
 import { SenhaSim } from '@/features/labs/sistemas/SenhaSim';
 import { WebSim } from '@/features/labs/sistemas/WebSim';
+import { CacheSim } from '@/features/labs/armazenamento/CacheSim';
+import { CesarSim } from '@/features/labs/armazenamento/CesarSim';
+import { CompressaoSim } from '@/features/labs/armazenamento/CompressaoSim';
+import { RaidSim } from '@/features/labs/armazenamento/RaidSim';
+import { UnidadesSim } from '@/features/labs/armazenamento/UnidadesSim';
 import { CpuSim } from '@/features/labs/cpu/CpuSim';
 import { TerminalSim } from '@/features/labs/terminal/TerminalSim';
 import { PortasSim, type ModoPortas } from '@/features/labs/portas/PortasSim';
@@ -206,6 +211,41 @@ export function LabSistemas() {
     >
       <div role="group" aria-label="O que explorar" className="flex flex-wrap gap-2">
         {SISTEMAS.map((x) => (
+          <button
+            key={x.id}
+            type="button"
+            aria-pressed={id === x.id}
+            onClick={() => setId(x.id)}
+            className={`min-h-11 rounded-lg border px-4 font-medium ${id === x.id ? 'border-primary bg-primary-soft' : 'border-border hover:bg-surface-2'}`}
+          >
+            {x.rotulo}
+          </button>
+        ))}
+      </div>
+      {atual.el()}
+    </Pagina>
+  );
+}
+
+const DADOS = [
+  { id: 'unidades', rotulo: 'Unidades', el: () => <UnidadesSim /> },
+  { id: 'cache', rotulo: 'Cache', el: () => <CacheSim /> },
+  { id: 'raid', rotulo: 'RAID', el: () => <RaidSim /> },
+  { id: 'compressao', rotulo: 'Compressão', el: () => <CompressaoSim /> },
+  { id: 'cesar', rotulo: 'Cifra de César', el: () => <CesarSim /> },
+] as const;
+
+export function LabDados() {
+  const [id, setId] = useState<(typeof DADOS)[number]['id']>('unidades');
+  const atual = DADOS.find((x) => x.id === id) ?? DADOS[0];
+  return (
+    <Pagina
+      numero="Laboratório"
+      titulo="Dados: guardar, acelerar, comprimir e proteger"
+      descricao="Cinco simuladores sobre armazenamento, cache, RAID, compressão e criptografia."
+    >
+      <div role="group" aria-label="O que explorar" className="flex flex-wrap gap-2">
+        {DADOS.map((x) => (
           <button
             key={x.id}
             type="button"

@@ -290,6 +290,11 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
     quantum: z.number().int().min(1).max(5).default(2),
   }),
   z.object({ tipo: z.literal('senha') }),
+  z.object({ tipo: z.literal('unidades') }),
+  z.object({ tipo: z.literal('cache'), sequencia: z.string().optional() }),
+  z.object({ tipo: z.literal('raid') }),
+  z.object({ tipo: z.literal('compressao'), texto: z.string().optional() }),
+  z.object({ tipo: z.literal('cesar'), texto: z.string().optional() }),
   z.object({ tipo: z.literal('web') }),
   z.object({
     tipo: z.literal('terminal'),

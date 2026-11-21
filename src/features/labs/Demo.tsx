@@ -42,6 +42,21 @@ const SenhaSim = lazy(() =>
 const WebSim = lazy(() =>
   import('@/features/labs/sistemas/WebSim').then((m) => ({ default: m.WebSim })),
 );
+const UnidadesSim = lazy(() =>
+  import('@/features/labs/armazenamento/UnidadesSim').then((m) => ({ default: m.UnidadesSim })),
+);
+const CacheSim = lazy(() =>
+  import('@/features/labs/armazenamento/CacheSim').then((m) => ({ default: m.CacheSim })),
+);
+const RaidSim = lazy(() =>
+  import('@/features/labs/armazenamento/RaidSim').then((m) => ({ default: m.RaidSim })),
+);
+const CompressaoSim = lazy(() =>
+  import('@/features/labs/armazenamento/CompressaoSim').then((m) => ({ default: m.CompressaoSim })),
+);
+const CesarSim = lazy(() =>
+  import('@/features/labs/armazenamento/CesarSim').then((m) => ({ default: m.CesarSim })),
+);
 const LacoGrafico = lazy(() =>
   import('@/features/labs/laco/LacoGrafico').then((m) => ({ default: m.LacoGrafico })),
 );
@@ -85,6 +100,18 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <SenhaSim />;
           case 'web':
             return <WebSim />;
+          case 'unidades':
+            return <UnidadesSim />;
+          case 'cache':
+            return (
+              <CacheSim {...(simulacao.sequencia ? { sequencia: simulacao.sequencia } : {})} />
+            );
+          case 'raid':
+            return <RaidSim />;
+          case 'compressao':
+            return <CompressaoSim {...(simulacao.texto ? { inicial: simulacao.texto } : {})} />;
+          case 'cesar':
+            return <CesarSim {...(simulacao.texto ? { inicial: simulacao.texto } : {})} />;
           case 'cpu':
             return (
               <CpuSim

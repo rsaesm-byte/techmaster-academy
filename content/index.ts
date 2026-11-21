@@ -17,6 +17,11 @@ import { f07 } from './fundamentos/b02-permissoes';
 import { f08 } from './fundamentos/b03-redes-ip';
 import { f09 } from './fundamentos/b04-dns-http';
 import { f10 } from './fundamentos/b05-senhas';
+import { f11 } from './fundamentos/c01-unidades';
+import { f12 } from './fundamentos/c02-cache';
+import { f13 } from './fundamentos/c03-armazenamento-raid';
+import { f14 } from './fundamentos/c04-compressao';
+import { f15 } from './fundamentos/c05-criptografia';
 import { logica } from './logica/disciplina';
 import { aula01 } from './logica/m01/a01-o-que-e-algoritmo';
 import { aula02 } from './logica/m01/a02-variaveis';
@@ -51,5 +56,10 @@ export const aulas = [
   f08,
   f09,
   f10,
+  f11,
+  f12,
+  f13,
+  f14,
+  f15,
 ];
 export { glossario };

@@ -96,6 +96,14 @@ const LABS: Documento[] = [
   },
   {
     tipo: 'laboratorio',
+    titulo: 'Dados: cache, RAID e criptografia',
+    subtitulo: 'Laboratório',
+    rota: '/lab/dados',
+    texto:
+      'unidades gb mb cache lru fifo raid compressao rle cifra cesar criptografia armazenamento disco',
+  },
+  {
+    tipo: 'laboratorio',
     titulo: 'CPU e memória',
     subtitulo: 'Laboratório',
     rota: '/lab/cpu',

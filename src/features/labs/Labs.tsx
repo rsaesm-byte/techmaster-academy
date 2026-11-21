@@ -37,6 +37,11 @@ const LABS = [
     descricao: 'Processos, permissões, IP e sub-redes, DNS e HTTP, força de senha.',
   },
   {
+    para: '/lab/dados',
+    nome: 'Dados: cache, RAID e criptografia',
+    descricao: 'Unidades, memória cache, RAID, compressão e cifra de César.',
+  },
+  {
     para: '/lab/cpu',
     nome: 'CPU e memória',
     descricao: 'Programe em assembly e veja registradores e memória a cada passo.',

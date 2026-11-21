@@ -37,6 +37,7 @@ const TELAS: [string, string, RegExp][] = [
   ['Ordenação', '#/lab/ordenacao', /Busca e ordenação/],
   ['Binário', '#/lab/binario', /Binário: a língua do computador/],
   ['Sistemas', '#/lab/sistemas', /Sistemas, redes e segurança/],
+  ['Dados', '#/lab/dados', /Dados: guardar, acelerar/],
   ['CPU', '#/lab/cpu', /CPU: o ciclo buscar/],
   ['Terminal', '#/lab/terminal', /Terminal: converse com o computador/],
   ['Portas lógicas', '#/lab/portas', /Portas lógicas: de onde vem o processador/],

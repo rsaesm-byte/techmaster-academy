@@ -480,4 +480,65 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Autenticação que exige dois fatores distintos (algo que se sabe, se tem ou se é).',
     aulas: ['fundamentos.m02.a05'],
   },
+  {
+    id: 'unidades-dados',
+    termo: 'KB, MB, GB e TB',
+    simples: 'Unidades de tamanho de dados: cada uma vale cerca de mil vezes a anterior.',
+    tecnico: 'Múltiplos do byte: base 1000 (SI) ou base 1024 (KiB, MiB, GiB).',
+    aulas: ['fundamentos.m03.a01'],
+  },
+  {
+    id: 'cache',
+    termo: 'Cache',
+    simples: 'Memória pequena e rápida que guarda cópias do que foi usado há pouco.',
+    tecnico:
+      'Memória intermediária que explora a localidade para reduzir a latência de acesso aos níveis mais lentos.',
+    aulas: ['fundamentos.m03.a02'],
+  },
+  {
+    id: 'lru',
+    termo: 'LRU',
+    simples: 'Regra que remove da cache o item usado há mais tempo.',
+    tecnico: 'Política de substituição Least Recently Used.',
+    aulas: ['fundamentos.m03.a02'],
+  },
+  {
+    id: 'raid',
+    termo: 'RAID',
+    simples: 'Junção de vários discos para ganhar velocidade, proteção ou os dois.',
+    tecnico:
+      'Conjunto redundante de discos independentes: striping (0), espelhamento (1), paridade (5).',
+    aulas: ['fundamentos.m03.a03'],
+  },
+  {
+    id: 'backup',
+    termo: 'Backup (regra 3-2-1)',
+    simples: 'Cópia separada dos dados: 3 cópias, em 2 tipos de mídia, com 1 fora do local.',
+    tecnico:
+      'Cópia de dados em outro momento e local, que permite restaurar após perda, erro ou ataque.',
+    aulas: ['fundamentos.m03.a03'],
+  },
+  {
+    id: 'compressao',
+    termo: 'Compressão',
+    simples: 'Guardar a mesma informação em menos espaço, aproveitando repetições.',
+    tecnico:
+      'Redução de redundância para diminuir o tamanho dos dados, sem perdas (ZIP) ou com perdas (JPEG).',
+    aulas: ['fundamentos.m03.a04'],
+  },
+  {
+    id: 'criptografia',
+    termo: 'Criptografia',
+    simples: 'Embaralhar uma mensagem com uma chave, para que só quem a tem consiga ler.',
+    tecnico:
+      'Conjunto de técnicas que protegem a confidencialidade e a integridade dos dados por meio de chaves.',
+    aulas: ['fundamentos.m03.a05'],
+  },
+  {
+    id: 'forca-bruta',
+    termo: 'Força bruta',
+    simples: 'Testar todas as chaves ou senhas possíveis até acertar.',
+    tecnico: 'Ataque exaustivo sobre o espaço de chaves; inviável quando a entropia é alta.',
+    aulas: ['fundamentos.m03.a05'],
+  },
 ];

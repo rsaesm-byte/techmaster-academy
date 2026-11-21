@@ -71,3 +71,15 @@ test('laboratório de sistemas: sub-rede e senha', async ({ page }) => {
   await expect(page.getByRole('status')).toContainText('fraca');
   expectSemErros();
 });
+
+test('laboratório de dados: RAID e cifra de César', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/lab/dados');
+  await page.getByRole('button', { name: 'RAID', exact: true }).click();
+  await page.getByRole('button', { name: 'Disco 1: funcionando' }).click();
+  await expect(page.getByRole('status')).toContainText('continuam acessíveis');
+  await page.getByRole('button', { name: 'Cifra de César' }).click();
+  await page.getByRole('button', { name: /Quebrar a cifra/ }).click();
+  await expect(page.getByText(/^chave 25:/)).toBeVisible();
+  expectSemErros();
+});

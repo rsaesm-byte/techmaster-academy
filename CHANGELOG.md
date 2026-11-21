@@ -6,6 +6,13 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Fundamentos, módulo 3 — "Dados: guardar, acelerar, comprimir e proteger"**
+  (5 aulas completas): Unidades de dados, Hierarquia de memória e cache,
+  Armazenamento (SSD, HD, RAID e backup), Compressão e Criptografia; 8 termos
+  novos no glossário.
+- Laboratório **Dados** com 5 simuladores: unidades (base 1000 × 1024), cache
+  (LRU e FIFO), RAID 0/1/5 com falha de disco, compressão RLE e cifra de César
+  com força bruta.
 - **Fundamentos, módulo 2 — "Sistemas, redes e segurança"** (5 aulas completas):
   Sistema operacional e processos, Permissões de arquivo, IP e sub-redes, DNS e
   HTTP, Senhas e segurança; 10 termos novos no glossário.

@@ -33,5 +33,18 @@ export const fundamentos: DisciplinaEntrada = {
         'fundamentos.m02.a05',
       ],
     },
+    {
+      id: 'fundamentos.m03',
+      titulo: 'Dados: guardar, acelerar, comprimir e proteger',
+      descricao:
+        'Unidades de dados, hierarquia de memória e cache, armazenamento e RAID, compressão e criptografia.',
+      aulas: [
+        'fundamentos.m03.a01',
+        'fundamentos.m03.a02',
+        'fundamentos.m03.a03',
+        'fundamentos.m03.a04',
+        'fundamentos.m03.a05',
+      ],
+    },
   ],
 };
