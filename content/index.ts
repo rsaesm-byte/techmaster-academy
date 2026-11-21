@@ -51,6 +51,12 @@ import { w02 } from './web/a02-css';
 import { w03 } from './web/a03-layout';
 import { w04 } from './web/a04-formularios';
 import { w05 } from './web/a05-projeto';
+import { bancos } from './bancos/disciplina';
+import { b01 } from './bancos/a01-modelagem';
+import { b02 } from './bancos/a02-normalizacao';
+import { b03 } from './bancos/a03-chaves';
+import { b04 } from './bancos/a04-indices';
+import { b05 } from './bancos/a05-transacoes';
 import { s01, s02, s03, s04, s05 } from './sql/aulas';
 import { s06, s07, s08, s09, s10 } from './sql/aulas2';
 import { python } from './python/disciplina';
@@ -101,6 +107,7 @@ export const disciplinas = [
   redes,
   ciberseguranca,
   web,
+  bancos,
 ];
 export const aulas = [
   aula01,
@@ -188,5 +195,10 @@ export const aulas = [
   w03,
   w04,
   w05,
+  b01,
+  b02,
+  b03,
+  b04,
+  b05,
 ];
 export { glossario };

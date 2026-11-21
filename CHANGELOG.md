@@ -6,6 +6,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola H — Banco de Dados**, disciplina "Modelagem e Projeto de Bancos de Dados",
+  módulo 1 "Projetando bancos confiáveis" (5 aulas): modelagem, normalização,
+  chaves e integridade, índices e desempenho, transações e ACID; 5 termos novos
+  e 2 desafios de programação. O limite de tamanho do app subiu de 260 para 280 KB.
 - **Escola D — Desenvolvimento Web**, disciplina "HTML, CSS e a Web", módulo 1
   (5 aulas): HTML semântico, CSS e a cascata, Flexbox e design responsivo,
   formulários e acessibilidade, e o projeto de um portfólio publicado no GitHub

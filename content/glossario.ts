@@ -734,7 +734,7 @@ export const glossario: TermoEntrada[] = [
     termo: 'Chave estrangeira',
     simples: 'Coluna que aponta para a chave primária de outra tabela.',
     tecnico: 'Restrição de integridade referencial entre tabelas relacionadas.',
-    aulas: ['sql.m01.a05'],
+    aulas: ['sql.m01.a05', 'bancos.m01.a03'],
   },
   {
     id: 'null-sql',
@@ -1011,5 +1011,45 @@ export const glossario: TermoEntrada[] = [
     simples: 'Serviço gratuito que publica páginas estáticas direto de um repositório.',
     tecnico: 'Serve por HTTPS; cada push gera uma nova publicação.',
     aulas: ['web.m01.a05'],
+  },
+  {
+    id: 'entidade-relacionamento',
+    termo: 'Modelo entidade-relacionamento',
+    simples:
+      'Desenho que mostra o que o banco guarda (entidades) e como as coisas se ligam (relacionamentos).',
+    tecnico:
+      'Entidades viram tabelas, atributos viram colunas; cardinalidades 1:1, 1:N e N:N (esta exige tabela associativa).',
+    aulas: ['bancos.m01.a01'],
+  },
+  {
+    id: 'normalizacao',
+    termo: 'Normalização',
+    simples: 'Organizar as tabelas para não repetir informação.',
+    tecnico:
+      '1FN (valores atômicos), 2FN (sem dependência parcial da chave) e 3FN (sem dependência transitiva); reduz anomalias de inserção, atualização e exclusão.',
+    aulas: ['bancos.m01.a02'],
+  },
+  {
+    id: 'indice-bd',
+    termo: 'Índice',
+    simples: 'Estrutura ordenada que acelera buscas, como o índice de um livro.',
+    tecnico:
+      'Geralmente uma árvore B; troca espaço e escritas mais lentas por leituras rápidas; EXPLAIN mostra se é usado.',
+    aulas: ['bancos.m01.a04'],
+  },
+  {
+    id: 'transacao',
+    termo: 'Transação',
+    simples: 'Conjunto de comandos que acontece por inteiro ou não acontece.',
+    tecnico: 'Delimitada por BEGIN e COMMIT ou ROLLBACK; segue as propriedades ACID.',
+    aulas: ['bancos.m01.a05'],
+  },
+  {
+    id: 'acid',
+    termo: 'ACID',
+    simples:
+      'Quatro garantias de um banco confiável: atomicidade, consistência, isolamento e durabilidade.',
+    tecnico: 'O isolamento tem níveis; a durabilidade vem do log de transações (WAL).',
+    aulas: ['bancos.m01.a05'],
   },
 ];

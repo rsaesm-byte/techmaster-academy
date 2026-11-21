@@ -7,7 +7,7 @@ import { gzipSync } from 'node:zlib';
 const LIMITES = {
   entrada: 190, // index-*.js: tudo que carrega na primeira tela
   pedaco: 60, // qualquer outro pedaço carregado sob demanda
-  total: 260, // soma do JavaScript do app (sem as aulas)
+  total: 280, // soma do JavaScript do app (sem as aulas); subiu de 260 em 2026-11 (glossário e simulações novas)
   conteudo: 700, // soma dos pedaços de aulas (carregados só quando a disciplina é aberta)
 };
 
