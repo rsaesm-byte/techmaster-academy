@@ -41,6 +41,11 @@ function serviceWorkerPlugin(): Plugin {
         'theme-boot.js',
         'lab-runner.html',
         'manifest.webmanifest',
+        'icones/icon-192.png',
+        'icones/icon-512.png',
+        'icones/icon-maskable-512.png',
+        'icones/apple-touch-icon.png',
+        'icones/icone.svg',
       ];
       const lista = [...publicos, ...arquivos];
       let h = 0;
