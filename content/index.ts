@@ -29,6 +29,7 @@ import { f19 } from './fundamentos/d04-git';
 import { f20 } from './fundamentos/d05-bancos-dados';
 import { sql } from './sql/disciplina';
 import { s01, s02, s03, s04, s05 } from './sql/aulas';
+import { s06, s07, s08, s09, s10 } from './sql/aulas2';
 import { python } from './python/disciplina';
 import { p01 } from './python/a01-variaveis';
 import { p02 } from './python/a02-condicionais';
@@ -120,5 +121,10 @@ export const aulas = [
   s03,
   s04,
   s05,
+  s06,
+  s07,
+  s08,
+  s09,
+  s10,
 ];
 export { glossario };

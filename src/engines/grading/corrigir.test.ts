@@ -249,3 +249,24 @@ describe('consulta SQL', () => {
     expect(c("SELECT cidade FROM clientes WHERE cidade = 'Sorocaba'").correta).toBe(false);
   });
 });
+
+describe('consulta SQL que altera dados', () => {
+  const q = {
+    id: 'q',
+    tipo: 'consulta-sql',
+    enunciado: 'x',
+    codigoInicial: '',
+    solucao: "UPDATE clientes SET cidade = 'Itu' WHERE id = 1",
+    ordenada: false,
+    pistas: [],
+    explicacao: 'ok',
+  } as unknown as Questao;
+  const c = (codigo: string) => corrigir(q, { tipo: 'consulta-sql', codigo });
+
+  it('compara o estado final das tabelas', () => {
+    expect(c("UPDATE clientes SET cidade = 'Itu' WHERE nome = 'Ana'").correta).toBe(true);
+    expect(c("UPDATE clientes SET cidade = 'Itu'").feedback).toMatch(/Revise o WHERE|valor/);
+    expect(c("UPDATE clientes SET cidade = 'Itu' WHERE id = 2").feedback).toMatch(/valor/);
+    expect(c('SELECT * FROM clientes').feedback).toMatch(/ALTERA/);
+  });
+});

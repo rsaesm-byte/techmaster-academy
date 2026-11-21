@@ -1,10 +1,17 @@
 import { useState } from 'react';
-import { consultar, TABELAS, type Resultado } from '@/engines/computacao/sql';
+import { executarSql, TABELAS, type Resultado, type Tabelas } from '@/engines/computacao/sql';
 
 /** Banco de dados de brinquedo: escreva um SELECT e veja a tabela de resultado. */
 export function SqlSim({ consulta }: { consulta: string }) {
   const [texto, setTexto] = useState(consulta);
-  const [resultado, setResultado] = useState<Resultado>(() => consultar(consulta));
+  const [inicial] = useState(() => executarSql(consulta, TABELAS));
+  const [banco, setBanco] = useState<Tabelas>(inicial.tabelas);
+  const [resultado, setResultado] = useState<Resultado>(inicial.resultado);
+  const executar = (sql: string) => {
+    const r = executarSql(sql, banco);
+    setBanco(r.tabelas);
+    setResultado(r.resultado);
+  };
 
   return (
     <section
@@ -12,9 +19,12 @@ export function SqlSim({ consulta }: { consulta: string }) {
       className="flex flex-col gap-4 rounded-2xl border border-border bg-surface p-5"
     >
       <div className="flex flex-wrap gap-3">
-        {Object.entries(TABELAS).map(([nome, tb]) => (
+        {Object.entries(banco).map(([nome, tb]) => (
           <div key={nome} className="rounded-lg border border-border bg-surface-2 p-3 text-sm">
-            <strong className="font-mono">{nome}</strong>
+            <strong className="font-mono">
+              {nome}{' '}
+              <span className="font-sans font-normal text-muted">({tb.linhas.length} linhas)</span>
+            </strong>
             <div className="font-mono text-muted">{tb.colunas.join(', ')}</div>
           </div>
         ))}
@@ -33,7 +43,7 @@ export function SqlSim({ consulta }: { consulta: string }) {
       <div className="flex gap-2">
         <button
           type="button"
-          onClick={() => setResultado(consultar(texto))}
+          onClick={() => executar(texto)}
           className="min-h-11 rounded-lg bg-primary px-4 font-medium text-on-primary"
         >
           Executar
@@ -42,16 +52,20 @@ export function SqlSim({ consulta }: { consulta: string }) {
           type="button"
           onClick={() => {
             setTexto(consulta);
-            setResultado(consultar(consulta));
+            const r = executarSql(consulta, TABELAS);
+            setBanco(r.tabelas);
+            setResultado(r.resultado);
           }}
           className="min-h-11 rounded-lg border border-border px-4 font-medium hover:bg-surface-2"
         >
-          Restaurar
+          Restaurar banco e consulta
         </button>
       </div>
       <div aria-live="polite" className="overflow-x-auto">
         {resultado.ok ? (
-          resultado.linhas.length === 0 ? (
+          resultado.mensagem ? (
+            <p className="m-0 text-sm text-success">{resultado.mensagem}</p>
+          ) : resultado.linhas.length === 0 ? (
             <p className="m-0 text-sm text-muted">Nenhuma linha encontrada.</p>
           ) : (
             <table className="w-full border-collapse text-left font-mono text-sm">

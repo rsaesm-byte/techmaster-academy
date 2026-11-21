@@ -8,7 +8,7 @@ import {
   prever,
 } from '../fundamentos/montar';
 
-const conexoesBase = (extra: string[], prof: string) => ({
+export const conexoesBase = (extra: string[], prof: string) => ({
   disciplinas: [
     'Fundamentos (Bancos de dados): as tabelas e chaves vistas lá são o que o SQL consulta.',
     ...extra,

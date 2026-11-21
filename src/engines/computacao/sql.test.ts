@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { consultar } from './sql';
+import { consultar, executarSql, TABELAS } from './sql';
 
 const ok = (sql: string) => {
   const r = consultar(sql);
@@ -77,5 +77,63 @@ describe('mini SQL', () => {
       consultar('SELECT id FROM clientes JOIN pedidos ON clientes.id = pedidos.cliente_id'),
     ).toMatchObject({ ok: false, erro: expect.stringContaining('ambígua') });
     expect(consultar('SELECT nome, COUNT(*) FROM clientes')).toMatchObject({ ok: false });
+  });
+
+  it('DISTINCT, IN, IS NULL e apelidos', () => {
+    expect(ok('SELECT DISTINCT cidade FROM clientes ORDER BY cidade').linhas).toEqual([
+      ['Campinas'],
+      ['Sorocaba'],
+      ['São Paulo'],
+    ]);
+    expect(
+      ok("SELECT nome FROM clientes WHERE cidade IN ('Campinas', 'São Paulo') ORDER BY nome")
+        .linhas,
+    ).toHaveLength(3);
+    expect(ok('SELECT nome FROM clientes WHERE idade IS NULL').linhas).toEqual([]);
+    const r = ok('SELECT COUNT(*) AS total FROM pedidos');
+    expect(r.colunas).toEqual(['total']);
+  });
+  it('HAVING filtra grupos e ORDER BY aceita agregado e apelido', () => {
+    const r = ok('SELECT produto, COUNT(*) AS n FROM pedidos GROUP BY produto HAVING COUNT(*) > 2');
+    expect(r.linhas).toEqual([['Caneta', 3]]);
+    const o = ok(
+      'SELECT produto, SUM(valor) AS total FROM pedidos GROUP BY produto ORDER BY total DESC LIMIT 1',
+    );
+    expect(o.linhas).toEqual([['Mochila', 240]]);
+    expect(
+      ok('SELECT produto, COUNT(*) FROM pedidos GROUP BY produto ORDER BY COUNT(*) DESC LIMIT 1')
+        .linhas,
+    ).toEqual([['Caneta', 3]]);
+    expect(consultar('SELECT produto FROM pedidos WHERE COUNT(*) > 1')).toMatchObject({
+      ok: false,
+    });
+  });
+  it('LEFT JOIN mantém clientes sem pedidos', () => {
+    const r = ok(
+      'SELECT nome, produto FROM clientes LEFT JOIN pedidos ON clientes.id = pedidos.cliente_id WHERE produto IS NULL',
+    );
+    expect(r.linhas).toEqual([['Diego', null]]);
+    const c = ok(
+      'SELECT nome, COUNT(produto) FROM clientes LEFT JOIN pedidos ON clientes.id = pedidos.cliente_id GROUP BY nome ORDER BY nome',
+    );
+    expect(c.linhas).toContainEqual(['Diego', 0]);
+  });
+  it('INSERT, UPDATE e DELETE alteram uma cópia e protegem a chave primária', () => {
+    const a = executarSql(
+      "INSERT INTO clientes (id, nome, cidade, idade) VALUES (6, 'Fabio', 'Itu', 19)",
+    );
+    expect(a.resultado).toMatchObject({ ok: true, mensagem: expect.stringContaining('1 linha') });
+    expect(a.tabelas.clientes?.linhas).toHaveLength(6);
+    expect(TABELAS.clientes?.linhas).toHaveLength(5);
+    expect(executarSql("INSERT INTO clientes VALUES (1, 'X', 'Y', 1)").resultado).toMatchObject({
+      ok: false,
+      erro: expect.stringContaining('chave primária'),
+    });
+    const u = executarSql("UPDATE clientes SET cidade = 'Itu', idade = 29 WHERE id = 1");
+    expect(u.tabelas.clientes?.linhas[0]).toEqual([1, 'Ana', 'Itu', 29]);
+    const d = executarSql('DELETE FROM pedidos WHERE valor < 10');
+    expect(d.tabelas.pedidos?.linhas).toHaveLength(4);
+    expect(executarSql('DELETE FROM pedidos').tabelas.pedidos?.linhas).toHaveLength(0);
+    expect(executarSql('DROP TABLE pedidos').resultado).toMatchObject({ ok: false });
   });
 });

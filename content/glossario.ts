@@ -736,4 +736,40 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Restrição de integridade referencial entre tabelas relacionadas.',
     aulas: ['sql.m01.a05'],
   },
+  {
+    id: 'null-sql',
+    termo: 'NULL',
+    simples: 'Marca de valor ausente ou desconhecido em uma coluna.',
+    tecnico: 'Não é igual a nada, nem a outro NULL; usa-se IS NULL e IS NOT NULL para testar.',
+    aulas: ['sql.m02.a01'],
+  },
+  {
+    id: 'having',
+    termo: 'HAVING',
+    simples: 'Filtra grupos depois do GROUP BY, usando COUNT, SUM ou AVG.',
+    tecnico: 'Executa depois do agrupamento; o WHERE age antes, sobre linhas individuais.',
+    aulas: ['sql.m02.a02'],
+  },
+  {
+    id: 'left-join',
+    termo: 'LEFT JOIN',
+    simples: 'Junção que mantém todas as linhas da tabela da esquerda, mesmo sem par.',
+    tecnico: 'Colunas da tabela da direita vêm NULL quando não há correspondência.',
+    aulas: ['sql.m02.a03'],
+  },
+  {
+    id: 'insert-update',
+    termo: 'INSERT e UPDATE',
+    simples: 'INSERT cria linhas novas; UPDATE altera linhas que já existem.',
+    tecnico: 'O WHERE do UPDATE escolhe as linhas afetadas; sem ele, todas mudam.',
+    aulas: ['sql.m02.a04'],
+  },
+  {
+    id: 'delete-sql',
+    termo: 'DELETE',
+    simples: 'Remove linhas de uma tabela; sem WHERE, remove todas.',
+    tecnico:
+      'Confira com SELECT antes, use transação e backup; exclusão lógica preserva histórico.',
+    aulas: ['sql.m02.a05'],
+  },
 ];

@@ -13,5 +13,11 @@ export const sql: DisciplinaEntrada = {
       descricao: 'SELECT, WHERE, ORDER BY e LIMIT, funções de agregação com GROUP BY e JOIN.',
       aulas: ['sql.m01.a01', 'sql.m01.a02', 'sql.m01.a03', 'sql.m01.a04', 'sql.m01.a05'],
     },
+    {
+      id: 'sql.m02',
+      titulo: 'Refinando e alterando dados',
+      descricao: 'DISTINCT, IN, NULL, HAVING, LEFT JOIN e os comandos INSERT, UPDATE e DELETE.',
+      aulas: ['sql.m02.a01', 'sql.m02.a02', 'sql.m02.a03', 'sql.m02.a04', 'sql.m02.a05'],
+    },
   ],
 };

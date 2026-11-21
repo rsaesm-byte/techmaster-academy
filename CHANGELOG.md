@@ -6,6 +6,13 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola C — SQL, módulo 2 "Refinando e alterando dados"** (5 aulas): DISTINCT,
+  IN, NULL e apelidos; HAVING; LEFT JOIN; INSERT e UPDATE; DELETE e cuidados.
+  5 termos novos no glossário.
+- Motor de SQL ampliado (HAVING, LEFT JOIN, DISTINCT, IN, IS NULL, apelidos,
+  INSERT, UPDATE e DELETE, com proteção da chave primária). O simulador guarda as
+  alterações do banco, e exercícios que alteram dados são corrigidos comparando o
+  estado final das tabelas.
 - Novo tipo de questão **consulta SQL**: você escreve a consulta e o app compara
   as colunas e as linhas do resultado com o esperado (a ordem só conta quando o
   exercício pede ORDER BY), com feedback específico. Os desafios das 5 aulas de SQL

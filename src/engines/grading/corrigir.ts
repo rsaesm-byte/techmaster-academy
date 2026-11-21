@@ -4,7 +4,7 @@
  * ESPECÍFICO: explicar o erro provável ensina mais do que só dizer "errado".
  */
 import { LACUNA, type ConsultaSql, type ProgramaPortugol, type Questao } from '@/domain/conteudo';
-import { consultar } from '@/engines/computacao/sql';
+import { consultar, executarSql, TABELAS, type Tabelas } from '@/engines/computacao/sql';
 import { executar } from '@/engines/portugol/interpretador';
 import { descrever, type ResultadoJs } from '@/engines/sandbox/casos';
 
@@ -167,6 +167,8 @@ export function resultadoJsParaCorrecao(r: ResultadoJs, explicacao: string): Cor
 
 /** Roda a consulta do aluno e a da solução e compara colunas e linhas. */
 export function corrigirSql(questao: ConsultaSql, codigo: string): Correcao {
+  if (/^\s*(INSERT|UPDATE|DELETE)\b/i.test(questao.solucao))
+    return corrigirAlteracao(questao, codigo);
   const esperado = consultar(questao.solucao);
   if (!esperado.ok) throw new Error(`Solução de referência inválida: ${esperado.erro}`);
   const obtido = consultar(codigo);
@@ -195,6 +197,37 @@ export function corrigirSql(questao: ConsultaSql, codigo: string): Correcao {
         ? 'As linhas estão certas em quantidade, mas os valores ou a ordem diferem do pedido. Confira o ORDER BY (ASC ou DESC) e as colunas.'
         : 'A quantidade bate, mas os valores diferem do pedido. Confira as colunas escolhidas e as condições do WHERE.',
     };
+  return { correta: true, feedback: questao.explicacao };
+}
+
+/** Exercícios que alteram dados: compara o estado final das tabelas com o da solução. */
+function corrigirAlteracao(questao: ConsultaSql, codigo: string): Correcao {
+  const ref = executarSql(questao.solucao, TABELAS);
+  if (!ref.resultado.ok) throw new Error(`Solução de referência inválida: ${ref.resultado.erro}`);
+  if (!/^\s*(INSERT|UPDATE|DELETE)\b/i.test(codigo))
+    return {
+      correta: false,
+      feedback: 'Este exercício pede um comando que ALTERA dados: use INSERT, UPDATE ou DELETE.',
+    };
+  const aluno = executarSql(codigo, TABELAS);
+  if (!aluno.resultado.ok)
+    return { correta: false, feedback: `Erro no comando: ${aluno.resultado.erro}` };
+  const estado = (t: Tabelas, nome: string) =>
+    (t[nome]?.linhas ?? []).map((l) => JSON.stringify(l)).sort();
+  for (const nome of Object.keys(TABELAS)) {
+    const a = estado(aluno.tabelas, nome);
+    const b = estado(ref.tabelas, nome);
+    if (a.length !== b.length)
+      return {
+        correta: false,
+        feedback: `Depois do seu comando, a tabela ${nome} ficou com ${a.length} linha(s), mas o esperado são ${b.length}. Revise o WHERE (ou os valores do INSERT).`,
+      };
+    if (a.join('\n') !== b.join('\n'))
+      return {
+        correta: false,
+        feedback: `A quantidade de linhas de ${nome} está certa, mas algum valor ficou diferente do pedido. Confira as colunas e os valores.`,
+      };
+  }
   return { correta: true, feedback: questao.explicacao };
 }
 
