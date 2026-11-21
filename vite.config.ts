@@ -94,6 +94,7 @@ export default defineConfig(({ command }) => ({
             { name: 'aulas-fundamentos-b', test: /[\\/]content[\\/]fundamentos[\\/][cd]\d\d-/ },
             { name: 'aulas-fundamentos', test: /[\\/]content[\\/]fundamentos[\\/]/ },
             { name: 'aulas-javascript', test: /[\\/]content[\\/]javascript[\\/]/ },
+            { name: 'aulas-sql', test: /[\\/]content[\\/]sql[\\/]/ },
             { name: 'aulas-python', test: /[\\/]content[\\/]python[\\/]/ },
           ],
         },

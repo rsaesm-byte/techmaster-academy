@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { aulas, disciplinas, glossario } from '@content/index';
+import { consultar } from '@/engines/computacao/sql';
 import { executarCasos } from '@/engines/sandbox/casos';
 import { aula01 } from '@content/logica/m01/a01-o-que-e-algoritmo';
 import { ConteudoInvalidoError, montarCatalogo } from '@/content/catalogo';
@@ -154,6 +155,50 @@ describe('demonstrações', () => {
         if (erro) falhas.push(`${aula.id} ${etapa.id}: ${erro}`);
       }
     }
+    expect(falhas).toEqual([]);
+  });
+  it('toda consulta SQL das demonstrações executa sem erro', () => {
+    const catalogo = montarCatalogo(disciplinas, aulas);
+    const falhas: string[] = [];
+    for (const aula of catalogo.aulas.values()) {
+      for (const etapa of aula.etapas) {
+        if (etapa.tipo !== 'demo' || etapa.simulacao.tipo !== 'sql') continue;
+        const r = consultar(etapa.simulacao.consulta);
+        if (!r.ok) falhas.push(`${aula.id} ${etapa.id}: ${r.erro}`);
+      }
+    }
+    expect(falhas).toEqual([]);
+  });
+
+  it('as respostas das questões de SQL batem com o resultado do motor', () => {
+    const catalogo = montarCatalogo(disciplinas, aulas);
+    const falhas: string[] = [];
+    let verificadas = 0;
+    for (const aula of catalogo.aulas.values()) {
+      if (!aula.id.startsWith('sql.')) continue;
+      for (const etapa of aula.etapas) {
+        if (etapa.tipo !== 'exercicio') continue;
+        for (const q of etapa.questoes) {
+          if (q.tipo !== 'prever-saida' || !/^\s*SELECT/i.test(q.codigo.fonte)) continue;
+          verificadas++;
+          const r = consultar(q.codigo.fonte);
+          if (!r.ok) {
+            falhas.push(`${aula.id}: ${r.erro}`);
+            continue;
+          }
+          const esperado = /linhas/i.test(q.enunciado)
+            ? String(r.linhas.length)
+            : /colunas/i.test(q.enunciado)
+              ? String(r.colunas.length)
+              : String(r.linhas[0]?.[0]);
+          if (!q.respostasAceitas.includes(esperado))
+            falhas.push(
+              `${aula.id}: "${q.enunciado}" esperado ${esperado}, aceitas ${q.respostasAceitas.join('|')}`,
+            );
+        }
+      }
+    }
+    expect(verificadas).toBeGreaterThan(10);
     expect(falhas).toEqual([]);
   });
 });

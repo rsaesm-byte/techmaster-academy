@@ -6,6 +6,11 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola C — SQL, módulo 1 "Consultando dados"** (5 aulas): SELECT, WHERE,
+  ORDER BY e LIMIT, agregações com GROUP BY e JOIN; 5 termos novos no glossário.
+- Banco de dados de treino dentro do app (simulação `sql`): motor de SQL próprio
+  com SELECT, WHERE (AND, OR, LIKE), JOIN, GROUP BY, ORDER BY e LIMIT, testado, e
+  teste que confere cada resposta numérica das aulas contra o motor.
 - **JavaScript, módulo 3 "Projeto: app de tarefas"** (5 aulas): estado e funções
   puras, tela com DOM, salvar no navegador, consumir uma API e testar.
 

@@ -27,6 +27,8 @@ import { f17 } from './fundamentos/d02-conteineres';
 import { f18 } from './fundamentos/d03-nuvem';
 import { f19 } from './fundamentos/d04-git';
 import { f20 } from './fundamentos/d05-bancos-dados';
+import { sql } from './sql/disciplina';
+import { s01, s02, s03, s04, s05 } from './sql/aulas';
 import { python } from './python/disciplina';
 import { p01 } from './python/a01-variaveis';
 import { p02 } from './python/a02-condicionais';
@@ -61,7 +63,7 @@ import { m02a03 } from './logica/m02/a03-busca';
 import { m02a04 } from './logica/m02/a04-ordenacao';
 import { m02a05 } from './logica/m02/a05-recursividade';
 
-export const disciplinas = [logica, fundamentos, javascript, python];
+export const disciplinas = [logica, fundamentos, javascript, python, sql];
 export const aulas = [
   aula01,
   aula02,
@@ -113,5 +115,10 @@ export const aulas = [
   p03,
   p04,
   p05,
+  s01,
+  s02,
+  s03,
+  s04,
+  s05,
 ];
 export { glossario };

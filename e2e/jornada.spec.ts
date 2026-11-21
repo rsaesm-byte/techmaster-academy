@@ -92,3 +92,14 @@ test('aula de JavaScript executa o código no console', async ({ page }) => {
   await expect(page.getByRole('log')).toContainText('Ana tem 21 anos', { timeout: 15_000 });
   expectSemErros();
 });
+
+test('aula de SQL executa a consulta e mostra a tabela', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/aula/sql.m01.a01?etapa=demo');
+  await expect(page.getByRole('cell', { name: 'Sorocaba' }).first()).toBeVisible({
+    timeout: 15_000,
+  });
+  await page.getByRole('button', { name: 'Executar' }).click();
+  await expect(page.getByRole('columnheader', { name: 'cidade' })).toBeVisible();
+  expectSemErros();
+});
