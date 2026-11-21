@@ -291,4 +291,117 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Ramo não recursivo de uma definição recursiva, que garante a terminação.',
     aulas: ['logica.m02.a05'],
   },
+  {
+    id: 'bit',
+    termo: 'Bit',
+    simples: 'A menor informação do computador: um 0 ou um 1.',
+    tecnico: 'Unidade mínima de informação, com dois estados possíveis.',
+    aulas: ['fundamentos.m01.a01'],
+  },
+  {
+    id: 'byte',
+    termo: 'Byte',
+    simples: 'Um grupo de 8 bits. Guarda, por exemplo, um número de 0 a 255.',
+    tecnico: 'Conjunto de 8 bits; unidade básica de endereçamento da memória.',
+    aulas: ['fundamentos.m01.a01'],
+  },
+  {
+    id: 'binario',
+    termo: 'Binário',
+    simples: 'Jeito de escrever números usando só 0 e 1.',
+    tecnico:
+      'Sistema de numeração posicional de base 2, em que cada posição vale uma potência de 2.',
+    aulas: ['fundamentos.m01.a01'],
+  },
+  {
+    id: 'estouro',
+    termo: 'Estouro (overflow)',
+    simples: 'Quando uma conta dá um resultado que não cabe nos bits disponíveis.',
+    tecnico:
+      'Condição em que o resultado de uma operação excede a faixa representável; o excedente é descartado.',
+    aulas: ['fundamentos.m01.a01', 'fundamentos.m01.a04'],
+  },
+  {
+    id: 'hexadecimal',
+    termo: 'Hexadecimal',
+    simples: 'Jeito de escrever números com 16 símbolos (0–9 e A–F). Cada dígito vale 4 bits.',
+    tecnico:
+      'Sistema de base 16; cada dígito representa um nibble, então um byte são dois dígitos.',
+    aulas: ['fundamentos.m01.a02'],
+  },
+  {
+    id: 'unicode',
+    termo: 'Unicode e UTF-8',
+    simples:
+      'A tabela que dá um número a cada letra e símbolo, e a forma de gravar esses números em bytes.',
+    tecnico: 'Padrão que associa code points aos caracteres; UTF-8 os codifica em 1 a 4 bytes.',
+    aulas: ['fundamentos.m01.a02'],
+  },
+  {
+    id: 'porta-logica',
+    termo: 'Porta lógica',
+    simples:
+      'Circuito que recebe bits e devolve um bit, seguindo uma regra fixa (AND, OR, NOT...).',
+    tecnico: 'Circuito que implementa uma função booleana; blocos básicos dos processadores.',
+    aulas: ['fundamentos.m01.a03'],
+  },
+  {
+    id: 'tabela-verdade',
+    termo: 'Tabela-verdade',
+    simples: 'Lista de todas as entradas possíveis de uma porta ou condição e a saída de cada uma.',
+    tecnico: 'Representação tabular de uma função booleana com todas as combinações de entradas.',
+    aulas: ['fundamentos.m01.a03'],
+  },
+  {
+    id: 'cpu',
+    termo: 'CPU (processador)',
+    simples: 'O "cérebro" do computador: executa as instruções dos programas.',
+    tecnico:
+      'Unidade central de processamento: busca, decodifica e executa instruções, com unidade de controle, ALU e registradores.',
+    aulas: ['fundamentos.m01.a04'],
+  },
+  {
+    id: 'registrador',
+    termo: 'Registrador',
+    simples: 'Uma posição minúscula e rapidíssima dentro da CPU para guardar valores em uso.',
+    tecnico: 'Elemento de armazenamento interno da CPU, de acesso muito mais rápido que a memória.',
+    aulas: ['fundamentos.m01.a04'],
+  },
+  {
+    id: 'memoria-ram',
+    termo: 'Memória RAM',
+    simples: 'A memória de trabalho do computador, onde ficam os programas e dados em uso.',
+    tecnico:
+      'Memória volátil de acesso aleatório, endereçada por byte, usada para instruções e dados em execução.',
+    aulas: ['fundamentos.m01.a04'],
+  },
+  {
+    id: 'contador-programa',
+    termo: 'Contador de programa (PC)',
+    simples: 'O registrador que guarda o endereço da próxima instrução.',
+    tecnico: 'Registrador que armazena o endereço da próxima instrução; é alterado por desvios.',
+    aulas: ['fundamentos.m01.a04'],
+  },
+  {
+    id: 'ciclo-instrucao',
+    termo: 'Ciclo de instrução',
+    simples: 'A rotina da CPU: buscar, decodificar e executar, de novo e de novo.',
+    tecnico: 'Ciclo fetch–decode–execute repetido pela unidade de controle.',
+    aulas: ['fundamentos.m01.a04'],
+  },
+  {
+    id: 'terminal',
+    termo: 'Terminal',
+    simples: 'Tela em que você controla o computador digitando comandos.',
+    tecnico: 'Interface de linha de comando que executa um shell para interpretar comandos.',
+    aulas: ['fundamentos.m01.a05'],
+  },
+  {
+    id: 'caminho',
+    termo: 'Caminho (path)',
+    simples: 'O endereço de um arquivo na árvore de pastas, como /home/aluno/notas.txt.',
+    tecnico:
+      'Sequência de diretórios, separados por barras, que localiza um arquivo; pode ser absoluto ou relativo.',
+    aulas: ['fundamentos.m01.a05'],
+  },
 ];

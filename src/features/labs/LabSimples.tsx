@@ -1,4 +1,6 @@
 import { useState, type ReactNode } from 'react';
+import { CpuSim } from '@/features/labs/cpu/CpuSim';
+import { TerminalSim } from '@/features/labs/terminal/TerminalSim';
 import { PortasSim, type ModoPortas } from '@/features/labs/portas/PortasSim';
 import { BinarioSim, type ModoBinario } from '@/features/labs/binario/BinarioSim';
 import { LacoGrafico } from '@/features/labs/laco/LacoGrafico';
@@ -148,6 +150,34 @@ export function LabPortas() {
         ))}
       </div>
       <PortasSim key={modo} modo={modo} />
+    </Pagina>
+  );
+}
+
+export function LabCpu() {
+  return (
+    <Pagina
+      numero="Laboratório"
+      titulo="CPU: o ciclo buscar, decodificar, executar"
+      descricao="Escreva um programa em assembly didático e veja registradores e memória mudarem a cada instrução."
+    >
+      <CpuSim
+        editavel
+        programa={`; soma 5 + 4 + 3 + 2 + 1 com um laço\nLDI A, 0\nLDI B, 5\nLDI C, 1\nsoma: ADD A, B\nSUB B, C\nJNZ B, soma\nSTORE A, [0]\nHALT`}
+        memoria={[]}
+      />
+    </Pagina>
+  );
+}
+
+export function LabTerminal() {
+  return (
+    <Pagina
+      numero="Laboratório"
+      titulo="Terminal: converse com o computador por texto"
+      descricao="Navegue por pastas, crie arquivos e apague sem medo: tudo aqui é uma simulação."
+    >
+      <TerminalSim cenario="livre" />
     </Pagina>
   );
 }

@@ -88,6 +88,21 @@ const LABS: Documento[] = [
   },
   {
     tipo: 'laboratorio',
+    titulo: 'CPU e memória',
+    subtitulo: 'Laboratório',
+    rota: '/lab/cpu',
+    texto:
+      'cpu processador memoria registrador assembly instrucao ciclo buscar decodificar executar',
+  },
+  {
+    tipo: 'laboratorio',
+    titulo: 'Terminal',
+    subtitulo: 'Laboratório',
+    rota: '/lab/terminal',
+    texto: 'terminal linux comandos ls cd mkdir cat shell linha de comando arquivos pastas',
+  },
+  {
+    tipo: 'laboratorio',
     titulo: 'Editor Web',
     subtitulo: 'Laboratório',
     rota: '/lab/web',

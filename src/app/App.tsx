@@ -33,6 +33,12 @@ const LabBinario = lazy(() =>
 const LabPortas = lazy(() =>
   import('@/features/labs/LabSimples').then((m) => ({ default: m.LabPortas })),
 );
+const LabCpu = lazy(() =>
+  import('@/features/labs/LabSimples').then((m) => ({ default: m.LabCpu })),
+);
+const LabTerminal = lazy(() =>
+  import('@/features/labs/LabSimples').then((m) => ({ default: m.LabTerminal })),
+);
 const LabLaco = lazy(() =>
   import('@/features/labs/LabSimples').then((m) => ({ default: m.LabLaco })),
 );
@@ -79,6 +85,8 @@ export function App({ repositorio }: { repositorio?: ProgressRepository }) {
               <Route path="lab/ordenacao" element={preguicoso(<LabOrdenacao />)} />
               <Route path="lab/binario" element={preguicoso(<LabBinario />)} />
               <Route path="lab/portas" element={preguicoso(<LabPortas />)} />
+              <Route path="lab/cpu" element={preguicoso(<LabCpu />)} />
+              <Route path="lab/terminal" element={preguicoso(<LabTerminal />)} />
               <Route path="lab/laco" element={preguicoso(<LabLaco />)} />
               <Route path="*" element={<NaoEncontrada />} />
             </Route>

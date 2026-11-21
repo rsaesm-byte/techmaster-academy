@@ -6,6 +6,12 @@
  * O teste "conteúdo válido" (npm test) confere tudo.
  */
 import { glossario } from './glossario';
+import { fundamentos } from './fundamentos/disciplina';
+import { f01 } from './fundamentos/a01-bits';
+import { f02 } from './fundamentos/a02-texto-hex';
+import { f03 } from './fundamentos/a03-portas';
+import { f04 } from './fundamentos/a04-cpu-memoria';
+import { f05 } from './fundamentos/a05-terminal';
 import { logica } from './logica/disciplina';
 import { aula01 } from './logica/m01/a01-o-que-e-algoritmo';
 import { aula02 } from './logica/m01/a02-variaveis';
@@ -18,7 +24,7 @@ import { m02a03 } from './logica/m02/a03-busca';
 import { m02a04 } from './logica/m02/a04-ordenacao';
 import { m02a05 } from './logica/m02/a05-recursividade';
 
-export const disciplinas = [logica];
+export const disciplinas = [logica, fundamentos];
 export const aulas = [
   aula01,
   aula02,
@@ -30,5 +36,10 @@ export const aulas = [
   m02a03,
   m02a04,
   m02a05,
+  f01,
+  f02,
+  f03,
+  f04,
+  f05,
 ];
 export { glossario };

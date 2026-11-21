@@ -264,6 +264,18 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
     /** Fixa a porta (sem o seletor), para a aula focar em uma só. */
     fixo: z.boolean().default(false),
   }),
+  z.object({
+    tipo: z.literal('cpu'),
+    /** Programa em assembly didático (LDI, LOAD, STORE, ADD, SUB, JNZ, JMP, HALT). */
+    programa: z.string().optional(),
+    /** Valores iniciais da memória de dados. */
+    memoria: z.array(z.number().int().min(0).max(255)).max(16).default([]),
+    editavel: z.boolean().default(false),
+  }),
+  z.object({
+    tipo: z.literal('terminal'),
+    cenario: z.enum(['livre', 'navegar', 'arquivos']).default('livre'),
+  }),
 ]);
 
 export const EtapaSchema = z.discriminatedUnion('tipo', [

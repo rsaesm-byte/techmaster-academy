@@ -32,6 +32,16 @@ const LABS = [
     descricao: 'AND, OR, XOR... monte um somador e veja como o hardware soma.',
   },
   {
+    para: '/lab/cpu',
+    nome: 'CPU e memória',
+    descricao: 'Programe em assembly e veja registradores e memória a cada passo.',
+  },
+  {
+    para: '/lab/terminal',
+    nome: 'Terminal',
+    descricao: 'Navegue por pastas e crie arquivos num terminal simulado e seguro.',
+  },
+  {
     para: '/lab/web',
     nome: 'Editor Web',
     descricao: 'HTML, CSS e JavaScript com prévia ao vivo, isolada e segura.',
