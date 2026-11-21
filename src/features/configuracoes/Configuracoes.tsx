@@ -1,5 +1,6 @@
 import { useTema } from '@/app/ThemeProvider';
 import type { PreferenciaTema } from '@/app/theme';
+import { SeusDados } from '@/features/configuracoes/SeusDados';
 
 const opcoes: { valor: PreferenciaTema; rotulo: string; dica: string }[] = [
   { valor: 'sistema', rotulo: 'Automático', dica: 'Segue o tema do seu aparelho' },
@@ -42,8 +43,9 @@ export function Configuracoes() {
           ))}
         </div>
       </fieldset>
+      <SeusDados />
       <p className="text-sm text-muted">
-        Sua escolha fica salva só neste navegador. Nenhum dado é enviado para servidores.
+        Nenhum dado é enviado para servidores: tema e progresso ficam só neste navegador.
       </p>
     </div>
   );
