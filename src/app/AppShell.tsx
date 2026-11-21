@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+import { aoTerAtualizacao, aplicarAtualizacao } from '@/app/offline';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router';
 import { usePreferencias } from '@/app/preferencias';
 import { Logo } from '@/ui/Logo';
@@ -19,6 +20,8 @@ export function AppShell() {
   // Modo foco: dentro de uma aula, o menu some para reduzir distrações.
   const esconder = prefs.modoFoco && pathname.startsWith('/aula/');
   const [consulta, setConsulta] = useState('');
+  const [temAtualizacao, setTemAtualizacao] = useState(false);
+  useEffect(() => aoTerAtualizacao(() => setTemAtualizacao(true)), []);
   const navegar = useNavigate();
   return (
     <div className="flex min-h-screen flex-col">
@@ -28,6 +31,21 @@ export function AppShell() {
       >
         Pular para o conteúdo
       </a>
+      {temAtualizacao && (
+        <div
+          role="status"
+          className="flex flex-wrap items-center justify-center gap-3 bg-primary px-4 py-2 text-sm text-on-primary"
+        >
+          Uma nova versão da plataforma está pronta.
+          <button
+            type="button"
+            onClick={aplicarAtualizacao}
+            className="min-h-9 rounded-md bg-on-primary px-3 font-semibold text-primary"
+          >
+            Atualizar agora
+          </button>
+        </div>
+      )}
       <header className="flex items-center gap-4 border-b border-border bg-surface px-4 py-3 sm:px-6">
         <NavLink to="/" aria-label="TechMaster Academy — ir para o painel" className="rounded-lg">
           <Logo />

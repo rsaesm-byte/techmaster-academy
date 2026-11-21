@@ -1,4 +1,5 @@
 /// <reference types="vitest/config" />
+import { readFileSync } from 'node:fs';
 import { fileURLToPath, URL } from 'node:url';
 import react from '@vitejs/plugin-react';
 import tailwindcss from '@tailwindcss/vite';
@@ -24,6 +25,35 @@ const CSP = [
   "form-action 'self'",
 ].join('; ');
 
+/**
+ * Gera o service worker (modo offline) no build, com a lista EXATA dos arquivos do site.
+ * A versão do cache é um hash dessa lista: cada deploy novo substitui o cache antigo.
+ */
+function serviceWorkerPlugin(): Plugin {
+  return {
+    name: 'techmaster-sw',
+    apply: 'build',
+    generateBundle(_opcoes, bundle) {
+      const arquivos = Object.keys(bundle).filter((f) => !f.endsWith('.map'));
+      const publicos = [
+        './',
+        'favicon.svg',
+        'theme-boot.js',
+        'lab-runner.html',
+        'manifest.webmanifest',
+      ];
+      const lista = [...publicos, ...arquivos];
+      let h = 0;
+      for (const c of lista.join('|')) h = (Math.imul(31, h) + c.charCodeAt(0)) | 0;
+      const versao = (h >>> 0).toString(36);
+      const fonte = readFileSync(fileURLToPath(new URL('./src/sw/sw.js', import.meta.url)), 'utf8')
+        .replace('__VERSAO__', versao)
+        .replace('__ARQUIVOS__', JSON.stringify(lista));
+      this.emitFile({ type: 'asset', fileName: 'sw.js', source: fonte });
+    },
+  };
+}
+
 function cspPlugin(): Plugin {
   return {
     name: 'techmaster-csp',
@@ -38,7 +68,7 @@ function cspPlugin(): Plugin {
 
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? REPO_BASE : '/',
-  plugins: [react(), tailwindcss(), cspPlugin()],
+  plugins: [react(), tailwindcss(), cspPlugin(), serviceWorkerPlugin()],
   resolve: {
     alias: {
       '@content': fileURLToPath(new URL('./content', import.meta.url)),

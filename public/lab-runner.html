@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <!--
+      Executor do Editor Web. Roda num <iframe sandbox="allow-scripts"> SEM allow-same-origin:
+      o código do aluno não acessa a página principal, o armazenamento nem os cookies.
+      A política abaixo permite o código inline do aluno, mas bloqueia QUALQUER acesso à rede.
+    -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; img-src data: blob:; font-src data:; media-src data: blob:"
+    />
+    <title>Prévia</title>
+  </head>
+  <body>
+    <script>
+      (function () {
+        function enviar(tipo, partes) {
+          var texto = Array.prototype.map
+            .call(partes, function (p) {
+              if (typeof p === 'string') return p;
+              try {
+                return JSON.stringify(p);
+              } catch (e) {
+                return String(p);
+              }
+            })
+            .join(' ');
+          parent.postMessage({ origem: 'tm-lab', tipo: tipo, texto: texto.slice(0, 2000) }, '*');
+        }
+        var ponte =
+          '<script>(function(){' +
+          'var e=' +
+          enviar.toString() +
+          ';' +
+          'console.log=function(){e("log",arguments)};' +
+          'console.info=console.log;' +
+          'console.warn=function(){e("aviso",arguments)};' +
+          'console.error=function(){e("erro",arguments)};' +
+          'window.onerror=function(m,f,l){e("erro",["Erro na linha "+l+": "+m]);};' +
+          '})();<\/script>';
+        window.addEventListener('message', function (ev) {
+          var d = ev.data;
+          if (!d || d.origem !== 'tm-editor') return;
+          var doc =
+            '<!doctype html><html lang="pt-BR"><head><meta charset="UTF-8">' +
+            ponte +
+            '<style>' +
+            d.css +
+            '</style></head><body>' +
+            d.html +
+            '<script>' +
+            d.js +
+            '<\/script></body></html>';
+          document.open();
+          document.write(doc);
+          document.close();
+        });
+        parent.postMessage({ origem: 'tm-lab', tipo: 'pronto' }, '*');
+      })();
+    </script>
+  </body>
+</html>

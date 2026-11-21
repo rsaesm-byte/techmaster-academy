@@ -17,6 +17,7 @@ const Glossario = lazy(() => import('@/features/glossario/Glossario'));
 const Busca = lazy(() => import('@/features/busca/Busca'));
 const Revisao = lazy(() => import('@/features/revisao/Revisao'));
 const Labs = lazy(() => import('@/features/labs/Labs'));
+const LabWeb = lazy(() => import('@/features/labs/web/LabWeb'));
 const LabAlgoritmos = lazy(() => import('@/features/labs/algoritmos/LabAlgoritmos'));
 const LabRobo = lazy(() =>
   import('@/features/labs/LabSimples').then((m) => ({ default: m.LabRobo })),
@@ -53,6 +54,7 @@ export function App({ repositorio }: { repositorio?: ProgressRepository }) {
               <Route path="revisao" element={preguicoso(<Revisao />)} />
               <Route path="labs" element={preguicoso(<Labs />)} />
               <Route path="lab/algoritmos" element={preguicoso(<LabAlgoritmos />)} />
+              <Route path="lab/web" element={preguicoso(<LabWeb />)} />
               <Route path="lab/robo" element={preguicoso(<LabRobo />)} />
               <Route path="lab/laco" element={preguicoso(<LabLaco />)} />
               <Route path="*" element={<NaoEncontrada />} />
