@@ -699,7 +699,7 @@ export const glossario: TermoEntrada[] = [
     simples: 'Código que confere sozinho se outra parte do código dá o resultado esperado.',
     tecnico:
       'Verificação repetível de entradas e saídas, executada localmente e na integração contínua.',
-    aulas: ['javascript.m03.a05'],
+    aulas: ['javascript.m03.a05', 'engsoft.m01.a03'],
   },
   {
     id: 'select',
@@ -1089,5 +1089,36 @@ export const glossario: TermoEntrada[] = [
     simples: 'Esconder o estado interno e deixar só uma interface segura à mostra.',
     tecnico: 'Campos privados (#) e métodos que validam preservam as invariantes do objeto.',
     aulas: ['poo.m01.a02'],
+  },
+  {
+    id: 'sprint-scrum',
+    termo: 'Sprint',
+    simples: 'Ciclo curto do Scrum que entrega algo utilizável.',
+    tecnico:
+      'Dura de 1 a 4 semanas; começa com planejamento e termina com revisão e retrospectiva.',
+    aulas: ['engsoft.m01.a01'],
+  },
+  {
+    id: 'git-versionamento',
+    termo: 'Git',
+    simples: 'Sistema que guarda a história do código e deixa várias pessoas trabalharem juntas.',
+    tecnico:
+      'Commits formam um grafo; branches são ponteiros; merge junta ramos; pull request organiza a revisão.',
+    aulas: ['engsoft.m01.a02'],
+  },
+  {
+    id: 'historia-de-usuario',
+    termo: 'História de usuário',
+    simples: 'Necessidade escrita como "Como, quero, para", com critérios de aceite.',
+    tecnico: 'Boas histórias seguem o INVEST e são priorizadas por valor e esforço.',
+    aulas: ['engsoft.m01.a04'],
+  },
+  {
+    id: 'ci-cd',
+    termo: 'CI/CD',
+    simples: 'Esteira que testa e publica o código automaticamente.',
+    tecnico:
+      'CI compila e roda testes a cada push; CD entrega ou implanta; se uma etapa falha, a pipeline para.',
+    aulas: ['engsoft.m01.a05'],
   },
 ];

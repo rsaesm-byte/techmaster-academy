@@ -53,6 +53,12 @@ import { w04 } from './web/a04-formularios';
 import { w05 } from './web/a05-projeto';
 import { bancos } from './bancos/disciplina';
 import { poo } from './poo/disciplina';
+import { engsoft } from './engsoft/disciplina';
+import { es01 } from './engsoft/a01-agil';
+import { es02 } from './engsoft/a02-git';
+import { es03 } from './engsoft/a03-testes';
+import { es04 } from './engsoft/a04-requisitos';
+import { es05 } from './engsoft/a05-qualidade';
 import { o01 } from './poo/a01-classes';
 import { o02 } from './poo/a02-encapsulamento';
 import { o03 } from './poo/a03-heranca';
@@ -115,6 +121,7 @@ export const disciplinas = [
   web,
   bancos,
   poo,
+  engsoft,
 ];
 export const aulas = [
   aula01,
@@ -212,5 +219,10 @@ export const aulas = [
   o03,
   o04,
   o05,
+  es01,
+  es02,
+  es03,
+  es04,
+  es05,
 ];
 export { glossario };
