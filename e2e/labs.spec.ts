@@ -61,3 +61,13 @@ test('terminal simulado: criar pasta e arquivo', async ({ page }) => {
   await expect(page.getByRole('log')).toContainText('fotos/');
   expectSemErros();
 });
+
+test('laboratório de sistemas: sub-rede e senha', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/lab/sistemas');
+  await page.getByRole('button', { name: 'IP e sub-redes' }).click();
+  await expect(page.getByText('192.168.1.255')).toBeVisible();
+  await page.getByRole('button', { name: 'Senhas' }).click();
+  await expect(page.getByRole('status')).toContainText('fraca');
+  expectSemErros();
+});

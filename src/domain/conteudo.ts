@@ -273,6 +273,25 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
     editavel: z.boolean().default(false),
   }),
   z.object({
+    tipo: z.literal('permissoes'),
+    octal: z
+      .string()
+      .regex(/^[0-7]{3}$/)
+      .default('644'),
+  }),
+  z.object({
+    tipo: z.literal('rede'),
+    ip: z.string().default('192.168.1.130'),
+    cidr: z.number().int().min(8).max(30).default(24),
+  }),
+  z.object({
+    tipo: z.literal('escalonador'),
+    algoritmo: z.enum(['fifo', 'rr']).default('rr'),
+    quantum: z.number().int().min(1).max(5).default(2),
+  }),
+  z.object({ tipo: z.literal('senha') }),
+  z.object({ tipo: z.literal('web') }),
+  z.object({
     tipo: z.literal('terminal'),
     cenario: z.enum(['livre', 'navegar', 'arquivos']).default('livre'),
   }),

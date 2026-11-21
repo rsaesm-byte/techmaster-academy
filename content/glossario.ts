@@ -404,4 +404,80 @@ export const glossario: TermoEntrada[] = [
       'Sequência de diretórios, separados por barras, que localiza um arquivo; pode ser absoluto ou relativo.',
     aulas: ['fundamentos.m01.a05'],
   },
+  {
+    id: 'sistema-operacional',
+    termo: 'Sistema operacional',
+    simples:
+      'O programa que gerencia CPU, memória, arquivos e dispositivos para os outros programas.',
+    tecnico:
+      'Software de sistema que abstrai o hardware e gerencia processos, memória, arquivos e E/S.',
+    aulas: ['fundamentos.m02.a01'],
+  },
+  {
+    id: 'processo',
+    termo: 'Processo',
+    simples: 'Um programa em execução.',
+    tecnico:
+      'Instância de um programa em execução, com espaço de memória, estado e contexto próprios.',
+    aulas: ['fundamentos.m02.a01'],
+  },
+  {
+    id: 'escalonador',
+    termo: 'Escalonador',
+    simples: 'A parte do sistema que decide qual processo usa a CPU em cada momento.',
+    tecnico:
+      'Componente do kernel que seleciona o próximo processo pronto, segundo uma política (FIFO, Round Robin...).',
+    aulas: ['fundamentos.m02.a01'],
+  },
+  {
+    id: 'permissao',
+    termo: 'Permissão de arquivo',
+    simples: 'Regra que diz quem pode ler, alterar ou executar um arquivo.',
+    tecnico: 'Controle de acesso por dono, grupo e outros, com bits r, w e x (octal: 4, 2 e 1).',
+    aulas: ['fundamentos.m02.a02'],
+  },
+  {
+    id: 'ip',
+    termo: 'Endereço IP',
+    simples: 'O endereço de um equipamento numa rede, como 192.168.1.10.',
+    tecnico: 'Identificador de 32 bits (IPv4) ou 128 bits (IPv6) de uma interface de rede.',
+    aulas: ['fundamentos.m02.a03'],
+  },
+  {
+    id: 'mascara-sub-rede',
+    termo: 'Máscara de sub-rede (CIDR)',
+    simples: 'Indica quanto do endereço IP identifica a rede, como /24.',
+    tecnico:
+      'Máscara de bits cujos 1 marcam a parte de rede; a notação /n indica quantos bits são de rede.',
+    aulas: ['fundamentos.m02.a03'],
+  },
+  {
+    id: 'dns',
+    termo: 'DNS',
+    simples: 'A "lista telefônica" da internet: traduz nomes de sites em endereços IP.',
+    tecnico:
+      'Sistema distribuído de nomes que mapeia domínios a registros (A, AAAA, CNAME...), com cache por TTL.',
+    aulas: ['fundamentos.m02.a04'],
+  },
+  {
+    id: 'http',
+    termo: 'HTTP e HTTPS',
+    simples: 'O "idioma" dos pedidos e respostas na web; HTTPS é a versão criptografada.',
+    tecnico: 'Protocolo de pedido e resposta da web; HTTPS o transporta sobre TLS.',
+    aulas: ['fundamentos.m02.a04'],
+  },
+  {
+    id: 'entropia',
+    termo: 'Entropia de senha',
+    simples: 'Medida, em bits, de quantos palpites seriam necessários para acertar uma senha.',
+    tecnico: 'Para senhas aleatórias, H = L·log2(N) bits; cada bit dobra o espaço de busca.',
+    aulas: ['fundamentos.m02.a05'],
+  },
+  {
+    id: '2fa',
+    termo: 'Verificação em duas etapas (2FA)',
+    simples: 'Uma segunda barreira, além da senha, para entrar numa conta.',
+    tecnico: 'Autenticação que exige dois fatores distintos (algo que se sabe, se tem ou se é).',
+    aulas: ['fundamentos.m02.a05'],
+  },
 ];

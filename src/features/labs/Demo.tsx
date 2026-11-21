@@ -27,6 +27,21 @@ const CpuSim = lazy(() =>
 const TerminalSim = lazy(() =>
   import('@/features/labs/terminal/TerminalSim').then((m) => ({ default: m.TerminalSim })),
 );
+const PermissoesSim = lazy(() =>
+  import('@/features/labs/sistemas/PermissoesSim').then((m) => ({ default: m.PermissoesSim })),
+);
+const RedeSim = lazy(() =>
+  import('@/features/labs/sistemas/RedeSim').then((m) => ({ default: m.RedeSim })),
+);
+const EscalonadorSim = lazy(() =>
+  import('@/features/labs/sistemas/EscalonadorSim').then((m) => ({ default: m.EscalonadorSim })),
+);
+const SenhaSim = lazy(() =>
+  import('@/features/labs/sistemas/SenhaSim').then((m) => ({ default: m.SenhaSim })),
+);
+const WebSim = lazy(() =>
+  import('@/features/labs/sistemas/WebSim').then((m) => ({ default: m.WebSim })),
+);
 const LacoGrafico = lazy(() =>
   import('@/features/labs/laco/LacoGrafico').then((m) => ({ default: m.LacoGrafico })),
 );
@@ -60,6 +75,16 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <OrdenacaoSim algoritmoInicial={simulacao.algoritmo} fixo={simulacao.fixo} />;
           case 'binario':
             return <BinarioSim modo={simulacao.modo} bits={simulacao.bits} />;
+          case 'permissoes':
+            return <PermissoesSim octal={simulacao.octal} />;
+          case 'rede':
+            return <RedeSim ip={simulacao.ip} cidr={simulacao.cidr} />;
+          case 'escalonador':
+            return <EscalonadorSim algoritmo={simulacao.algoritmo} quantum={simulacao.quantum} />;
+          case 'senha':
+            return <SenhaSim />;
+          case 'web':
+            return <WebSim />;
           case 'cpu':
             return (
               <CpuSim

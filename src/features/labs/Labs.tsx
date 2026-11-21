@@ -32,6 +32,11 @@ const LABS = [
     descricao: 'AND, OR, XOR... monte um somador e veja como o hardware soma.',
   },
   {
+    para: '/lab/sistemas',
+    nome: 'Sistemas, redes e segurança',
+    descricao: 'Processos, permissões, IP e sub-redes, DNS e HTTP, força de senha.',
+  },
+  {
     para: '/lab/cpu',
     nome: 'CPU e memória',
     descricao: 'Programe em assembly e veja registradores e memória a cada passo.',

@@ -6,6 +6,14 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Fundamentos, módulo 2 — "Sistemas, redes e segurança"** (5 aulas completas):
+  Sistema operacional e processos, Permissões de arquivo, IP e sub-redes, DNS e
+  HTTP, Senhas e segurança; 10 termos novos no glossário.
+- Laboratório **Sistemas, redes e segurança** com 5 simuladores: escalonador de
+  processos (FIFO e Round Robin), permissões (rwx e octal), calculadora de IP e
+  sub-rede, passo a passo de abrir um site (DNS e HTTP) e força de senha.
+- O conteúdo das aulas agora vai em pedaços de JavaScript próprios (um por
+  disciplina), mantendo o código do app dentro do orçamento de tamanho.
 - **Escola A — "Fundamentos da Computação"** (5 aulas completas): Bits e binário,
   Texto e hexadecimal, Portas lógicas, CPU e memória, Arquivos e terminal;
   15 termos novos no glossário.

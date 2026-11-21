@@ -88,6 +88,14 @@ const LABS: Documento[] = [
   },
   {
     tipo: 'laboratorio',
+    titulo: 'Sistemas, redes e segurança',
+    subtitulo: 'Laboratório',
+    rota: '/lab/sistemas',
+    texto:
+      'processos escalonador permissoes chmod ip sub rede mascara cidr dns http senha entropia seguranca',
+  },
+  {
+    tipo: 'laboratorio',
     titulo: 'CPU e memória',
     subtitulo: 'Laboratório',
     rota: '/lab/cpu',

@@ -20,5 +20,18 @@ export const fundamentos: DisciplinaEntrada = {
         'fundamentos.m01.a05',
       ],
     },
+    {
+      id: 'fundamentos.m02',
+      titulo: 'Sistemas, redes e segurança',
+      descricao:
+        'Como o sistema operacional reparte a CPU, quem pode acessar cada arquivo, como as redes se endereçam, como a web funciona e como proteger contas.',
+      aulas: [
+        'fundamentos.m02.a01',
+        'fundamentos.m02.a02',
+        'fundamentos.m02.a03',
+        'fundamentos.m02.a04',
+        'fundamentos.m02.a05',
+      ],
+    },
   ],
 };

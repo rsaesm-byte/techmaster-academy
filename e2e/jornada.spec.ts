@@ -78,3 +78,9 @@ test('aula de Fundamentos abre com a simulação de binário', async ({ page }) 
   await expect(page.getByRole('region', { name: /binário/i }).first()).toBeVisible();
   expectSemErros();
 });
+
+test('trilha de Fundamentos mostra os dois módulos', async ({ page }) => {
+  await abrir(page, '/trilha/fundamentos');
+  await expect(page.getByText('Como o computador pensa')).toBeVisible();
+  await expect(page.getByText('Sistemas, redes e segurança').first()).toBeVisible();
+});

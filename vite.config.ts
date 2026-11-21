@@ -83,6 +83,18 @@ export default defineConfig(({ command }) => ({
   build: {
     // Nunca embutir arquivos como data: URI — a CSP (font-src 'self') bloquearia.
     assetsInlineLimit: 0,
+    // O conteúdo das aulas vai para pedaços próprios (um por disciplina): o código do app
+    // não cresce a cada aula nova e o navegador reaproveita o cache do que não mudou.
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            { name: 'aulas-logica', test: /[\\/]content[\\/]logica[\\/]/ },
+            { name: 'aulas-fundamentos', test: /[\\/]content[\\/]fundamentos[\\/]/ },
+          ],
+        },
+      },
+    },
   },
   test: {
     environment: 'jsdom',
