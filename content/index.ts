@@ -52,6 +52,12 @@ import { w03 } from './web/a03-layout';
 import { w04 } from './web/a04-formularios';
 import { w05 } from './web/a05-projeto';
 import { bancos } from './bancos/disciplina';
+import { poo } from './poo/disciplina';
+import { o01 } from './poo/a01-classes';
+import { o02 } from './poo/a02-encapsulamento';
+import { o03 } from './poo/a03-heranca';
+import { o04 } from './poo/a04-polimorfismo';
+import { o05 } from './poo/a05-composicao';
 import { b01 } from './bancos/a01-modelagem';
 import { b02 } from './bancos/a02-normalizacao';
 import { b03 } from './bancos/a03-chaves';
@@ -108,6 +114,7 @@ export const disciplinas = [
   ciberseguranca,
   web,
   bancos,
+  poo,
 ];
 export const aulas = [
   aula01,
@@ -200,5 +207,10 @@ export const aulas = [
   b03,
   b04,
   b05,
+  o01,
+  o02,
+  o03,
+  o04,
+  o05,
 ];
 export { glossario };

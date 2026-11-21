@@ -1052,4 +1052,42 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'O isolamento tem níveis; a durabilidade vem do log de transações (WAL).',
     aulas: ['bancos.m01.a05'],
   },
+  {
+    id: 'classe-objeto',
+    termo: 'Classe e objeto',
+    simples: 'A classe é o molde; o objeto é uma peça criada a partir dele.',
+    tecnico:
+      'Instância criada com new; atributos ficam em cada instância e métodos definem o comportamento.',
+    aulas: ['poo.m01.a01'],
+  },
+  {
+    id: 'heranca',
+    termo: 'Herança',
+    simples: 'Uma classe receber e especializar o que outra já tem.',
+    tecnico: 'extends, super e sobrescrita; relação "é um"; cuidado com acoplamento forte.',
+    aulas: ['poo.m01.a03'],
+  },
+  {
+    id: 'polimorfismo',
+    termo: 'Polimorfismo',
+    simples: 'Mesmo método em objetos diferentes, cada um respondendo do seu jeito.',
+    tecnico:
+      'Depende de um contrato (interface); em JavaScript, por duck typing; base do padrão Strategy.',
+    aulas: ['poo.m01.a04'],
+  },
+  {
+    id: 'composicao',
+    termo: 'Composição',
+    simples: 'Montar um objeto com outros objetos e delegar trabalho a eles.',
+    tecnico:
+      'Relação "tem um"; permite injeção de dependência; preferida à herança em muitos casos.',
+    aulas: ['poo.m01.a05'],
+  },
+  {
+    id: 'encapsulamento-poo',
+    termo: 'Encapsulamento (POO)',
+    simples: 'Esconder o estado interno e deixar só uma interface segura à mostra.',
+    tecnico: 'Campos privados (#) e métodos que validam preservam as invariantes do objeto.',
+    aulas: ['poo.m01.a02'],
+  },
 ];

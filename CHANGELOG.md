@@ -6,6 +6,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola G — Programação Orientada a Objetos**, disciplina com módulo 1
+  "Pensando em objetos" (5 aulas): classes e objetos, encapsulamento, herança,
+  polimorfismo e interfaces, composição e SOLID; 5 termos novos e 5 desafios
+  de programação, todos com JavaScript executável.
 - **Escola H — Banco de Dados**, disciplina "Modelagem e Projeto de Bancos de Dados",
   módulo 1 "Projetando bancos confiáveis" (5 aulas): modelagem, normalização,
   chaves e integridade, índices e desempenho, transações e ACID; 5 termos novos
