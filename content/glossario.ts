@@ -596,4 +596,77 @@ export const glossario: TermoEntrada[] = [
       'Declarações de escopo de bloco; const impede reatribuição, mas não torna o conteúdo imutável.',
     aulas: ['javascript.m01.a01'],
   },
+  {
+    id: 'hipervisor',
+    termo: 'Hipervisor',
+    simples: 'Software que divide um computador físico em várias máquinas virtuais.',
+    tecnico:
+      'Camada que cria e gerencia VMs, repartindo CPU, memória e dispositivos com isolamento.',
+    aulas: ['fundamentos.m04.a01'],
+  },
+  {
+    id: 'conteiner',
+    termo: 'Contêiner',
+    simples: 'Programa empacotado com tudo que precisa, rodando isolado e leve.',
+    tecnico: 'Processo isolado por namespaces e cgroups que compartilha o kernel do host.',
+    aulas: ['fundamentos.m04.a02'],
+  },
+  {
+    id: 'nuvem',
+    termo: 'Computação em nuvem',
+    simples: 'Alugar computadores e serviços de outra empresa pela internet.',
+    tecnico:
+      'Entrega de recursos sob demanda (IaaS, PaaS, SaaS) com cobrança por uso e elasticidade.',
+    aulas: ['fundamentos.m04.a03'],
+  },
+  {
+    id: 'commit',
+    termo: 'Commit',
+    simples: 'Um ponto salvo do histórico do projeto, com uma mensagem.',
+    tecnico: 'Registro identificado por hash que guarda o estado dos arquivos no repositório Git.',
+    aulas: ['fundamentos.m04.a04'],
+  },
+  {
+    id: 'sql',
+    termo: 'SQL',
+    simples: 'Linguagem para consultar e alterar dados em bancos relacionais.',
+    tecnico: 'Linguagem declarativa com comandos como SELECT, WHERE, INSERT, UPDATE e DELETE.',
+    aulas: ['fundamentos.m04.a05'],
+  },
+  {
+    id: 'json',
+    termo: 'JSON',
+    simples: 'Formato de texto para representar dados, usado em quase toda API.',
+    tecnico:
+      'Notação de objetos, arrays, textos, números e booleanos com chaves entre aspas duplas.',
+    aulas: ['javascript.m02.a01'],
+  },
+  {
+    id: 'promise',
+    termo: 'Promise',
+    simples: 'Um resultado que vai chegar no futuro.',
+    tecnico: 'Objeto que representa a conclusão ou falha de uma operação assíncrona.',
+    aulas: ['javascript.m02.a05'],
+  },
+  {
+    id: 'dom',
+    termo: 'DOM',
+    simples: 'A árvore de elementos da página que o JavaScript pode alterar.',
+    tecnico: 'Representação em objetos do documento HTML, criada pelo navegador.',
+    aulas: ['javascript.m02.a03'],
+  },
+  {
+    id: 'f-string',
+    termo: 'f-string',
+    simples: 'Texto do Python com f na frente que aceita variáveis entre chaves.',
+    tecnico: 'Literal de string formatada: f"Olá, {nome}" interpola expressões.',
+    aulas: ['python.m01.a01'],
+  },
+  {
+    id: 'dicionario',
+    termo: 'Dicionário',
+    simples: 'Estrutura do Python que guarda pares de chave e valor.',
+    tecnico: 'Mapa hash com chaves únicas, acessado por d[chave]; base do JSON.',
+    aulas: ['python.m01.a05'],
+  },
 ];

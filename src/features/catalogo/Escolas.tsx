@@ -15,7 +15,9 @@ export default function Escolas() {
       </div>
       <ul className="m-0 grid list-none gap-3 p-0 sm:grid-cols-2 lg:grid-cols-3">
         {ESCOLAS.map((e) => {
-          const disciplina = catalogo.disciplinas.find((d) => d.escola === e.letra);
+          const doEscola = catalogo.disciplinas.filter((d) => d.escola === e.letra);
+          const disciplina = doEscola[0];
+          const varias = doEscola.length > 1;
           const conteudo = (
             <>
               <span className="flex items-center gap-3">
@@ -45,13 +47,33 @@ export default function Escolas() {
               <span
                 className={`mt-auto text-sm font-semibold ${disciplina ? 'text-primary' : 'text-muted'}`}
               >
-                {disciplina ? 'Disponível · entrar →' : 'No roadmap'}
+                {disciplina
+                  ? varias
+                    ? `Disponível · ${doEscola.length} disciplinas`
+                    : 'Disponível · entrar →'
+                  : 'No roadmap'}
               </span>
             </>
           );
           return (
             <li key={e.letra}>
-              {disciplina ? (
+              {varias ? (
+                <div className="flex h-full min-h-40 flex-col gap-3 rounded-2xl border-2 border-primary bg-surface p-5">
+                  {conteudo}
+                  <ul className="m-0 flex list-none flex-wrap gap-2 p-0">
+                    {doEscola.map((d) => (
+                      <li key={d.id}>
+                        <Link
+                          to={`/trilha/${d.id}`}
+                          className="inline-block rounded-lg border border-primary px-3 py-1.5 text-sm font-semibold text-primary no-underline"
+                        >
+                          {d.titulo}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ) : disciplina ? (
                 <Link
                   to={`/trilha/${disciplina.id}`}
                   className="flex h-full min-h-40 flex-col gap-3 rounded-2xl border-2 border-primary bg-surface p-5 no-underline"

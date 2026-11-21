@@ -46,5 +46,18 @@ export const fundamentos: DisciplinaEntrada = {
         'fundamentos.m03.a05',
       ],
     },
+    {
+      id: 'fundamentos.m04',
+      titulo: 'Infraestrutura moderna',
+      descricao:
+        'Virtualização, contêineres, computação em nuvem, versionamento com Git e bancos de dados com SQL.',
+      aulas: [
+        'fundamentos.m04.a01',
+        'fundamentos.m04.a02',
+        'fundamentos.m04.a03',
+        'fundamentos.m04.a04',
+        'fundamentos.m04.a05',
+      ],
+    },
   ],
 };

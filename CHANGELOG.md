@@ -6,6 +6,14 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **JavaScript, módulo 2 "JavaScript na web"** (5 aulas): JSON, desestruturação e
+  spread, DOM e eventos, erros com try/catch, assíncrono com Promises e async/await.
+- **Fundamentos, módulo 4 "Infraestrutura moderna"** (5 aulas): Virtualização,
+  Contêineres e Docker, Computação em nuvem, Git, Bancos de dados e SQL.
+- **Escola C — Python, módulo 1** (5 aulas): variáveis e f-strings, condicionais,
+  listas e laços, funções, dicionários e compreensões, sempre comparadas com
+  JavaScript no console.
+- A tela de Escolas lista várias disciplinas por escola; 10 termos novos no glossário.
 - **Escola C — JavaScript, módulo 1 "Primeiros passos em JavaScript"** (5 aulas
   completas): Variáveis e tipos, Condicionais, Laços e arrays, Funções e arrow
   functions, Objetos com map/filter/reduce; 7 termos novos no glossário.

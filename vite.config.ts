@@ -92,6 +92,7 @@ export default defineConfig(({ command }) => ({
             { name: 'aulas-logica', test: /[\\/]content[\\/]logica[\\/]/ },
             { name: 'aulas-fundamentos', test: /[\\/]content[\\/]fundamentos[\\/]/ },
             { name: 'aulas-javascript', test: /[\\/]content[\\/]javascript[\\/]/ },
+            { name: 'aulas-python', test: /[\\/]content[\\/]python[\\/]/ },
           ],
         },
       },
