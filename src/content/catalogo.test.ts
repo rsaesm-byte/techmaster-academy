@@ -125,3 +125,19 @@ describe('soluções de referência', () => {
     expect(falhas).toEqual([]);
   });
 });
+
+describe('demonstrações', () => {
+  it('todo programa do Visualizador nas aulas executa sem erro', async () => {
+    const { executar } = await import('@/engines/portugol/interpretador');
+    const catalogo = montarCatalogo(disciplinas, aulas);
+    const falhas: string[] = [];
+    for (const aula of catalogo.aulas.values()) {
+      for (const etapa of aula.etapas) {
+        if (etapa.tipo !== 'demo' || etapa.simulacao.tipo !== 'visualizador') continue;
+        const r = executar(etapa.simulacao.codigo, etapa.simulacao.entradas ?? []);
+        if (r.erro) falhas.push(`${aula.id} ${etapa.id}: ${r.erro.mensagem}`);
+      }
+    }
+    expect(falhas).toEqual([]);
+  });
+});

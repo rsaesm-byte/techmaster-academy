@@ -20,5 +20,18 @@ export const logica: DisciplinaEntrada = {
         'logica.m01.a05',
       ],
     },
+    {
+      id: 'logica.m02',
+      titulo: 'Organizando dados e código',
+      descricao:
+        'Vetores, funções e procedimentos, busca, ordenação e recursividade: as ferramentas para lidar com muitos dados e programas maiores.',
+      aulas: [
+        'logica.m02.a01',
+        'logica.m02.a02',
+        'logica.m02.a03',
+        'logica.m02.a04',
+        'logica.m02.a05',
+      ],
+    },
   ],
 };

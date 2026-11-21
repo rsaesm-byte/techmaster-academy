@@ -189,4 +189,106 @@ export const glossario: TermoEntrada[] = [
       'Laço cuja condição de continuação permanece sempre verdadeira, geralmente porque o corpo não altera o estado avaliado.',
     aulas: ['logica.m01.a01', 'logica.m01.a05'],
   },
+  {
+    id: 'vetor',
+    termo: 'Vetor',
+    simples: 'Uma variável que guarda vários valores do mesmo tipo, um em cada posição numerada.',
+    tecnico:
+      'Estrutura homogênea de tamanho fixo cujos elementos são acessados por índice em tempo constante (array unidimensional).',
+    aulas: ['logica.m02.a01'],
+  },
+  {
+    id: 'indice',
+    termo: 'Índice',
+    simples: 'O número da posição de um elemento dentro do vetor.',
+    tecnico:
+      'Expressão inteira usada para acessar um elemento de um vetor; deve estar dentro dos limites declarados.',
+    aulas: ['logica.m02.a01'],
+  },
+  {
+    id: 'funcao',
+    termo: 'Função',
+    simples: 'Um pedaço de código com nome que recebe valores e devolve um resultado.',
+    tecnico:
+      'Sub-rotina com parâmetros tipados e tipo de retorno, que devolve um valor com retorne.',
+    aulas: ['logica.m02.a02'],
+  },
+  {
+    id: 'procedimento',
+    termo: 'Procedimento',
+    simples: 'Um pedaço de código com nome que executa uma ação, sem devolver resultado.',
+    tecnico: 'Sub-rotina sem valor de retorno, chamada como comando isolado.',
+    aulas: ['logica.m02.a02'],
+  },
+  {
+    id: 'parametro',
+    termo: 'Parâmetro',
+    simples: 'Valor que você entrega para uma função quando a chama.',
+    tecnico:
+      'Variável declarada na assinatura da sub-rotina que recebe, por valor, o argumento passado na chamada.',
+    aulas: ['logica.m02.a02'],
+  },
+  {
+    id: 'retorno',
+    termo: 'Retorno',
+    simples: 'O resultado que a função devolve para quem a chamou.',
+    tecnico:
+      'Valor produzido por retorne, que encerra a função e substitui a chamada na expressão de origem.',
+    aulas: ['logica.m02.a02'],
+  },
+  {
+    id: 'escopo',
+    termo: 'Escopo',
+    simples: 'O trecho do programa onde uma variável existe e pode ser usada.',
+    tecnico:
+      'Região de visibilidade de um identificador; variáveis locais e parâmetros existem apenas durante a ativação da sub-rotina.',
+    aulas: ['logica.m02.a02'],
+  },
+  {
+    id: 'pilha-de-chamadas',
+    termo: 'Pilha de chamadas',
+    simples: 'A lista das funções que estão em execução, uma em cima da outra.',
+    tecnico:
+      'Estrutura LIFO de quadros de ativação; cada chamada empilha um quadro com parâmetros e locais, removido ao retornar.',
+    aulas: ['logica.m02.a02', 'logica.m02.a05'],
+  },
+  {
+    id: 'busca-linear',
+    termo: 'Busca linear',
+    simples: 'Procurar um valor olhando posição por posição, do começo ao fim.',
+    tecnico: 'Busca sequencial O(n), sem pré-condição sobre a ordem dos elementos.',
+    aulas: ['logica.m02.a03'],
+  },
+  {
+    id: 'busca-binaria',
+    termo: 'Busca binária',
+    simples: 'Procurar num vetor ordenado olhando o meio e descartando metade a cada passo.',
+    tecnico:
+      'Busca O(log n) em vetor ordenado que reduz o intervalo [esq, dir] pela metade a cada comparação com o elemento central.',
+    aulas: ['logica.m02.a03'],
+  },
+  {
+    id: 'ordenacao',
+    termo: 'Ordenação',
+    simples: 'Reorganizar os elementos em ordem, do menor para o maior ou o contrário.',
+    tecnico:
+      'Permutação dos elementos segundo uma relação de ordem; algoritmos simples (bolha, seleção, inserção) são O(n²).',
+    aulas: ['logica.m02.a04'],
+  },
+  {
+    id: 'recursao',
+    termo: 'Recursão',
+    simples: 'Quando uma função resolve um problema chamando a si mesma com uma versão menor dele.',
+    tecnico:
+      'Técnica em que uma sub-rotina se invoca direta ou indiretamente, com casos recursivos que convergem para um caso base.',
+    aulas: ['logica.m02.a05'],
+  },
+  {
+    id: 'caso-base',
+    termo: 'Caso base',
+    simples:
+      'A situação mais simples, em que a função recursiva responde direto e para de se chamar.',
+    tecnico: 'Ramo não recursivo de uma definição recursiva, que garante a terminação.',
+    aulas: ['logica.m02.a05'],
+  },
 ];
