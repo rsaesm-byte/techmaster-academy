@@ -6,6 +6,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Redes, módulo 2 "Operando e protegendo a rede"** (5 aulas): diagnóstico com
+  ping, traceroute e nslookup; Wi-Fi seguro; HTTPS e TLS; VPN e túneis; e o
+  projeto da rede de um escritório. Três desafios de programação novos
+  (`diagnosticar`, `usaVpn`, `prefixoPara`).
 - **Escola I — Arquitetura de Redes**, disciplina "Redes de Computadores",
   módulo 1 (5 aulas): modelo em camadas e encapsulamento, sub-redes (VLSM),
   roteamento, TCP, UDP e portas, e DHCP, NAT e firewall; 9 termos novos no

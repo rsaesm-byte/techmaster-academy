@@ -874,4 +874,41 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Avalia regras em ordem (a primeira que casa vence); o ideal é negar por padrão.',
     aulas: ['redes.m01.a05'],
   },
+  {
+    id: 'vpn',
+    termo: 'VPN',
+    simples: 'Túnel criptografado que estende uma rede privada pela internet.',
+    tecnico:
+      'O pacote original é criptografado e encapsulado em outro; protocolos: IPsec, OpenVPN, WireGuard.',
+    aulas: ['redes.m02.a04'],
+  },
+  {
+    id: 'tls',
+    termo: 'TLS',
+    simples: 'Protocolo que protege o HTTP (HTTPS) com autenticação, sigilo e integridade.',
+    tecnico:
+      'Usa certificado para a identidade e chave pública para combinar uma chave de sessão simétrica.',
+    aulas: ['redes.m02.a03'],
+  },
+  {
+    id: 'certificado-digital',
+    termo: 'Certificado digital',
+    simples: 'Documento que prova a identidade de um servidor, assinado por uma CA.',
+    tecnico: 'Forma uma cadeia de confiança até uma CA raiz instalada no sistema.',
+    aulas: ['redes.m02.a03'],
+  },
+  {
+    id: 'icmp-ping',
+    termo: 'Ping (ICMP)',
+    simples: 'Teste que envia um eco e mede se o destino responde e em quanto tempo.',
+    tecnico: 'Mede latência e perda; firewalls podem bloquear o ICMP.',
+    aulas: ['redes.m02.a01'],
+  },
+  {
+    id: 'wpa3',
+    termo: 'WPA3',
+    simples: 'Padrão de segurança de Wi-Fi mais recente e forte.',
+    tecnico: 'Usa a troca de chaves SAE, resistente a ataques de dicionário offline.',
+    aulas: ['redes.m02.a02'],
+  },
 ];

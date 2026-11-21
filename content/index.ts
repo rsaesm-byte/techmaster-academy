@@ -34,6 +34,11 @@ import { r02 } from './redes/a02-subredes';
 import { r03 } from './redes/a03-roteamento';
 import { r04 } from './redes/a04-transporte';
 import { r05 } from './redes/a05-dhcp-nat-firewall';
+import { r06 } from './redes/c01-diagnostico';
+import { r07 } from './redes/c02-wifi';
+import { r08 } from './redes/c03-tls';
+import { r09 } from './redes/c04-vpn';
+import { r10 } from './redes/c05-projeto';
 import { s01, s02, s03, s04, s05 } from './sql/aulas';
 import { s06, s07, s08, s09, s10 } from './sql/aulas2';
 import { python } from './python/disciplina';
@@ -147,5 +152,10 @@ export const aulas = [
   r03,
   r04,
   r05,
+  r06,
+  r07,
+  r08,
+  r09,
+  r10,
 ];
 export { glossario };
