@@ -7,6 +7,12 @@ updates:
     groups:
       dependencias:
         patterns: ['*']
+        update-types: [minor, patch]
+    # Versões principais (ex.: ESLint 10, TypeScript 7) mudam regras e quebram plugins:
+    # atualizamos à mão, com calma, quando o ecossistema estiver pronto.
+    ignore:
+      - dependency-name: '*'
+        update-types: ['version-update:semver-major']
   - package-ecosystem: github-actions
     directory: /
     schedule:
