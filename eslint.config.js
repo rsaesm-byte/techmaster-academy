@@ -19,4 +19,9 @@ export default tseslint.config(
       'jsx-a11y/label-has-associated-control': ['error', { depth: 3 }],
     },
   },
+  {
+    // Nos testes, "!" é aceitável: se o dado não existir, o teste falha de qualquer jeito.
+    files: ['**/*.test.{ts,tsx}'],
+    rules: { '@typescript-eslint/no-non-null-assertion': 'off' },
+  },
 );

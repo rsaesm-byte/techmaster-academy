@@ -20,7 +20,7 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
 
-    "paths": { "@/*": ["./src/*"] }
+    "paths": { "@/*": ["./src/*"], "@content/*": ["./content/*"] }
   },
-  "include": ["src"]
+  "include": ["src", "content"]
 }

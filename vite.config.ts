@@ -40,7 +40,10 @@ export default defineConfig(({ command }) => ({
   base: command === 'build' ? REPO_BASE : '/',
   plugins: [react(), tailwindcss(), cspPlugin()],
   resolve: {
-    alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
+    alias: {
+      '@content': fileURLToPath(new URL('./content', import.meta.url)),
+      '@': fileURLToPath(new URL('./src', import.meta.url)),
+    },
   },
   build: {
     // Nunca embutir arquivos como data: URI — a CSP (font-src 'self') bloquearia.
