@@ -1,0 +1,96 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/jetbrains-mono';
+@import 'tailwindcss';
+
+/* "dark:" do Tailwind passa a seguir a classe .dark no <html> (que nós controlamos). */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/*
+ * DESIGN TOKENS — a única fonte de verdade das cores.
+ * Componentes nunca usam hex direto: usam bg-surface, text-muted etc.
+ * Trocar o tema = trocar estes valores. Contrastes conferidos (WCAG AA) no plano da Fase 0.
+ */
+:root {
+  --tm-bg: #f8fafc;
+  --tm-surface: #ffffff;
+  --tm-surface-2: #f1f5f9;
+  --tm-border: #e2e8f0;
+  --tm-text: #0f172a;
+  --tm-muted: #475569;
+  --tm-primary: #1d4ed8;
+  --tm-primary-soft: #dbeafe;
+  --tm-on-primary: #ffffff;
+  --tm-accent: #8a6a12;
+  --tm-accent-soft: #fef3c7;
+  --tm-success: #15803d;
+  --tm-success-soft: #dcfce7;
+  --tm-danger: #b91c1c;
+  --tm-danger-soft: #fee2e2;
+}
+
+.dark {
+  --tm-bg: #0b1220;
+  --tm-surface: #111a2e;
+  --tm-surface-2: #16223a;
+  --tm-border: #24324d;
+  --tm-text: #e2e8f0;
+  --tm-muted: #94a3b8;
+  --tm-primary: #60a5fa;
+  --tm-primary-soft: #1e3a5f;
+  --tm-on-primary: #0b1220;
+  --tm-accent: #e3b341;
+  --tm-accent-soft: #3a2f12;
+  --tm-success: #4ade80;
+  --tm-success-soft: #0f2e1c;
+  --tm-danger: #f87171;
+  --tm-danger-soft: #3b1515;
+}
+
+/* Expõe os tokens como utilitários do Tailwind: bg-surface, text-muted, border-border... */
+@theme inline {
+  --color-bg: var(--tm-bg);
+  --color-surface: var(--tm-surface);
+  --color-surface-2: var(--tm-surface-2);
+  --color-border: var(--tm-border);
+  --color-text: var(--tm-text);
+  --color-muted: var(--tm-muted);
+  --color-primary: var(--tm-primary);
+  --color-primary-soft: var(--tm-primary-soft);
+  --color-on-primary: var(--tm-on-primary);
+  --color-accent: var(--tm-accent);
+  --color-accent-soft: var(--tm-accent-soft);
+  --color-success: var(--tm-success);
+  --color-success-soft: var(--tm-success-soft);
+  --color-danger: var(--tm-danger);
+  --color-danger-soft: var(--tm-danger-soft);
+  --font-sans: 'Inter Variable', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, monospace;
+}
+
+html {
+  color-scheme: light;
+}
+html.dark {
+  color-scheme: dark;
+}
+
+body {
+  @apply bg-bg text-text font-sans antialiased;
+  line-height: 1.6;
+}
+
+/* Foco sempre visível para quem navega pelo teclado. */
+:focus-visible {
+  outline: 2px solid var(--tm-primary);
+  outline-offset: 2px;
+}
+
+/* Respeita quem pede menos movimento no sistema. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
