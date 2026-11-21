@@ -20,7 +20,7 @@ export const IdSchema = z
 /** Texto didático: parágrafos separados por linha em branco; `código` entre crases. */
 export const TextoSchema = z.string().trim().min(1, 'texto vazio');
 
-export const LinguagemSchema = z.enum(['pseudocodigo', 'javascript', 'python']);
+export const LinguagemSchema = z.enum(['pseudocodigo', 'javascript', 'python', 'html', 'css']);
 
 export const CodigoSchema = z.object({
   linguagem: LinguagemSchema,
@@ -317,6 +317,13 @@ export const SimulacaoSchema = z.discriminatedUnion('tipo', [
   z.object({ tipo: z.literal('compressao'), texto: z.string().optional() }),
   z.object({ tipo: z.literal('cesar'), texto: z.string().optional() }),
   z.object({ tipo: z.literal('web') }),
+  z.object({
+    /** Editor de HTML e CSS (e JS opcional) com prévia ao vivo, isolado numa iframe. */
+    tipo: z.literal('editor'),
+    html: z.string().min(1),
+    css: z.string().default(''),
+    js: z.string().default(''),
+  }),
   z.object({
     tipo: z.literal('terminal'),
     cenario: z.enum(['livre', 'navegar', 'arquivos']).default('livre'),

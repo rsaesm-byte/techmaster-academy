@@ -104,6 +104,16 @@ test('aula de SQL executa a consulta e mostra a tabela', async ({ page }) => {
   expectSemErros();
 });
 
+test('aula de Web mostra o editor com prévia isolada', async ({ page }) => {
+  const { expectSemErros } = vigiarErros(page);
+  await abrir(page, '/aula/web.m01.a01?etapa=demo');
+  await expect(page.getByLabel('Código HTML')).toBeVisible({ timeout: 15_000 });
+  await expect(page.getByTitle('Prévia da página')).toBeVisible();
+  await page.getByRole('tab', { name: 'CSS' }).click();
+  await expect(page.getByLabel('Código CSS')).toContainText('font-family');
+  expectSemErros();
+});
+
 test('exercício de SQL: escrever a consulta e ser corrigido pelo resultado', async ({ page }) => {
   const { expectSemErros } = vigiarErros(page);
   await abrir(page, '/aula/sql.m01.a01?etapa=desafio');

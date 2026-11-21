@@ -39,6 +39,9 @@ const EscalonadorSim = lazy(() =>
 const SenhaSim = lazy(() =>
   import('@/features/labs/sistemas/SenhaSim').then((m) => ({ default: m.SenhaSim })),
 );
+const EditorSim = lazy(() =>
+  import('@/features/labs/web/EditorSim').then((m) => ({ default: m.EditorSim })),
+);
 const WebSim = lazy(() =>
   import('@/features/labs/sistemas/WebSim').then((m) => ({ default: m.WebSim })),
 );
@@ -104,6 +107,8 @@ export function Demo({ simulacao }: { simulacao: Simulacao }) {
             return <SenhaSim />;
           case 'web':
             return <WebSim />;
+          case 'editor':
+            return <EditorSim html={simulacao.html} css={simulacao.css} js={simulacao.js} />;
           case 'unidades':
             return <UnidadesSim />;
           case 'cache':

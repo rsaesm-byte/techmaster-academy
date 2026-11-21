@@ -4,6 +4,8 @@ const NOMES: Record<Codigo['linguagem'], string> = {
   pseudocodigo: 'Pseudocódigo',
   javascript: 'JavaScript',
   python: 'Python',
+  html: 'HTML',
+  css: 'CSS',
 };
 
 /** Código com números de linha; linhas em `destaque` ganham fundo. */

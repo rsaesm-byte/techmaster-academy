@@ -140,6 +140,7 @@ fimalgoritmo
 | `cpu`                               | CPU didática com assembly            | `programa`, `memoria`, `editavel`           |
 | `terminal`                          | Terminal simulado com missões        | `cenario`: livre, navegar ou arquivos       |
 | `sql`                               | Banco de treino (clientes e pedidos) | `consulta` (inicial, editável)              |
+| `editor`                            | Editor de HTML/CSS/JS com prévia     | `html`, `css`, `js` (iniciais, editáveis)   |
 | `js`                                | Console de JavaScript                | `codigo` (programa inicial, editável)       |
 
 As aulas de `content/fundamentos/` usam `montar()` e os ajudantes `mc`, `prever`,

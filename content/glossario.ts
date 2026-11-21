@@ -960,4 +960,56 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Protege contra falhas e ransomware; a restauração precisa ser testada.',
     aulas: ['ciberseguranca.m01.a05'],
   },
+  {
+    id: 'html',
+    termo: 'HTML',
+    simples: 'Linguagem que descreve a estrutura e o significado do conteúdo de uma página.',
+    tecnico: 'Usa tags e atributos; o navegador a converte na árvore DOM.',
+    aulas: ['web.m01.a01'],
+  },
+  {
+    id: 'css',
+    termo: 'CSS',
+    simples: 'Linguagem que define a aparência da página: cores, tamanhos e posições.',
+    tecnico:
+      'Regras com seletor e declarações; a cascata resolve conflitos por especificidade e ordem.',
+    aulas: ['web.m01.a02'],
+  },
+  {
+    id: 'modelo-de-caixa',
+    termo: 'Modelo de caixa',
+    simples: 'Todo elemento é uma caixa: conteúdo, padding, borda e margem.',
+    tecnico: 'Com box-sizing: border-box a largura inclui padding e borda.',
+    aulas: ['web.m01.a02'],
+  },
+  {
+    id: 'flexbox',
+    termo: 'Flexbox',
+    simples: 'Layout que organiza os filhos de um elemento em linha ou coluna.',
+    tecnico: 'justify-content alinha no eixo principal; align-items, no cruzado.',
+    aulas: ['web.m01.a03'],
+  },
+  {
+    id: 'design-responsivo',
+    termo: 'Design responsivo',
+    simples: 'Página que se adapta a telas de qualquer tamanho.',
+    tecnico:
+      'Usa meta viewport, unidades relativas, Flexbox ou Grid e media queries (mobile first).',
+    aulas: ['web.m01.a03'],
+  },
+  {
+    id: 'acessibilidade-web',
+    termo: 'Acessibilidade web',
+    simples:
+      'Projetar páginas utilizáveis por todos, inclusive por quem usa leitor de tela ou só o teclado.',
+    tecnico: 'Guiada pela WCAG (POUR): perceptível, operável, compreensível e robusto.',
+    aulas: ['web.m01.a04'],
+  },
+  {
+    id: 'github-pages',
+    termo: 'GitHub Pages',
+    simples: 'Serviço gratuito que publica páginas estáticas direto de um repositório.',
+    tecnico: 'Serve por HTTPS; cada push gera uma nova publicação.',
+    aulas: ['web.m01.a05'],
+  },
 ];

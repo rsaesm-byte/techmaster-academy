@@ -9,7 +9,7 @@ type Etapas = AulaEntrada['etapas'];
 type Etapa = Etapas[number];
 type Questao = Extract<Etapa, { questoes: unknown[] }>['questoes'][number];
 type Q = Omit<Questao, 'id'>;
-type Linguagem = 'pseudocodigo' | 'javascript' | 'python';
+type Linguagem = 'pseudocodigo' | 'javascript' | 'python' | 'html' | 'css';
 type Simulacao = Extract<Etapa, { tipo: 'demo' }>['simulacao'];
 
 /** Questão de múltipla escolha: a correta vem primeiro; `pos` (0–2) escolhe onde ela aparece. */
@@ -19,7 +19,7 @@ export function mc(
   erradas: [string, string][],
   explicacao: string,
   pos = 0,
-  codigo?: { linguagem: 'pseudocodigo' | 'javascript' | 'python'; fonte: string },
+  codigo?: { linguagem: Linguagem; fonte: string },
 ): Q {
   const alt = [...erradas.map(([texto, feedback]) => ({ texto, feedback }))];
   alt.splice(Math.min(pos, alt.length), 0, { texto: correta, feedback: '' });
@@ -153,7 +153,7 @@ export interface Spec {
   };
   exemplo: {
     titulo: string;
-    codigo: { linguagem: 'pseudocodigo' | 'javascript' | 'python'; fonte: string };
+    codigo: { linguagem: Linguagem; fonte: string };
     comentarios: { linha: number; texto: string }[];
   };
   guiado: [Q, Q];

@@ -45,6 +45,12 @@ import { c02 } from './ciberseguranca/a02-senhas-hash';
 import { c03 } from './ciberseguranca/a03-phishing';
 import { c04 } from './ciberseguranca/a04-injecao-sql';
 import { c05 } from './ciberseguranca/a05-boas-praticas';
+import { web } from './web/disciplina';
+import { w01 } from './web/a01-html';
+import { w02 } from './web/a02-css';
+import { w03 } from './web/a03-layout';
+import { w04 } from './web/a04-formularios';
+import { w05 } from './web/a05-projeto';
 import { s01, s02, s03, s04, s05 } from './sql/aulas';
 import { s06, s07, s08, s09, s10 } from './sql/aulas2';
 import { python } from './python/disciplina';
@@ -86,7 +92,16 @@ import { m02a03 } from './logica/m02/a03-busca';
 import { m02a04 } from './logica/m02/a04-ordenacao';
 import { m02a05 } from './logica/m02/a05-recursividade';
 
-export const disciplinas = [logica, fundamentos, javascript, python, sql, redes, ciberseguranca];
+export const disciplinas = [
+  logica,
+  fundamentos,
+  javascript,
+  python,
+  sql,
+  redes,
+  ciberseguranca,
+  web,
+];
 export const aulas = [
   aula01,
   aula02,
@@ -168,5 +183,10 @@ export const aulas = [
   c03,
   c04,
   c05,
+  w01,
+  w02,
+  w03,
+  w04,
+  w05,
 ];
 export { glossario };

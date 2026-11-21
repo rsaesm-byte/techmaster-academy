@@ -6,6 +6,13 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola D — Desenvolvimento Web**, disciplina "HTML, CSS e a Web", módulo 1
+  (5 aulas): HTML semântico, CSS e a cascata, Flexbox e design responsivo,
+  formulários e acessibilidade, e o projeto de um portfólio publicado no GitHub
+  Pages; 7 termos novos no glossário.
+- Nova simulação **`editor`**: editor de HTML, CSS e JS com prévia ao vivo dentro
+  da aula, na mesma iframe isolada do Editor Web. Blocos de código agora aceitam
+  as linguagens `html` e `css`.
 - **Escola L — Cibersegurança**, disciplina "Fundamentos de Cibersegurança",
   módulo 1 "Defesa em profundidade" (5 aulas): tríade CIA, senhas com hash e MFA,
   phishing, injeção de SQL (com demo no banco de treino) e higiene de segurança
