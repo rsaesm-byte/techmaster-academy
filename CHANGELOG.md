@@ -6,6 +6,11 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Alterado
 
+- **Novo ícone animado (Camadas):** três camadas empilhadas que flutuam em
+  ritmos diferentes, com um ponto de dados descendo por elas. O ícone SVG e o
+  favicon são animados; os PNGs de instalação (192, 512, maskable e iPhone)
+  usam a versão estática. Gerado por `node scripts/gerar-icones.mjs`.
+
 - **Ordem da trilha:** HTML, CSS e a Web agora vem antes de JavaScript, para
   que as aulas de DOM usem uma página que o aluno já sabe montar.
 
