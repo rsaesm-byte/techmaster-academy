@@ -9,7 +9,7 @@ export const f11 = montar({
   min: 25,
   diag: mc(
     'Sua internet é de 100 Mbps. Qual é, no máximo, a velocidade de download em megabytes por segundo (MB/s)?',
-    'Cerca de 12,5 MB/s',
+    'Cerca de 12,5 MB/s, dividindo os 100 Mbps pelos 8 bits de cada byte',
     [
       [
         '100 MB/s, pois megabits e megabytes são a mesma unidade',

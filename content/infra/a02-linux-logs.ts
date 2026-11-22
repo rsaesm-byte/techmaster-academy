@@ -81,7 +81,7 @@ export const inf02 = montar({
     ),
     mc(
       'Qual comando acompanha um log ao vivo?',
-      'tail -f',
+      'tail -f, que segue o fim do arquivo e mostra as linhas novas',
       [
         [
           'ls -l, que lista os arquivos da pasta com seus detalhes',

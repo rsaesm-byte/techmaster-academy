@@ -84,7 +84,7 @@ export const j13 = montar({
     ),
     mc(
       'Qual tipo de dado o localStorage aceita?',
-      'Apenas texto (strings)',
+      'Apenas texto (strings), por isso objetos precisam virar JSON',
       [
         [
           'Qualquer objeto, que é convertido sozinho para o formato certo',

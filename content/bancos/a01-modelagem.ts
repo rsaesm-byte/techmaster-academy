@@ -74,7 +74,7 @@ export const b01 = montar({
   guiado: [
     mc(
       'Um cliente faz vários pedidos, e cada pedido é de um só cliente. Qual é o relacionamento?',
-      '1:N (um para muitos)',
+      '1:N (um para muitos), pois cada pedido é de um só cliente',
       [
         [
           '1:1 (um para um), pois cada cliente tem apenas um pedido',

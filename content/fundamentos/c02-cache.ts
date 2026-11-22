@@ -91,7 +91,7 @@ export const f12 = montar({
     ),
     mc(
       'Qual destas memórias é a mais rápida?',
-      'Registradores',
+      'Registradores, que ficam dentro da própria CPU',
       [
         [
           'A RAM, que fica ligada direto na placa-mãe e responde na hora',

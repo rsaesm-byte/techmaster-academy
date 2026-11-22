@@ -125,7 +125,7 @@ export const p01 = montar({
   rec: [
     mc(
       'Qual operador faz divisão inteira em Python?',
-      '//',
+      '//, que divide e arredonda para baixo, devolvendo um inteiro',
       [
         [
           '/, que divide e devolve sempre um número decimal',
@@ -137,7 +137,7 @@ export const p01 = montar({
     ),
     mc(
       'O que acontece com "5" + 5 em Python?',
-      'Gera um erro (TypeError)',
+      'Gera um erro (TypeError), pois o Python não mistura texto e número',
       [
         [
           'Resulta em "55", como no JavaScript, juntando os dois valores',

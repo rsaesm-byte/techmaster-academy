@@ -340,7 +340,7 @@ export const s03 = montar({
   min: 20,
   diag: mc(
     'Sem ORDER BY, a ordem das linhas do resultado é garantida?',
-    'Não',
+    'Não, a ordem pode variar sem o ORDER BY',
     [
       ['Sim, sempre pela ordem de inserção', 'O banco pode devolver em qualquer ordem.'],
       ['Sim, sempre alfabética', 'Não há ordem implícita garantida.'],

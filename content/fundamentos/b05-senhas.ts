@@ -85,7 +85,7 @@ export const f10 = montar({
   guiado: [
     mc(
       'Cada bit a mais de entropia faz o trabalho de quebrar a senha...',
-      'Dobrar',
+      'Dobrar, pois cada bit dobra o número de combinações',
       [
         ['Aumentar em 1 tentativa', 'O crescimento é exponencial: dobra a cada bit.'],
         ['Ficar igual', 'Cada bit a mais dobra o espaço de busca.'],

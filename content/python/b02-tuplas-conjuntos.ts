@@ -9,7 +9,7 @@ export const p07 = montar({
   min: 25,
   diag: mc(
     'Qual estrutura não aceita elementos repetidos?',
-    'Conjunto (set)',
+    'Conjunto (set), que descarta os valores repetidos',
     [
       ['Lista, que guarda os elementos em ordem e aceita repetidos', 'Listas aceitam repetidos.'],
       ['Tupla, que é imutável e guarda os elementos em ordem', 'Tuplas aceitam repetidos.'],
@@ -120,7 +120,7 @@ export const p07 = montar({
   rec: [
     mc(
       'Como criar um conjunto vazio?',
-      'set()',
+      'set(), pois {} cria um dicionário vazio',
       [
         ['{}, as mesmas chaves usadas para criar dicionários', '{} cria um dicionário vazio.'],
         ['[], os mesmos colchetes usados para criar listas', '[] cria uma lista vazia.'],

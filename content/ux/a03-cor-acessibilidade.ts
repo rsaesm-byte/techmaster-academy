@@ -86,7 +86,7 @@ export const ux03 = montar({
     ),
     mc(
       'Qual razão de contraste mínima a WCAG AA pede para texto normal?',
-      '4,5:1',
+      '4,5:1, o mínimo para texto normal no nível AA',
       [
         [
           '2:1, que já é suficiente para a maioria das pessoas lerem',

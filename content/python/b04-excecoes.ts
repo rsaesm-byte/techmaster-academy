@@ -124,7 +124,7 @@ export const p09 = montar({
   rec: [
     mc(
       'Qual bloco roda sempre, com ou sem erro?',
-      'finally',
+      'finally, que roda com ou sem erro',
       [
         [
           'else, que roda só quando nenhum erro aconteceu',

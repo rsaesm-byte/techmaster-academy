@@ -92,7 +92,7 @@ export const c01 = montar({
   indep: [
     mc(
       'Qual defesa protege principalmente a disponibilidade?',
-      'Backups e redundância',
+      'Backups e redundância, que mantêm o sistema no ar',
       [
         [
           'Criptografia, que embaralha os dados para quem não tem a chave',

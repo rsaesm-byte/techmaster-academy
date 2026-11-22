@@ -99,7 +99,7 @@ export const f16 = montar({
   indep: [
     mc(
       'Qual hipervisor roda diretamente sobre o hardware?',
-      'Tipo 1 (bare-metal)',
+      'Tipo 1 (bare-metal), que roda direto sobre o hardware',
       [
         [
           'Tipo 2, que se instala sobre o sistema operacional e tem acesso direto ao hardware',

@@ -9,7 +9,7 @@ export const ia02 = montar({
   min: 30,
   diag: mc(
     'Um fruto novo é parecido com laranjas que você já viu. Que rótulo provavelmente ele terá?',
-    'Laranja',
+    'Laranja, porque é a mais parecida com o fruto novo',
     [
       [
         'Maçã, porque é a fruta mais comum nos conjuntos de exemplo',

@@ -298,7 +298,7 @@ export const aula04: AulaEntrada = {
           tipo: 'multipla-escolha',
           enunciado: 'Numa cadeia se / senao se / senao, quantos blocos podem executar?',
           alternativas: [
-            { id: 'a', texto: 'No máximo um' },
+            { id: 'a', texto: 'No máximo um: o primeiro cuja condição for verdadeira' },
             {
               id: 'b',
               texto: 'Todos os que tiverem condição verdadeira',

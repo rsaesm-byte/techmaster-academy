@@ -105,7 +105,7 @@ export const c02 = montar({
   indep: [
     mc(
       'Qual destas senhas é a mais forte?',
-      'cavalo-bateria-grampo-lua',
+      'cavalo-bateria-grampo-lua, que é longa e aleatória',
       [
         [
           'P@ssw0rd!, que mistura letras, número e símbolos',

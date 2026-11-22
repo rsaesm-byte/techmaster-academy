@@ -794,7 +794,7 @@ export const s10 = montar({
     ),
     mc(
       'Qual comando apaga a tabela inteira, estrutura incluída?',
-      'DROP TABLE',
+      'DROP TABLE, que remove a tabela inteira junto com os dados',
       [
         [
           'DELETE, que apaga as linhas mas mantém a estrutura da tabela',

@@ -8,7 +8,7 @@ export const p06 = montar({
   min: 25,
   diag: mc(
     'Qual método transforma "oi" em "OI"?',
-    'upper()',
+    'upper(), que devolve o texto todo em maiúsculas',
     [
       ['big(), que deixa todas as letras do texto maiúsculas', 'O método se chama upper().'],
       ['caps(), que coloca as letras em caixa alta', 'O método se chama upper().'],

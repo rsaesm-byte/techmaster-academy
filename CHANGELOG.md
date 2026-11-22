@@ -11,6 +11,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Corrigido
 
+- **Respostas curtas demais:** em 26 questões a alternativa certa era só uma
+  palavra enquanto as erradas vinham explicadas, o que entregava a resposta pelo
+  tamanho. As certas ganharam uma explicação curta equivalente.
+
 - **Passada de leitura 3 — experiência de estudo:** as "Conexões" de
   Fundamentos agora apontam para a aula aprofundada em outra escola (com o
   título da aula) e as autorreferências citam a aula. No celular (360 px),

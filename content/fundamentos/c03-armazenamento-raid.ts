@@ -9,7 +9,7 @@ export const f13 = montar({
   min: 30,
   diag: mc(
     'Um servidor tem dois discos espelhados (RAID 1) e um deles quebra. O que acontece com os dados?',
-    'Continuam disponíveis no outro disco',
+    'Continuam disponíveis no outro disco, que guarda uma cópia completa',
     [
       [
         'Ficam perdidos, pois o espelho só copia os dados e não os protege',

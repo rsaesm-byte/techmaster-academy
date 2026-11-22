@@ -8,7 +8,7 @@ export const o01 = montar({
   min: 30,
   diag: mc(
     'Em um sistema de loja, "Cliente" descreve o que todo cliente tem. "Maria" é um cliente específico. Quem é a classe?',
-    'Cliente',
+    'Cliente, porque descreve o que todo cliente tem',
     [
       [
         'Maria, porque é o nome de um cliente que já existe no sistema',

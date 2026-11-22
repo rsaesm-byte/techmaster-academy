@@ -89,7 +89,7 @@ export const ux02 = montar({
     ),
     mc(
       'Qual heurística pede que a interface mostre que algo está carregando?',
-      'Visibilidade do estado do sistema',
+      'Visibilidade do estado do sistema, que mantém o usuário informado',
       [
         [
           'Consistência e padrões, que mantêm o mesmo comportamento em todas as telas',

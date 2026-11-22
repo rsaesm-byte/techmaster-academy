@@ -8,7 +8,7 @@ export const p05 = montar({
   min: 30,
   diag: mc(
     'Como se acessa o valor da chave "nome" em um dicionário d?',
-    'd["nome"]',
+    'd["nome"], com a chave entre colchetes',
     [
       ['d.nome, como no acesso a atributos de um objeto', 'Dicionários usam colchetes e a chave.'],
       [
@@ -124,7 +124,7 @@ export const p05 = montar({
   rec: [
     mc(
       'O que acontece ao acessar d["x"] se a chave não existe?',
-      'Ocorre um KeyError',
+      'Ocorre um KeyError, interrompendo o programa',
       [
         [
           'Devolve None e o programa continua normalmente',
@@ -136,7 +136,7 @@ export const p05 = montar({
     ),
     mc(
       'A que se parece uma compreensão de lista em JavaScript?',
-      'map e filter',
+      'map e filter, que também criam uma nova lista a partir de outra',
       [
         [
           'for...in, que percorre as propriedades de um objeto',
