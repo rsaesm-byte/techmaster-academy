@@ -131,12 +131,12 @@ import { m02a05 } from './logica/m02/a05-recursividade';
 export const disciplinas = [
   logica,
   fundamentos,
+  web,
   javascript,
   python,
   sql,
   redes,
   ciberseguranca,
-  web,
   bancos,
   poo,
   engsoft,

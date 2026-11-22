@@ -4,6 +4,11 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ## 2026-11-21
 
+### Alterado
+
+- **Ordem da trilha:** HTML, CSS e a Web agora vem antes de JavaScript, para
+  que as aulas de DOM usem uma página que o aluno já sabe montar.
+
 ### Corrigido
 
 - **Passada de leitura 3 — experiência de estudo:** as "Conexões" de
