@@ -49,7 +49,7 @@ export const f15 = montar({
   tecnica: {
     titulo: 'Da cifra de César ao HTTPS',
     texto:
-      '**César:** cada letra é deslocada d posições (módulo 26). Para decifrar, desloca-se −d.\n\n**Fraquezas:** só 25 chaves (força bruta) e a frequência das letras se mantém, o que permite quebrar por análise de frequência.\n\n**Criptografia moderna:**\n- **Simétrica (AES):** mesma chave nas duas pontas; rápida.\n- **Assimétrica (RSA):** chave pública para cifrar, privada para decifrar; resolve o problema de combinar a chave.\n- **Hash (SHA-256):** resumo de tamanho fixo, sem volta; usado para checar integridade e guardar senhas.\n\n**Regra de ouro:** nunca invente sua própria criptografia; use bibliotecas e padrões revisados por especialistas.\n\n**Tamanho da chave:** cada bit dobra o trabalho. Uma chave de 128 bits tem 2¹²⁸ possibilidades.',
+      '**César:** cada letra é deslocada d posições (módulo 26). Para decifrar, desloca-se −d.\n\n**Fraquezas:** só 25 chaves (força bruta) e a frequência das letras se mantém, o que permite quebrar por análise de frequência.\n\n**Criptografia moderna:**\n- **Simétrica (AES):** mesma chave nas duas pontas; rápida.\n- **Assimétrica (RSA):** chave pública para cifrar, privada para decifrar; resolve o problema de combinar a chave.\n- **Hash (SHA-256):** resumo de tamanho fixo, sem volta; usado para checar integridade. Para guardar senhas usa-se um hash lento com sal (bcrypt, Argon2), e não o SHA-256 puro.\n\n**Regra de ouro:** nunca invente sua própria criptografia; use bibliotecas e padrões revisados por especialistas.\n\n**Tamanho da chave:** cada bit dobra o trabalho. Uma chave de 128 bits tem 2¹²⁸ possibilidades.',
   },
   diagrama: {
     titulo: 'Enviando uma mensagem cifrada',
@@ -201,7 +201,7 @@ export const f15 = montar({
     ],
     [
       'Para que serve um hash?',
-      'Gerar um resumo de tamanho fixo, sem volta, para checar integridade e guardar senhas.',
+      'Gerar um resumo de tamanho fixo, sem volta, para checar integridade (senhas pedem um hash lento com sal).',
     ],
   ],
   conexoes: {

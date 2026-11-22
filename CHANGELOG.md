@@ -34,6 +34,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
   proibido de usar o motor") e virou múltipla escolha; em UX (aula 3), a
   estatística de deficiência passou de "1 em cada 4" (dado dos EUA) para "1 em
   cada 6 no mundo" (OMS). Com isso, a passada 1 cobre as 14 disciplinas.
+- **Passada de leitura 2 — consistência (início):** Fundamentos (aula de
+  criptografia) dizia que o SHA-256 serve para guardar senhas, contradizendo a
+  aula de Cibersegurança (hash lento com sal: bcrypt, Argon2). Texto e cartão de
+  revisão alinhados.
 
 ### Adicionado
 
