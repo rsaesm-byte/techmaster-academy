@@ -1,4 +1,5 @@
 import { Link, Navigate } from 'react-router';
+import { BotaoAtualizar } from '@/app/BotaoAtualizar';
 import { usePreferencias } from '@/app/preferencias';
 import { catalogo } from '@/content';
 import { dataLocal } from '@/engines/srs/sm2';
@@ -64,9 +65,12 @@ export function Painel() {
 
   return (
     <div className="flex flex-col gap-8">
-      <h1 className="m-0 text-3xl font-bold tracking-tight">
-        {saudacao()}! {emAndamento ? 'Continue de onde parou' : 'Pronto para o próximo passo?'}
-      </h1>
+      <div className="flex flex-wrap items-start justify-between gap-4">
+        <h1 className="m-0 text-3xl font-bold tracking-tight">
+          {saudacao()}! {emAndamento ? 'Continue de onde parou' : 'Pronto para o próximo passo?'}
+        </h1>
+        <BotaoAtualizar />
+      </div>
 
       {destino && (
         <section

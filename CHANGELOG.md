@@ -69,6 +69,12 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Botão "Atualizar app" no Painel:** procura uma versão nova na hora e a
+  aplica (ou avisa que já está na mais recente / sem conexão), sem precisar
+  limpar o navegador.
+- **Logo animado:** o ícone Camadas também aparece animado no cabeçalho e na
+  tela de carregamento (respeita "reduzir movimento").
+
 - **Escola E — UX/UI Design**, módulo 1 "Design centrado no usuário" (5 aulas):
   UX e pesquisa, usabilidade, cor e acessibilidade, layout e design systems,
   prototipação e teste de usabilidade; termos novos no glossário e 5 desafios de

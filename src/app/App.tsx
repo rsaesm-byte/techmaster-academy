@@ -1,3 +1,4 @@
+import { LogoIcone } from '@/ui/Logo';
 import { lazy, Suspense, type ReactNode } from 'react';
 import { HashRouter, Route, Routes } from 'react-router';
 import { AppShell } from '@/app/AppShell';
@@ -49,7 +50,12 @@ const LabLaco = lazy(() =>
   import('@/features/labs/LabSimples').then((m) => ({ default: m.LabLaco })),
 );
 
-const carregando = <p role="status">Carregando…</p>;
+const carregando = (
+  <div role="status" className="flex flex-col items-center gap-3 py-16 text-muted">
+    <LogoIcone tamanho={72} />
+    <p className="m-0">Carregando…</p>
+  </div>
+);
 const preguicoso = (el: ReactNode) => <Suspense fallback={carregando}>{el}</Suspense>;
 
 let repositorioPadrao: ProgressRepository | undefined;
