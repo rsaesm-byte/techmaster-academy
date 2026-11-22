@@ -6,6 +6,9 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola J — Infraestrutura e Servidores**, módulo 1 "Servidores no mundo real"
+  (5 aulas): disponibilidade e SLA, Linux e logs, contêineres, nuvem e escalabilidade,
+  monitoramento e recuperação de desastres; 3 termos novos e 5 desafios de programação.
 - **Escola F — Engenharia de Software**, módulo 1 "Do requisito à entrega" (5 aulas):
   métodos ágeis, Git, testes automatizados, requisitos e histórias de usuário, e
   qualidade com CI/CD; 4 termos novos e 5 desafios de programação.

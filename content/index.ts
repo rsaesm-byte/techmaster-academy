@@ -54,6 +54,12 @@ import { w05 } from './web/a05-projeto';
 import { bancos } from './bancos/disciplina';
 import { poo } from './poo/disciplina';
 import { engsoft } from './engsoft/disciplina';
+import { infra } from './infra/disciplina';
+import { inf01 } from './infra/a01-servidores';
+import { inf02 } from './infra/a02-linux-logs';
+import { inf03 } from './infra/a03-conteineres';
+import { inf04 } from './infra/a04-nuvem';
+import { inf05 } from './infra/a05-monitoramento';
 import { es01 } from './engsoft/a01-agil';
 import { es02 } from './engsoft/a02-git';
 import { es03 } from './engsoft/a03-testes';
@@ -122,6 +128,7 @@ export const disciplinas = [
   bancos,
   poo,
   engsoft,
+  infra,
 ];
 export const aulas = [
   aula01,
@@ -224,5 +231,10 @@ export const aulas = [
   es03,
   es04,
   es05,
+  inf01,
+  inf02,
+  inf03,
+  inf04,
+  inf05,
 ];
 export { glossario };

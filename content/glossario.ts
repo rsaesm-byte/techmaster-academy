@@ -609,7 +609,7 @@ export const glossario: TermoEntrada[] = [
     termo: 'Contêiner',
     simples: 'Programa empacotado com tudo que precisa, rodando isolado e leve.',
     tecnico: 'Processo isolado por namespaces e cgroups que compartilha o kernel do host.',
-    aulas: ['fundamentos.m04.a02'],
+    aulas: ['fundamentos.m04.a02', 'infra.m01.a03'],
   },
   {
     id: 'nuvem',
@@ -1120,5 +1120,26 @@ export const glossario: TermoEntrada[] = [
     tecnico:
       'CI compila e roda testes a cada push; CD entrega ou implanta; se uma etapa falha, a pipeline para.',
     aulas: ['engsoft.m01.a05'],
+  },
+  {
+    id: 'sla-disponibilidade',
+    termo: 'SLA',
+    simples: 'Compromisso contratual de quanto tempo o serviço fica no ar.',
+    tecnico: 'Mede-se em "noves"; o SLO é a meta interna e o SLA tem multa por descumprimento.',
+    aulas: ['infra.m01.a01'],
+  },
+  {
+    id: 'escala-horizontal',
+    termo: 'Escala horizontal',
+    simples: 'Aumentar a capacidade adicionando mais máquinas.',
+    tecnico: 'Exige balanceador de carga e aplicações stateless; é a base do auto scaling.',
+    aulas: ['infra.m01.a04'],
+  },
+  {
+    id: 'rpo-rto',
+    termo: 'RPO e RTO',
+    simples: 'Quanto de dado posso perder e em quanto tempo preciso voltar.',
+    tecnico: 'RPO = tempo desde o último backup; RTO = tempo máximo de recuperação.',
+    aulas: ['infra.m01.a05'],
   },
 ];
