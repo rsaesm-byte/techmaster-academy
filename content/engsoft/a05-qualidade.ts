@@ -197,9 +197,9 @@ export const es05 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Infraestrutura: servidores e containers que recebem o deploy.',
+      'Infraestrutura e Servidores: servidores e containers que recebem o deploy.',
       'Cibersegurança: varredura de vulnerabilidades na pipeline.',
-      'Web: este projeto publica no GitHub Pages por CD.',
+      'HTML, CSS e a Web: este projeto publica no GitHub Pages por CD.',
     ],
     profissional: 'Equipes de alto desempenho publicam várias vezes por dia graças a CI/CD.',
   },

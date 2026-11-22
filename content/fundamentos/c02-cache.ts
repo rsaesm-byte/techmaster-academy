@@ -206,9 +206,9 @@ export const f12 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: DNS, navegadores e CDNs usam cache para evitar buscas repetidas.',
-      'Banco de Dados: consultas e páginas frequentes ficam em cache.',
-      'Arquitetura de Computadores: processadores têm caches L1, L2 e L3.',
+      'Redes de Computadores: DNS, navegadores e CDNs usam cache para evitar buscas repetidas.',
+      'SQL: consultas e páginas frequentes ficam em cache.',
+      'Fundamentos da Computação: processadores têm caches L1, L2 e L3.',
     ],
     profissional:
       'Quando uma mudança no site "não aparece", costuma ser cache do navegador, do DNS ou do servidor. Saber que a cache existe e como renová-la resolve muitos chamados.',

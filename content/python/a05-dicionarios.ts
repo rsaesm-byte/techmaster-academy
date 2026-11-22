@@ -173,7 +173,7 @@ export const p05 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: objetos, map e filter.',
-      'Banco de Dados: uma linha de tabela se parece com um dicionário.',
+      'Modelagem e Projeto de Bancos de Dados: uma linha de tabela se parece com um dicionário.',
       'Engenharia de Dados: transformar registros é a rotina da área.',
     ],
     profissional:

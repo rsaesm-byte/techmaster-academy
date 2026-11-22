@@ -356,8 +356,8 @@ export const aula05: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Banco de Dados: percorrer os resultados de uma consulta é um laço sobre as linhas.',
-        'Infraestrutura: scripts de manutenção repetem a mesma ação em várias máquinas.',
+        'SQL: percorrer os resultados de uma consulta é um laço sobre as linhas.',
+        'Infraestrutura e Servidores: scripts de manutenção repetem a mesma ação em várias máquinas.',
         'Inteligência Artificial: treinar um modelo é repetir o ajuste milhares de vezes (as "épocas").',
       ],
       aplicacaoProfissional:

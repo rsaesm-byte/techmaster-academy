@@ -180,7 +180,7 @@ export const ux04 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Web: variáveis CSS, Flexbox e Grid.',
+      'HTML, CSS e a Web: variáveis CSS, Flexbox e Grid.',
       'Programação Orientada a Objetos: componentes reutilizáveis.',
       'Engenharia de Software: bibliotecas de componentes.',
     ],

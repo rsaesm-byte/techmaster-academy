@@ -192,9 +192,9 @@ export const r09 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: encapsulamento da aula 1 do módulo 1.',
+      'Redes de Computadores: encapsulamento da aula 1 do módulo 1.',
       'Cibersegurança: autenticação multifator e zero trust.',
-      'Infraestrutura: VPNs ligam a nuvem à rede local.',
+      'Infraestrutura e Servidores: VPNs ligam a nuvem à rede local.',
     ],
     profissional: 'Quem presta suporte a trabalho remoto resolve problemas de VPN o tempo todo.',
   },

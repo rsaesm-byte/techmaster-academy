@@ -165,8 +165,8 @@ export const r02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: binário e IP da aula de redes.',
-      'Infraestrutura: nuvens usam sub-redes em VPCs.',
+      'Fundamentos da Computação: binário e IP da aula de redes.',
+      'Infraestrutura e Servidores: nuvens usam sub-redes em VPCs.',
       'Cibersegurança: segmentar limita o estrago de um ataque.',
     ],
     profissional:

@@ -174,8 +174,8 @@ export const c01 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: criptografia e senhas.',
-      'Redes: firewall, VPN e segmentação são defesas por camadas.',
+      'Fundamentos da Computação: criptografia e senhas.',
+      'Redes de Computadores: firewall, VPN e segmentação são defesas por camadas.',
       'Engenharia de Software: segurança desde o projeto.',
     ],
     profissional:

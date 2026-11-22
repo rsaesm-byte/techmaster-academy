@@ -325,9 +325,9 @@ export const m02a05: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Estruturas de Dados: árvores e grafos são percorridos naturalmente com recursão.',
-        'Sistemas Operacionais: pastas dentro de pastas são uma estrutura recursiva.',
-        'Algoritmos: merge sort e quicksort dividem o vetor e ordenam as partes recursivamente.',
+        'Lógica de Programação: árvores e grafos são percorridos naturalmente com recursão.',
+        'Fundamentos da Computação: pastas dentro de pastas são uma estrutura recursiva.',
+        'Lógica de Programação: merge sort e quicksort dividem o vetor e ordenam as partes recursivamente.',
       ],
       aplicacaoProfissional:
         'Calcular o tamanho de uma pasta, listar todos os grupos aninhados de um usuário no Active Directory ou varrer um JSON de profundidade desconhecida são problemas recursivos: "faça isto aqui e o mesmo em cada filho".',

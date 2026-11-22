@@ -192,9 +192,9 @@ export const f13 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Segurança: backups offline protegem contra ransomware.',
-      'Nuvem: serviços de armazenamento replicam dados em vários servidores e regiões.',
-      'Banco de Dados: replicação é a ideia de RAID 1 aplicada a bancos inteiros.',
+      'Cibersegurança: backups offline protegem contra ransomware.',
+      'Infraestrutura e Servidores: serviços de armazenamento replicam dados em vários servidores e regiões.',
+      'Modelagem e Projeto de Bancos de Dados: replicação é a ideia de RAID 1 aplicada a bancos inteiros.',
     ],
     profissional:
       'Em TI, o primeiro chamado depois de uma perda de dados é sempre "tem backup?". Conhecer RAID e a regra 3-2-1 evita a falsa sensação de segurança.',

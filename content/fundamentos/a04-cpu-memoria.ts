@@ -189,8 +189,8 @@ export const f04 = montar({
   conexoes: {
     disciplinas: [
       'Lógica de Programação: um laço "para" vira, no processador, um desvio condicional como o JNZ.',
-      'Sistemas Operacionais: o sistema reveza a CPU entre os programas tão depressa que parecem rodar juntos.',
-      'Hardware: mais memória RAM permite manter mais programas abertos sem usar o disco.',
+      'Fundamentos da Computação: o sistema reveza a CPU entre os programas tão depressa que parecem rodar juntos.',
+      'Fundamentos da Computação: mais memória RAM permite manter mais programas abertos sem usar o disco.',
     ],
     profissional:
       'Entender CPU, RAM e disco ajuda a diagnosticar chamados de lentidão: máquina travando com pouca RAM (usando o disco no lugar), processo consumindo 100% da CPU ou disco cheio. Cada sintoma aponta uma peça diferente.',

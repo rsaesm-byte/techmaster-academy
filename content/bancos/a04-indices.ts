@@ -171,8 +171,8 @@ export const b04 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Algoritmos: busca binária e complexidade logarítmica.',
-      'Fundamentos: cache e armazenamento ajudam o desempenho.',
+      'Lógica de Programação: busca binária e complexidade logarítmica.',
+      'Fundamentos da Computação: cache e armazenamento ajudam o desempenho.',
       'Engenharia de Dados: particionamento e índices em grandes volumes.',
     ],
     profissional:

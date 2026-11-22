@@ -180,8 +180,8 @@ export const w01 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: o DOM é a árvore criada a partir do HTML.',
-      'Redes: o HTML chega por HTTP, como visto em DNS e HTTP.',
-      'UX/UI: estrutura clara melhora a experiência.',
+      'Redes de Computadores: o HTML chega por HTTP, como visto em DNS e HTTP.',
+      'UX/UI Design: estrutura clara melhora a experiência.',
     ],
     profissional:
       'Todo desenvolvedor web começa por um HTML bem estruturado; é a base de acessibilidade e de bom ranqueamento em buscas.',

@@ -201,7 +201,7 @@ export const j15 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Git: testes rodam a cada push.',
+      'Engenharia de Software: testes rodam a cada push.',
       'Engenharia de Software: TDD escreve o teste antes do código.',
       'Python: pytest é o equivalente.',
     ],

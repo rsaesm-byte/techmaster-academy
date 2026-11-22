@@ -186,7 +186,7 @@ export const inf05 = montar({
   conexoes: {
     disciplinas: [
       'Cibersegurança: monitorar também detecta ataques.',
-      'Banco de Dados: backup e restauração dos dados.',
+      'Modelagem e Projeto de Bancos de Dados: backup e restauração dos dados.',
       'Engenharia de Software: post-mortems e melhoria contínua.',
     ],
     profissional:

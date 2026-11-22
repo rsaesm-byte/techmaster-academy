@@ -178,7 +178,7 @@ export const p08 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Sistemas Operacionais: arquivos, caminhos e permissões.',
+      'Fundamentos da Computação: arquivos, caminhos e permissões.',
       'JavaScript: no Node, fs.readFile; no navegador, localStorage.',
       'Engenharia de Dados: ler CSV e JSON é o começo de todo pipeline.',
     ],

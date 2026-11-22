@@ -187,7 +187,7 @@ export const o05 = montar({
     disciplinas: [
       'Engenharia de Software: arquitetura em camadas e testes.',
       'Inteligência Artificial: pipelines montados com peças intercambiáveis.',
-      'Infraestrutura: componentes substituíveis (microsserviços).',
+      'Infraestrutura e Servidores: componentes substituíveis (microsserviços).',
     ],
     profissional:
       'Frameworks modernos (React, Spring, Angular) são montados por composição e injeção de dependência.',

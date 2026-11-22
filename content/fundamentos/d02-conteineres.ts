@@ -171,8 +171,8 @@ export const f17 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Virtualização: contêineres são a alternativa leve às VMs.',
-      'Computação em nuvem: serviços de nuvem executam contêineres.',
+      'Infraestrutura e Servidores: contêineres são a alternativa leve às VMs.',
+      'Infraestrutura e Servidores: serviços de nuvem executam contêineres.',
       'DevOps: contêineres padronizam o ambiente entre desenvolvimento e produção.',
     ],
     profissional:

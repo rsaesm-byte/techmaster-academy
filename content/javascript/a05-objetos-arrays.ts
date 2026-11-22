@@ -189,9 +189,9 @@ export const j05 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Banco de Dados: filter e map lembram WHERE e SELECT do SQL; reduce lembra SUM e COUNT.',
+      'SQL: filter e map lembram WHERE e SELECT do SQL; reduce lembra SUM e COUNT.',
       'Ciência de Dados: transformar listas de registros é a rotina da análise.',
-      'Desenvolvimento Web: respostas de APIs chegam como arrays de objetos.',
+      'HTML, CSS e a Web: respostas de APIs chegam como arrays de objetos.',
     ],
     profissional:
       'Em equipes de dados e web, encadear filter, map e reduce é uma forma clara e compacta de processar informações sem laços longos.',

@@ -178,8 +178,8 @@ export const inf01 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: o servidor depende de IP, DNS e portas.',
-      'Fundamentos: RAID e cache aumentam a resiliência.',
+      'Redes de Computadores: o servidor depende de IP, DNS e portas.',
+      'Fundamentos da Computação: RAID e cache aumentam a resiliência.',
       'Engenharia de Software: ambientes e CI/CD.',
     ],
     profissional:

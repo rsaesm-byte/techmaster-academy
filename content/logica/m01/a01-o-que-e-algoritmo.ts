@@ -390,9 +390,9 @@ export const aula01: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Linguagens de Programação: todo programa é um algoritmo escrito numa linguagem.',
+        'JavaScript e Python: todo programa é um algoritmo escrito numa linguagem.',
         'Engenharia de Software: requisitos ambíguos geram programas errados, como instruções vagas.',
-        'Infraestrutura e Suporte: procedimentos de atendimento são algoritmos.',
+        'Infraestrutura e Servidores: procedimentos de atendimento são algoritmos.',
       ],
       aplicacaoProfissional:
         'No suporte de TI, o procedimento para "computador sem rede" é um algoritmo: passos em ordem, sem ambiguidade e com um fim definido. Quem escreve bons procedimentos já está escrevendo bons algoritmos.',

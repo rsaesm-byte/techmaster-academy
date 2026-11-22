@@ -174,8 +174,8 @@ export const r01 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: IP, DNS e HTTP já apareceram; agora vemos a organização geral.',
-      'Desenvolvimento Web: HTTP é a camada de aplicação.',
+      'Fundamentos da Computação: IP, DNS e HTTP já apareceram; agora vemos a organização geral.',
+      'HTML, CSS e a Web: HTTP é a camada de aplicação.',
       'Cibersegurança: ataques e defesas atuam em camadas específicas.',
     ],
     profissional:

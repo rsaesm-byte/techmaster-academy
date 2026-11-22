@@ -198,7 +198,7 @@ export const j03 = montar({
   conexoes: {
     disciplinas: [
       'Lógica de Programação: vetores e laços do Portugol viram arrays e for.',
-      'Banco de Dados: um SELECT devolve uma lista de linhas que você percorre assim.',
+      'SQL: um SELECT devolve uma lista de linhas que você percorre assim.',
       'Ciência de Dados: somar, contar e achar máximos são as bases de qualquer análise.',
     ],
     profissional:

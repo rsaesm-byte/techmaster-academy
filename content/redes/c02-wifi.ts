@@ -161,9 +161,9 @@ export const r07 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: criptografia e senhas.',
+      'Fundamentos da Computação: criptografia e senhas.',
       'Cibersegurança: ataques a Wi-Fi e redes falsas.',
-      'Redes: camadas física e de enlace.',
+      'Redes de Computadores: camadas física e de enlace.',
     ],
     profissional:
       'Projetar cobertura e segurança do Wi-Fi é tarefa comum em suporte e infraestrutura de escritórios.',

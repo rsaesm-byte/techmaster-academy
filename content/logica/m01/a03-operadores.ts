@@ -350,9 +350,9 @@ export const aula03: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Linguagens de Programação: em JavaScript a igualdade é `===`, "e" é `&&`, "ou" é `||` e "nao" é `!`.',
-        'Banco de Dados: filtros SQL usam os mesmos operadores: WHERE idade >= 18 AND ativo = TRUE.',
-        'Redes: o cálculo de sub-redes usa operações com bits — outra família de operadores.',
+        'JavaScript e Python: em JavaScript a igualdade é `===`, "e" é `&&`, "ou" é `||` e "nao" é `!`.',
+        'SQL: filtros SQL usam os mesmos operadores: WHERE idade >= 18 AND ativo = TRUE.',
+        'Redes de Computadores: o cálculo de sub-redes usa operações com bits — outra família de operadores.',
       ],
       aplicacaoProfissional:
         'Planilhas, filtros de e-mail e regras de firewall são expressões: "se origem = rede interna e porta = 443". Entender a precedência evita regras que liberam mais do que deveriam.',

@@ -200,8 +200,8 @@ export const j11 = montar({
   conexoes: {
     disciplinas: [
       'React: a interface é função do estado.',
-      'Testes: funções puras são triviais de testar.',
-      'Banco de Dados: o estado persistente é guardado em tabelas.',
+      'Engenharia de Software: funções puras são triviais de testar.',
+      'Modelagem e Projeto de Bancos de Dados: o estado persistente é guardado em tabelas.',
     ],
     profissional:
       'Separar estado de interface é a base de apps escaláveis e é o que se pede em entrevistas de front-end.',

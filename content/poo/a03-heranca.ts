@@ -172,7 +172,7 @@ export const o03 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Algoritmos: hierarquias de tipos e árvores.',
+      'Lógica de Programação: hierarquias de tipos e árvores.',
       'JavaScript: cadeia de protótipos.',
       'Engenharia de Software: cuidado com acoplamento.',
     ],

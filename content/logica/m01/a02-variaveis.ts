@@ -328,8 +328,8 @@ export const aula02: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Banco de Dados: cada coluna de uma tabela também tem um tipo (INTEGER, DECIMAL, VARCHAR, BOOLEAN).',
-        'Linguagens de Programação: em JavaScript, `let` cria variáveis e `const` cria constantes.',
+        'Modelagem e Projeto de Bancos de Dados: cada coluna de uma tabela também tem um tipo (INTEGER, DECIMAL, VARCHAR, BOOLEAN).',
+        'JavaScript e Python: em JavaScript, `let` cria variáveis e `const` cria constantes.',
         'Cibersegurança: validar o tipo dos dados recebidos evita muitos ataques e falhas.',
       ],
       aplicacaoProfissional:

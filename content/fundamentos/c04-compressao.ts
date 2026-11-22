@@ -189,8 +189,8 @@ export const f14 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Desenvolvimento Web: imagens e scripts comprimidos deixam o site mais rápido.',
-      'Redes: HTTP pode comprimir respostas (gzip, brotli) antes de enviar.',
+      'HTML, CSS e a Web: imagens e scripts comprimidos deixam o site mais rápido.',
+      'Redes de Computadores: HTTP pode comprimir respostas (gzip, brotli) antes de enviar.',
       'Inteligência Artificial: modelos também são comprimidos (quantização) para rodar em celulares.',
     ],
     profissional:

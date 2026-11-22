@@ -181,8 +181,8 @@ export const r08 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: criptografia simétrica e assimétrica.',
-      'Desenvolvimento Web: toda API e site deve usar HTTPS.',
+      'Fundamentos da Computação: criptografia simétrica e assimétrica.',
+      'HTML, CSS e a Web: toda API e site deve usar HTTPS.',
       'Cibersegurança: ataques de intermediário e certificados falsos.',
     ],
     profissional:

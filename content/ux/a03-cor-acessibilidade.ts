@@ -179,7 +179,7 @@ export const ux03 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Web: HTML semântico e formulários acessíveis.',
+      'HTML, CSS e a Web: HTML semântico e formulários acessíveis.',
       'Cibersegurança: CAPTCHAs e autenticação também precisam ser acessíveis.',
       'Engenharia de Software: acessibilidade como requisito não funcional.',
     ],

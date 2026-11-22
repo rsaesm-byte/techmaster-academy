@@ -230,9 +230,9 @@ export const c05 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: armazenamento, RAID e backup.',
-      'Redes: segmentação e firewall ajudam a conter incidentes.',
-      'Infraestrutura: automação de patches e backups na nuvem.',
+      'Fundamentos da Computação: armazenamento, RAID e backup.',
+      'Redes de Computadores: segmentação e firewall ajudam a conter incidentes.',
+      'Infraestrutura e Servidores: automação de patches e backups na nuvem.',
     ],
     profissional:
       'Equipes de TI e de segurança vivem de rotina: atualizar, fazer backup, monitorar e ensaiar a resposta.',

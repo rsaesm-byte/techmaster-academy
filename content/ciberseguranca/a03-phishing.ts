@@ -193,8 +193,8 @@ export const c03 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: DNS e domínios explicam os links falsos.',
-      'Fundamentos: HTTPS não garante que o site seja honesto.',
+      'Redes de Computadores: DNS e domínios explicam os links falsos.',
+      'Fundamentos da Computação: HTTPS não garante que o site seja honesto.',
       'Psicologia: urgência e autoridade são gatilhos de decisão.',
     ],
     profissional:

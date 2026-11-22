@@ -185,9 +185,9 @@ export const j14 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos (DNS e HTTP): fetch usa o protocolo HTTP.',
+      'Fundamentos da Computação (DNS e HTTP): fetch usa o protocolo HTTP.',
       'Python: bibliotecas como requests fazem o mesmo.',
-      'Segurança: autenticação e CORS protegem APIs.',
+      'Cibersegurança: autenticação e CORS protegem APIs.',
     ],
     profissional: 'Integrar APIs é uma das tarefas mais comuns de quem desenvolve software.',
   },

@@ -176,7 +176,7 @@ export const w04 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'UX/UI: usabilidade e inclusão.',
+      'UX/UI Design: usabilidade e inclusão.',
       'Cibersegurança: validar entradas do usuário no servidor.',
       'JavaScript: validação customizada e eventos de formulário.',
     ],

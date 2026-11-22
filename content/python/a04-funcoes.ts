@@ -172,7 +172,7 @@ export const p04 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: function e arrow functions equivalem ao def e lambda.',
-      'Testes: funções pequenas são fáceis de testar com pytest.',
+      'Engenharia de Software: funções pequenas são fáceis de testar com pytest.',
       'Engenharia de Dados: pipelines são cadeias de funções.',
     ],
     profissional:

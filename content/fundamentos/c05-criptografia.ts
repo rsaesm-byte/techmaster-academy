@@ -207,8 +207,8 @@ export const f15 = montar({
   conexoes: {
     disciplinas: [
       'Matemática: potências de 2 e aritmética modular sustentam as cifras.',
-      'Redes: o HTTPS usa criptografia para proteger o tráfego da web.',
-      'Segurança da Informação: gestão de chaves e certificados é o dia a dia da área.',
+      'Redes de Computadores: o HTTPS usa criptografia para proteger o tráfego da web.',
+      'Cibersegurança: gestão de chaves e certificados é o dia a dia da área.',
     ],
     profissional:
       'Ao ver o cadeado no navegador, há criptografia protegendo a conexão. Entender o princípio ajuda a avaliar riscos, como certificados vencidos, chaves vazadas e senhas guardadas sem hash.',

@@ -171,7 +171,7 @@ export const inf02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: terminal e permissões do Linux.',
+      'Fundamentos da Computação: terminal e permissões do Linux.',
       'Cibersegurança: logs ajudam a detectar invasões.',
       'Engenharia de Software: logs estruturados na aplicação.',
     ],

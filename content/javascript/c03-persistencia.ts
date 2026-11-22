@@ -183,9 +183,9 @@ export const j13 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos (Armazenamento): dados persistem em disco ou memória flash.',
-      'Segurança: dados do navegador são legíveis por scripts.',
-      'Banco de Dados: para vários usuários, usa-se um banco no servidor.',
+      'Fundamentos da Computação (armazenamento): dados persistem em disco ou memória flash.',
+      'Cibersegurança: dados do navegador são legíveis por scripts.',
+      'Modelagem e Projeto de Bancos de Dados: para vários usuários, usa-se um banco no servidor.',
     ],
     profissional:
       'Persistência é requisito de quase todo app. Saber a diferença entre guardar local e no servidor orienta boas decisões de arquitetura.',

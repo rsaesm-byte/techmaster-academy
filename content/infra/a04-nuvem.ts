@@ -176,8 +176,8 @@ export const inf04 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: o balanceador age nas camadas 4 e 7.',
-      'Banco de Dados: réplicas e cache para escalar leituras.',
+      'Redes de Computadores: o balanceador age nas camadas 4 e 7.',
+      'Modelagem e Projeto de Bancos de Dados: réplicas e cache para escalar leituras.',
       'Cibersegurança: modelo de responsabilidade compartilhada.',
     ],
     profissional: 'Arquitetos de nuvem projetam sistemas que crescem e se recuperam sozinhos.',

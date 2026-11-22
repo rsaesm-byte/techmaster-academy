@@ -195,7 +195,7 @@ export const j01 = montar({
   conexoes: {
     disciplinas: [
       'Lógica de Programação: variáveis e tipos são os mesmos conceitos do Portugol.',
-      'Desenvolvimento Web: JavaScript guarda em variáveis o que o usuário digita nos formulários.',
+      'HTML, CSS e a Web: JavaScript guarda em variáveis o que o usuário digita nos formulários.',
       'Python: usa a mesma ideia de variável, mas sem let nem const.',
     ],
     profissional:

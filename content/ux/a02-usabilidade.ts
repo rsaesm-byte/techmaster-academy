@@ -180,8 +180,8 @@ export const ux02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Algoritmos: estruturas em árvore e recursão.',
-      'Web: navegação com HTML semântico.',
+      'Lógica de Programação: estruturas em árvore e recursão.',
+      'HTML, CSS e a Web: navegação com HTML semântico.',
       'Engenharia de Software: critérios de aceite de usabilidade.',
     ],
     profissional:

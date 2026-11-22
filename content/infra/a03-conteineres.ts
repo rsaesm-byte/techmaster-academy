@@ -173,7 +173,7 @@ export const inf03 = montar({
     disciplinas: [
       'Engenharia de Software: CI/CD constrói e publica imagens.',
       'Cibersegurança: imagens mínimas reduzem a superfície de ataque.',
-      'Nuvem: contêineres são a unidade padrão de implantação.',
+      'Infraestrutura e Servidores: contêineres são a unidade padrão de implantação.',
     ],
     profissional: 'Docker e Kubernetes aparecem em quase toda vaga de DevOps e backend moderno.',
   },

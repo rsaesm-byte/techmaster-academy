@@ -166,7 +166,7 @@ export const es03 = montar({
     disciplinas: [
       'JavaScript: Vitest e Playwright testam este próprio projeto.',
       'Programação Orientada a Objetos: testar classes isoladamente.',
-      'Qualidade: base da entrega contínua.',
+      'Engenharia de Software: base da entrega contínua.',
     ],
     profissional: 'Equipes maduras só aceitam código novo se os testes passarem.',
   },

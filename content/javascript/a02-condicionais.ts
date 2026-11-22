@@ -187,9 +187,9 @@ export const j02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Portas lógicas: && e || são as portas AND e OR, agora em código.',
-      'Banco de Dados: o WHERE do SQL combina condições com AND e OR.',
-      'Desenvolvimento Web: validação de formulários é cheia de condicionais.',
+      'Fundamentos da Computação: && e || são as portas AND e OR, agora em código.',
+      'SQL: o WHERE do SQL combina condições com AND e OR.',
+      'HTML, CSS e a Web: validação de formulários é cheia de condicionais.',
     ],
     profissional:
       'A maior parte da lógica de negócio (descontos, permissões, validações) é feita de condicionais. Escrever condições claras evita erros caros em produção.',

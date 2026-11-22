@@ -188,7 +188,7 @@ export const b05 = montar({
   conexoes: {
     disciplinas: [
       'SQL: BEGIN, COMMIT e ROLLBACK usam os comandos que você já conhece.',
-      'Arquitetura: sistemas distribuídos relaxam o ACID (consistência eventual).',
+      'Engenharia de Software: sistemas distribuídos relaxam o ACID (consistência eventual).',
       'Cibersegurança: integridade e disponibilidade dependem de transações bem feitas.',
     ],
     profissional:

@@ -191,9 +191,9 @@ export const f05 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Sistemas Operacionais: Linux, macOS e o PowerShell do Windows têm comandos equivalentes.',
+      'Fundamentos da Computação: Linux, macOS e o PowerShell do Windows têm comandos equivalentes.',
       'Desenvolvimento: Git, npm e Python são usados pelo terminal.',
-      'Segurança: administradores e analistas inspecionam sistemas e logs por linha de comando.',
+      'Cibersegurança: administradores e analistas inspecionam sistemas e logs por linha de comando.',
     ],
     profissional:
       'No suporte e na infraestrutura, o terminal é a ferramenta mais rápida para investigar um problema, repetir tarefas em várias máquinas e automatizar rotinas. Quem domina o básico já se destaca.',

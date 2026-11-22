@@ -168,8 +168,8 @@ export const f18 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Virtualização: a nuvem roda sobre VMs e contêineres.',
-      'Redes: nuvens organizam sub-redes e endereços IP.',
+      'Infraestrutura e Servidores: a nuvem roda sobre VMs e contêineres.',
+      'Redes de Computadores: nuvens organizam sub-redes e endereços IP.',
       'Engenharia de Dados: dados e pipelines vivem na nuvem.',
     ],
     profissional:

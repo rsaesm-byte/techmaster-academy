@@ -188,9 +188,9 @@ export const f02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Desenvolvimento Web: cores CSS em hexadecimal e codificação UTF-8 de páginas.',
-      'Segurança: hashes e chaves aparecem sempre em hexadecimal.',
-      'Redes: endereços MAC (como 3C:52:82:...) são bytes em hexadecimal.',
+      'HTML, CSS e a Web: cores CSS em hexadecimal e codificação UTF-8 de páginas.',
+      'Cibersegurança: hashes e chaves aparecem sempre em hexadecimal.',
+      'Redes de Computadores: endereços MAC (como 3C:52:82:...) são bytes em hexadecimal.',
     ],
     profissional:
       'Quem faz suporte já viu texto quebrado como "AtenÃ§Ã£o": é UTF-8 lido como se fosse outra codificação. Saber que texto é número com regra de tradução ajuda a diagnosticar e corrigir isso.',

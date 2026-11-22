@@ -197,9 +197,9 @@ export const r05 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: IPs privados e públicos da aula de redes.',
+      'Fundamentos da Computação: IPs privados e públicos da aula de redes.',
       'Cibersegurança: firewall e segmentação são defesa básica.',
-      'Infraestrutura: grupos de segurança na nuvem são firewalls.',
+      'Infraestrutura e Servidores: grupos de segurança na nuvem são firewalls.',
     ],
     profissional:
       'Configurar DHCP, regras de firewall e redirecionamento de portas é rotina de quem administra redes.',

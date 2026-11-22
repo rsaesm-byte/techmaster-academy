@@ -188,8 +188,8 @@ export const j08 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'HTML e CSS: os seletores do querySelector são os mesmos do CSS.',
-      'Segurança: XSS é um dos ataques web mais comuns.',
+      'HTML, CSS e a Web: os seletores do querySelector são os mesmos do CSS.',
+      'Cibersegurança: XSS é um dos ataques web mais comuns.',
       'Frameworks (React, Vue): automatizam as atualizações do DOM.',
     ],
     profissional:

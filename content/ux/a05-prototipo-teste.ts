@@ -175,7 +175,7 @@ export const ux05 = montar({
   conexoes: {
     disciplinas: [
       'Engenharia de Software: validação contínua e feedback.',
-      'Web: protótipos HTML e CSS.',
+      'HTML, CSS e a Web: protótipos HTML e CSS.',
       'Estatística: amostras e significância no teste A/B.',
     ],
     profissional:

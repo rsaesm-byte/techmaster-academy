@@ -391,7 +391,7 @@ export const aula04: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Desenvolvimento Web: validação de formulário é uma sequência de condicionais (campo vazio? e-mail válido?).',
+        'HTML, CSS e a Web: validação de formulário é uma sequência de condicionais (campo vazio? e-mail válido?).',
         'Cibersegurança: regras de firewall e de acesso são condições avaliadas em ordem — a primeira regra que combina vence.',
         'Engenharia de Software: critérios de aceitação ("se o usuário não tiver saldo, então...") viram condicionais no código.',
       ],

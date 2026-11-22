@@ -172,7 +172,7 @@ export const p02 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: mesmo conceito, com chaves e parênteses.',
-      'Portas lógicas: and, or e not são AND, OR e NOT.',
+      'Fundamentos da Computação: and, or e not são AND, OR e NOT.',
       'Engenharia de Dados: filtros de linhas usam condições.',
     ],
     profissional:

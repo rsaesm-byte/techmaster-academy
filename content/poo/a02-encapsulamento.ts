@@ -183,7 +183,7 @@ export const o02 = montar({
   conexoes: {
     disciplinas: [
       'Cibersegurança: princípio do menor privilégio, expor o mínimo.',
-      'Banco de Dados: restrições de integridade protegem o estado dos dados.',
+      'Modelagem e Projeto de Bancos de Dados: restrições de integridade protegem o estado dos dados.',
       'Engenharia de Software: baixo acoplamento.',
     ],
     profissional: 'Boas APIs e bibliotecas escondem os detalhes e deixam só o essencial à mostra.',

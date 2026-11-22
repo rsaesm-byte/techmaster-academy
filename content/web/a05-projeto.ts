@@ -177,9 +177,9 @@ export const w05 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: Git, DNS e HTTPS.',
+      'Fundamentos da Computação: Git, DNS e HTTPS.',
       'JavaScript: dê interatividade ao portfólio.',
-      'UX/UI: hierarquia visual e legibilidade.',
+      'UX/UI Design: hierarquia visual e legibilidade.',
     ],
     profissional:
       'Um portfólio publicado, com projetos reais, é o cartão de visitas de quem busca estágio ou o primeiro emprego em tecnologia.',

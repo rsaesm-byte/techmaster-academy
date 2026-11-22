@@ -183,7 +183,7 @@ export const ux01 = montar({
   conexoes: {
     disciplinas: [
       'Engenharia de Software: histórias de usuário nascem da pesquisa.',
-      'Web: o HTML e o CSS materializam a interface.',
+      'HTML, CSS e a Web: o HTML e o CSS materializam a interface.',
       'Estatística: amostras e vieses em pesquisas.',
     ],
     profissional:

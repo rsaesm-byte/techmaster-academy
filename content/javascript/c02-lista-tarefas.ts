@@ -167,8 +167,8 @@ export const j12 = montar({
   conexoes: {
     disciplinas: [
       'React: faz esse redesenho automaticamente.',
-      'Segurança: evitar innerHTML com dados do usuário previne XSS.',
-      'Design de interfaces: estados como "concluída" mudam o visual.',
+      'Cibersegurança: evitar innerHTML com dados do usuário previne XSS.',
+      'UX/UI Design: estados como "concluída" mudam o visual.',
     ],
     profissional:
       'Esse padrão é a essência de qualquer interface moderna, de um formulário a um app inteiro.',

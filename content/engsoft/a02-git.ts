@@ -180,8 +180,8 @@ export const es02 = montar({
   conexoes: {
     disciplinas: [
       'Cibersegurança: segredos nunca vão para o repositório.',
-      'Web: publicação via GitHub Pages.',
-      'Infraestrutura: tudo versionado (infraestrutura como código).',
+      'HTML, CSS e a Web: publicação via GitHub Pages.',
+      'Infraestrutura e Servidores: tudo versionado (infraestrutura como código).',
     ],
     profissional: 'Git é pré-requisito em praticamente qualquer vaga de desenvolvimento.',
   },

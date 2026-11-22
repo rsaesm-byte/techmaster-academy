@@ -189,8 +189,8 @@ export const r03 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: IP e máscara da aula anterior.',
-      'Algoritmos: escolher o melhor candidato é um laço com acumulador.',
+      'Fundamentos da Computação: IP e máscara da aula anterior.',
+      'Lógica de Programação: escolher o melhor candidato é um laço com acumulador.',
       'Cibersegurança: rotas erradas ou sequestradas (BGP) causam grandes incidentes.',
     ],
     profissional:

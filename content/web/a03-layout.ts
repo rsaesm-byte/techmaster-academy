@@ -172,9 +172,9 @@ export const w03 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'UX/UI: usabilidade em todos os dispositivos.',
+      'UX/UI Design: usabilidade em todos os dispositivos.',
       'JavaScript: eventos de redimensionamento e menus que abrem e fecham.',
-      'Algoritmos: o motor de layout distribui o espaço por regras.',
+      'Lógica de Programação: o motor de layout distribui o espaço por regras.',
     ],
     profissional:
       'A maior parte do tráfego web vem de celulares; layout responsivo é requisito, e não diferencial.',

@@ -10,7 +10,7 @@ import {
 
 export const conexoesBase = (extra: string[], prof: string) => ({
   disciplinas: [
-    'Fundamentos (Bancos de dados): as tabelas e chaves vistas lá são o que o SQL consulta.',
+    'Fundamentos da Computação (bancos de dados): as tabelas e chaves vistas lá são o que o SQL consulta.',
     ...extra,
   ],
   profissional: prof,
@@ -326,7 +326,7 @@ export const s02 = montar({
   conexoes: conexoesBase(
     [
       'JavaScript: WHERE equivale a filter.',
-      'Segurança: montar WHERE com texto do usuário sem cuidado causa SQL injection.',
+      'Cibersegurança: montar WHERE com texto do usuário sem cuidado causa SQL injection.',
     ],
     'Saber filtrar bem é o que separa consultas úteis de despejos enormes de dados.',
   ),
@@ -836,7 +836,7 @@ export const s05 = montar({
     [
       'Python (pandas): merge faz o papel do JOIN.',
       'Engenharia de Dados: modelar tabelas ligadas é o coração da área.',
-      'Segurança: chaves estrangeiras garantem integridade dos dados.',
+      'Cibersegurança: chaves estrangeiras garantem integridade dos dados.',
     ],
     'JOIN é a habilidade que separa quem só lê uma tabela de quem responde perguntas reais de negócio.',
   ),

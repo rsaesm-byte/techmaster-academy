@@ -192,9 +192,9 @@ export const c02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: criptografia e a aula de senhas.',
-      'Python e JavaScript: bibliotecas como bcrypt e hashlib.',
-      'Banco de Dados: nunca guarde senhas em texto puro.',
+      'Fundamentos da Computação: criptografia e a aula de senhas.',
+      'JavaScript e Python: bibliotecas como bcrypt e hashlib.',
+      'Modelagem e Projeto de Bancos de Dados: nunca guarde senhas em texto puro.',
     ],
     profissional:
       'Guardar senhas corretamente é obrigação de quem desenvolve sistemas; usar MFA é o hábito de maior retorno de quem os usa.',

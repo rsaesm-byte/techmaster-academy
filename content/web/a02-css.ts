@@ -165,7 +165,7 @@ export const w02 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'UX/UI: cor, contraste e espaçamento são decisões de design.',
+      'UX/UI Design: cor, contraste e espaçamento são decisões de design.',
       'JavaScript: trocar classes é como a página reage a eventos.',
       'Matemática: proporções e unidades relativas.',
     ],

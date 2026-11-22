@@ -184,9 +184,9 @@ export const j10 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos (DNS e HTTP): fetch faz requisições HTTP.',
+      'Fundamentos da Computação (DNS e HTTP): fetch faz requisições HTTP.',
       'Python: asyncio tem o mesmo conceito.',
-      'Sistemas operacionais: o escalonador também intercala tarefas que esperam.',
+      'Fundamentos da Computação: o escalonador também intercala tarefas que esperam.',
     ],
     profissional:
       'Quase todo app conversa com servidores. Dominar async/await é essencial para qualquer trabalho com web e APIs.',

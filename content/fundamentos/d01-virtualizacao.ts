@@ -185,9 +185,9 @@ export const f16 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Computação em nuvem: a nuvem é construída sobre virtualização.',
-      'Sistemas operacionais: o hipervisor divide recursos como um escalonador.',
-      'Segurança: isolamento é base para testar malware com segurança.',
+      'Infraestrutura e Servidores: a nuvem é construída sobre virtualização.',
+      'Fundamentos da Computação: o hipervisor divide recursos como um escalonador.',
+      'Cibersegurança: isolamento é base para testar malware com segurança.',
     ],
     profissional:
       'Quem trabalha com TI usa VMs para laboratório, testes e servidores. Saber criar e gerenciar VMs é habilidade básica.',

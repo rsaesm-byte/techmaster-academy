@@ -168,8 +168,8 @@ export const r04 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: DNS e HTTP usam estas portas e protocolos.',
-      'Desenvolvimento Web: WebSockets e HTTP/3 dependem do transporte.',
+      'Fundamentos da Computação: DNS e HTTP usam estas portas e protocolos.',
+      'HTML, CSS e a Web: WebSockets e HTTP/3 dependem do transporte.',
       'Cibersegurança: varredura de portas e firewalls.',
     ],
     profissional:

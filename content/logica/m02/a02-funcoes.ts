@@ -340,7 +340,7 @@ export const m02a02: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Linguagens de Programação: em JavaScript, function soma(a, b) { return a + b } é a mesma ideia.',
+        'JavaScript e Python: em JavaScript, function soma(a, b) { return a + b } é a mesma ideia.',
         'Engenharia de Software: funções pequenas com uma tarefa só são a base de código legível e testável.',
         'APIs: um endpoint é uma função que você chama pela rede, com parâmetros e uma resposta.',
       ],

@@ -208,7 +208,7 @@ export const ia02 = montar({
   conexoes: {
     disciplinas: [
       'Matemática: distâncias e geometria.',
-      'Algoritmos: busca do menor valor.',
+      'Lógica de Programação: busca do menor valor.',
       'Python: scikit-learn traz o k-NN pronto.',
     ],
     profissional:

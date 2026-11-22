@@ -189,7 +189,7 @@ export const j07 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Desenvolvimento Web: React exige atualizar estados de forma imutável.',
+      'HTML, CSS e a Web: React exige atualizar estados de forma imutável.',
       'Python: tem recurso parecido (*lista e **dicionário).',
       'Engenharia de Dados: transformar dados criando novas versões evita corromper a origem.',
     ],

@@ -175,9 +175,9 @@ export const f01 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: máscaras de sub-rede (como 255.255.255.0) são bytes escritos em decimal.',
-      'Linguagens de Programação: tipos como int8 e uint16 definem quantos bits cada número usa.',
-      'Segurança: erros de estouro de inteiro já causaram falhas graves em sistemas reais.',
+      'Redes de Computadores: máscaras de sub-rede (como 255.255.255.0) são bytes escritos em decimal.',
+      'JavaScript e Python: tipos como int8 e uint16 definem quantos bits cada número usa.',
+      'Cibersegurança: erros de estouro de inteiro já causaram falhas graves em sistemas reais.',
     ],
     profissional:
       'Quem trabalha com TI lê binário o tempo todo sem perceber: permissões de arquivo no Linux, máscaras de rede e flags de configuração são bits. Saber a faixa de cada tipo evita bugs sutis e vulnerabilidades.',

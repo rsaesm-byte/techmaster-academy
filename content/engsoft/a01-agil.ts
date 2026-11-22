@@ -173,9 +173,9 @@ export const es01 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos: planejamento e abstração de problemas.',
+      'Fundamentos da Computação: planejamento e abstração de problemas.',
       'Programação Orientada a Objetos: entregas incrementais do modelo.',
-      'Infraestrutura: entrega contínua com ciclos curtos.',
+      'Infraestrutura e Servidores: entrega contínua com ciclos curtos.',
     ],
     profissional:
       'Quase todas as empresas de tecnologia usam alguma forma de Scrum ou Kanban no dia a dia.',

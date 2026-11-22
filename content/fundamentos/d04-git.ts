@@ -182,7 +182,7 @@ export const f19 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Terminal: o Git é usado pela linha de comando.',
+      'Fundamentos da Computação: o Git é usado pela linha de comando.',
       'Engenharia de Software: revisão de código acontece sobre branches.',
       'DevOps: pipelines rodam a cada push.',
     ],

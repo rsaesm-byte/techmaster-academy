@@ -333,8 +333,8 @@ export const m02a01: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Linguagens de Programação: em JavaScript e Python, listas começam na posição 0, não 1.',
-        'Banco de Dados: uma coluna de tabela é parecida com um vetor de valores do mesmo tipo.',
+        'JavaScript e Python: em JavaScript e Python, listas começam na posição 0, não 1.',
+        'Modelagem e Projeto de Bancos de Dados: uma coluna de tabela é parecida com um vetor de valores do mesmo tipo.',
         'Inteligência Artificial: imagens, textos e embeddings são vetores (e matrizes) de números.',
       ],
       aplicacaoProfissional:

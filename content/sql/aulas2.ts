@@ -866,7 +866,7 @@ export const s10 = montar({
   ],
   conexoes: conexoesBase(
     [
-      'Fundamentos: backup e RAID não substituem cuidado com comandos destrutivos.',
+      'Fundamentos da Computação: backup e RAID não substituem cuidado com comandos destrutivos.',
       'APIs: DELETE em HTTP costuma virar DELETE ou exclusão lógica no banco.',
     ],
     'Muitos incidentes reais vieram de um DELETE ou UPDATE rodado sem WHERE.',

@@ -354,9 +354,9 @@ export const m02a04: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Estruturas de Dados: merge sort e quicksort ordenam em O(n log n) com a estratégia "dividir para conquistar".',
-        'Banco de Dados: ORDER BY é uma ordenação feita pelo banco.',
-        'Análise de Algoritmos: comparar algoritmos pelo número de operações é a base da notação O.',
+        'Lógica de Programação: merge sort e quicksort ordenam em O(n log n) com a estratégia "dividir para conquistar".',
+        'Modelagem e Projeto de Bancos de Dados: ORDER BY é uma ordenação feita pelo banco.',
+        'Lógica de Programação: comparar algoritmos pelo número de operações é a base da notação O.',
       ],
       aplicacaoProfissional:
         'Ordenar chamados por prioridade, máquinas por uso de disco ou logs por data é rotina. Você usará a ordenação pronta da linguagem, mas entender o custo ajuda a perceber por que ordenar milhões de linhas pode ser o gargalo de um relatório.',

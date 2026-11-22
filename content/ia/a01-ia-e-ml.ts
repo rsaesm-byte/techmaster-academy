@@ -167,8 +167,8 @@ export const ia01 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Lógica: regras e condições são o ponto de partida.',
-      'Banco de Dados: dados limpos alimentam os modelos.',
+      'Lógica de Programação: regras e condições são o ponto de partida.',
+      'Modelagem e Projeto de Bancos de Dados: dados limpos alimentam os modelos.',
       'Python: a linguagem mais usada em IA.',
     ],
     profissional:

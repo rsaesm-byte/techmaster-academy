@@ -354,9 +354,9 @@ export const m02a03: AulaEntrada = {
       id: 'conexoes',
       tipo: 'conexoes',
       disciplinas: [
-        'Estruturas de Dados: árvores de busca e índices de bancos levam a ideia binária adiante.',
-        'Banco de Dados: um índice evita que a consulta faça uma busca linear na tabela inteira.',
-        'Git: o comando git bisect usa busca binária para achar o commit que introduziu um bug.',
+        'Lógica de Programação: árvores de busca e índices de bancos levam a ideia binária adiante.',
+        'SQL: um índice evita que a consulta faça uma busca linear na tabela inteira.',
+        'Engenharia de Software: o comando git bisect usa busca binária para achar o commit que introduziu um bug.',
       ],
       aplicacaoProfissional:
         'Quando um problema aparece "em algum momento das últimas 64 versões" ou "em algum dos 200 passos de um script", testar no meio e descartar metade (bisect) acha a causa em poucas tentativas. É busca binária aplicada ao suporte.',

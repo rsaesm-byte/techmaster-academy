@@ -177,9 +177,9 @@ export const f11 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: contratos de internet usam bits por segundo.',
-      'Banco de Dados: dimensionar armazenamento exige estimar bytes por registro.',
-      'Nuvem: preços de armazenamento e tráfego são cobrados por GB.',
+      'Redes de Computadores: contratos de internet usam bits por segundo.',
+      'Modelagem e Projeto de Bancos de Dados: dimensionar armazenamento exige estimar bytes por registro.',
+      'Infraestrutura e Servidores: preços de armazenamento e tráfego são cobrados por GB.',
     ],
     profissional:
       'Em chamados de "disco cheio" ou "download lento", converter unidades corretamente evita diagnósticos errados e ajuda a dimensionar espaço e banda.',

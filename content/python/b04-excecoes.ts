@@ -172,7 +172,7 @@ export const p09 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: try/catch/finally e throw.',
-      'Lógica: tratar casos excepcionais é parte do algoritmo.',
+      'Lógica de Programação: tratar casos excepcionais é parte do algoritmo.',
       'Engenharia de Dados: pipelines precisam sobreviver a linhas ruins.',
     ],
     profissional:

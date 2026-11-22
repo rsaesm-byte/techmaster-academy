@@ -189,7 +189,7 @@ export const o01 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: objetos e funções já são a base das classes.',
-      'Banco de Dados: cada entidade costuma virar uma classe.',
+      'Modelagem e Projeto de Bancos de Dados: cada entidade costuma virar uma classe.',
       'Engenharia de Software: modelar o domínio em classes.',
     ],
     profissional:

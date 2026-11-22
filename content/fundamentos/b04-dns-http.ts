@@ -203,9 +203,9 @@ export const f09 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Desenvolvimento Web: toda API e todo front-end usam pedidos e respostas HTTP.',
-      'Segurança: certificados TLS e ataques de DNS (como envenenamento de cache).',
-      'Infraestrutura: balanceadores e CDNs decidem qual servidor responde.',
+      'HTML, CSS e a Web: toda API e todo front-end usam pedidos e respostas HTTP.',
+      'Cibersegurança: certificados TLS e ataques de DNS (como envenenamento de cache).',
+      'Infraestrutura e Servidores: balanceadores e CDNs decidem qual servidor responde.',
     ],
     profissional:
       'Um chamado "o site não abre" tem causas bem diferentes conforme a etapa: o nome não resolve (DNS), a conexão falha (rede) ou o servidor responde 5xx. Saber a sequência permite descobrir onde quebrou.',

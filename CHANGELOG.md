@@ -38,6 +38,14 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
   criptografia) dizia que o SHA-256 serve para guardar senhas, contradizendo a
   aula de Cibersegurança (hash lento com sal: bcrypt, Argon2). Texto e cartão de
   revisão alinhados.
+- **Passada de leitura 2 — nomes nas "Conexões":** as caixas de conexão
+  citavam as escolas com nomes diferentes ("Segurança", "Web", "Banco de
+  Dados", "Redes"...). Agora usam os nomes reais das escolas (Cibersegurança,
+  HTML, CSS e a Web, SQL ou Modelagem e Projeto de Bancos de Dados, Redes de
+  Computadores, Fundamentos da Computação, Infraestrutura e Servidores...). Áreas
+  que ainda não são escolas (Engenharia de Dados, DevOps, Matemática,
+  Estatística, React...) foram mantidas como sugestão de caminho. 98 arquivos,
+  só texto.
 
 ### Adicionado
 

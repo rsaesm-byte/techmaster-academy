@@ -173,8 +173,8 @@ export const j06 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos (DNS e HTTP): respostas de APIs chegam como JSON.',
-      'Banco de Dados: bancos como o MongoDB guardam documentos parecidos com JSON.',
+      'Fundamentos da Computação (DNS e HTTP): respostas de APIs chegam como JSON.',
+      'Modelagem e Projeto de Bancos de Dados: bancos como o MongoDB guardam documentos parecidos com JSON.',
       'Python: o módulo json faz o mesmo que parse e stringify.',
     ],
     profissional:

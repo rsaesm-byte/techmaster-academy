@@ -178,9 +178,9 @@ export const f07 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Segurança: permissões mal configuradas estão entre as falhas mais comuns em servidores.',
-      'Sistemas Operacionais: Windows usa listas de controle de acesso (ACLs), com a mesma ideia.',
-      'Banco de Dados: usuários também recebem permissões de leitura e escrita em tabelas.',
+      'Cibersegurança: permissões mal configuradas estão entre as falhas mais comuns em servidores.',
+      'Fundamentos da Computação: Windows usa listas de controle de acesso (ACLs), com a mesma ideia.',
+      'Modelagem e Projeto de Bancos de Dados: usuários também recebem permissões de leitura e escrita em tabelas.',
     ],
     profissional:
       'Quando um site mostra "403 Forbidden" ou um script falha com "permission denied", a causa quase sempre é uma permissão. Saber ler rwx acelera o diagnóstico.',

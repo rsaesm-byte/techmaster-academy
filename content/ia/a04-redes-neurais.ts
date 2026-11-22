@@ -179,7 +179,7 @@ export const ia04 = montar({
   conexoes: {
     disciplinas: [
       'Matemática: derivadas e álgebra linear.',
-      'Fundamentos: portas lógicas e o perceptron.',
+      'Fundamentos da Computação: portas lógicas e o perceptron.',
       'Python: PyTorch e TensorFlow.',
     ],
     profissional:

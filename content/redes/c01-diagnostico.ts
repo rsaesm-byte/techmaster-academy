@@ -177,8 +177,8 @@ export const r06 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes (módulo 1): camadas, rotas e DNS orientam cada teste.',
-      'Fundamentos: Terminal e linha de comando.',
+      'Redes de Computadores (módulo 1): camadas, rotas e DNS orientam cada teste.',
+      'Fundamentos da Computação: Terminal e linha de comando.',
       'Cibersegurança: as mesmas ferramentas fazem o reconhecimento de redes.',
     ],
     profissional:

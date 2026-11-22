@@ -180,8 +180,8 @@ export const c04 = montar({
   conexoes: {
     disciplinas: [
       'SQL: o WHERE e o OR da aula de módulo 2.',
-      'Desenvolvimento Web: formulários e APIs recebem entradas.',
-      'Python e JavaScript: drivers de banco oferecem parâmetros.',
+      'HTML, CSS e a Web: formulários e APIs recebem entradas.',
+      'JavaScript e Python: drivers de banco oferecem parâmetros.',
     ],
     profissional:
       'Revisões de código e testes de segurança procuram, antes de tudo, consultas montadas por concatenação.',

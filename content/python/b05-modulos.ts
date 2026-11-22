@@ -173,7 +173,7 @@ export const p10 = montar({
   conexoes: {
     disciplinas: [
       'JavaScript: import/export e npm fazem papel parecido.',
-      'Fundamentos: Git e contêineres também isolam e reproduzem ambientes.',
+      'Fundamentos da Computação: Git e contêineres também isolam e reproduzem ambientes.',
       'Engenharia de Dados e IA: pandas, FastAPI e bibliotecas de IA vêm do pip.',
     ],
     profissional:

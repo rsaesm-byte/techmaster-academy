@@ -195,8 +195,8 @@ export const j04 = montar({
   conexoes: {
     disciplinas: [
       'Lógica de Programação: funções com parâmetros e retorno são o mesmo conceito.',
-      'Desenvolvimento Web: eventos de clique executam funções que você escreve.',
-      'Testes de software: funções pequenas e puras são fáceis de testar.',
+      'HTML, CSS e a Web: eventos de clique executam funções que você escreve.',
+      'Engenharia de Software: funções pequenas e puras são fáceis de testar.',
     ],
     profissional:
       'Código profissional é feito de funções pequenas com nomes claros. É o que permite que várias pessoas trabalhem no mesmo projeto sem se perder.',

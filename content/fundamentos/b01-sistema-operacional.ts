@@ -190,9 +190,9 @@ export const f06 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Arquitetura de Computadores: a troca de contexto salva e restaura os registradores da CPU.',
-      'Programação: threads e programação assíncrona também dependem do escalonamento.',
-      'Infraestrutura: servidores e contêineres dividem CPU e memória entre muitos processos.',
+      'Fundamentos da Computação: a troca de contexto salva e restaura os registradores da CPU.',
+      'Lógica de Programação: threads e programação assíncrona também dependem do escalonamento.',
+      'Infraestrutura e Servidores: servidores e contêineres dividem CPU e memória entre muitos processos.',
     ],
     profissional:
       'Num chamado de lentidão, abrir o Gerenciador de Tarefas e ver qual processo consome CPU ou memória é o primeiro passo do diagnóstico.',

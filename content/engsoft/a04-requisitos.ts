@@ -182,8 +182,8 @@ export const es04 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'UX/UI: histórias nascem de pesquisa com usuários.',
-      'Banco de Dados: requisitos de dados viram o modelo.',
+      'UX/UI Design: histórias nascem de pesquisa com usuários.',
+      'Modelagem e Projeto de Bancos de Dados: requisitos de dados viram o modelo.',
       'Cibersegurança: segurança é requisito não funcional.',
     ],
     profissional: 'Boa parte dos projetos que falham tem a origem em requisitos mal entendidos.',

@@ -188,8 +188,8 @@ export const j09 = montar({
   conexoes: {
     disciplinas: [
       'Python: usa try/except, a mesma ideia.',
-      'Segurança: validar entradas evita muitos ataques.',
-      'Testes: bons testes verificam também os casos de erro.',
+      'Cibersegurança: validar entradas evita muitos ataques.',
+      'Engenharia de Software: bons testes verificam também os casos de erro.',
     ],
     profissional:
       'Sistemas reais recebem dados ruins o tempo todo. Tratar erros bem separa um app confiável de um que quebra.',

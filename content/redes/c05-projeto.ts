@@ -188,8 +188,8 @@ export const r10 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Redes: sub-redes, roteamento, firewall e VPN se unem aqui.',
-      'Infraestrutura: o mesmo desenho vale para VPCs na nuvem.',
+      'Redes de Computadores: sub-redes, roteamento, firewall e VPN se unem aqui.',
+      'Infraestrutura e Servidores: o mesmo desenho vale para VPCs na nuvem.',
       'Cibersegurança: segmentação é a primeira defesa em profundidade.',
     ],
     profissional:

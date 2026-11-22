@@ -176,7 +176,7 @@ export const b02 = montar({
     disciplinas: [
       'SQL: JOIN reúne o que a normalização separou.',
       'Engenharia de Dados: data warehouses desnormalizam de propósito.',
-      'Arquitetura: cache e réplicas também duplicam dados com critério.',
+      'Engenharia de Software: cache e réplicas também duplicam dados com critério.',
     ],
     profissional:
       'Normalização é o que separa um banco confiável de uma planilha gigante com dados divergentes.',
