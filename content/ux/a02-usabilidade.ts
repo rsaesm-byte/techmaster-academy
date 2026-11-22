@@ -11,8 +11,14 @@ export const ux02 = montar({
     'Você clica em "Salvar" e nada acontece, sem aviso. O que a interface deixou de fazer?',
     'Dar feedback sobre o que está acontecendo',
     [
-      ['Usar uma cor mais bonita', 'O problema é de comunicação, não de beleza.'],
-      ['Ocupar mais espaço na tela', 'Tamanho não resolve.'],
+      [
+        'Usar uma cor de destaque mais bonita no botão de salvar',
+        'O problema é de comunicação do estado, não de beleza.',
+      ],
+      [
+        'Ocupar mais espaço na tela com um botão maior e mais visível',
+        'O tamanho do botão não informa que a ação foi concluída.',
+      ],
     ],
     'Visibilidade do estado do sistema.',
   ),
@@ -85,8 +91,14 @@ export const ux02 = montar({
       'Qual heurística pede que a interface mostre que algo está carregando?',
       'Visibilidade do estado do sistema',
       [
-        ['Consistência e padrões', 'Essa trata de manter o mesmo comportamento.'],
-        ['Estética minimalista', 'Essa trata de remover o supérfluo.'],
+        [
+          'Consistência e padrões, que mantêm o mesmo comportamento em todas as telas',
+          'Essa trata de repetir o comportamento; o feedback é outra heurística.',
+        ],
+        [
+          'Estética minimalista, que remove tudo o que não é essencial na tela',
+          'Essa trata de reduzir o supérfluo, não de mostrar o estado.',
+        ],
       ],
       'Feedback constante.',
     ),

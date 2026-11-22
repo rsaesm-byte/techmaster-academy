@@ -26,13 +26,13 @@ export const aula01: AulaEntrada = {
             },
             {
               id: 'b',
-              texto: 'A lista de ingredientes de um bolo',
+              texto: 'A lista de ingredientes de um bolo, que mostra o que usar',
               feedback:
                 'A lista diz o que usar, mas não o que fazer nem em que ordem. Falta a sequência de passos.',
             },
             {
               id: 'c',
-              texto: 'A foto do bolo pronto',
+              texto: 'A foto do bolo pronto, mostrando o resultado final',
               feedback: 'A foto mostra o resultado, não o caminho para chegar até ele.',
             },
           ],
@@ -267,13 +267,13 @@ export const aula01: AulaEntrada = {
             { id: 'a', texto: 'Escreve 1 sem parar: o algoritmo nunca termina' },
             {
               id: 'b',
-              texto: 'Escreve 1, 2 e 3',
+              texto: 'Escreve 1, 2 e 3 e depois termina normalmente',
               feedback:
                 'Nenhuma linha muda o valor de contador. Faltou "contador <- contador + 1" dentro da repetição.',
             },
             {
               id: 'c',
-              texto: 'Não escreve nada',
+              texto: 'Não escreve nada, pois a condição já começa falsa',
               feedback: 'contador começa em 1, e 1 <= 3 é verdadeiro, então a repetição começa.',
             },
           ],

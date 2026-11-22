@@ -10,8 +10,8 @@ export const p02 = montar({
     'Como o Python marca o que está dentro de um if?',
     'Pela indentação (recuo) das linhas',
     [
-      ['Com chaves { }', 'Chaves são de JavaScript; Python usa recuo.'],
-      ['Com begin e end', 'Isso lembra Pascal.'],
+      ['Com chaves { }, como em outras linguagens', 'O Python usa indentação.'],
+      ['Com as palavras begin e end, no início e no fim do bloco', 'O Python usa indentação.'],
     ],
     'Em Python o recuo faz parte da sintaxe.',
   ),
@@ -85,8 +85,11 @@ export const p02 = montar({
       'O que falta na primeira linha do if?',
       'Os dois-pontos (:) no final',
       [
-        ['Chaves { }', 'Python não usa chaves para blocos.'],
-        ['Ponto e vírgula', 'Não é necessário em Python.'],
+        ['Chaves { } abrindo e fechando o bloco do if', 'O Python usa dois-pontos e indentação.'],
+        [
+          'Ponto e vírgula no final da linha, como em outras linguagens',
+          'O Python não usa ponto e vírgula.',
+        ],
       ],
       'if condição: com dois-pontos.',
     ),
@@ -135,8 +138,14 @@ export const p02 = montar({
       'O que acontece se o recuo estiver errado?',
       'O Python gera um IndentationError ou o programa muda de significado',
       [
-        ['Nada, o recuo é só visual', 'Em Python ele define o bloco.'],
-        ['O programa é corrigido sozinho', 'O Python não corrige.'],
+        [
+          'Nada, pois o recuo é só visual e o Python o ignora',
+          'No Python o recuo define os blocos.',
+        ],
+        [
+          'O Python corrige o recuo sozinho e executa normalmente',
+          'O Python não corrige: gera erro ou muda o significado.',
+        ],
       ],
       'Recuo faz parte da sintaxe.',
       1,

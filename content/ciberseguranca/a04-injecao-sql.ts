@@ -11,8 +11,14 @@ export const c04 = montar({
     'Por que é perigoso montar uma consulta SQL juntando texto digitado pelo usuário?',
     'O texto pode conter SQL e mudar o significado da consulta',
     [
-      ['O texto fica muito comprido', 'O problema não é o tamanho.'],
-      ['O banco não aceita texto', 'Aceita; o risco é outro.'],
+      [
+        'O texto digitado fica comprido demais e estoura o limite do banco',
+        'O problema é o texto virar comando, não o tamanho.',
+      ],
+      [
+        'O banco de dados não aceita texto vindo de formulários',
+        'Ele aceita; o risco é concatenar texto no comando.',
+      ],
     ],
     'Dados e comandos se misturam: o banco não sabe o que é um e o que é outro.',
   ),
@@ -127,8 +133,14 @@ export const c04 = montar({
       'O que a injeção de SQL permite, em última análise?',
       'Que dados digitados alterem o comando executado pelo banco',
       [
-        ['Que o site fique mais rápido', 'É uma falha, não uma otimização.'],
-        ['Que a senha seja criptografada', 'Não tem relação.'],
+        [
+          'Que o site fique mais rápido ao executar consultas diretas',
+          'A injeção só traz risco, não ganho de desempenho.',
+        ],
+        [
+          'Que a senha do usuário seja criptografada automaticamente',
+          'A injeção não protege nada: permite alterar o comando.',
+        ],
       ],
       'Dados viram comandos.',
     ),

@@ -10,8 +10,14 @@ export const j10 = montar({
     'Por que buscar dados em um servidor não deve travar a página?',
     'Porque a resposta demora; o navegador continua trabalhando enquanto espera',
     [
-      ['Porque o servidor é sempre rápido', 'A rede é lenta e imprevisível.'],
-      ['Porque a página não precisa dos dados', 'Precisa, mas pode esperar sem travar.'],
+      [
+        'Porque o servidor sempre responde rápido e não causa atrasos',
+        'A resposta demora e é imprevisível.',
+      ],
+      [
+        'Porque a página não depende dos dados para funcionar',
+        'A página precisa dos dados; o ponto é não travar enquanto espera.',
+      ],
     ],
     'Operações assíncronas deixam o programa seguir em frente e retomam quando o resultado chega.',
   ),
@@ -82,8 +88,8 @@ export const j10 = montar({
       'O que o await faz?',
       'Pausa a função async até a Promise ser resolvida',
       [
-        ['Cancela a Promise', 'Ele espera o resultado.'],
-        ['Trava todo o navegador', 'Pausa só aquela função; o resto continua.'],
+        ['Cancela a Promise se ela demorar mais que o esperado', 'O await espera, não cancela.'],
+        ['Trava todo o navegador até a Promise ser resolvida', 'Ele só pausa a função async.'],
       ],
       'await só pode ser usado dentro de funções async.',
     ),
@@ -129,8 +135,14 @@ export const j10 = montar({
       'Quais são os estados de uma Promise?',
       'Pendente, cumprida e rejeitada',
       [
-        ['Ligada e desligada', 'Não são esses os estados.'],
-        ['Inicial e final', 'Há três estados, com nomes específicos.'],
+        [
+          'Ligada e desligada, conforme a conexão com o servidor',
+          'Os estados são pendente, cumprida e rejeitada.',
+        ],
+        [
+          'Inicial e final, indicando o começo e o fim da operação',
+          'Os estados são pendente, cumprida e rejeitada.',
+        ],
       ],
       'Pendente enquanto espera; cumprida com sucesso; rejeitada com erro.',
     ),

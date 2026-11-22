@@ -127,8 +127,11 @@ export const r07 = montar({
       'Por que desativar o WPS?',
       'O PIN do WPS é vulnerável a tentativas de adivinhação',
       [
-        ['Ele deixa o Wi-Fi lento', 'O problema é segurança.'],
-        ['Ele não funciona com WPA3', 'O motivo é a vulnerabilidade.'],
+        ['Ele deixa o Wi-Fi lento por manter uma conexão sempre aberta', 'O motivo é segurança.'],
+        [
+          'Ele não funciona com WPA3 e causa erros de conexão',
+          'O problema do WPS é o PIN vulnerável.',
+        ],
       ],
       'Conectar por PIN é um atalho que enfraquece a segurança.',
       1,

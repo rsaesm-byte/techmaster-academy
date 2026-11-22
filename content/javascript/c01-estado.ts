@@ -11,8 +11,11 @@ export const j11 = montar({
     'O que é o "estado" de um aplicativo?',
     'Os dados que descrevem como o app está agora',
     [
-      ['O visual do botão', 'A aparência é consequência do estado, não o estado.'],
-      ['O código-fonte', 'O estado é dado que muda durante o uso.'],
+      ['O visual dos botões e das cores da tela', 'Estado é o dado, e não a aparência.'],
+      [
+        'O código-fonte do aplicativo, escrito pelo programador',
+        'Estado são os dados do app em execução.',
+      ],
     ],
     'Lista de tarefas, usuário logado, filtro escolhido: tudo isso é estado.',
   ),
@@ -162,8 +165,11 @@ export const j11 = montar({
       'Como remover um item sem alterar a lista original?',
       'Usar filter para criar uma lista nova sem ele',
       [
-        ['Usar splice', 'splice altera o array original.'],
-        ['Usar delete', 'delete deixa um buraco e altera o original.'],
+        ['Usar splice, que altera a própria lista original', 'O splice muda o array original.'],
+        [
+          'Usar delete no elemento, que deixa um buraco na lista',
+          'O delete deixa um espaço vazio e não cria lista nova.',
+        ],
       ],
       'filter devolve uma lista nova.',
       1,

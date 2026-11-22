@@ -132,10 +132,13 @@ export const r02 = montar({
       'Por que dividir uma rede em sub-redes?',
       'Para organizar, isolar o tráfego e aplicar regras de segurança por setor',
       [
-        ['Para ter mais endereços IP públicos', 'Sub-redes não criam endereços novos.'],
         [
-          'Para o Wi-Fi ficar mais rápido',
-          'Pode ajudar o desempenho, mas não é o objetivo principal.',
+          'Para ter mais endereços IP públicos na internet',
+          'Sub-redes dividem endereços; não criam IPs públicos.',
+        ],
+        [
+          'Para o Wi-Fi ficar mais rápido em toda a empresa',
+          'A velocidade não é o objetivo principal.',
         ],
       ],
       'Menos tráfego de broadcast e regras de acesso por grupo.',

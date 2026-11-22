@@ -11,8 +11,14 @@ export const w05 = montar({
     'Para uma página estática (só HTML, CSS e JS) ficar no ar, o que é necessário?',
     'Um servidor que entregue os arquivos, como o GitHub Pages',
     [
-      ['Um banco de dados', 'Páginas estáticas não precisam de banco.'],
-      ['Um compilador de C', 'Não é necessário.'],
+      [
+        'Um banco de dados para armazenar o conteúdo das páginas',
+        'Páginas estáticas não precisam de banco de dados.',
+      ],
+      [
+        'Um compilador de C para gerar os arquivos da página',
+        'HTML, CSS e JS não precisam de compilador de C.',
+      ],
     ],
     'Basta hospedar os arquivos em algum servidor web.',
   ),
@@ -134,8 +140,14 @@ export const w05 = montar({
       'Qual destes itens NÃO costuma fazer parte de um portfólio básico?',
       'Um servidor de banco de dados',
       [
-        ['Seção de projetos', 'Projetos são o centro do portfólio.'],
-        ['Contato', 'É necessário para que possam falar com você.'],
+        [
+          'Uma seção de projetos com links e descrições',
+          'Projetos fazem parte de um bom portfólio.',
+        ],
+        [
+          'Uma forma de contato, como e-mail ou links de redes',
+          'Contato faz parte de um portfólio.',
+        ],
       ],
       'Uma página estática dispensa banco de dados.',
       1,

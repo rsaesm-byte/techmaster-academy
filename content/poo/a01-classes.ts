@@ -10,8 +10,14 @@ export const o01 = montar({
     'Em um sistema de loja, "Cliente" descreve o que todo cliente tem. "Maria" é um cliente específico. Quem é a classe?',
     'Cliente',
     [
-      ['Maria', 'Maria é uma instância concreta, ou seja, um objeto.'],
-      ['Loja', 'A loja é outro conceito do sistema.'],
+      [
+        'Maria, porque é o nome de um cliente que já existe no sistema',
+        'Maria é uma instância concreta, ou seja, um objeto.',
+      ],
+      [
+        'Loja, porque reúne todos os clientes e pedidos do sistema',
+        'A loja é outro conceito; Cliente é a classe que descreve o que todo cliente tem.',
+      ],
     ],
     'A classe é o molde; os objetos nascem dele.',
   ),
@@ -83,8 +89,14 @@ export const o01 = montar({
       'O que a palavra new faz?',
       'Cria uma nova instância e chama o construtor',
       [
-        ['Declara uma classe', 'O new apenas define a classe, quem cria é a chamada.'],
-        ['Apaga um objeto', 'Objetos não são apagados com new.'],
+        [
+          'Declara uma nova classe, criando o molde para os objetos',
+          'A classe é declarada com class; o new cria uma instância.',
+        ],
+        [
+          'Apaga um objeto da memória e libera o espaço que ele usava',
+          'Objetos não são apagados com new; ele os cria.',
+        ],
       ],
       'Sem new, o construtor de classe dá erro.',
     ),
@@ -101,8 +113,14 @@ export const o01 = montar({
       'Qual é a diferença entre classe e objeto?',
       'Classe é o molde; objeto é uma instância dele',
       [
-        ['Classe é o objeto já criado', 'É o contrário: o objeto é que é criado.'],
-        ['Não há diferença', 'Há: um define, o outro existe em execução.'],
+        [
+          'A classe é o objeto já criado e pronto para uso no programa',
+          'É o contrário: o objeto é a instância criada a partir da classe.',
+        ],
+        [
+          'Não há diferença, pois os dois termos descrevem a mesma coisa',
+          'Há: um define a estrutura e o outro existe em execução.',
+        ],
       ],
       'Pense na forma e no bolo.',
     ),

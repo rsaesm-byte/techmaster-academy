@@ -134,8 +134,14 @@ export const s06 = montar({
       'Qual a diferença entre COUNT(*) e COUNT(coluna)?',
       'COUNT(coluna) ignora os valores NULL',
       [
-        ['Nenhuma', 'COUNT(coluna) não conta linhas com NULL nessa coluna.'],
-        ['COUNT(*) ignora NULL', 'É o contrário.'],
+        [
+          'Nenhuma, pois os dois contam todas as linhas',
+          'Há diferença: um conta linhas, o outro conta valores.',
+        ],
+        [
+          'O COUNT(*) ignora os NULL e o COUNT(coluna) conta todas as linhas',
+          'É o contrário: COUNT(*) conta linhas, COUNT(coluna) ignora NULL.',
+        ],
       ],
       'COUNT(*) conta linhas; COUNT(coluna) conta valores preenchidos.',
       1,
@@ -179,8 +185,11 @@ export const s07 = montar({
     'O WHERE consegue filtrar usando COUNT(*)?',
     'Não, porque o WHERE age antes de agrupar',
     [
-      ['Sim, sempre', 'O WHERE roda antes das agregações.'],
-      ['Só com ORDER BY', 'Não há relação.'],
+      [
+        'Sim, sempre, pois todo cliente aparece em um JOIN',
+        'O JOIN simples só mostra quem tem correspondência.',
+      ],
+      ['Sim, mas somente junto com o ORDER BY', 'O WHERE não enxerga agregações.'],
     ],
     'Para filtrar por resultado de agregação existe o HAVING.',
   ),
@@ -279,8 +288,14 @@ export const s07 = montar({
       'Qual a diferença entre WHERE e HAVING?',
       'WHERE filtra linhas antes de agrupar; HAVING filtra grupos depois',
       [
-        ['São idênticos', 'Agem em momentos diferentes.'],
-        ['HAVING filtra antes de agrupar', 'É o contrário.'],
+        [
+          'São idênticos, mudando apenas a posição na consulta',
+          'Eles agem em momentos diferentes.',
+        ],
+        [
+          'O HAVING filtra as linhas antes de agrupar e o WHERE depois',
+          'É o contrário: WHERE filtra antes; HAVING, depois.',
+        ],
       ],
       'Ordem: WHERE, GROUP BY, HAVING.',
     ),
@@ -333,7 +348,10 @@ export const s08 = montar({
     'Ele não aparece no resultado',
     [
       ['Aparece com valores vazios', 'Isso é o LEFT JOIN.'],
-      ['Causa erro', 'Só não casa com nada.'],
+      [
+        'Causa um IndexError, pois o índice 3 não existe',
+        'Fatias não geram erro quando passam do limite.',
+      ],
     ],
     'JOIN simples (INNER) só traz pares que casam.',
   ),
@@ -419,8 +437,14 @@ export const s08 = montar({
       'Qual é a melhor forma de achar clientes sem pedidos?',
       'LEFT JOIN e filtrar onde a coluna da outra tabela é NULL',
       [
-        ['JOIN simples com WHERE produto = 0', 'O JOIN simples nem traz esses clientes.'],
-        ['SELECT * FROM pedidos', 'Isso só mostra os pedidos.'],
+        [
+          'JOIN simples com WHERE produto = 0, para achar quem não comprou',
+          'O JOIN simples nem traz quem não tem pedidos.',
+        ],
+        [
+          'SELECT * FROM pedidos e conferir à mão quem não aparece',
+          'Isso é trabalhoso e propenso a erro.',
+        ],
       ],
       'Sem par, a direita vem NULL.',
     ),
@@ -450,8 +474,14 @@ export const s08 = montar({
       'Por que usar COUNT(produto) em vez de COUNT(*) com LEFT JOIN?',
       'Para o cliente sem pedido resultar em 0 e não em 1',
       [
-        ['COUNT(*) dá erro com LEFT JOIN', 'Não dá erro; conta a linha vazia.'],
-        ['COUNT(produto) é mais rápido', 'O motivo é o resultado correto.'],
+        [
+          'COUNT(*) dá erro quando usado junto com LEFT JOIN',
+          'Não dá erro; conta a linha nula como 1.',
+        ],
+        [
+          'COUNT(produto) é mais rápido porque lê só uma coluna',
+          'O motivo é a contagem correta, não a velocidade.',
+        ],
       ],
       'A linha com NULL ainda é uma linha para o COUNT(*).',
       1,
@@ -500,7 +530,10 @@ export const s09 = montar({
     'INSERT INTO',
     [
       ['SELECT', 'SELECT só lê dados.'],
-      ['UPDATE', 'UPDATE altera linhas que já existem.'],
+      [
+        'UPDATE, que altera linhas que já existem na tabela',
+        'UPDATE altera linhas que já existem.',
+      ],
     ],
     'INSERT INTO cria registros novos.',
   ),
@@ -561,8 +594,11 @@ export const s09 = montar({
       'O que acontece se o UPDATE não tiver WHERE?',
       'Todas as linhas da tabela são alteradas',
       [
-        ['Nada acontece', 'O comando roda normalmente.'],
-        ['Só a primeira linha muda', 'Sem WHERE, todas mudam.'],
+        ['Nada acontece, pois o comando exige o WHERE para rodar', 'O comando roda e altera tudo.'],
+        [
+          'Só a primeira linha da tabela é alterada, por segurança',
+          'Sem WHERE, todas as linhas são afetadas.',
+        ],
       ],
       'Por isso o WHERE é tão importante.',
     ),
@@ -587,8 +623,11 @@ export const s09 = montar({
       'Qual comando acrescenta a linha de um novo cliente?',
       'INSERT INTO clientes ... VALUES ...',
       [
-        ['UPDATE clientes SET ...', 'UPDATE só altera linhas que já existem.'],
-        ['SELECT clientes', 'SELECT apenas lê dados.'],
+        [
+          'UPDATE clientes SET ..., que cria um cliente novo na tabela',
+          'O UPDATE altera linhas existentes.',
+        ],
+        ['SELECT clientes, que adiciona o cliente ao resultado', 'SELECT só consulta.'],
       ],
       'INSERT INTO cria linhas novas.',
     ),
@@ -614,8 +653,11 @@ export const s09 = montar({
       'Para que serve a chave primária?',
       'Identificar cada linha de forma única',
       [
-        ['Ordenar a tabela', 'Não é seu papel.'],
-        ['Apagar linhas repetidas', 'Ela impede repetições.'],
+        ['Ordenar a tabela pela coluna mais usada nas consultas', 'Ordenar é papel do ORDER BY.'],
+        [
+          'Apagar as linhas repetidas que existirem na tabela',
+          'A chave primária impede repetição, não a apaga.',
+        ],
       ],
       'Id único evita ambiguidade.',
     ),
@@ -662,8 +704,11 @@ export const s10 = montar({
     'O que um DELETE FROM pedidos; sem WHERE faz?',
     'Apaga todas as linhas da tabela',
     [
-      ['Apaga só a última linha', 'Sem WHERE, é tudo.'],
-      ['Dá erro', 'Roda normalmente.'],
+      [
+        'Apaga apenas a última linha inserida na tabela',
+        'Sem WHERE, todas as linhas são apagadas.',
+      ],
+      ['Dá erro, porque o DELETE exige uma condição', 'O SQL executa e apaga tudo.'],
     ],
     'É um dos erros mais caros do SQL.',
   ),
@@ -728,8 +773,14 @@ export const s10 = montar({
       'Qual a melhor primeira ação antes de rodar um DELETE?',
       'Rodar um SELECT com o mesmo WHERE',
       [
-        ['Rodar o DELETE e ver depois', 'Sem desfazer, isso é arriscado.'],
-        ['Apagar a tabela e recriar', 'Isso é desproporcional.'],
+        [
+          'Rodar o DELETE primeiro e conferir o resultado depois',
+          'Depois de apagar, não há volta sem backup.',
+        ],
+        [
+          'Apagar a tabela e recriá-la para ter certeza do estado',
+          'Isso destrói a estrutura e os dados.',
+        ],
       ],
       'Conferir antes evita desastres.',
     ),
@@ -745,8 +796,14 @@ export const s10 = montar({
       'Qual comando apaga a tabela inteira, estrutura incluída?',
       'DROP TABLE',
       [
-        ['DELETE', 'DELETE remove linhas, mantém a tabela.'],
-        ['UPDATE', 'UPDATE altera valores.'],
+        [
+          'DELETE, que apaga as linhas mas mantém a estrutura da tabela',
+          'DELETE apaga só as linhas.',
+        ],
+        [
+          'UPDATE, que troca todos os valores da tabela por vazios',
+          'UPDATE altera valores, e não remove tabelas.',
+        ],
       ],
       'DROP TABLE é ainda mais destrutivo que DELETE.',
     ),
@@ -763,8 +820,14 @@ export const s10 = montar({
       'O que é exclusão lógica?',
       'Marcar a linha como inativa em vez de apagá-la',
       [
-        ['Apagar duas vezes', 'Não é isso.'],
-        ['Apagar só no backup', 'Não é isso.'],
+        [
+          'Apagar a linha duas vezes para garantir que sumiu',
+          'Exclusão lógica não apaga: marca a linha.',
+        ],
+        [
+          'Apagar a linha apenas na cópia de segurança',
+          'Exclusão lógica mantém a linha e a marca como inativa.',
+        ],
       ],
       'Preserva histórico e permite reverter.',
     ),

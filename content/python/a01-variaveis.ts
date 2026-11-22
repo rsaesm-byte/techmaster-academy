@@ -127,8 +127,11 @@ export const p01 = montar({
       'Qual operador faz divisão inteira em Python?',
       '//',
       [
-        ['/', 'A divisão normal devolve float.'],
-        ['%', 'Esse devolve o resto.'],
+        [
+          '/, que divide e devolve sempre um número decimal',
+          'O / devolve decimal; a divisão inteira é //.',
+        ],
+        ['%, que devolve o resto da divisão', 'O % é o resto, não a divisão inteira.'],
       ],
       '7 // 2 vale 3.',
     ),
@@ -136,8 +139,14 @@ export const p01 = montar({
       'O que acontece com "5" + 5 em Python?',
       'Gera um erro (TypeError)',
       [
-        ['Resulta em "55"', 'Isso acontece em JavaScript, não em Python.'],
-        ['Resulta em 10', 'Python não converte automaticamente.'],
+        [
+          'Resulta em "55", como no JavaScript, juntando os dois valores',
+          'O Python não converte sozinho: gera TypeError.',
+        ],
+        [
+          'Resulta em 10, pois o Python converte o texto em número',
+          'O Python não converte sozinho.',
+        ],
       ],
       'Python não mistura texto e número sem conversão explícita.',
       1,

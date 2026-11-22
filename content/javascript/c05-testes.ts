@@ -11,8 +11,14 @@ export const j15 = montar({
     'Para que servem testes automatizados?',
     'Verificar sozinhos se o código continua funcionando após mudanças',
     [
-      ['Deixar o código mais rápido', 'Testes verificam, não aceleram.'],
-      ['Substituir a documentação', 'Ajudam, mas têm outro propósito.'],
+      [
+        'Deixar o código mais rápido ao detectar trechos lentos',
+        'Testes verificam correção, não velocidade.',
+      ],
+      [
+        'Substituir a documentação, pois já descrevem o comportamento',
+        'Eles ajudam, mas não substituem a documentação.',
+      ],
     ],
     'Cada teste confirma que uma entrada produz a saída esperada.',
   ),
@@ -143,8 +149,14 @@ export const j15 = montar({
       'O que um teste automatizado compara?',
       'O resultado obtido com o resultado esperado',
       [
-        ['O código com a documentação', 'Compara resultados, não textos.'],
-        ['O tempo de execução com o do vizinho', 'Isso seria um teste de desempenho.'],
+        [
+          'O código com a documentação, para ver se coincidem',
+          'Compara resultado obtido e esperado.',
+        ],
+        [
+          'O tempo de execução com o de outro programa parecido',
+          'Não compara velocidade: compara resultados.',
+        ],
       ],
       'Entrada conhecida, saída esperada.',
     ),
@@ -152,8 +164,14 @@ export const j15 = montar({
       'Por que rodar testes antes de publicar?',
       'Para impedir que um erro chegue ao site no ar',
       [
-        ['Para deixar o site mais bonito', 'Não afetam a aparência.'],
-        ['Porque o GitHub exige', 'É uma boa prática, não uma exigência.'],
+        [
+          'Para deixar o site mais bonito e organizado antes de publicar',
+          'O objetivo é impedir erros, não melhorar a aparência.',
+        ],
+        [
+          'Porque o GitHub exige testes em todos os projetos publicados',
+          'Não é exigência; é uma boa prática.',
+        ],
       ],
       'Testes na integração contínua bloqueiam publicações com erro.',
       1,

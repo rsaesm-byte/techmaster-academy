@@ -11,8 +11,14 @@ export const w04 = montar({
     'Por que todo campo de formulário precisa de um rótulo (label) associado?',
     'Para que todos, inclusive quem usa leitor de tela, saibam o que preencher',
     [
-      ['Apenas para enfeitar', 'O rótulo é funcional e acessível.'],
-      ['Porque o navegador exige', 'O navegador permite, mas a acessibilidade exige.'],
+      [
+        'Apenas para enfeitar o formulário e deixá-lo mais claro visualmente',
+        'O rótulo tem função: dizer o que preencher, inclusive a leitores de tela.',
+      ],
+      [
+        'Porque o navegador se recusa a enviar o formulário sem rótulos',
+        'O navegador não exige; a acessibilidade, sim.',
+      ],
     ],
     'O label identifica o campo e aumenta a área de clique.',
   ),
@@ -86,8 +92,14 @@ export const w04 = montar({
       'Por que o servidor precisa validar os dados mesmo que o navegador já tenha validado?',
       'Porque a validação do navegador pode ser contornada',
       [
-        ['Porque o navegador nunca valida', 'Ele valida, mas não é confiável.'],
-        ['Porque o servidor é mais lento', 'O motivo é a segurança.'],
+        [
+          'Porque o navegador nunca valida os campos e deixa tudo para o servidor',
+          'O navegador valida, mas essa validação pode ser contornada.',
+        ],
+        [
+          'Porque o servidor é mais lento e precisa conferir os dados com calma',
+          'Velocidade não é o motivo: é segurança.',
+        ],
       ],
       'Nunca confie em dados vindos do cliente.',
     ),

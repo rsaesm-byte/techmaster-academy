@@ -10,8 +10,11 @@ export const r03 = montar({
     'O que um roteador faz com um pacote que chega?',
     'Olha o IP de destino e escolhe o próximo salto',
     [
-      ['Lê o conteúdo e decide', 'Roteadores olham o cabeçalho IP, não o conteúdo.'],
-      ['Guarda o pacote para sempre', 'Ele apenas encaminha.'],
+      [
+        'Lê o conteúdo do pacote e decide para onde enviá-lo',
+        'O roteador olha só o endereço de destino.',
+      ],
+      ['Guarda o pacote em memória até alguém buscá-lo', 'Ele encaminha; não guarda.'],
     ],
     'Roteamento é decidir o próximo salto pelo IP de destino.',
   ),
@@ -146,8 +149,8 @@ export const r03 = montar({
       'Para que serve o gateway padrão de um computador?',
       'Ser a saída para destinos fora da rede local',
       [
-        ['Traduzir nomes em IPs', 'Isso é o DNS.'],
-        ['Distribuir endereços IP', 'Isso é o DHCP.'],
+        ['Traduzir nomes de sites em endereços IP', 'Isso é função do DNS.'],
+        ['Distribuir endereços IP automaticamente aos computadores', 'Isso é função do DHCP.'],
       ],
       'O gateway encaminha tudo o que não é da rede local.',
     ),

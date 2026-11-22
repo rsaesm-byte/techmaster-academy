@@ -18,8 +18,14 @@ export const r10 = montar({
     'Por que separar setores (vendas, TI, visitantes) em sub-redes diferentes?',
     'Para isolar o tráfego e aplicar regras de acesso diferentes a cada setor',
     [
-      ['Para gastar mais endereços', 'Segmentar não é para gastar IPs.'],
-      ['Porque o roteador exige', 'É uma decisão de projeto.'],
+      [
+        'Para gastar mais endereços e deixar a rede maior',
+        'Não é esse o motivo: é isolamento e controle.',
+      ],
+      [
+        'Porque o roteador exige uma sub-rede para cada setor',
+        'O roteador não exige; a separação é uma boa prática.',
+      ],
     ],
     'Segmentação organiza e limita o estrago de um incidente.',
   ),
@@ -98,8 +104,14 @@ export const r10 = montar({
       'Onde ficam os servidores, em um bom projeto?',
       'Em uma zona própria, com regras de acesso restritas',
       [
-        ['Na mesma rede dos visitantes', 'Isso expõe os servidores.'],
-        ['Em qualquer setor', 'Segmentar serve justamente para evitar isso.'],
+        [
+          'Na mesma rede dos visitantes, para facilitar o acesso',
+          'Servidores precisam de acesso restrito.',
+        ],
+        [
+          'Em qualquer setor, desde que haja espaço disponível',
+          'A posição importa para a segurança.',
+        ],
       ],
       'Servidores merecem sua própria sub-rede e regras.',
     ),

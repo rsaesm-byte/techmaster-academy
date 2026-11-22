@@ -91,8 +91,14 @@ export const c05 = montar({
       'Qual é a primeira ação ao suspeitar que um computador está infectado?',
       'Desconectá-lo da rede e avisar a equipe de segurança',
       [
-        ['Continuar trabalhando e ver o que acontece', 'A ameaça pode se espalhar.'],
-        ['Apagar tudo imediatamente', 'Pode destruir evidências e dados úteis.'],
+        [
+          'Continuar trabalhando para observar o comportamento do computador',
+          'Isso deixa o problema se espalhar.',
+        ],
+        [
+          'Apagar tudo imediatamente e reinstalar o sistema',
+          'Isso destrói evidências; isole primeiro.',
+        ],
       ],
       'Conter vem antes de remover.',
     ),
@@ -102,8 +108,14 @@ export const c05 = montar({
       'O que significa "3-2-1" no backup?',
       '3 cópias, em 2 tipos de mídia, com 1 fora do local',
       [
-        ['3 dias, 2 horas e 1 minuto', 'Não é uma frequência.'],
-        ['3 senhas, 2 fatores e 1 usuário', 'Isso é sobre autenticação.'],
+        [
+          '3 dias, 2 horas e 1 minuto, os prazos de cada tipo de cópia',
+          'A regra trata de cópias, mídias e locais.',
+        ],
+        [
+          '3 senhas, 2 fatores de autenticação e 1 usuário administrador',
+          'Isso é sobre acesso; o 3-2-1 é sobre backup.',
+        ],
       ],
       'Diversidade de mídia e local protege contra vários tipos de falha.',
     ),

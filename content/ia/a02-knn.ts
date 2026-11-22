@@ -11,8 +11,14 @@ export const ia02 = montar({
     'Um fruto novo é parecido com laranjas que você já viu. Que rótulo provavelmente ele terá?',
     'Laranja',
     [
-      ['Maçã', 'Não é parecido com maçãs.'],
-      ['Banana', 'Não é parecido com bananas.'],
+      [
+        'Maçã, porque é a fruta mais comum nos conjuntos de exemplo',
+        'O rótulo vem dos vizinhos mais parecidos, que são laranjas.',
+      ],
+      [
+        'Banana, porque frutas novas costumam ser classificadas como a mais rara',
+        'O voto é dos vizinhos próximos; aqui são laranjas.',
+      ],
     ],
     'Quem se parece, pertence ao mesmo grupo.',
   ),
@@ -79,8 +85,14 @@ export const ia02 = montar({
       'O que o k-NN faz ao receber um ponto novo?',
       'Mede a distância até os exemplos e vota entre os k mais próximos',
       [
-        ['Treina uma rede neural', 'Isso não faz parte do k-NN.'],
-        ['Apaga os exemplos mais distantes', 'Ele os guarda.'],
+        [
+          'Treina uma pequena rede neural com os exemplos mais próximos',
+          'O k-NN não treina nada: só guarda os dados e calcula a distância.',
+        ],
+        [
+          'Apaga da base os exemplos mais distantes para não confundir o modelo',
+          'Ele os mantém; apenas não os usa na votação.',
+        ],
       ],
       'Distância e voto.',
     ),
@@ -97,8 +109,14 @@ export const ia02 = montar({
       'Por que normalizar as variáveis no k-NN?',
       'Para que nenhuma variável domine a distância pela escala',
       [
-        ['Para deixar o código menor', 'Não tem relação com tamanho de código.'],
-        ['Para remover os rótulos', 'Os rótulos continuam.'],
+        [
+          'Para deixar o código do cálculo mais curto e rápido de executar',
+          'A normalização não encurta o código: evita distorção na distância.',
+        ],
+        [
+          'Para remover os rótulos dos exemplos e deixar só os números',
+          'Os rótulos continuam necessários para a votação.',
+        ],
       ],
       'Altura em cm e salário em reais, por exemplo.',
     ),

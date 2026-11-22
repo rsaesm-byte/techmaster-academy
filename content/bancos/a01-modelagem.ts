@@ -76,8 +76,14 @@ export const b01 = montar({
       'Um cliente faz vários pedidos, e cada pedido é de um só cliente. Qual é o relacionamento?',
       '1:N (um para muitos)',
       [
-        ['1:1', 'Um cliente tem mais de um pedido.'],
-        ['N:N', 'Cada pedido pertence a um único cliente.'],
+        [
+          '1:1 (um para um), pois cada cliente tem apenas um pedido',
+          'Um cliente faz vários pedidos: o lado do pedido é N.',
+        ],
+        [
+          'N:N (muitos para muitos), pois todos podem se relacionar com todos',
+          'Cada pedido pertence a um só cliente: não é N:N.',
+        ],
       ],
       'A chave estrangeira fica no lado "muitos".',
     ),
@@ -94,8 +100,14 @@ export const b01 = montar({
       'Como resolver um relacionamento N:N entre pedidos e produtos?',
       'Com uma tabela associativa (por exemplo, itens_pedido)',
       [
-        ['Repetindo os produtos em colunas do pedido', 'Limita a quantidade e desperdiça espaço.'],
-        ['Guardando tudo em um único texto', 'Perde a capacidade de consultar e filtrar.'],
+        [
+          'Repetindo os produtos em colunas (produto1, produto2...) dentro do pedido',
+          'Colunas repetidas limitam a quantidade e violam a normalização.',
+        ],
+        [
+          'Guardando todos os produtos em um único texto separado por vírgulas',
+          'Isso impede consultas e viola a 1FN.',
+        ],
       ],
       'A tabela associativa tem duas chaves estrangeiras.',
     ),

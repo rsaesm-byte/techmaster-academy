@@ -10,8 +10,14 @@ export const ia04 = montar({
     'Para decidir se vai ao parque, você pesa fatores: sol (muito importante), amigos (importante) e distância (pouco). Isso lembra o quê?',
     'Um neurônio artificial somando entradas com pesos',
     [
-      ['Um banco de dados', 'Banco de dados guarda, não pesa.'],
-      ['Um compilador', 'Compilador traduz código.'],
+      [
+        'Um banco de dados que guarda as informações de cada fator',
+        'Banco de dados guarda, mas não pesa entradas para decidir.',
+      ],
+      [
+        'Um compilador que traduz os fatores em instruções de máquina',
+        'Compilador traduz código, não decide.',
+      ],
     ],
     'Entradas com pesos diferentes.',
   ),
@@ -81,8 +87,14 @@ export const ia04 = montar({
       'O que os pesos representam em um neurônio?',
       'A importância de cada entrada',
       [
-        ['O número de camadas', 'Camadas são outra parte da rede.'],
-        ['O tamanho do arquivo', 'Não tem relação.'],
+        [
+          'O número de camadas que a rede possui antes da saída',
+          'As camadas são outra parte da rede.',
+        ],
+        [
+          'O tamanho do arquivo de dados usado no treinamento do modelo',
+          'Pesos não medem tamanho: indicam a importância das entradas.',
+        ],
       ],
       'Pesos maiores influenciam mais.',
     ),
@@ -99,8 +111,14 @@ export const ia04 = montar({
       'Como uma rede neural aprende?',
       'Ajustando os pesos para reduzir o erro, repetidamente',
       [
-        ['Memorizando as perguntas', 'Isso seria overfitting.'],
-        ['Reescrevendo o próprio código', 'Ela ajusta números, não o código.'],
+        [
+          'Memorizando as perguntas e respostas do treino, uma a uma',
+          'Isso seria overfitting, e não aprendizado.',
+        ],
+        [
+          'Reescrevendo o próprio código a cada erro para se corrigir',
+          'Ela ajusta números (pesos), não o código.',
+        ],
       ],
       'Descida do gradiente.',
     ),

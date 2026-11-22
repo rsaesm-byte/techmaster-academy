@@ -26,8 +26,14 @@ export const s01 = montar({
     'O que é uma linha (registro) de uma tabela?',
     'Um item completo, como um cliente com todos os seus dados',
     [
-      ['Um campo, como "nome"', 'Isso é uma coluna.'],
-      ['Uma consulta salva', 'Linha é dado, não consulta.'],
+      [
+        'Um campo, como a coluna "nome", que guarda um tipo de informação',
+        'Isso é uma coluna; a linha reúne todos os campos de um item.',
+      ],
+      [
+        'Uma consulta salva, para ser executada de novo mais tarde',
+        'Uma linha é um registro da tabela, não uma consulta.',
+      ],
     ],
     'Colunas são os campos; linhas são os registros.',
   ),
@@ -124,8 +130,8 @@ export const s01 = montar({
       'Qual é a função do FROM?',
       'Indicar de qual tabela vêm os dados',
       [
-        ['Escolher as colunas', 'Isso é o SELECT.'],
-        ['Filtrar as linhas', 'Isso é o WHERE.'],
+        ['Escolher as colunas que aparecem no resultado', 'Isso é feito pelo SELECT.'],
+        ['Filtrar as linhas que atendem a uma condição', 'Isso é feito pelo WHERE.'],
       ],
       'FROM nomeia a tabela.',
     ),
@@ -133,8 +139,11 @@ export const s01 = montar({
       'O que significa o * no SELECT *?',
       'Todas as colunas da tabela',
       [
-        ['Todas as tabelas', 'O * se refere às colunas.'],
-        ['Nenhuma coluna', 'Ele traz todas.'],
+        [
+          'Todas as tabelas do banco de dados de uma vez',
+          'O * vale para as colunas da tabela do FROM.',
+        ],
+        ['Nenhuma coluna, apenas a contagem de linhas', 'O * pede todas as colunas.'],
       ],
       'Útil para explorar, mas evitado em produção.',
       1,
@@ -434,8 +443,11 @@ export const s03 = montar({
       'O que DESC faz no ORDER BY?',
       'Ordena do maior para o menor',
       [
-        ['Remove duplicados', 'Isso seria DISTINCT.'],
-        ['Descreve a tabela', 'Não é esse o sentido.'],
+        ['Remove as linhas duplicadas do resultado', 'Isso é feito pelo DISTINCT.'],
+        [
+          'Descreve a estrutura da tabela, mostrando suas colunas',
+          'Isso é outro comando; DESC no ORDER BY é descendente.',
+        ],
       ],
       'ASC é o padrão.',
     ),
@@ -443,8 +455,14 @@ export const s03 = montar({
       'Por que usar LIMIT junto com ORDER BY?',
       'Para garantir quais são as primeiras linhas',
       [
-        ['Para acelerar o ORDER BY', 'O motivo é a previsibilidade.'],
-        ['Porque o SQL obriga', 'Não obriga, mas sem ordem o resultado é arbitrário.'],
+        [
+          'Para acelerar o ORDER BY, que fica mais lento sem LIMIT',
+          'O LIMIT não acelera a ordenação: define quais linhas ficam.',
+        ],
+        [
+          'Porque o SQL obriga o uso de LIMIT sempre que há ORDER BY',
+          'Não é obrigatório; é uma boa prática.',
+        ],
       ],
       'Sem ordem, as "primeiras" linhas são imprevisíveis.',
       1,
@@ -603,8 +621,8 @@ export const s04 = montar({
       'O que o GROUP BY faz?',
       'Agrupa linhas com o mesmo valor para resumi-las por grupo',
       [
-        ['Ordena o resultado', 'Isso é o ORDER BY.'],
-        ['Filtra linhas', 'Isso é o WHERE.'],
+        ['Ordena o resultado do menor para o maior valor', 'Isso é feito pelo ORDER BY.'],
+        ['Filtra as linhas antes de qualquer cálculo', 'Isso é feito pelo WHERE.'],
       ],
       'Cada grupo vira uma linha no resultado.',
       1,
@@ -653,8 +671,14 @@ export const s05 = montar({
     'Por que dividir os dados em várias tabelas?',
     'Para não repetir informações e manter tudo organizado',
     [
-      ['Porque uma tabela só não cabe no disco', 'O motivo é organização e consistência.'],
-      ['Porque o SQL não aceita tabelas grandes', 'Aceita; o motivo é evitar repetição.'],
+      [
+        'Porque uma tabela só não cabe no disco do servidor',
+        'O motivo é organização e não repetir dados.',
+      ],
+      [
+        'Porque o SQL não aceita tabelas com muitas colunas',
+        'SQL aceita tabelas enormes; dividir evita repetição.',
+      ],
     ],
     'Os dados do cliente ficam em um lugar só; os pedidos apontam para ele por uma chave.',
   ),
@@ -730,8 +754,8 @@ export const s05 = montar({
       'Diego (id 4) não fez pedidos. Ele aparece no JOIN simples?',
       'Não, porque não há pedido que case com o id dele',
       [
-        ['Sim, com valores vazios', 'Isso aconteceria com LEFT JOIN.'],
-        ['Sim, sempre', 'O JOIN simples só traz pares que casam.'],
+        ['Sim, aparece com os campos do pedido vazios (NULL)', 'Isso só acontece no LEFT JOIN.'],
+        ['Sim, desde que o WHERE venha depois do GROUP BY', 'O WHERE age antes de agrupar.'],
       ],
       'Para incluí-lo, usa-se LEFT JOIN.',
     ),
@@ -767,8 +791,11 @@ export const s05 = montar({
       'O que é uma chave estrangeira?',
       'Uma coluna que aponta para a chave primária de outra tabela',
       [
-        ['A primeira coluna de qualquer tabela', 'Não é questão de posição.'],
-        ['Uma senha do banco', 'Não tem relação com senhas.'],
+        [
+          'A primeira coluna de qualquer tabela, que liga as linhas',
+          'A chave estrangeira aponta para outra tabela.',
+        ],
+        ['Uma senha do banco que protege as tabelas ligadas', 'Não tem relação com senhas.'],
       ],
       'cliente_id em pedidos aponta para clientes.id.',
     ),

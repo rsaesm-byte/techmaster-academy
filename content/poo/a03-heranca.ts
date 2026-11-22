@@ -10,8 +10,14 @@ export const o03 = montar({
     'Cachorro e Gato têm nome e sabem comer, mas cada um faz um som diferente. Como evitar repetir o que é comum?',
     'Criar uma classe Animal com o que é comum e estendê-la',
     [
-      ['Copiar e colar o código nas duas classes', 'Copiar cria duplicação e erros.'],
-      ['Usar só variáveis globais', 'Isso não resolve a repetição.'],
+      [
+        'Copiar o código comum e colar nas duas classes, mantendo cada uma independente',
+        'Copiar cria duplicação e erros ao alterar.',
+      ],
+      [
+        'Guardar os dados comuns em variáveis globais usadas pelas duas classes',
+        'Variáveis globais não resolvem a repetição de comportamento.',
+      ],
     ],
     'É o caso clássico de herança.',
   ),
@@ -99,8 +105,14 @@ export const o03 = montar({
       'Por que chamar super() no construtor da filha?',
       'Porque o pai precisa inicializar sua parte antes de usar this',
       [
-        ['Para apagar o construtor do pai', 'Ele executa o pai, não o apaga.'],
-        ['Para o código ficar mais rápido', 'Não tem relação com velocidade.'],
+        [
+          'Para apagar o construtor do pai e substituí-lo pelo da filha',
+          'O super executa o construtor do pai, não o apaga.',
+        ],
+        [
+          'Para o código ficar mais rápido ao criar os objetos filhos',
+          'Não tem relação com velocidade; é uma exigência da linguagem.',
+        ],
       ],
       'Em JavaScript é obrigatório antes de usar this.',
     ),

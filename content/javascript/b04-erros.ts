@@ -10,8 +10,11 @@ export const j09 = montar({
     'O que acontece com o programa quando ocorre um erro não tratado?',
     'A execução para naquele ponto e o erro aparece no console',
     [
-      ['Ele continua normalmente', 'Sem tratamento, o erro interrompe o código.'],
-      ['Ele reinicia sozinho', 'Não há reinício automático.'],
+      ['Ele continua normalmente na linha seguinte ao erro', 'Sem tratamento, a execução para.'],
+      [
+        'Ele reinicia sozinho para tentar se recuperar do erro',
+        'O JavaScript não reinicia o programa.',
+      ],
     ],
     'Erros não tratados interrompem a execução. Com try/catch o programa pode se recuperar.',
   ),
@@ -147,8 +150,14 @@ export const j09 = montar({
       'Por que um catch vazio é má ideia?',
       'Esconde o erro e dificulta descobrir o problema',
       [
-        ['Porque causa erro de sintaxe', 'É válido, só que ruim.'],
-        ['Porque deixa o programa lento', 'O problema é perder a informação do erro.'],
+        [
+          'Porque causa um erro de sintaxe ao rodar o código',
+          'Um catch vazio é válido; o problema é esconder o erro.',
+        ],
+        [
+          'Porque deixa o programa lento ao capturar todos os erros',
+          'Não afeta o desempenho, mas esconde falhas.',
+        ],
       ],
       'Trate o erro ou registre-o; não o engula em silêncio.',
       1,

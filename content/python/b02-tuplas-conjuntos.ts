@@ -11,8 +11,8 @@ export const p07 = montar({
     'Qual estrutura não aceita elementos repetidos?',
     'Conjunto (set)',
     [
-      ['Lista', 'Listas aceitam repetidos.'],
-      ['Tupla', 'Tuplas aceitam repetidos.'],
+      ['Lista, que guarda os elementos em ordem e aceita repetidos', 'Listas aceitam repetidos.'],
+      ['Tupla, que é imutável e guarda os elementos em ordem', 'Tuplas aceitam repetidos.'],
     ],
     'Conjuntos guardam cada valor uma única vez.',
   ),
@@ -122,8 +122,8 @@ export const p07 = montar({
       'Como criar um conjunto vazio?',
       'set()',
       [
-        ['{}', 'Isso cria um dicionário vazio.'],
-        ['[]', 'Isso cria uma lista vazia.'],
+        ['{}, as mesmas chaves usadas para criar dicionários', '{} cria um dicionário vazio.'],
+        ['[], os mesmos colchetes usados para criar listas', '[] cria uma lista vazia.'],
       ],
       'Só set() cria o conjunto vazio.',
     ),

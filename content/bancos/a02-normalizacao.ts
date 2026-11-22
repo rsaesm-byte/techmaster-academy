@@ -12,10 +12,13 @@ export const b02 = montar({
     'Se o endereço mudar, é preciso corrigir em muitos lugares e dá para esquecer algum',
     [
       [
-        'O banco fica sem espaço imediatamente',
-        'O problema é a inconsistência, e não só o espaço.',
+        'O banco fica sem espaço imediatamente, pois o endereço ocupa muito',
+        'O problema é de consistência, não de espaço imediato.',
       ],
-      ['Ele deixa de funcionar', 'Funciona, mas com dados que podem divergir.'],
+      [
+        'O banco deixa de funcionar quando encontra dados repetidos',
+        'Ele funciona; a repetição só gera inconsistência.',
+      ],
     ],
     'Redundância gera anomalias e inconsistências.',
   ),
@@ -96,8 +99,14 @@ export const b02 = montar({
       'Em qual cenário a desnormalização costuma ser aceitável?',
       'Em relatórios analíticos pesados, para reduzir JOINs',
       [
-        ['Em um cadastro que muda o tempo todo', 'Aí a normalização protege a consistência.'],
-        ['Sempre, para acelerar tudo', 'Desnormalizar sem necessidade gera inconsistências.'],
+        [
+          'Em um cadastro que muda o tempo todo e precisa ser consultado rápido',
+          'Dados que mudam muito pedem normalização, para evitar inconsistências.',
+        ],
+        [
+          'Sempre, porque a desnormalização acelera qualquer consulta',
+          'Ela custa consistência e só vale em casos específicos.',
+        ],
       ],
       'Normalize para gravar; desnormalize com evidência para ler.',
     ),
@@ -132,8 +141,14 @@ export const b02 = montar({
       'O que é uma dependência funcional?',
       'Quando o valor de uma coluna determina o valor de outra',
       [
-        ['Quando duas tabelas têm o mesmo nome', 'Não tem relação.'],
-        ['Quando uma consulta usa JOIN', 'É um conceito do modelo, não de consultas.'],
+        [
+          'Quando duas tabelas do banco têm o mesmo nome e se relacionam',
+          'Não tem relação com nomes de tabelas.',
+        ],
+        [
+          'Quando uma consulta usa JOIN para ligar duas tabelas',
+          'O JOIN é uma operação; dependência funcional é uma relação entre colunas.',
+        ],
       ],
       'Por exemplo, o CEP determina a cidade.',
       1,

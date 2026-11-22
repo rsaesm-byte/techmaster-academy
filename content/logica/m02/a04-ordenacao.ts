@@ -29,12 +29,12 @@ export const m02a04: AulaEntrada = {
             { id: 'a', texto: 'aux <- a; a <- b; b <- aux' },
             {
               id: 'b',
-              texto: 'a <- b; b <- a',
+              texto: 'a <- b; b <- a, para trocar os valores',
               feedback: 'Depois de a <- b, o valor antigo de a se perdeu: os dois ficam iguais.',
             },
             {
               id: 'c',
-              texto: 'b <- a; a <- b',
+              texto: 'b <- a; a <- b, na ordem inversa',
               feedback: 'Mesmo problema: a primeira atribuição apaga um dos valores.',
             },
           ],
@@ -284,12 +284,12 @@ export const m02a04: AulaEntrada = {
             { id: 'a', texto: 'Porque a primeira atribuição apagaria um dos valores' },
             {
               id: 'b',
-              texto: 'Porque vetores não aceitam atribuição direta',
+              texto: 'Porque vetores não aceitam atribuição direta entre posições',
               feedback: 'Aceitam: v[j] <- 5 é válido. O problema é a ordem das atribuições.',
             },
             {
               id: 'c',
-              texto: 'Para deixar o programa mais rápido',
+              texto: 'Para deixar o programa um pouco mais rápido na troca',
               feedback: 'A auxiliar não é sobre velocidade, e sim sobre não perder um valor.',
             },
           ],

@@ -82,8 +82,11 @@ export const b03 = montar({
       'O que uma chave estrangeira impede?',
       'Referenciar um registro que não existe',
       [
-        ['Ter o mesmo id duas vezes', 'Isso é papel da chave primária.'],
-        ['Deixar uma coluna vazia', 'Isso é papel do NOT NULL.'],
+        [
+          'Ter o mesmo id repetido em duas linhas da mesma tabela',
+          'Isso é impedido pela chave primária.',
+        ],
+        ['Deixar uma coluna vazia em um registro novo', 'Isso é controlado por NOT NULL.'],
       ],
       'A FK garante que o "pai" exista.',
     ),
@@ -135,10 +138,13 @@ export const b03 = montar({
       'Porque várias aplicações acessam o banco e só ele garante a regra para todas',
       [
         [
-          'Porque o programa não consegue validar',
-          'Consegue, mas pode ser contornado ou esquecido.',
+          'Porque o programa não tem como validar os dados antes de gravar',
+          'O programa valida, mas só o banco protege contra outros acessos.',
         ],
-        ['Porque é mais bonito', 'O motivo é a garantia universal.'],
+        [
+          'Porque a estrutura do projeto fica mais bonita e organizada',
+          'O motivo é a garantia para todas as aplicações.',
+        ],
       ],
       'O banco é a última linha de defesa.',
       1,

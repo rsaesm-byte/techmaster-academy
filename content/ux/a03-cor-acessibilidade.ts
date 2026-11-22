@@ -10,8 +10,14 @@ export const ux03 = montar({
     'Um botão cinza-claro com texto branco é bonito, mas muita gente não consegue ler. Qual é o problema?',
     'Contraste insuficiente entre texto e fundo',
     [
-      ['Falta de animação', 'Animação não ajuda a ler.'],
-      ['O botão é redondo', 'O formato não é a causa.'],
+      [
+        'Falta de animações para chamar a atenção para o botão',
+        'Animação não resolve a leitura; o problema é o contraste.',
+      ],
+      [
+        'O formato arredondado do botão, que confunde quem usa leitor de tela',
+        'O formato não impede a leitura; a cor do texto sim.',
+      ],
     ],
     'Contraste é legibilidade.',
   ),
@@ -82,8 +88,14 @@ export const ux03 = montar({
       'Qual razão de contraste mínima a WCAG AA pede para texto normal?',
       '4,5:1',
       [
-        ['2:1', 'Está abaixo do mínimo.'],
-        ['21:1', 'Esse é o máximo possível, não o mínimo.'],
+        [
+          '2:1, que já é suficiente para a maioria das pessoas lerem',
+          '2:1 está abaixo do mínimo exigido para texto normal.',
+        ],
+        [
+          '21:1, a razão máxima, que toda página precisa atingir para ser acessível',
+          '21:1 é o máximo possível (preto no branco), não o mínimo.',
+        ],
       ],
       'Para texto grande, o mínimo é 3:1.',
     ),
@@ -100,8 +112,14 @@ export const ux03 = montar({
       'Por que a cor não deve ser a única forma de transmitir uma informação?',
       'Porque pessoas com daltonismo podem não percebê-la',
       [
-        ['Porque cores custam caro', 'Cor não tem custo.'],
-        ['Porque o navegador não mostra cores', 'Os navegadores mostram.'],
+        [
+          'Porque cores diferentes aumentam o custo de impressão e produção',
+          'Cor não tem custo; o problema é a percepção.',
+        ],
+        [
+          'Porque alguns navegadores antigos não conseguem exibir as cores',
+          'Navegadores mostram cores; o problema é a percepção humana.',
+        ],
       ],
       'Use também ícone e texto.',
     ),

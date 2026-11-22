@@ -124,8 +124,14 @@ export const p10 = montar({
       'Por que usar um ambiente virtual em cada projeto?',
       'Para isolar as versões das bibliotecas de cada projeto',
       [
-        ['Para o código rodar mais rápido', 'O ganho é isolamento, não velocidade.'],
-        ['Para não precisar do pip', 'O pip continua sendo usado, dentro do ambiente.'],
+        [
+          'Para o código rodar mais rápido ao isolar as bibliotecas',
+          'O ambiente virtual não muda a velocidade.',
+        ],
+        [
+          'Para não precisar do pip ao instalar bibliotecas',
+          'O pip continua sendo usado dentro do ambiente.',
+        ],
       ],
       'Evita conflitos entre projetos que pedem versões diferentes.',
     ),
@@ -133,8 +139,14 @@ export const p10 = montar({
       'Qual a diferença entre import math e from math import floor?',
       'O primeiro traz o módulo (math.floor); o segundo traz só o nome floor',
       [
-        ['Não há diferença', 'Muda como você chama a função.'],
-        ['O segundo instala o módulo', 'Quem instala é o pip.'],
+        [
+          'Não há diferença, pois os dois formatos importam o mesmo conteúdo',
+          'Há: um traz o módulo, o outro traz só o nome.',
+        ],
+        [
+          'O segundo instala o módulo math, e o primeiro só o procura',
+          'Nenhum instala; ambos importam algo já disponível.',
+        ],
       ],
       'import traz o módulo; from ... import traz nomes específicos.',
       1,

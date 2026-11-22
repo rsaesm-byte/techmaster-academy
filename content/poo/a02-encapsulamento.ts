@@ -10,8 +10,14 @@ export const o02 = montar({
     'Qual problema ocorre se qualquer código puder alterar o saldo de uma conta diretamente?',
     'Valores inválidos, como saldo negativo, entram sem validação',
     [
-      ['O programa fica mais rápido', 'Velocidade não é o ponto.'],
-      ['O saldo some da memória', 'Nada disso acontece.'],
+      [
+        'O programa fica mais rápido, pois qualquer código acessa o saldo direto',
+        'A velocidade não é o ponto: o risco é de dados inválidos.',
+      ],
+      [
+        'O saldo some da memória quando outro código tenta modificá-lo',
+        'O dado não some; ele pode ficar errado sem validação.',
+      ],
     ],
     'Encapsulamento = proteger dados e validar as mudanças.',
   ),
@@ -81,8 +87,14 @@ export const o02 = montar({
       'O que significa um campo privado (#)?',
       'Só o código dentro da classe pode acessá-lo',
       [
-        ['É criptografado na memória', 'Privado não é criptografia.'],
-        ['Fica invisível no console', 'O controle é de acesso, não de visualização.'],
+        [
+          'É criptografado na memória, para ninguém conseguir ler o valor',
+          'Privado controla o acesso, e não criptografa nada.',
+        ],
+        [
+          'Fica oculto no console e some das ferramentas de depuração',
+          'O controle é de acesso, não de visualização.',
+        ],
       ],
       'Privado restringe quem acessa.',
     ),
@@ -99,8 +111,14 @@ export const o02 = montar({
       'Qual é o principal benefício do encapsulamento?',
       'Garantir que o objeto nunca fique em estado inválido',
       [
-        ['Deixar o código mais curto', 'Costuma até aumentar um pouco o código.'],
-        ['Evitar o uso de classes', 'Ele é um recurso das classes.'],
+        [
+          'Deixar o código mais curto, pois reduz a quantidade de atributos',
+          'Costuma até aumentar um pouco o código.',
+        ],
+        [
+          'Evitar o uso de classes, concentrando a lógica em funções soltas',
+          'Encapsular é um recurso das próprias classes.',
+        ],
       ],
       'Pense em invariantes.',
     ),

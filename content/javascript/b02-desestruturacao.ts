@@ -11,8 +11,11 @@ export const j07 = montar({
     'O que os três pontos (...) fazem em [...lista]?',
     'Espalham os elementos da lista dentro de um novo array',
     [
-      ['Apagam a lista', 'Eles copiam os elementos; não apagam nada.'],
-      ['Ordenam a lista', 'A ordem original é mantida.'],
+      [
+        'Apagam a lista original e criam uma vazia no lugar',
+        'O spread copia os elementos; não apaga nada.',
+      ],
+      ['Ordenam os elementos da lista em ordem crescente', 'Ordenar é papel do sort.'],
     ],
     'O spread (`...`) "espalha" os elementos, o que permite copiar e combinar listas.',
   ),
@@ -140,8 +143,14 @@ export const j07 = montar({
       'O que faz const { nome } = pessoa?',
       'Cria a variável nome com o valor de pessoa.nome',
       [
-        ['Cria um objeto novo chamado nome', 'Ela extrai um valor de um objeto existente.'],
-        ['Apaga a propriedade nome', 'Nada é apagado.'],
+        [
+          'Cria um objeto novo chamado nome a partir de pessoa',
+          'A desestruturação cria uma variável com o valor da propriedade.',
+        ],
+        [
+          'Apaga a propriedade nome do objeto pessoa',
+          'Nada é apagado: o valor é copiado para uma variável.',
+        ],
       ],
       'Desestruturação extrai propriedades para variáveis.',
     ),

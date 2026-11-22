@@ -10,8 +10,8 @@ export const b04 = montar({
     'Por que o índice de um livro ajuda?',
     'Porque leva direto à página, sem ler o livro inteiro',
     [
-      ['Porque deixa o livro mais leve', 'O ganho é de busca, e não de peso.'],
-      ['Porque corrige erros de impressão', 'Ele só localiza o conteúdo.'],
+      ['Porque deixa o livro mais leve e fácil de carregar', 'O ganho é de busca, e não de peso.'],
+      ['Porque aponta e corrige os erros de impressão das páginas', 'Ele só localiza o conteúdo.'],
     ],
     'Um índice de banco de dados faz o mesmo: evita varrer a tabela inteira.',
   ),
@@ -81,8 +81,11 @@ export const b04 = montar({
       'Qual é o principal custo de um índice?',
       'Espaço extra e escritas mais lentas',
       [
-        ['Deixa as leituras mais lentas', 'Ele existe para acelerar leituras.'],
-        ['Apaga dados antigos', 'Não altera os dados.'],
+        [
+          'Deixa as leituras mais lentas, pois há uma estrutura a mais para consultar',
+          'Ele existe para acelerar leituras.',
+        ],
+        ['Apaga os dados antigos para liberar espaço no disco', 'Não altera os dados.'],
       ],
       'Cada INSERT, UPDATE ou DELETE atualiza também o índice.',
     ),
@@ -134,8 +137,11 @@ export const b04 = montar({
       'Em qual situação criar um índice é MENOS vantajoso?',
       'Em uma tabela com muitas escritas e quase nenhuma busca',
       [
-        ['Em uma coluna muito filtrada em WHERE', 'É um caso clássico de bom índice.'],
-        ['Em uma chave estrangeira usada em JOINs', 'Também costuma valer a pena.'],
+        ['Em uma coluna que aparece em muitos filtros WHERE', 'É um caso clássico de bom índice.'],
+        [
+          'Em uma chave estrangeira usada com frequência em JOINs',
+          'Também costuma valer a pena indexar.',
+        ],
       ],
       'O índice custa nas escritas.',
       1,

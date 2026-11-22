@@ -84,8 +84,14 @@ export const inf04 = montar({
       'O que é escala horizontal?',
       'Adicionar mais máquinas e distribuir a carga',
       [
-        ['Trocar por uma máquina maior', 'Isso é escala vertical.'],
-        ['Desligar servidores', 'Isso é reduzir.'],
+        [
+          'Trocar a máquina por uma maior, com mais processador e memória',
+          'Isso é escala vertical.',
+        ],
+        [
+          'Desligar servidores ociosos para reduzir o custo da nuvem',
+          'Isso é reduzir a capacidade, não a escala horizontal.',
+        ],
       ],
       'Scale out.',
     ),
@@ -102,8 +108,14 @@ export const inf04 = montar({
       'Por que aplicações stateless escalam melhor?',
       'Qualquer cópia pode atender qualquer pedido',
       [
-        ['Porque usam menos memória', 'O ponto é a intercambialidade.'],
-        ['Porque não têm código', 'Elas têm.'],
+        [
+          'Porque usam menos memória e por isso cabem em mais máquinas',
+          'O ponto é a intercambialidade das cópias.',
+        ],
+        [
+          'Porque não têm código próprio e só repassam os pedidos',
+          'Elas têm código; o estado fica fora das cópias.',
+        ],
       ],
       'O estado fica fora das cópias.',
     ),

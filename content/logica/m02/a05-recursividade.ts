@@ -238,12 +238,12 @@ export const m02a05: AulaEntrada = {
             { id: 'a', texto: 'Para a recursão parar, devolvendo uma resposta sem nova chamada' },
             {
               id: 'b',
-              texto: 'Para a função ficar mais rápida',
+              texto: 'Para a função ficar mais rápida ao chamar a si mesma',
               feedback: 'Ele não é sobre velocidade: sem ele a função nunca termina.',
             },
             {
               id: 'c',
-              texto: 'Para chamar a função com um valor maior',
+              texto: 'Para chamar a função de novo com um valor maior que o anterior',
               feedback: 'As chamadas devem ficar MENORES, rumo ao caso base.',
             },
           ],

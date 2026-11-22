@@ -11,8 +11,14 @@ export const w03 = montar({
     'Qual é o objetivo do design responsivo?',
     'Fazer a página se adaptar bem a telas de qualquer tamanho',
     [
-      ['Fazer a página carregar mais rápido', 'Pode ajudar, mas não é o objetivo principal.'],
-      ['Esconder o conteúdo em celulares', 'O conteúdo deve continuar acessível.'],
+      [
+        'Fazer a página carregar mais rápido em conexões lentas',
+        'A velocidade é outro assunto; o responsivo trata do tamanho da tela.',
+      ],
+      [
+        'Esconder parte do conteúdo em celulares para simplificar a tela',
+        'O conteúdo deve continuar acessível em todos os tamanhos.',
+      ],
     ],
     'Uma só página serve bem em celular, tablet e computador.',
   ),
@@ -133,8 +139,14 @@ export const w03 = montar({
       'Quando preferir CSS Grid ao Flexbox?',
       'Quando precisar organizar em linhas e colunas ao mesmo tempo',
       [
-        ['Quando houver só um item', 'Não é necessário nenhum dos dois.'],
-        ['Nunca', 'Os dois se complementam.'],
+        [
+          'Quando houver só um item para posicionar na página',
+          'Com um item só, nenhum dos dois é necessário.',
+        ],
+        [
+          'Nunca, pois o Flexbox resolve qualquer tipo de layout',
+          'O Grid é a melhor escolha para linhas e colunas ao mesmo tempo.',
+        ],
       ],
       'Flexbox é unidimensional; Grid é bidimensional.',
       1,

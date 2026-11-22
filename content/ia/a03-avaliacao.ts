@@ -11,8 +11,14 @@ export const ia03 = montar({
     'Um aluno decora as respostas da prova de treino e tira 10, mas na prova real vai mal. O que isso lembra no ML?',
     'Overfitting: decorar os dados em vez de aprender o padrão',
     [
-      ['Um modelo perfeito', 'Um modelo perfeito também iria bem na prova real.'],
-      ['Falta de memória do computador', 'Não é problema de hardware.'],
+      [
+        'Um modelo perfeito, que aprendeu o padrão completo do assunto',
+        'Um modelo perfeito também iria bem na prova real.',
+      ],
+      [
+        'Falta de memória do computador durante o treino do modelo',
+        'Não é problema de hardware: é decorar o treino.',
+      ],
     ],
     'Ir bem no treino não basta.',
   ),
@@ -82,8 +88,14 @@ export const ia03 = montar({
       'O que é overfitting?',
       'O modelo decorar o treino e ir mal em dados novos',
       [
-        ['O modelo ser simples demais', 'Isso é underfitting.'],
-        ['Treinar com poucos dados de teste', 'Não é essa a definição.'],
+        [
+          'O modelo ser simples demais e não captar o padrão nem no treino',
+          'Isso é underfitting, o problema oposto.',
+        ],
+        [
+          'Treinar o modelo usando poucos dados reservados para o teste',
+          'Não é essa a definição: overfitting é decorar o treino.',
+        ],
       ],
       'Ótimo no treino, ruim no teste.',
     ),
@@ -100,8 +112,14 @@ export const ia03 = montar({
       'Por que a acurácia pode enganar?',
       'Em classes desbalanceadas, prever sempre a classe comum já rende muita acurácia',
       [
-        ['Porque o cálculo é complexo', 'O cálculo é simples.'],
-        ['Porque só funciona com imagens', 'Funciona em qualquer tarefa de classificação.'],
+        [
+          'Porque o cálculo da acurácia é complexo e costuma dar valores errados',
+          'O cálculo é simples; o problema é a classe rara.',
+        ],
+        [
+          'Porque a acurácia só é válida para modelos que classificam imagens',
+          'Funciona em qualquer classificação.',
+        ],
       ],
       'Veja o detector que diz sempre "não".',
     ),

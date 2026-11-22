@@ -270,12 +270,12 @@ export const m02a02: AulaEntrada = {
             { id: 'a', texto: 'É removido, e o programa continua de onde fez a chamada' },
             {
               id: 'b',
-              texto: 'Fica guardado para a próxima chamada',
+              texto: 'Fica guardado na pilha para ser reaproveitado na próxima chamada',
               feedback: 'Cada chamada cria um quadro novo; nada é guardado entre elas.',
             },
             {
               id: 'c',
-              texto: 'O programa inteiro termina',
+              texto: 'O programa inteiro termina, pois o retorne encerra tudo',
               feedback: 'retorne encerra só a função, não o programa.',
             },
           ],

@@ -23,13 +23,13 @@ export const aula05: AulaEntrada = {
             { id: 'a', texto: 'Uma estrutura de repetição que escreve e soma 1 até chegar a 1000' },
             {
               id: 'b',
-              texto: 'Mil linhas de escreva, uma para cada número',
+              texto: 'Mil linhas de escreva, uma para cada número, para ficar bem claro',
               feedback:
                 'Funciona, mas é enorme, cansativo e fácil de errar. Repetição resolve em 3 linhas.',
             },
             {
               id: 'c',
-              texto: 'Uma condicional se',
+              texto: 'Uma condicional se, repetida para cada número',
               feedback: 'O se escolhe um caminho uma vez; não repete nada.',
             },
           ],
@@ -286,13 +286,13 @@ export const aula05: AulaEntrada = {
             { id: 'a', texto: 'Porque nada dentro dele muda a condição de parada' },
             {
               id: 'b',
-              texto: 'Porque o computador fica lento',
+              texto: 'Porque o computador fica lento demais e deixa de executar',
               feedback:
                 'Lentidão não impede o fim. O problema é lógico: a condição nunca fica falsa.',
             },
             {
               id: 'c',
-              texto: 'Porque usou para em vez de enquanto',
+              texto: 'Porque se usou o laço para em vez do enquanto',
               feedback:
                 'Os dois terminam quando bem escritos — e os dois podem travar se mal escritos.',
             },

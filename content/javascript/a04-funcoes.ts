@@ -11,8 +11,11 @@ export const j04 = montar({
     'O que a palavra return faz dentro de uma função?',
     'Devolve um valor e encerra a função',
     [
-      ['Mostra o valor na tela', 'Mostrar na tela é papel do console.log.'],
-      ['Repete a função', 'Repetição é feita por laços ou recursão.'],
+      [
+        'Mostra o valor na tela, como o console.log faz',
+        'Quem mostra é o console.log; return devolve.',
+      ],
+      ['Repete a função até a condição ser verdadeira', 'Repetir é papel dos laços.'],
     ],
     '`return` entrega um resultado a quem chamou a função e interrompe sua execução.',
   ),
@@ -144,8 +147,14 @@ export const j04 = montar({
       'Qual é a diferença entre parâmetro e argumento?',
       'Parâmetro é o nome na definição; argumento é o valor passado na chamada',
       [
-        ['São sinônimos exatos', 'Estão relacionados, mas um é o nome e o outro é o valor.'],
-        ['Argumento é o que a função devolve', 'O que ela devolve é o valor de retorno.'],
+        [
+          'São sinônimos exatos, usados da mesma forma na linguagem',
+          'Têm papéis diferentes: definição e chamada.',
+        ],
+        [
+          'Argumento é o valor que a função devolve ao terminar',
+          'Isso é o retorno; argumento é o valor passado.',
+        ],
       ],
       'Em `function f(n)`, n é parâmetro. Em `f(4)`, 4 é argumento.',
     ),

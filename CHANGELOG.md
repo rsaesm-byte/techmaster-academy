@@ -11,6 +11,12 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
   plausíveis; os distratores foram reescritos (resposta mais longa que todas as
   erradas caiu de 66% para 34% das questões). Dockerfile de exemplo atualizado
   de Node 20 (fora de suporte) para Node 22.
+- **Passada de leitura 1 — todas as escolas:** o mesmo reequilíbrio de
+  distratores foi aplicado a lógica, JavaScript, Python, SQL, redes,
+  cibersegurança, web, bancos, POO, engenharia de software, infraestrutura, IA e
+  UX/UI. Antes, a resposta certa era a mais longa em 55% a 100% das questões
+  (UX 100%, POO 93%); agora as alternativas têm tamanho e plausibilidade
+  parecidos, sobrando apenas casos de resposta curta (ex.: `const`, `===`).
 
 ### Adicionado
 

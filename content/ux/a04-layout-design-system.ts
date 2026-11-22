@@ -11,8 +11,14 @@ export const ux04 = montar({
     'Em uma tela, tudo tem o mesmo tamanho e peso. O que o usuário sente?',
     'Dificuldade de saber o que é mais importante',
     [
-      ['Mais clareza', 'Sem hierarquia, a clareza diminui.'],
-      ['Nada, pois o tamanho não importa', 'Hierarquia guia o olhar.'],
+      [
+        'Mais clareza, porque ele vê todos os itens com a mesma importância',
+        'Sem hierarquia, a clareza diminui.',
+      ],
+      [
+        'Nada de especial, já que o tamanho dos elementos não afeta a leitura',
+        'Tamanho, peso e espaço criam hierarquia.',
+      ],
     ],
     'Tamanho, peso e espaço criam hierarquia.',
   ),
@@ -83,8 +89,14 @@ export const ux04 = montar({
       'O que é um design system?',
       'Conjunto de tokens, componentes e regras de uso',
       [
-        ['Uma ferramenta de desenho', 'Ele não é uma ferramenta de desenho.'],
-        ['Um banco de imagens', 'Ele vai além de imagens.'],
+        [
+          'Um programa de desenho usado para criar as telas do produto',
+          'Um design system é um conjunto de regras e peças, não um programa.',
+        ],
+        [
+          'Um banco de imagens e ícones disponível para a equipe',
+          'Ele vai além de imagens: inclui tokens, componentes e regras.',
+        ],
       ],
       'Consistência e reuso.',
     ),
@@ -101,8 +113,14 @@ export const ux04 = montar({
       'O que é o princípio da proximidade?',
       'Itens relacionados devem ficar perto e os não relacionados, mais separados',
       [
-        ['Todos os itens ficam colados', 'Isso apagaria os grupos.'],
-        ['Os itens ficam em ordem alfabética', 'Proximidade trata de distância.'],
+        [
+          'Todos os itens da tela devem ficar colados, sem espaço entre eles',
+          'Isso apagaria os grupos; a proximidade agrupa pelo espaço.',
+        ],
+        [
+          'Os itens devem ser listados em ordem alfabética para facilitar a busca',
+          'Proximidade trata de distância, não de ordem.',
+        ],
       ],
       'Agrupar pelo espaço.',
     ),

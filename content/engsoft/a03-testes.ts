@@ -82,8 +82,14 @@ export const es03 = montar({
       'O que a pirâmide de testes recomenda?',
       'Muitos testes unitários e poucos E2E',
       [
-        ['Só testes E2E', 'E2E são lentos e frágeis em excesso.'],
-        ['Nenhum teste unitário', 'Unitários são a base.'],
+        [
+          'Só testes E2E, pois eles verificam o sistema inteiro de ponta a ponta',
+          'E2E são lentos e frágeis em excesso.',
+        ],
+        [
+          'Nenhum teste unitário, para economizar tempo de desenvolvimento',
+          'Os unitários são a base da pirâmide.',
+        ],
       ],
       'Base larga, topo estreito.',
     ),

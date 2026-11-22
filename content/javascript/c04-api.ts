@@ -11,8 +11,11 @@ export const j14 = montar({
     'O que é uma API web?',
     'Um endereço que recebe pedidos e devolve dados, geralmente em JSON',
     [
-      ['Um tipo de navegador', 'Navegadores consomem APIs.'],
-      ['Um programa de edição de imagens', 'Não tem relação.'],
+      [
+        'Um tipo de navegador usado só por desenvolvedores',
+        'API é uma interface de pedidos e respostas.',
+      ],
+      ['Um programa de edição de imagens que roda na web', 'API não tem relação com imagens.'],
     ],
     'APIs permitem que programas conversem entre si pela internet.',
   ),
@@ -136,10 +139,13 @@ export const j14 = montar({
       'Por que verificar resposta.ok?',
       'Porque o fetch não rejeita a Promise em erros HTTP como 404',
       [
-        ['Porque o fetch sempre falha', 'Ele funciona; só não trata status como erro.'],
         [
-          'Porque o json() depende disso para existir',
-          'O json() existe sempre; a checagem evita usar dados de erro.',
+          'Porque o fetch sempre falha quando o servidor demora',
+          'O fetch só rejeita em falhas de rede.',
+        ],
+        [
+          'Porque o json() só existe se resposta.ok for verdadeiro',
+          'O json() existe sempre; o ok revela o erro HTTP.',
         ],
       ],
       'Só falhas de rede rejeitam a Promise.',

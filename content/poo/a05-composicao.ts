@@ -11,8 +11,14 @@ export const o05 = montar({
     'Um Carro precisa de um Motor. Carro deve herdar de Motor?',
     'Não: o carro TEM um motor, não É um motor',
     [
-      ['Sim: assim reaproveita o código', 'Reaproveitar não justifica uma relação errada.'],
-      ['Sim, porque os dois são máquinas', 'Nome ou tema parecido não é critério.'],
+      [
+        'Sim, pois herdar de Motor reaproveita o código sem reescrevê-lo',
+        'Reaproveitar não justifica uma relação errada.',
+      ],
+      [
+        'Sim, porque o carro e o motor são máquinas e pertencem à mesma família',
+        'Tema parecido não é critério; o teste é o "é um".',
+      ],
     ],
     'Teste: "tem um" ou "é um"?',
   ),
@@ -82,8 +88,14 @@ export const o05 = montar({
       'O que significa "prefira composição à herança"?',
       'Montar objetos com outros objetos costuma ser mais flexível',
       [
-        ['Nunca usar classes filhas', 'A herança continua útil em casos "é um" rasos.'],
-        ['Usar só funções', 'A regra é sobre como estruturar as classes.'],
+        [
+          'Nunca usar classes filhas, mesmo quando a relação é de "é um"',
+          'A herança ainda é útil em casos "é um" simples.',
+        ],
+        [
+          'Usar apenas funções soltas, sem classes ou objetos',
+          'A regra trata de como estruturar as classes.',
+        ],
       ],
       'Composição reduz acoplamento.',
     ),
@@ -100,8 +112,14 @@ export const o05 = montar({
       'O que a letra S de SOLID defende?',
       'Cada classe deve ter uma única responsabilidade',
       [
-        ['Toda classe deve ter só um método', 'Uma responsabilidade pode ter vários métodos.'],
-        ['Toda classe deve ser privada', 'Privacidade é outro conceito.'],
+        [
+          'Toda classe deve ter somente um método, para manter o código simples',
+          'Uma responsabilidade pode ter vários métodos.',
+        ],
+        [
+          'Toda classe deve ser privada e só acessível dentro do mesmo arquivo',
+          'Privacidade é outro conceito; o S trata de responsabilidade.',
+        ],
       ],
       'Uma razão para mudar por classe.',
     ),

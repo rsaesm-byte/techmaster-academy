@@ -12,10 +12,13 @@ export const es01 = montar({
     'Entregar partes pequenas com frequência e colher feedback',
     [
       [
-        'Escrever uma documentação ainda maior no início',
+        'Escrever uma documentação ainda maior e mais detalhada antes de começar',
         'Mais papel não garante que o cliente goste do resultado.',
       ],
-      ['Esconder o projeto até o final', 'Isso aumenta o risco.'],
+      [
+        'Manter o projeto em sigilo até o final, para surpreender o cliente',
+        'Isso aumenta o risco de entregar algo que ninguém queria.',
+      ],
     ],
     'Feedback cedo e contínuo é a ideia central do ágil.',
   ),
@@ -84,8 +87,14 @@ export const es01 = montar({
       'Qual é a função do limite de itens em andamento (WIP) no Kanban?',
       'Evitar gargalos, forçando a terminar antes de começar',
       [
-        ['Impedir que o time use o quadro', 'O quadro é a ferramenta central do Kanban.'],
-        ['Aumentar o número de reuniões', 'Não tem relação com reuniões.'],
+        [
+          'Impedir que o time use o quadro além do limite combinado de colunas',
+          'O quadro é a ferramenta central do Kanban.',
+        ],
+        [
+          'Aumentar o número de reuniões de acompanhamento do time',
+          'Não tem relação com reuniões: limita o trabalho em andamento.',
+        ],
       ],
       'Menos trabalho em paralelo, mais fluxo.',
     ),

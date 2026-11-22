@@ -128,8 +128,14 @@ export const w02 = montar({
       'Por que preferir rem a px para tamanhos de texto?',
       'Porque rem respeita o tamanho de fonte configurado pelo usuário',
       [
-        ['Porque px não funciona em celulares', 'px funciona, mas é fixo.'],
-        ['Porque rem é sempre maior', 'O valor depende da fonte base.'],
+        [
+          'Porque a unidade px não funciona direito em telas de celular',
+          'O px funciona; ele só ignora a preferência de fonte do usuário.',
+        ],
+        [
+          'Porque o rem gera textos sempre maiores e mais fáceis de ler',
+          'O rem não é maior: acompanha a configuração do usuário.',
+        ],
       ],
       'Unidades relativas ajudam na acessibilidade.',
       1,

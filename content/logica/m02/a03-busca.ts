@@ -28,13 +28,13 @@ export const m02a03: AulaEntrada = {
             },
             {
               id: 'b',
-              texto: 'Leio página por página desde o "A"',
+              texto: 'Leio página por página desde o "A", até achar a palavra',
               feedback:
                 'Funcionaria, mas levaria horas: você ignora que as palavras estão ordenadas.',
             },
             {
               id: 'c',
-              texto: 'Abro em páginas aleatórias até achar',
+              texto: 'Abro em páginas aleatórias até encontrar a palavra',
               feedback: 'Pode dar sorte, mas não há garantia de quando termina.',
             },
           ],

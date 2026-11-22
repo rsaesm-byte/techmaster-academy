@@ -11,8 +11,14 @@ export const r01 = montar({
     'Por que redes são organizadas em camadas?',
     'Cada camada resolve um problema e esconde os detalhes das outras',
     [
-      ['Para deixar a internet mais lenta', 'O objetivo é organização, não lentidão.'],
-      ['Porque cada camada usa um cabo diferente', 'Camadas são lógicas, não cabos.'],
+      [
+        'Para deixar a internet mais lenta e mais segura',
+        'A camada não existe para reduzir a velocidade.',
+      ],
+      [
+        'Porque cada camada usa um tipo de cabo e de equipamento diferente',
+        'Camadas são lógicas, não cabos.',
+      ],
     ],
     'Dividir para conquistar: cada camada tem uma função e conversa só com as vizinhas.',
   ),
@@ -134,8 +140,11 @@ export const r01 = montar({
       'O que é encapsulamento?',
       'Acrescentar um cabeçalho a cada camada ao enviar',
       [
-        ['Criptografar tudo', 'Isso é outra coisa.'],
-        ['Comprimir o arquivo', 'Compressão não é encapsulamento.'],
+        [
+          'Criptografar tudo o que sai do computador',
+          'Criptografia é outro assunto; encapsular é acrescentar cabeçalhos.',
+        ],
+        ['Comprimir o arquivo antes de enviá-lo pela rede', 'Compressão é outro processo.'],
       ],
       'Cada camada embrulha os dados da camada de cima.',
       1,

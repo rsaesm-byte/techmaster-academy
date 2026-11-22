@@ -24,12 +24,12 @@ export const aula04: AulaEntrada = {
             { id: 'a', texto: 'Uma instrução condicional: se houver saldo, libera' },
             {
               id: 'b',
-              texto: 'Uma atribuição: saldo <- saque',
+              texto: 'Uma atribuição, que guarda o valor do saque no saldo',
               feedback: 'A atribuição guarda valores, mas não escolhe entre caminhos.',
             },
             {
               id: 'c',
-              texto: 'Uma repetição',
+              texto: 'Uma repetição, que testa o saldo várias vezes',
               feedback:
                 'Repetição faz algo várias vezes. Aqui é preciso escolher fazer ou não fazer.',
             },
@@ -248,13 +248,13 @@ export const aula04: AulaEntrada = {
             },
             {
               id: 'b',
-              texto: 'O operador >= está errado; deveria ser >',
+              texto: 'O operador >= está errado e deveria ser apenas >',
               feedback:
                 'Trocar por > não resolve: 9 > 5 continua verdadeiro e o primeiro bloco continua vencendo.',
             },
             {
               id: 'c',
-              texto: 'Falta um senao no final',
+              texto: 'Falta um senao no final para tratar quem tem média alta',
               feedback:
                 'Um senao final trataria médias menores que 5, mas o aluno com 9 continuaria caindo no primeiro bloco.',
             },

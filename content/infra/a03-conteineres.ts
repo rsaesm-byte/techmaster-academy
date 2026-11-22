@@ -101,8 +101,14 @@ export const inf03 = montar({
       'Por que dados importantes devem ficar em volumes?',
       'Porque o contêiner é efêmero e seus dados somem ao ser removido',
       [
-        ['Porque contêineres não usam disco', 'Eles usam, mas de forma temporária.'],
-        ['Porque volumes são mais lentos', 'O motivo é a persistência.'],
+        [
+          'Porque contêineres não usam disco e guardam tudo só na memória',
+          'Eles usam disco, mas de forma temporária.',
+        ],
+        [
+          'Porque volumes são mais lentos e por isso protegem melhor os dados',
+          'O motivo é a persistência, e não a velocidade.',
+        ],
       ],
       'Contêiner descartável, dado persistente.',
     ),

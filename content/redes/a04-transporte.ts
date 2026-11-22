@@ -83,8 +83,14 @@ export const r04 = montar({
       'Para uma chamada de vídeo ao vivo, qual costuma ser melhor?',
       'UDP, porque o atraso é pior do que perder um pedaço',
       [
-        ['TCP, porque nunca perde nada', 'Esperar reenvios causaria travadas.'],
-        ['Tanto faz', 'A escolha muda a experiência do usuário.'],
+        [
+          'TCP, porque ele garante que nada se perca durante a chamada',
+          'O reenvio atrasa a chamada; perder um pedaço é melhor que esperar.',
+        ],
+        [
+          'Tanto faz, pois os dois funcionam igual em tempo real',
+          'Eles têm comportamentos diferentes.',
+        ],
       ],
       'Tempo real prefere velocidade à garantia.',
     ),
@@ -131,8 +137,8 @@ export const r04 = montar({
       'Qual característica é do TCP e não do UDP?',
       'Confirmação e reenvio dos dados perdidos',
       [
-        ['Ser mais rápido', 'O UDP é geralmente mais rápido.'],
-        ['Não usar portas', 'Ambos usam portas.'],
+        ['Ser mais rápido, por não esperar confirmações', 'Isso descreve o UDP.'],
+        ['Não usar portas, pois os dados vão direto ao programa', 'Os dois usam portas.'],
       ],
       'TCP é orientado a conexão e confiável.',
       1,

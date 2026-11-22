@@ -10,8 +10,11 @@ export const p05 = montar({
     'Como se acessa o valor da chave "nome" em um dicionário d?',
     'd["nome"]',
     [
-      ['d.nome', 'Isso é a sintaxe de objetos em JavaScript.'],
-      ['d(nome)', 'Parênteses são para chamar funções.'],
+      ['d.nome, como no acesso a atributos de um objeto', 'Dicionários usam colchetes e a chave.'],
+      [
+        'd(nome), chamando o dicionário como uma função',
+        'Dicionários não são chamados como funções.',
+      ],
     ],
     'Dicionários usam colchetes com a chave.',
   ),
@@ -123,8 +126,11 @@ export const p05 = montar({
       'O que acontece ao acessar d["x"] se a chave não existe?',
       'Ocorre um KeyError',
       [
-        ['Devolve None', 'Isso é o que get faria.'],
-        ['Devolve 0', 'Nenhum valor padrão é aplicado.'],
+        [
+          'Devolve None e o programa continua normalmente',
+          'O d[...] gera KeyError; só o get devolve None.',
+        ],
+        ['Devolve 0 como valor padrão da chave que não existe', 'O Python não inventa valores.'],
       ],
       'Use d.get("x") para evitar o erro.',
     ),
@@ -132,8 +138,11 @@ export const p05 = montar({
       'A que se parece uma compreensão de lista em JavaScript?',
       'map e filter',
       [
-        ['for...in', 'Não é o equivalente mais próximo.'],
-        ['try/catch', 'Não tem relação.'],
+        [
+          'for...in, que percorre as propriedades de um objeto',
+          'A compreensão cria listas, como map e filter.',
+        ],
+        ['try/catch, que trata erros durante a execução', 'Isso é tratamento de erros.'],
       ],
       'Transformar e filtrar elementos com sintaxe compacta.',
       1,

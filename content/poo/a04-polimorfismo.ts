@@ -11,8 +11,14 @@ export const o04 = montar({
     'Um botão "Imprimir" funciona com PDF, foto e planilha, e cada um imprime de um jeito. Como o botão faz isso sem if para cada tipo?',
     'Chama o mesmo método em todos, e cada tipo responde à sua maneira',
     [
-      ['Escreve um if gigante com todos os tipos', 'Isso quebra a cada tipo novo.'],
-      ['Converte tudo para texto', 'Perderia a formatação.'],
+      [
+        'Escreve um if para cada tipo de arquivo e trata cada um separadamente',
+        'Isso quebra a cada tipo novo; o polimorfismo evita esse if.',
+      ],
+      [
+        'Converte todos os arquivos para texto e imprime da mesma forma',
+        'Perderia a formatação de cada tipo.',
+      ],
     ],
     'Isso é polimorfismo.',
   ),
@@ -82,8 +88,14 @@ export const o04 = montar({
       'O que é o "contrato" (interface) no polimorfismo?',
       'O conjunto de métodos que os objetos prometem ter',
       [
-        ['A lista de variáveis globais', 'Isso é estado compartilhado.'],
-        ['O arquivo onde a classe fica', 'A organização de arquivos é outra coisa.'],
+        [
+          'A lista de variáveis globais que todos os objetos compartilham',
+          'Isso seria estado compartilhado, não um contrato.',
+        ],
+        [
+          'O arquivo onde a classe é definida e pode ser importada',
+          'A organização de arquivos é outra coisa.',
+        ],
       ],
       'Quem usa depende do contrato.',
     ),
@@ -100,8 +112,14 @@ export const o04 = montar({
       'Qual é o principal benefício do polimorfismo?',
       'Adicionar tipos novos sem alterar o código que os usa',
       [
-        ['Fazer o programa rodar mais rápido', 'O benefício é de manutenção, não de velocidade.'],
-        ['Evitar o uso de métodos', 'Ele depende de métodos.'],
+        [
+          'Fazer o programa rodar mais rápido ao escolher o método certo',
+          'O benefício é de manutenção e extensão, não de velocidade.',
+        ],
+        [
+          'Evitar o uso de métodos nas classes, trocando-os por dados',
+          'O polimorfismo depende de métodos.',
+        ],
       ],
       'Pense em extensibilidade.',
     ),

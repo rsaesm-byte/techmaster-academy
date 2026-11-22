@@ -10,8 +10,11 @@ export const p09 = montar({
     'O que acontece quando um erro não é tratado?',
     'O programa para e mostra uma mensagem de erro',
     [
-      ['O programa ignora e continua', 'Sem tratamento, ele é interrompido.'],
-      ['O computador reinicia', 'Só o programa é interrompido.'],
+      ['O programa ignora o erro e continua na linha seguinte', 'Sem tratamento, o programa para.'],
+      [
+        'O computador reinicia para limpar o estado do programa',
+        'Um erro de programa não reinicia o computador.',
+      ],
     ],
     'Tratar o erro permite continuar ou avisar com clareza.',
   ),
@@ -123,8 +126,11 @@ export const p09 = montar({
       'Qual bloco roda sempre, com ou sem erro?',
       'finally',
       [
-        ['else', 'O else só roda se não houve erro.'],
-        ['except', 'O except só roda se houve erro.'],
+        [
+          'else, que roda só quando nenhum erro aconteceu',
+          'O else roda só sem erro; o finally roda sempre.',
+        ],
+        ['except, que roda só quando acontece um erro', 'O except roda só quando há erro.'],
       ],
       'Use finally para limpezas, como fechar recursos.',
     ),
@@ -132,8 +138,14 @@ export const p09 = montar({
       'Por que evitar um except genérico, sem tipo?',
       'Porque esconde erros de programação',
       [
-        ['Porque é mais lento', 'O problema é esconder bugs.'],
-        ['Porque Python não permite', 'Permite, mas não é recomendado.'],
+        [
+          'Porque o except genérico deixa o programa mais lento',
+          'O problema é esconder erros de programação.',
+        ],
+        [
+          'Porque o Python não permite um except sem tipo',
+          'Ele permite, mas não é uma boa prática.',
+        ],
       ],
       'Trate o erro específico que você espera.',
       1,

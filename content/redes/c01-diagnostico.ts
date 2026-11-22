@@ -19,8 +19,14 @@ export const r06 = montar({
     'A internet "caiu". Por onde começar o diagnóstico?',
     'Do mais perto para o mais longe: o próprio computador, o gateway e só depois a internet',
     [
-      ['Reiniciando o provedor', 'Primeiro descubra onde está o problema.'],
-      ['Trocando o cabo e o roteador de uma vez', 'Mudar tudo junto esconde a causa.'],
+      [
+        'Reiniciando o equipamento do provedor de internet',
+        'Você não controla o provedor; comece pelo mais perto.',
+      ],
+      [
+        'Trocando o cabo e o roteador de uma vez, para resolver rápido',
+        'Trocar tudo junto esconde a causa.',
+      ],
     ],
     'Testar em camadas, do mais próximo ao mais distante, isola a falha.',
   ),

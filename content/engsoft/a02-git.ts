@@ -82,8 +82,14 @@ export const es02 = montar({
       'O que é um branch?',
       'Uma linha de desenvolvimento paralela, um ponteiro para um commit',
       [
-        ['Uma cópia do computador inteiro', 'É apenas um ponteiro, bem leve.'],
-        ['Um backup na nuvem', 'Backup é outra coisa.'],
+        [
+          'Uma cópia completa do computador, com todos os arquivos do projeto',
+          'É apenas um ponteiro, bem leve.',
+        ],
+        [
+          'Um backup automático do projeto, guardado em um servidor na nuvem',
+          'Backup é outra coisa; branches são baratos de criar.',
+        ],
       ],
       'Branches são baratos de criar.',
     ),
@@ -100,8 +106,14 @@ export const es02 = montar({
       'Quando ocorre um conflito de merge?',
       'Quando dois ramos alteram as mesmas linhas de formas diferentes',
       [
-        ['Sempre que se faz um merge', 'Muitos merges ocorrem sem conflito.'],
-        ['Quando o computador reinicia', 'Não tem relação.'],
+        [
+          'Sempre que se faz um merge, pois o Git precisa decidir tudo',
+          'Muitos merges acontecem sem conflito.',
+        ],
+        [
+          'Quando o computador reinicia durante a execução do comando',
+          'Não tem relação: o conflito é de edição das mesmas linhas.',
+        ],
       ],
       'O Git precisa que você escolha a versão.',
     ),

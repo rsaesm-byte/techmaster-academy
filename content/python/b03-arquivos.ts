@@ -10,8 +10,11 @@ export const p08 = montar({
     'Para que serve o comando open("dados.txt")?',
     'Abrir um arquivo para ler ou gravar',
     [
-      ['Apagar o arquivo', 'open não apaga.'],
-      ['Mostrar o arquivo na tela', 'Ele só abre; é preciso ler o conteúdo.'],
+      ['Apagar o arquivo do disco depois de ler o conteúdo', 'open só abre; não apaga.'],
+      [
+        'Mostrar o conteúdo do arquivo na tela do programa',
+        'open abre; mostrar exige ler e imprimir.',
+      ],
     ],
     'open devolve um objeto de arquivo para ler ou escrever.',
   ),
@@ -130,8 +133,14 @@ export const p08 = montar({
       'Por que usar with ao abrir arquivos?',
       'Ele fecha o arquivo automaticamente',
       [
-        ['Deixa o arquivo mais rápido', 'O objetivo é fechar com segurança.'],
-        ['Cria o arquivo se não existir', 'Isso depende do modo, não do with.'],
+        [
+          'Deixa a leitura do arquivo mais rápida ao usar cache',
+          'O with trata do fechamento, não da velocidade.',
+        ],
+        [
+          'Cria o arquivo automaticamente se ele ainda não existir',
+          'Quem cria o arquivo é o modo "w" do open.',
+        ],
       ],
       'Mesmo com erro no bloco, o arquivo é fechado.',
     ),

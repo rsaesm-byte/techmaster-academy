@@ -11,8 +11,14 @@ export const inf01 = montar({
     'Um site fica fora do ar 1 hora por mês. Isso é muito ou pouco?',
     'Depende do compromisso de disponibilidade assumido',
     [
-      ['Sempre é aceitável', 'Sistemas críticos não toleram isso.'],
-      ['Nunca importa', 'Importa para a experiência e o negócio.'],
+      [
+        'Sempre é aceitável, pois nenhum site precisa ficar no ar o tempo todo',
+        'Sistemas críticos não toleram isso.',
+      ],
+      [
+        'Nunca importa, desde que o site volte a funcionar depois',
+        'Importa para a experiência e para o negócio.',
+      ],
     ],
     'Disponibilidade se mede em porcentagem.',
   ),
@@ -80,8 +86,14 @@ export const inf01 = montar({
       'O que é um ponto único de falha?',
       'Um componente cuja queda derruba todo o serviço',
       [
-        ['Um servidor muito rápido', 'Velocidade não é o ponto.'],
-        ['Um backup', 'O backup ajuda a evitar o problema.'],
+        [
+          'Um servidor muito rápido, que atende pedidos acima da média',
+          'Velocidade não é o ponto: é um componente cuja queda derruba tudo.',
+        ],
+        [
+          'Um backup que guarda cópias do serviço em outro lugar',
+          'O backup ajuda a evitar o problema, não é o problema.',
+        ],
       ],
       'Elimine-o com redundância.',
     ),
@@ -98,8 +110,14 @@ export const inf01 = montar({
       'Qual é a diferença entre SLO e SLA?',
       'SLO é a meta interna; SLA é o compromisso contratual com o cliente',
       [
-        ['São sinônimos exatos', 'Têm usos diferentes.'],
-        ['SLA é interno e SLO é externo', 'É o contrário.'],
+        [
+          'São sinônimos exatos, usados de forma intercambiável nos contratos',
+          'Têm usos diferentes: meta interna e compromisso contratual.',
+        ],
+        [
+          'O SLA é a meta interna do time e o SLO é o contrato com o cliente',
+          'É o contrário: o SLO é interno e o SLA é contratual.',
+        ],
       ],
       'O SLA costuma ter multa.',
     ),

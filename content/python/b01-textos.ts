@@ -10,8 +10,8 @@ export const p06 = montar({
     'Qual método transforma "oi" em "OI"?',
     'upper()',
     [
-      ['big()', 'Esse método não existe.'],
-      ['caps()', 'Esse método não existe.'],
+      ['big(), que deixa todas as letras do texto maiúsculas', 'O método se chama upper().'],
+      ['caps(), que coloca as letras em caixa alta', 'O método se chama upper().'],
     ],
     'upper() devolve o texto em maiúsculas.',
   ),
@@ -123,8 +123,11 @@ export const p06 = montar({
       'O que s.strip() faz com s?',
       'Devolve um texto novo e não altera s',
       [
-        ['Altera s no lugar', 'Textos são imutáveis em Python.'],
-        ['Apaga s', 'Nada é apagado.'],
+        [
+          'Altera o próprio s, removendo os espaços das pontas',
+          'Textos são imutáveis: strip devolve um novo texto.',
+        ],
+        ['Apaga o conteúdo de s e deixa o texto vazio', 'strip só remove espaços das pontas.'],
       ],
       'Guarde o resultado: s = s.strip().',
     ),
@@ -132,7 +135,7 @@ export const p06 = montar({
       'Em "python"[0:3], o que acontece com o índice 3?',
       'Ele não entra na fatia',
       [
-        ['Entra na fatia', 'O fim da fatia é excluído.'],
+        ['Entra na fatia, pois o fim é incluído', 'O fim da fatia é excluído.'],
         ['Causa erro', 'É um uso normal de fatia.'],
       ],
       'A fatia vai do início até o fim menos 1.',

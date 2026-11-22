@@ -100,8 +100,14 @@ export const ia01 = montar({
       'Por que modelos podem reproduzir preconceitos?',
       'Porque aprendem os padrões dos dados, inclusive os viesados',
       [
-        ['Porque têm opiniões próprias', 'Eles não têm opiniões.'],
-        ['Porque usam muita energia', 'Consumo de energia é outro assunto.'],
+        [
+          'Porque desenvolvem opiniões próprias durante o treino e as repetem',
+          'Modelos não têm opiniões: refletem os padrões dos dados.',
+        ],
+        [
+          'Porque gastam muita energia e acabam simplificando as respostas',
+          'O consumo de energia é outro assunto; o viés vem dos dados.',
+        ],
       ],
       'Dados viesados, modelo viesado.',
     ),

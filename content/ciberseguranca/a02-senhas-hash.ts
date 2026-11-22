@@ -90,8 +90,14 @@ export const c02 = montar({
       'Por que usar um sal diferente para cada usuário?',
       'Para que a mesma senha gere hashes diferentes e tabelas prontas não funcionem',
       [
-        ['Para o hash poder ser revertido', 'O hash continua sendo de mão única.'],
-        ['Para a senha ficar mais curta', 'O sal não muda o tamanho da senha do usuário.'],
+        [
+          'Para o hash poder ser revertido quando o usuário esquecer a senha',
+          'Hashes de senha não devem ser reversíveis.',
+        ],
+        [
+          'Para a senha ocupar menos espaço no banco de dados',
+          'O sal não altera o tamanho da senha: evita hashes iguais.',
+        ],
       ],
       'O sal quebra o ataque com tabelas prontas.',
     ),
@@ -101,8 +107,14 @@ export const c02 = montar({
       'Qual destas senhas é a mais forte?',
       'cavalo-bateria-grampo-lua',
       [
-        ['P@ssw0rd!', 'É comum e previsível, apesar dos símbolos.'],
-        ['Ana1990', 'Usa dados pessoais e é curta.'],
+        [
+          'P@ssw0rd!, que mistura letras, número e símbolos',
+          'É um padrão previsível, testado logo no início.',
+        ],
+        [
+          'Ana1990, que usa nome, ano e é fácil de lembrar',
+          'Nome e ano são os primeiros palpites.',
+        ],
       ],
       'Frases longas e aleatórias têm muito mais combinações.',
     ),
@@ -146,8 +158,11 @@ export const c02 = montar({
       'O que é credential stuffing?',
       'Testar senhas vazadas de um site em outros sites',
       [
-        ['Quebrar um hash por força bruta', 'Isso é um ataque diferente.'],
-        ['Enviar e-mails falsos', 'Isso é phishing.'],
+        [
+          'Quebrar um hash de senha testando todas as combinações',
+          'Isso é força bruta; credential stuffing reaproveita senhas vazadas.',
+        ],
+        ['Enviar e-mails falsos para levar a pessoa a entregar dados', 'Isso é phishing.'],
       ],
       'Por isso cada site deve ter uma senha única.',
       1,

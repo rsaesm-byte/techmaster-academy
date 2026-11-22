@@ -86,8 +86,11 @@ export const j13 = montar({
       'Qual tipo de dado o localStorage aceita?',
       'Apenas texto (strings)',
       [
-        ['Qualquer objeto', 'Objetos precisam virar JSON antes.'],
-        ['Somente números', 'Aceita texto; números viram texto.'],
+        [
+          'Qualquer objeto, que é convertido sozinho para o formato certo',
+          'O localStorage só guarda texto; use JSON.stringify.',
+        ],
+        ['Somente números, e qualquer texto precisa de conversão', 'Ele aceita textos (strings).'],
       ],
       'Por isso usamos JSON.stringify.',
     ),
@@ -132,8 +135,14 @@ export const j13 = montar({
       'Por que não guardar senhas no localStorage?',
       'Qualquer script da página consegue lê-lo',
       [
-        ['Porque ele só guarda números', 'Guarda texto.'],
-        ['Porque é apagado a cada segundo', 'Dura até ser limpo.'],
+        [
+          'Porque o localStorage só consegue guardar números',
+          'Ele guarda textos; o problema é a segurança.',
+        ],
+        [
+          'Porque o localStorage é apagado automaticamente a cada segundo',
+          'Ele fica guardado até alguém apagar.',
+        ],
       ],
       'Dados sensíveis exigem proteção no servidor.',
     ),
@@ -141,8 +150,14 @@ export const j13 = montar({
       'O que acontece se o usuário trocar de navegador?',
       'Os dados não aparecem, pois ficam guardados naquele navegador',
       [
-        ['Eles são copiados automaticamente', 'Não há sincronização.'],
-        ['Ficam na nuvem', 'O localStorage é local.'],
+        [
+          'Eles são copiados automaticamente para o outro navegador',
+          'Cada navegador tem o seu localStorage.',
+        ],
+        [
+          'Ficam salvos na nuvem e aparecem em qualquer navegador',
+          'O localStorage é local, não vai para a nuvem.',
+        ],
       ],
       'Para sincronizar entre aparelhos é preciso um servidor ou serviço de nuvem.',
       1,

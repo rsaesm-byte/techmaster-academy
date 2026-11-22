@@ -82,8 +82,14 @@ export const ux05 = montar({
       'Por que começar com um protótipo de baixa fidelidade?',
       'É rápido e barato, e convida a críticas sinceras',
       [
-        ['Fica mais bonito', 'A estética não é o objetivo inicial.'],
-        ['Dispensa os testes', 'Os testes continuam sendo necessários.'],
+        [
+          'Fica mais bonito e profissional, o que ajuda a vender a ideia',
+          'A estética não é o objetivo: é testar a ideia rápido e barato.',
+        ],
+        [
+          'Dispensa os testes, porque o desenho simples já mostra os problemas',
+          'Os testes continuam necessários.',
+        ],
       ],
       'Erre cedo e barato.',
     ),
@@ -100,8 +106,14 @@ export const ux05 = montar({
       'O que você deve fazer enquanto a pessoa tenta uma tarefa no teste?',
       'Observar sem ajudar e anotar onde ela trava',
       [
-        ['Explicar cada passo', 'Isso esconde os problemas.'],
-        ['Pedir que ela leia o manual', 'O produto deve ser claro sem manual.'],
+        [
+          'Explicar cada passo para a pessoa não se perder durante o teste',
+          'Isso esconde os problemas que você quer descobrir.',
+        ],
+        [
+          'Pedir que leia o manual antes para entender o produto',
+          'O produto deve ser claro sem manual.',
+        ],
       ],
       'O silêncio é informação.',
     ),

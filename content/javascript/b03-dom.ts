@@ -11,8 +11,14 @@ export const j08 = montar({
     'O que é o DOM?',
     'A representação da página como uma árvore de elementos que o JavaScript pode ler e alterar',
     [
-      ['Um tipo de banco de dados', 'O DOM é a árvore de elementos da página.'],
-      ['Um navegador', 'O navegador cria o DOM; ele não é o DOM.'],
+      [
+        'Um tipo de banco de dados guardado na memória do navegador',
+        'O DOM é a árvore de elementos da página.',
+      ],
+      [
+        'Um navegador próprio, usado para abrir páginas',
+        'O DOM é uma representação, não um programa.',
+      ],
     ],
     'O navegador transforma o HTML em uma árvore de objetos, o DOM. O JavaScript mexe nela.',
   ),
@@ -108,8 +114,14 @@ export const j08 = montar({
       'Por que evitar innerHTML com texto digitado pelo usuário?',
       'Porque ele interpreta HTML e pode executar código malicioso (XSS)',
       [
-        ['Porque é mais lento que tudo', 'O problema principal é de segurança.'],
-        ['Porque não funciona em celulares', 'Funciona, mas é inseguro com dados do usuário.'],
+        [
+          'Porque é muito mais lento que qualquer outra forma de alterar a página',
+          'O problema é a segurança, e não a velocidade.',
+        ],
+        [
+          'Porque o innerHTML não funciona em navegadores de celular',
+          'Funciona em todos; o risco é o XSS.',
+        ],
       ],
       'textContent trata tudo como texto puro e é seguro.',
       1,
@@ -133,8 +145,11 @@ export const j08 = montar({
       'Para que serve addEventListener?',
       'Para executar uma função quando um evento acontece',
       [
-        ['Para criar elementos na página', 'Isso é papel do createElement.'],
-        ['Para ler arquivos', 'Não tem relação com arquivos.'],
+        [
+          'Para criar novos elementos na página a partir de um texto',
+          'Criar elementos é papel do createElement.',
+        ],
+        ['Para ler arquivos do computador do usuário', 'Ele registra uma reação a eventos.'],
       ],
       'Registra uma função que o navegador chama quando o evento ocorre.',
     ),
@@ -142,8 +157,8 @@ export const j08 = montar({
       'O que querySelectorAll devolve?',
       'Uma lista com todos os elementos que combinam com o seletor',
       [
-        ['Só o primeiro elemento', 'Isso é o querySelector.'],
-        ['Um texto com o HTML', 'Devolve elementos, não texto.'],
+        ['Só o primeiro elemento que combina com o seletor', 'Isso é o querySelector.'],
+        ['Um texto com o HTML dos elementos que combinam', 'Ele devolve elementos, não texto.'],
       ],
       'querySelector devolve um; querySelectorAll devolve todos.',
       1,

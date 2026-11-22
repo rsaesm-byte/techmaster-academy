@@ -101,8 +101,14 @@ export const es04 = montar({
       'Para que servem os critérios de aceite?',
       'Dizer objetivamente quando a história está pronta',
       [
-        ['Decidir quem escreve o código', 'Isso é definido pelo time.'],
-        ['Substituir os testes', 'Eles orientam os testes.'],
+        [
+          'Decidir qual pessoa do time vai escrever o código da história',
+          'Isso é definido pelo time; o critério diz quando está pronto.',
+        ],
+        [
+          'Substituir os testes automatizados, pois já descrevem o comportamento',
+          'Eles orientam os testes, mas não os substituem.',
+        ],
       ],
       'São verificáveis.',
     ),

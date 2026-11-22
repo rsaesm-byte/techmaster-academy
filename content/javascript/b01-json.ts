@@ -10,8 +10,11 @@ export const j06 = montar({
     'O que é JSON?',
     'Um formato de texto para representar dados (objetos, listas, números, textos)',
     [
-      ['Uma linguagem de programação', 'JSON só descreve dados; não tem lógica.'],
-      ['Um banco de dados', 'É um formato de texto usado para trocar dados, não um banco.'],
+      [
+        'Uma linguagem de programação baseada em JavaScript, usada em servidores',
+        'JSON é só um formato de texto, sem lógica.',
+      ],
+      ['Um banco de dados leve que roda dentro do navegador', 'JSON é um formato, não um banco.'],
     ],
     'JSON (JavaScript Object Notation) é texto com regras simples. Quase toda API da web o usa.',
   ),

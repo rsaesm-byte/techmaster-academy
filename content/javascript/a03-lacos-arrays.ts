@@ -156,8 +156,14 @@ export const j03 = montar({
       'O que faz esse código?',
       'Conta quantos elementos são maiores que 10',
       [
-        ['Soma todos os elementos', 'O contador aumenta de 1 em 1, não pelo valor do elemento.'],
-        ['Devolve o maior elemento', 'Ele conta elementos, não compara com o maior.'],
+        [
+          'Soma todos os elementos da lista em uma variável',
+          'Ele só conta quantos passam do limite.',
+        ],
+        [
+          'Devolve o maior elemento encontrado na lista',
+          'O código conta elementos, não busca o maior.',
+        ],
       ],
       'O acumulador n aumenta uma unidade para cada elemento que passa no teste do if.',
       0,

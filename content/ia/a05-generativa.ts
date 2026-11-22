@@ -83,8 +83,14 @@ export const ia05 = montar({
       'O que é alucinação em um modelo de linguagem?',
       'Gerar algo plausível, mas falso, com confiança',
       [
-        ['Um erro de compilação', 'É um problema de código, não de geração.'],
-        ['Falta de internet', 'Não depende de conexão.'],
+        [
+          'Um erro de compilação que ocorre quando o código do modelo está mal escrito',
+          'Alucinação é gerar algo plausível e falso, e não um erro de código.',
+        ],
+        [
+          'Falta de conexão com a internet durante a geração da resposta',
+          'Não depende de conexão: o modelo gera texto provável, não verdadeiro.',
+        ],
       ],
       'Plausível não é verdadeiro.',
     ),
@@ -101,8 +107,14 @@ export const ia05 = montar({
       'Qual cuidado é essencial ao usar IA no trabalho?',
       'Verificar as respostas e não enviar dados sensíveis',
       [
-        ['Aceitar tudo, pois a IA nunca erra', 'A IA erra, inclusive com muita confiança.'],
-        ['Usar a IA só à noite', 'O horário não importa.'],
+        [
+          'Aceitar as respostas como corretas, pois o modelo foi treinado com muitos dados',
+          'A IA erra, inclusive com muita confiança.',
+        ],
+        [
+          'Usar a IA apenas fora do horário de pico, para evitar erros',
+          'O horário não muda a qualidade nem os riscos.',
+        ],
       ],
       'Você responde pelo resultado.',
     ),

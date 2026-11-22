@@ -11,8 +11,14 @@ export const ux01 = montar({
     'Uma equipe passa meses criando um app de que ninguém gosta. Qual passo provavelmente foi pulado?',
     'Conversar com os usuários antes de construir',
     [
-      ['Escolher a cor do botão', 'A cor não explica o fracasso.'],
-      ['Instalar mais servidores', 'Infraestrutura não resolve a falta de necessidade.'],
+      [
+        'Escolher a paleta de cores e o estilo dos botões antes de começar',
+        'A aparência não explica um app sem utilidade; falta entender o usuário.',
+      ],
+      [
+        'Dimensionar os servidores e a infraestrutura para suportar muita gente',
+        'Infraestrutura não resolve a falta de necessidade real.',
+      ],
     ],
     'Pesquisa antes de design.',
   ),
@@ -84,8 +90,14 @@ export const ux01 = montar({
       'Qual a diferença entre UX e UI?',
       'UX é a experiência completa; UI é a parte visual da interface',
       [
-        ['São a mesma coisa', 'UI é parte da UX, mas não são iguais.'],
-        ['UI é a pesquisa e UX só as cores', 'É o contrário.'],
+        [
+          'São dois nomes para o mesmo trabalho de desenhar as telas do produto',
+          'UI é parte da UX, mas a UX também inclui pesquisa, fluxo e texto.',
+        ],
+        [
+          'A UI é a pesquisa com usuários e a UX trata apenas das cores e fontes',
+          'É o contrário: a UX é a experiência inteira e a UI, a parte visível.',
+        ],
       ],
       'UI está dentro da UX.',
     ),
@@ -102,8 +114,14 @@ export const ux01 = montar({
       'Por que evitar perguntas induzidas em entrevistas?',
       'Porque influenciam a resposta e escondem a verdade',
       [
-        ['Porque são longas', 'O problema não é o tamanho.'],
-        ['Porque o usuário não gosta de perguntas', 'O ponto é a qualidade da resposta.'],
+        [
+          'Porque ocupam muito tempo da entrevista e cansam quem responde',
+          'O problema não é o tamanho: é que induzem a resposta.',
+        ],
+        [
+          'Porque o usuário se sente testado e prefere não responder a perguntas',
+          'O ponto é a qualidade da resposta, não o gosto do entrevistado.',
+        ],
       ],
       'Pergunte sobre comportamentos reais.',
     ),

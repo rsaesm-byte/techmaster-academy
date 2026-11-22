@@ -19,8 +19,14 @@ export const r09 = montar({
     'Para que serve uma VPN corporativa?',
     'Para acessar a rede da empresa de fora, por um túnel criptografado',
     [
-      ['Para deixar a internet mais rápida', 'A VPN costuma adicionar um pequeno atraso.'],
-      ['Para bloquear anúncios', 'Não é a função principal.'],
+      [
+        'Para deixar a internet mais rápida e estável no trabalho remoto',
+        'A VPN pode até deixar mais lenta; o objetivo é acesso seguro.',
+      ],
+      [
+        'Para bloquear anúncios e rastreadores nas páginas',
+        'Isso não é função da VPN corporativa.',
+      ],
     ],
     'VPN estende a rede privada pela internet com segurança.',
   ),
@@ -94,8 +100,11 @@ export const r09 = montar({
       'O que é split tunneling?',
       'Só o tráfego da empresa vai pelo túnel; o resto sai direto',
       [
-        ['Dividir a VPN em duas senhas', 'Não tem relação com senhas.'],
-        ['Usar duas VPNs ao mesmo tempo', 'É sobre quais destinos usam o túnel.'],
+        ['Dividir a VPN em duas senhas de acesso, uma por usuário', 'Não tem relação com senhas.'],
+        [
+          'Usar duas VPNs ao mesmo tempo para reforçar a segurança',
+          'É sobre o que vai pelo túnel.',
+        ],
       ],
       'Economiza banda, mas exige cuidado com a segurança.',
     ),
@@ -105,8 +114,14 @@ export const r09 = montar({
       'Uma VPN comercial torna você anônimo na internet?',
       'Não: o provedor da VPN passa a ver o seu tráfego',
       [
-        ['Sim, totalmente', 'Você troca a confiança no provedor de internet pela da VPN.'],
-        ['Sim, se usar WPA3', 'WPA3 é do Wi-Fi.'],
+        [
+          'Sim, totalmente, pois o tráfego sai com o IP da VPN',
+          'O provedor da VPN pode ver seu tráfego.',
+        ],
+        [
+          'Sim, desde que o Wi-Fi use WPA3 e a VPN esteja ligada',
+          'WPA3 protege o Wi-Fi, não garante anonimato.',
+        ],
       ],
       'VPN muda quem vê o tráfego; não garante anonimato.',
     ),

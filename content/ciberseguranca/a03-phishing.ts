@@ -19,8 +19,14 @@ export const c03 = montar({
     'Qual é o alvo principal do phishing?',
     'A pessoa, induzida a clicar, responder ou entregar dados',
     [
-      ['O sistema operacional', 'O phishing não explora uma falha de software.'],
-      ['O cabo de rede', 'Não é um ataque físico.'],
+      [
+        'O sistema operacional, atacado por falhas no kernel',
+        'O phishing visa a pessoa, não o sistema.',
+      ],
+      [
+        'O cabo de rede, interceptado por quem está perto',
+        'Não é um ataque físico: o alvo é a pessoa.',
+      ],
     ],
     'Phishing explora a confiança e a pressa das pessoas.',
   ),
@@ -96,8 +102,11 @@ export const c03 = montar({
       'Você recebe um SMS: "Sua conta será bloqueada, clique agora". O que fazer?',
       'Não clicar e conferir pelo aplicativo ou pelo telefone oficial',
       [
-        ['Clicar rápido para evitar o bloqueio', 'A urgência é a marca do golpe.'],
-        ['Responder com o CPF para confirmar', 'Nunca envie dados a quem te contatou.'],
+        ['Clicar rápido no link para evitar o bloqueio da conta', 'A urgência é a isca do golpe.'],
+        [
+          'Responder com o CPF para confirmar a identidade e evitar o bloqueio',
+          'Nunca entregue dados a quem entrou em contato.',
+        ],
       ],
       'Confirme por um canal que você mesmo abriu.',
     ),

@@ -83,8 +83,11 @@ export const inf02 = montar({
       'Qual comando acompanha um log ao vivo?',
       'tail -f',
       [
-        ['ls -l', 'Esse só lista arquivos.'],
-        ['cd', 'Esse só muda de pasta.'],
+        [
+          'ls -l, que lista os arquivos da pasta com seus detalhes',
+          'Esse só lista arquivos; não acompanha o log.',
+        ],
+        ['cd, que entra na pasta onde o log está sendo gravado', 'Esse só muda de pasta.'],
       ],
       'O -f significa "follow".',
     ),
@@ -101,8 +104,14 @@ export const inf02 = montar({
       'Por que não registrar senhas nos logs?',
       'Os logs são lidos por muita gente e podem vazar',
       [
-        ['Porque deixa o servidor lento', 'O problema é de segurança.'],
-        ['Porque o Linux não permite', 'Permite, mas não é seguro.'],
+        [
+          'Porque registrar senhas deixa a gravação do log mais lenta',
+          'O problema é de segurança, não de desempenho.',
+        ],
+        [
+          'Porque o Linux bloqueia a gravação de senhas em arquivos de log',
+          'Ele permite, mas não é seguro.',
+        ],
       ],
       'Segredos nunca em log.',
     ),

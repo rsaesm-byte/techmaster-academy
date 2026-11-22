@@ -94,8 +94,14 @@ export const c01 = montar({
       'Qual defesa protege principalmente a disponibilidade?',
       'Backups e redundância',
       [
-        ['Criptografia', 'Criptografia protege a confidencialidade.'],
-        ['Assinatura digital', 'Assinaturas protegem a integridade.'],
+        [
+          'Criptografia, que embaralha os dados para quem não tem a chave',
+          'Criptografia protege a confidencialidade.',
+        ],
+        [
+          'Assinatura digital, que prova a autoria e a integridade dos dados',
+          'A assinatura trata de integridade e autoria.',
+        ],
       ],
       'Backups e redundância mantêm o serviço e permitem recuperá-lo.',
     ),
@@ -131,8 +137,14 @@ export const c01 = montar({
       'O que é defesa em profundidade?',
       'Usar várias camadas de proteção, para que a falha de uma não derrube tudo',
       [
-        ['Usar um único firewall muito forte', 'Uma única barreira é um ponto único de falha.'],
-        ['Esconder o sistema na internet', 'Esconder não é uma estratégia completa.'],
+        [
+          'Usar um único firewall muito forte na entrada da rede',
+          'Uma só camada vira ponto único de falha.',
+        ],
+        [
+          'Esconder o sistema na internet, sem divulgar o endereço',
+          'Segredo não é defesa; a ideia é ter várias camadas.',
+        ],
       ],
       'Rede, host, aplicação e pessoas se complementam.',
       1,

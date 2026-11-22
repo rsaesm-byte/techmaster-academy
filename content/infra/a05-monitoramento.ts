@@ -11,8 +11,14 @@ export const inf05 = montar({
     'O banco de dados enche o disco no meio da madrugada e o site cai. Como o time poderia ter sido avisado antes?',
     'Com monitoramento e um alerta de uso de disco',
     [
-      ['Esperando os clientes reclamarem', 'Descobrir pelo cliente é o pior cenário.'],
-      ['Reiniciando o servidor todas as noites', 'Não resolve a causa.'],
+      [
+        'Esperando os clientes avisarem que o site ficou fora do ar',
+        'Descobrir pelo cliente é o pior cenário.',
+      ],
+      [
+        'Reiniciando o servidor todas as noites para limpar os arquivos',
+        'Não resolve a causa e pode esconder o problema.',
+      ],
     ],
     'Monitore e alerte antes do problema.',
   ),
@@ -82,8 +88,14 @@ export const inf05 = montar({
       'O que mede o RPO?',
       'Quanto de dado se aceita perder, em tempo',
       [
-        ['Em quanto tempo o serviço volta', 'Isso é o RTO.'],
-        ['O número de servidores', 'Não é uma contagem de máquinas.'],
+        [
+          'Em quanto tempo o serviço precisa voltar ao ar depois da falha',
+          'Isso é o RTO; o RPO mede a perda de dados.',
+        ],
+        [
+          'O número de servidores necessários para atender os usuários',
+          'Não é uma contagem de máquinas.',
+        ],
       ],
       'Recovery Point Objective.',
     ),
@@ -100,8 +112,14 @@ export const inf05 = montar({
       'Por que testar a restauração do backup?',
       'Porque um backup que nunca foi restaurado pode estar inválido',
       [
-        ['Porque backups ficam mais rápidos', 'Não é uma questão de velocidade.'],
-        ['Porque apaga os dados antigos', 'Restaurar em teste não deve apagar a produção.'],
+        [
+          'Porque o teste de restauração deixa os backups futuros mais rápidos',
+          'Não é uma questão de velocidade.',
+        ],
+        [
+          'Porque a restauração limpa os dados antigos e libera espaço',
+          'Restaurar em teste não deve apagar a produção.',
+        ],
       ],
       'Só o teste prova que funciona.',
     ),

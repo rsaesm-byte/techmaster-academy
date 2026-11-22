@@ -11,8 +11,11 @@ export const w01 = montar({
     'Para que serve o HTML?',
     'Descrever a estrutura e o significado do conteúdo da página',
     [
-      ['Deixar a página bonita', 'A aparência é função do CSS.'],
-      ['Fazer a página reagir a cliques', 'Isso é função do JavaScript.'],
+      [
+        'Deixar a página bonita, definindo cores, fontes e espaçamentos',
+        'Isso é papel do CSS; o HTML descreve estrutura e significado.',
+      ],
+      ['Fazer a página reagir a cliques e outras ações do usuário', 'Isso é papel do JavaScript.'],
     ],
     'HTML é o esqueleto; CSS a aparência; JavaScript o comportamento.',
   ),
@@ -88,8 +91,14 @@ export const w01 = montar({
       'Para que serve o atributo alt de uma imagem?',
       'Descrever a imagem para quem não a vê (leitor de tela) ou se ela não carregar',
       [
-        ['Aumentar a imagem', 'O tamanho é definido por CSS.'],
-        ['Trocar a cor da imagem', 'Cor também é assunto de CSS.'],
+        [
+          'Aumentar a imagem quando o visitante passa o mouse sobre ela',
+          'O alt é um texto alternativo; não altera a imagem.',
+        ],
+        [
+          'Trocar a cor da imagem para melhorar o contraste com o fundo',
+          'O alt não altera a aparência; descreve a imagem.',
+        ],
       ],
       'O texto alternativo é essencial para acessibilidade.',
     ),
@@ -133,8 +142,14 @@ export const w01 = montar({
       'Por que preferir <nav> a um <div> para o menu?',
       'Porque ele informa o significado do bloco a leitores de tela e buscadores',
       [
-        ['Porque o <div> não funciona', 'O div funciona, mas não diz nada sobre o conteúdo.'],
-        ['Porque o <nav> é mais bonito', 'A aparência não muda.'],
+        [
+          'Porque o <div> não funciona em menus e é ignorado pelos navegadores',
+          'O <div> funciona, mas não diz o que o bloco significa.',
+        ],
+        [
+          'Porque o <nav> já vem com um visual de menu mais bonito',
+          'A aparência vem do CSS; o <nav> acrescenta significado.',
+        ],
       ],
       'Semântica ajuda acessibilidade, busca e manutenção.',
       1,

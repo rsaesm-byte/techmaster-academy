@@ -84,8 +84,14 @@ export const es05 = montar({
       'O que é refatoração?',
       'Melhorar a estrutura do código sem mudar o comportamento',
       [
-        ['Adicionar novas funcionalidades', 'Isso é desenvolvimento de funcionalidade.'],
-        ['Apagar os testes', 'Os testes é que protegem a refatoração.'],
+        [
+          'Adicionar novas funcionalidades ao sistema de forma organizada',
+          'Isso é desenvolvimento; refatorar não muda o comportamento.',
+        ],
+        [
+          'Apagar os testes antigos para o código ficar mais simples',
+          'Os testes é que protegem a refatoração.',
+        ],
       ],
       'Mesmo comportamento, código melhor.',
     ),
@@ -102,8 +108,14 @@ export const es05 = montar({
       'Qual é a diferença entre CI e CD?',
       'CI integra e testa a cada mudança; CD publica automaticamente',
       [
-        ['São a mesma coisa', 'Têm focos diferentes: testar e publicar.'],
-        ['CI publica e CD testa', 'É o contrário.'],
+        [
+          'São dois nomes para o mesmo processo de publicar o código',
+          'Têm focos diferentes: testar e publicar.',
+        ],
+        [
+          'A CI publica o sistema e a CD faz os testes automatizados',
+          'É o contrário: CI integra e testa; CD publica.',
+        ],
       ],
       'Integração e entrega.',
     ),

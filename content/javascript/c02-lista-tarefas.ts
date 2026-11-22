@@ -10,8 +10,8 @@ export const j12 = montar({
     'Qual é o papel da função renderizar em um app simples?',
     'Desenhar na tela o que está no estado',
     [
-      ['Alterar o estado', 'Quem altera o estado são as funções de ação.'],
-      ['Salvar no servidor', 'Isso é outra etapa.'],
+      ['Alterar o estado conforme as ações do usuário', 'Quem altera o estado são os eventos.'],
+      ['Salvar os dados do estado em um servidor', 'Isso é feito por outro código, como fetch.'],
     ],
     'renderizar lê o estado e atualiza o DOM.',
   ),
@@ -79,8 +79,14 @@ export const j12 = montar({
       'Por que usar textContent ao exibir o que o usuário digitou?',
       'Porque trata tudo como texto puro, evitando injeção de código',
       [
-        ['Porque é a única forma de mudar texto', 'Há outras, mas inseguras para dados externos.'],
-        ['Porque é mais bonito', 'A razão é segurança.'],
+        [
+          'Porque é a única forma que o navegador oferece para mudar texto',
+          'Há outras formas; o textContent é a segura.',
+        ],
+        [
+          'Porque o resultado visual na página fica mais bonito',
+          'O motivo é a segurança contra injeção de código.',
+        ],
       ],
       'innerHTML interpretaria HTML malicioso.',
     ),
@@ -130,8 +136,11 @@ export const j12 = montar({
       'Onde fica o estado neste app?',
       'Na variável tarefas, fora do DOM',
       [
-        ['Dentro dos elementos <li>', 'O DOM é apenas o desenho.'],
-        ['No CSS', 'CSS cuida da aparência.'],
+        [
+          'Dentro dos elementos <li>, onde cada tarefa aparece',
+          'Os elementos só mostram o estado; ele fica na variável.',
+        ],
+        ['No CSS, junto das regras de cor e de layout', 'O CSS cuida da aparência, não dos dados.'],
       ],
       'O DOM só reflete o estado.',
       1,

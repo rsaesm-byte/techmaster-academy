@@ -134,8 +134,14 @@ export const p04 = montar({
       'Para que servem valores padrão?',
       'Permitir omitir um argumento na chamada',
       [
-        ['Impedir erros de sintaxe', 'Não têm essa função.'],
-        ['Tornar a função mais rápida', 'Não afetam o desempenho.'],
+        [
+          'Impedir erros de sintaxe nas chamadas da função',
+          'Valores padrão tratam de argumentos omitidos.',
+        ],
+        [
+          'Tornar a função mais rápida ao pular o cálculo dos argumentos',
+          'Não afeta o desempenho.',
+        ],
       ],
       'Se omitido, usa-se o padrão.',
       1,

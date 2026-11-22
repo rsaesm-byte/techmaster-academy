@@ -19,8 +19,14 @@ export const b05 = montar({
     'Numa transferência de R$ 100 da conta A para a conta B, o que NÃO pode acontecer?',
     'Debitar de A e a operação falhar antes de creditar em B',
     [
-      ['Os dois valores mudarem', 'É exatamente o esperado.'],
-      ['A transferência levar um segundo', 'O tempo não é o problema.'],
+      [
+        'Os dois saldos mudarem ao final da operação',
+        'É exatamente o esperado: um diminui e o outro aumenta.',
+      ],
+      [
+        'A transferência levar alguns segundos para ser concluída',
+        'O tempo não é o problema; a falha no meio é.',
+      ],
     ],
     'Ou as duas partes acontecem, ou nenhuma: é a ideia da transação.',
   ),
@@ -95,8 +101,14 @@ export const b05 = montar({
       'O que significa a atomicidade em ACID?',
       'A transação acontece por inteiro ou não acontece',
       [
-        ['Os dados ficam criptografados', 'Atomicidade não trata de criptografia.'],
-        ['As consultas ficam mais rápidas', 'Ela trata de correção, e não de velocidade.'],
+        [
+          'Os dados ficam criptografados durante toda a transação',
+          'Atomicidade não trata de criptografia.',
+        ],
+        [
+          'As consultas ficam mais rápidas durante a transação',
+          'Ela trata de correção, e não de velocidade.',
+        ],
       ],
       'Tudo ou nada.',
     ),

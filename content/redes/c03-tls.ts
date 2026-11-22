@@ -10,8 +10,14 @@ export const r08 = montar({
     'O que o cadeado do HTTPS garante?',
     'Que a conexão é criptografada e que o servidor é quem diz ser',
     [
-      ['Que o site é confiável e seguro', 'O cadeado não diz se o conteúdo é honesto.'],
-      ['Que o site não tem vírus', 'Isso não faz parte do HTTPS.'],
+      [
+        'Que o site é confiável e que o dono é honesto',
+        'O cadeado prova só a criptografia e o domínio.',
+      ],
+      [
+        'Que o site foi verificado e não tem vírus ou golpes',
+        'O cadeado não analisa o conteúdo do site.',
+      ],
     ],
     'TLS dá confidencialidade, integridade e autenticação do servidor.',
   ),
@@ -95,10 +101,13 @@ export const r08 = montar({
       'Para combinar com segurança a chave simétrica da sessão',
       [
         [
-          'Para criptografar todos os dados',
-          'A chave pública é lenta; os dados usam a chave simétrica.',
+          'Para criptografar todos os dados trocados durante a sessão',
+          'Isso é feito pela chave simétrica, mais rápida.',
         ],
-        ['Para comprimir a página', 'Compressão é outra coisa.'],
+        [
+          'Para comprimir a página e reduzir o tempo de carregamento',
+          'Isso é papel da compressão, não da criptografia.',
+        ],
       ],
       'Chave pública para combinar; chave simétrica para o volume de dados.',
     ),
@@ -135,8 +144,14 @@ export const r08 = montar({
       'Um site com cadeado pode ser fraudulento?',
       'Sim: o cadeado prova a criptografia e o domínio, não a honestidade do dono',
       [
-        ['Não, o cadeado garante que é confiável', 'Golpistas também obtêm certificados.'],
-        ['Só se o certificado estiver vencido', 'Vencimento é outro problema.'],
+        [
+          'Não, o cadeado garante que o site é confiável e honesto',
+          'O cadeado não garante a honestidade do dono.',
+        ],
+        [
+          'Só se o certificado estiver vencido ou apresentar um aviso',
+          'Golpistas também conseguem certificados válidos.',
+        ],
       ],
       'Confira o endereço do site, e não só o cadeado.',
       1,
