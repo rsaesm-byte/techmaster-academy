@@ -55,6 +55,12 @@ import { bancos } from './bancos/disciplina';
 import { poo } from './poo/disciplina';
 import { engsoft } from './engsoft/disciplina';
 import { infra } from './infra/disciplina';
+import { ia } from './ia/disciplina';
+import { ia01 } from './ia/a01-ia-e-ml';
+import { ia02 } from './ia/a02-knn';
+import { ia03 } from './ia/a03-avaliacao';
+import { ia04 } from './ia/a04-redes-neurais';
+import { ia05 } from './ia/a05-generativa';
 import { inf01 } from './infra/a01-servidores';
 import { inf02 } from './infra/a02-linux-logs';
 import { inf03 } from './infra/a03-conteineres';
@@ -129,6 +135,7 @@ export const disciplinas = [
   poo,
   engsoft,
   infra,
+  ia,
 ];
 export const aulas = [
   aula01,
@@ -236,5 +243,10 @@ export const aulas = [
   inf03,
   inf04,
   inf05,
+  ia01,
+  ia02,
+  ia03,
+  ia04,
+  ia05,
 ];
 export { glossario };

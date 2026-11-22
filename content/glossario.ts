@@ -1142,4 +1142,43 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'RPO = tempo desde o último backup; RTO = tempo máximo de recuperação.',
     aulas: ['infra.m01.a05'],
   },
+  {
+    id: 'aprendizado-de-maquina',
+    termo: 'Aprendizado de máquina',
+    simples:
+      'Fazer o computador descobrir as regras a partir de exemplos, em vez de escrevê-las à mão.',
+    tecnico:
+      'Pode ser supervisionado, não supervisionado ou por reforço; modelos têm parâmetros ajustados no treino.',
+    aulas: ['ia.m01.a01'],
+  },
+  {
+    id: 'knn',
+    termo: 'k-NN',
+    simples: 'Classifica um ponto novo pelo voto dos k exemplos mais próximos.',
+    tecnico: 'Aprendizado preguiçoso baseado em distância; exige normalizar as variáveis.',
+    aulas: ['ia.m01.a02'],
+  },
+  {
+    id: 'overfitting',
+    termo: 'Overfitting',
+    simples: 'Quando o modelo decora o treino e vai mal em dados novos.',
+    tecnico:
+      'Detecta-se comparando o desempenho no treino e no teste; combate-se com mais dados, regularização e validação cruzada.',
+    aulas: ['ia.m01.a03'],
+  },
+  {
+    id: 'rede-neural',
+    termo: 'Rede neural',
+    simples: 'Conjunto de neurônios artificiais em camadas que aprende ajustando pesos.',
+    tecnico:
+      'Cada neurônio faz soma ponderada e ativação; o treino usa descida do gradiente e retropropagação.',
+    aulas: ['ia.m01.a04'],
+  },
+  {
+    id: 'llm',
+    termo: 'LLM',
+    simples: 'Modelo de linguagem que gera texto prevendo o próximo token.',
+    tecnico: 'Baseado em Transformers; pode alucinar, ter viés e sofrer injeção de prompt.',
+    aulas: ['ia.m01.a05'],
+  },
 ];

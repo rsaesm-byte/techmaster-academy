@@ -6,6 +6,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola K — Inteligência Artificial**, módulo 1 "IA na prática" (5 aulas):
+  aprendizado de máquina, k-NN, avaliação de modelos, redes neurais e IA
+  generativa com uso responsável; termos novos no glossário e 5 desafios de
+  programação.
 - **Escola J — Infraestrutura e Servidores**, módulo 1 "Servidores no mundo real"
   (5 aulas): disponibilidade e SLA, Linux e logs, contêineres, nuvem e escalabilidade,
   monitoramento e recuperação de desastres; 3 termos novos e 5 desafios de programação.
