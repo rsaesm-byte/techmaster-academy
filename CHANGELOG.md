@@ -16,6 +16,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Corrigido
 
+- **Ícone do app instalado não atualizava:** os arquivos de ícone ganharam novo
+  nome (`-v2`) e o manifesto ganhou um `id` fixo, para o Android e o iPhone
+  perceberem a troca.
+
 - **Respostas curtas demais:** em 26 questões a alternativa certa era só uma
   palavra enquanto as erradas vinham explicadas, o que entregava a resposta pelo
   tamanho. As certas ganharam uma explicação curta equivalente.

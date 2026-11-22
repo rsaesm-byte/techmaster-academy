@@ -3,6 +3,7 @@
   "short_name": "TechMaster",
   "description": "Aprenda tecnologia entendendo, vendo, fazendo e revisando.",
   "lang": "pt-BR",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
@@ -10,25 +11,25 @@
   "theme_color": "#0b1220",
   "icons": [
     {
-      "src": "icones/icon-192.png",
+      "src": "icones/icon-192-v2.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icones/icon-512.png",
+      "src": "icones/icon-512-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "icones/icon-maskable-512.png",
+      "src": "icones/icon-maskable-512-v2.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "icones/icone.svg",
+      "src": "icones/icone-v2.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"

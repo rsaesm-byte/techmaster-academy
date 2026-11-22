@@ -42,14 +42,14 @@ function svg({ anim, arredondado, brilho }) {
 }
 
 mkdirSync('/tmp/icones', { recursive: true });
-writeFileSync('public/icones/icone.svg', svg({ anim: true, arredondado: true, brilho: true }));
+writeFileSync('public/icones/icone-v2.svg', svg({ anim: true, arredondado: true, brilho: true }));
 writeFileSync('public/favicon.svg', svg({ anim: true, arredondado: true, brilho: false }));
 writeFileSync('/tmp/icones/est.svg', svg({ anim: false, arredondado: true, brilho: true }));
 writeFileSync('/tmp/icones/mask.svg', svg({ anim: false, arredondado: false, brilho: true }));
 const png = (origem, destino, t) =>
   execFileSync('rsvg-convert', ['-w', String(t), '-h', String(t), origem, '-o', destino]);
-png('/tmp/icones/est.svg', 'public/icones/icon-512.png', 512);
-png('/tmp/icones/est.svg', 'public/icones/icon-192.png', 192);
-png('/tmp/icones/mask.svg', 'public/icones/icon-maskable-512.png', 512);
-png('/tmp/icones/mask.svg', 'public/icones/apple-touch-icon.png', 180);
+png('/tmp/icones/est.svg', 'public/icones/icon-512-v2.png', 512);
+png('/tmp/icones/est.svg', 'public/icones/icon-192-v2.png', 192);
+png('/tmp/icones/mask.svg', 'public/icones/icon-maskable-512-v2.png', 512);
+png('/tmp/icones/mask.svg', 'public/icones/apple-touch-icon-v2.png', 180);
 console.log('Ícones gerados.');
