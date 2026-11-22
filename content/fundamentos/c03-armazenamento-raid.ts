@@ -195,6 +195,7 @@ export const f13 = montar({
       'Cibersegurança: backups offline protegem contra ransomware.',
       'Infraestrutura e Servidores: serviços de armazenamento replicam dados em vários servidores e regiões.',
       'Modelagem e Projeto de Bancos de Dados: replicação é a ideia de RAID 1 aplicada a bancos inteiros.',
+      'Infraestrutura e Servidores (Monitoramento e recuperação): RPO e RTO medem quanto dado e quanto tempo você aceita perder numa falha.',
     ],
     profissional:
       'Em TI, o primeiro chamado depois de uma perda de dados é sempre "tem backup?". Conhecer RAID e a regra 3-2-1 evita a falsa sensação de segurança.',

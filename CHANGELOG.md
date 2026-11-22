@@ -6,6 +6,12 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Corrigido
 
+- **Passada de leitura 3 — experiência de estudo:** as "Conexões" de
+  Fundamentos agora apontam para a aula aprofundada em outra escola (com o
+  título da aula) e as autorreferências citam a aula. No celular (360 px),
+  medidas as 924 etapas: 7 estouravam a largura por URLs, código e nomes
+  longos; o texto agora quebra e nenhuma estoura.
+
 - **Passada de leitura 1 — Escola A (Fundamentos):** 49 questões de múltipla
   escolha tinham a resposta certa claramente mais longa e distratores pouco
   plausíveis; os distratores foram reescritos (resposta mais longa que todas as

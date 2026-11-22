@@ -176,7 +176,7 @@ export const f03 = montar({
     disciplinas: [
       'Lógica de Programação: os operadores e, ou e nao dos algoritmos são exatamente AND, OR e NOT.',
       'SQL: filtros WHERE combinam condições com AND, OR e NOT.',
-      'Fundamentos da Computação: a unidade lógica e aritmética (ALU) é feita de portas.',
+      'Fundamentos da Computação (CPU e memória): a unidade lógica e aritmética (ALU) é feita de portas.',
     ],
     profissional:
       'Ao montar um filtro de busca, uma regra de firewall ou uma condição num sistema, você está usando AND, OR e NOT. Entender a lógica por baixo evita regras erradas, como confundir "A e B" com "A ou B".',

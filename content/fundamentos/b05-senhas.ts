@@ -211,7 +211,7 @@ export const f10 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Cibersegurança: servidores guardam hashes lentos (bcrypt, Argon2) em vez das senhas.',
+      'Cibersegurança (Senhas, hash, sal e autenticação multifator): servidores guardam hashes lentos (bcrypt, Argon2) em vez das senhas.',
       'Matemática: entropia usa logaritmos e potências de 2, como o binário.',
       'Desenvolvimento: formulários de cadastro e login precisam aplicar essas boas práticas.',
     ],

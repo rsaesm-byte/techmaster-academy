@@ -193,6 +193,7 @@ export const f05 = montar({
     disciplinas: [
       'Fundamentos da Computação: Linux, macOS e o PowerShell do Windows têm comandos equivalentes.',
       'Desenvolvimento: Git, npm e Python são usados pelo terminal.',
+      'Infraestrutura e Servidores (Linux no servidor: serviços e logs): o terminal é a principal ferramenta para ler logs e controlar serviços.',
       'Cibersegurança: administradores e analistas inspecionam sistemas e logs por linha de comando.',
     ],
     profissional:

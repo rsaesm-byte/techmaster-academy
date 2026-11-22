@@ -168,7 +168,7 @@ export const f18 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Infraestrutura e Servidores: a nuvem roda sobre VMs e contêineres.',
+      'Infraestrutura e Servidores (Nuvem e escalabilidade): aprofunde escala vertical e horizontal, balanceador de carga e auto scaling. A nuvem roda sobre VMs e contêineres.',
       'Redes de Computadores: nuvens organizam sub-redes e endereços IP.',
       'Engenharia de Dados: dados e pipelines vivem na nuvem.',
     ],

@@ -182,8 +182,8 @@ export const f19 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos da Computação: o Git é usado pela linha de comando.',
-      'Engenharia de Software: revisão de código acontece sobre branches.',
+      'Fundamentos da Computação (Arquivos e terminal): o Git é usado pela linha de comando.',
+      'Engenharia de Software (Versionamento com Git): aprofunde branches, merge, conflitos e pull request, a base da revisão de código.',
       'DevOps: pipelines rodam a cada push.',
     ],
     profissional:

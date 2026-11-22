@@ -185,9 +185,10 @@ export const f08 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Fundamentos da Computação: a máscara e o cálculo da rede usam as mesmas portas AND e os bits da aula 1.',
+      'Fundamentos da Computação (Portas lógicas): a máscara e o cálculo da rede usam as mesmas portas AND e os bits da aula 1.',
       'Cibersegurança: firewalls e segmentação de redes são regras sobre sub-redes.',
       'Infraestrutura e Servidores: toda rede virtual (VPC) é definida por blocos CIDR.',
+      'Redes de Computadores (Sub-redes na prática): treine a dividir uma rede entre os setores de uma empresa.',
     ],
     profissional:
       'Em chamados de "sem acesso à rede", conferir IP, máscara e gateway é o início do diagnóstico: um IP em outra sub-rede explica por que o equipamento não alcança os demais.',

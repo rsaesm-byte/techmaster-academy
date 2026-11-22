@@ -184,6 +184,7 @@ export const f20 = montar({
       'JavaScript: filter, sort e map equivalem a WHERE, ORDER BY e SELECT.',
       'Engenharia de Dados: SQL é a ferramenta número um da área.',
       'Cibersegurança: SQL injection é um dos ataques mais antigos e comuns.',
+      'SQL (Tabelas e SELECT): pratique consultas de verdade, com WHERE, JOIN e GROUP BY, num banco de treino.',
     ],
     profissional:
       'SQL é uma das habilidades mais pedidas em vagas de dados, back-end e análise. Quem domina SELECT e WHERE já resolve boa parte do trabalho.',

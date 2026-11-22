@@ -140,3 +140,15 @@ html.densidade-compacta main .gap-5 {
 html.modo-foco [data-esconder-no-foco] {
   display: none;
 }
+
+/* Celular: URLs, identificadores e código longo quebram em vez de alargar a página. */
+main {
+  overflow-wrap: anywhere;
+}
+main fieldset {
+  min-width: 0;
+}
+main :not(pre) > code {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}

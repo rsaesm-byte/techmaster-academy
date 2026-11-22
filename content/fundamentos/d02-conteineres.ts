@@ -171,8 +171,8 @@ export const f17 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Infraestrutura e Servidores: contêineres são a alternativa leve às VMs.',
-      'Infraestrutura e Servidores: serviços de nuvem executam contêineres.',
+      'Infraestrutura e Servidores (Virtualização e contêineres): aprofunde com Dockerfile, volumes e a escolha entre VM e contêiner. Contêineres são a alternativa leve às VMs.',
+      'Infraestrutura e Servidores (Nuvem e escalabilidade): serviços de nuvem executam contêineres e criam novas cópias quando a carga sobe.',
       'DevOps: contêineres padronizam o ambiente entre desenvolvimento e produção.',
     ],
     profissional:

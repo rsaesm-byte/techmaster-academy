@@ -185,8 +185,8 @@ export const f16 = montar({
   ],
   conexoes: {
     disciplinas: [
-      'Infraestrutura e Servidores: a nuvem é construída sobre virtualização.',
-      'Fundamentos da Computação: o hipervisor divide recursos como um escalonador.',
+      'Infraestrutura e Servidores (Virtualização e contêineres): aprofunde VMs, contêineres e Docker. A nuvem é construída sobre virtualização.',
+      'Fundamentos da Computação (Sistema operacional e processos): o hipervisor divide recursos como um escalonador.',
       'Cibersegurança: isolamento é base para testar malware com segurança.',
     ],
     profissional:
