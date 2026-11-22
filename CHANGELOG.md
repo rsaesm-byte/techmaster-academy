@@ -6,6 +6,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ### Adicionado
 
+- **Escola E — UX/UI Design**, módulo 1 "Design centrado no usuário" (5 aulas):
+  UX e pesquisa, usabilidade, cor e acessibilidade, layout e design systems,
+  prototipação e teste de usabilidade; termos novos no glossário e 5 desafios de
+  programação. Com esta, as 12 escolas (A a L) têm conteúdo publicado.
 - **Escola K — Inteligência Artificial**, módulo 1 "IA na prática" (5 aulas):
   aprendizado de máquina, k-NN, avaliação de modelos, redes neurais e IA
   generativa com uso responsável; termos novos no glossário e 5 desafios de

@@ -98,6 +98,7 @@ export default defineConfig(({ command }) => ({
             { name: 'aulas-redes', test: /[\\/]content[\\/]redes[\\/]/ },
             { name: 'aulas-ciberseguranca', test: /[\\/]content[\\/]ciberseguranca[\\/]/ },
             { name: 'aulas-web', test: /[\\/]content[\\/]web[\\/]/ },
+            { name: 'aulas-ux', test: /[\\/]content[\\/]ux[\\/]/ },
             { name: 'aulas-ia', test: /[\\/]content[\\/]ia[\\/]/ },
             { name: 'aulas-infra', test: /[\\/]content[\\/]infra[\\/]/ },
             { name: 'aulas-engsoft', test: /[\\/]content[\\/]engsoft[\\/]/ },

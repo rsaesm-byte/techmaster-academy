@@ -1181,4 +1181,41 @@ export const glossario: TermoEntrada[] = [
     tecnico: 'Baseado em Transformers; pode alucinar, ter viés e sofrer injeção de prompt.',
     aulas: ['ia.m01.a05'],
   },
+  {
+    id: 'ux-experiencia',
+    termo: 'UX',
+    simples: 'Experiência completa de uma pessoa ao usar um produto.',
+    tecnico: 'Inclui pesquisa, fluxo, texto e interface (UI); orientada por Design Thinking.',
+    aulas: ['ux.m01.a01'],
+  },
+  {
+    id: 'heuristicas-nielsen',
+    termo: 'Heurísticas de Nielsen',
+    simples: 'Dez regras práticas para avaliar a usabilidade de uma interface.',
+    tecnico:
+      'Incluem visibilidade do estado, prevenção de erros, consistência e controle do usuário.',
+    aulas: ['ux.m01.a02'],
+  },
+  {
+    id: 'contraste-wcag',
+    termo: 'Contraste (WCAG)',
+    simples: 'Diferença de luminosidade entre texto e fundo que garante a leitura.',
+    tecnico: 'Razão de 1:1 a 21:1; AA pede 4,5:1 para texto normal e 3:1 para texto grande.',
+    aulas: ['ux.m01.a03'],
+  },
+  {
+    id: 'design-system',
+    termo: 'Design system',
+    simples: 'Conjunto de tokens, componentes e regras para manter a consistência.',
+    tecnico: 'Variáveis de design viram CSS; documentação e governança são essenciais.',
+    aulas: ['ux.m01.a04'],
+  },
+  {
+    id: 'sus-usabilidade',
+    termo: 'SUS',
+    simples: 'Questionário de 10 itens que mede a usabilidade em uma nota de 0 a 100.',
+    tecnico:
+      'Itens ímpares somam (r − 1), pares somam (5 − r) e o total é multiplicado por 2,5; 68 é a média.',
+    aulas: ['ux.m01.a05'],
+  },
 ];

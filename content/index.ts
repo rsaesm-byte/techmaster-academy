@@ -56,6 +56,12 @@ import { poo } from './poo/disciplina';
 import { engsoft } from './engsoft/disciplina';
 import { infra } from './infra/disciplina';
 import { ia } from './ia/disciplina';
+import { ux } from './ux/disciplina';
+import { ux01 } from './ux/a01-ux-pesquisa';
+import { ux02 } from './ux/a02-usabilidade';
+import { ux03 } from './ux/a03-cor-acessibilidade';
+import { ux04 } from './ux/a04-layout-design-system';
+import { ux05 } from './ux/a05-prototipo-teste';
 import { ia01 } from './ia/a01-ia-e-ml';
 import { ia02 } from './ia/a02-knn';
 import { ia03 } from './ia/a03-avaliacao';
@@ -136,6 +142,7 @@ export const disciplinas = [
   engsoft,
   infra,
   ia,
+  ux,
 ];
 export const aulas = [
   aula01,
@@ -248,5 +255,10 @@ export const aulas = [
   ia03,
   ia04,
   ia05,
+  ux01,
+  ux02,
+  ux03,
+  ux04,
+  ux05,
 ];
 export { glossario };
