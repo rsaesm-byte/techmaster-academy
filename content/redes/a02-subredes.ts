@@ -85,7 +85,7 @@ export const r02 = montar({
   ],
   indep: [
     mc(
-      'Qual o menor prefixo que comporta 50 equipamentos?',
+      'Qual prefixo comporta 50 equipamentos com o menor desperdício de endereços?',
       '/26',
       [
         ['/27', 'Um /27 tem só 30 endereços utilizáveis.'],

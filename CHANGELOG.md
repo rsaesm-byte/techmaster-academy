@@ -21,6 +21,12 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
   aulas foram lidas (explicações, exemplos, respostas e contas dos bancos de
   exemplo). Um único erro: uma alternativa de SQL citava `IndexError` (erro de
   Python), agora trocada por uma alternativa coerente.
+- **Passada de leitura 1 — Lógica, Redes, Cibersegurança e Web (revisão
+  factual):** 25 aulas lidas, com conferência de contas (sub-redes e faixas de
+  hosts, 26^8, 62^8, XOR, busca binária, passadas da bolha) e de portas e
+  protocolos. Um ajuste: a questão de Redes sobre "o menor prefixo que comporta
+  50 equipamentos" era ambígua (o menor número de prefixo seria /25); agora
+  pergunta o prefixo com menor desperdício de endereços.
 
 ### Adicionado
 
