@@ -27,6 +27,13 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
   protocolos. Um ajuste: a questão de Redes sobre "o menor prefixo que comporta
   50 equipamentos" era ambígua (o menor número de prefixo seria /25); agora
   pergunta o prefixo com menor desperdício de endereços.
+- **Passada de leitura 1 — Bancos, POO, Engenharia de Software, Infraestrutura,
+  IA e UX (revisão factual):** 30 aulas lidas, com conferência de todas as
+  contas e saídas de código. Dois ajustes: em POO (aula 5), uma questão escrita
+  como "prever a saída" tinha a resposta aceita invertida ("o Carro fica
+  proibido de usar o motor") e virou múltipla escolha; em UX (aula 3), a
+  estatística de deficiência passou de "1 em cada 4" (dado dos EUA) para "1 em
+  cada 6 no mundo" (OMS). Com isso, a passada 1 cobre as 14 disciplinas.
 
 ### Adicionado
 

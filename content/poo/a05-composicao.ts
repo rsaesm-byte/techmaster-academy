@@ -101,12 +101,17 @@ export const o05 = montar({
     ),
   ],
   indep: [
-    prever(
-      'Qual é uma vantagem de receber o Motor pelo construtor?',
+    mc(
+      'Qual é uma vantagem de o Carro receber o Motor pelo construtor?',
       'Dá para trocar ou simular o motor sem mudar o Carro',
-      ['O Carro fica proibido de usar o motor'],
-      'É o contrário.',
-      [{ resposta: 'O código fica sem classes', feedback: 'As classes continuam existindo.' }],
+      [
+        [
+          'O Carro fica proibido de usar o motor',
+          'É o contrário: ele continua usando o motor, só não precisa saber qual é.',
+        ],
+        ['O código deixa de precisar de classes', 'As classes continuam existindo.'],
+      ],
+      'Quem recebe o motor de fora depende só do contrato (ligar), então qualquer motor serve, inclusive um de teste.',
     ),
     mc(
       'O que a letra S de SOLID defende?',
