@@ -17,6 +17,10 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
   UX/UI. Antes, a resposta certa era a mais longa em 55% a 100% das questões
   (UX 100%, POO 93%); agora as alternativas têm tamanho e plausibilidade
   parecidos, sobrando apenas casos de resposta curta (ex.: `const`, `===`).
+- **Passada de leitura 1 — JavaScript, Python e SQL (revisão factual):** as 30
+  aulas foram lidas (explicações, exemplos, respostas e contas dos bancos de
+  exemplo). Um único erro: uma alternativa de SQL citava `IndexError` (erro de
+  Python), agora trocada por uma alternativa coerente.
 
 ### Adicionado
 

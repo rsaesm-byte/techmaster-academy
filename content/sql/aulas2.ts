@@ -349,8 +349,8 @@ export const s08 = montar({
     [
       ['Aparece com valores vazios', 'Isso é o LEFT JOIN.'],
       [
-        'Causa um IndexError, pois o índice 3 não existe',
-        'Fatias não geram erro quando passam do limite.',
+        'Causa um erro, pois falta um pedido para ligar ao cliente',
+        'Nenhum erro acontece: a consulta roda, só que esse cliente fica de fora.',
       ],
     ],
     'JOIN simples (INNER) só traz pares que casam.',
