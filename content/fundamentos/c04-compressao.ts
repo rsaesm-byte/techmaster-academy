@@ -11,8 +11,14 @@ export const f14 = montar({
     'Um arquivo ZIP de texto fica bem menor que o original, e ao descompactar volta idêntico. Como isso é possível?',
     'O ZIP troca padrões repetidos por representações mais curtas, sem descartar informação',
     [
-      ['Ele apaga as letras menos importantes', 'No ZIP nada é apagado: o arquivo volta idêntico.'],
-      ['Ele guarda o arquivo só pela metade', 'Seria impossível voltar ao original.'],
+      [
+        'Ele remove as letras menos usadas e as recria na hora de abrir',
+        'Compressão sem perdas não apaga nada: reorganiza a informação.',
+      ],
+      [
+        'Ele guarda só metade do arquivo e refaz o resto ao descompactar',
+        'O arquivo é guardado inteiro, de forma mais compacta.',
+      ],
     ],
     'Compressão sem perdas encontra redundância (repetições) e a representa de forma mais curta. Ao descompactar, o processo é desfeito.',
   ),
@@ -107,8 +113,14 @@ export const f14 = montar({
       'Por que um arquivo JPEG de uma foto pode ser muito menor que o mesmo em PNG?',
       'O JPEG usa compressão com perdas, descartando detalhes pouco perceptíveis',
       [
-        ['O JPEG usa um algoritmo que nunca altera os dados', 'O JPEG altera: descarta detalhes.'],
-        ['O PNG não é comprimido', 'O PNG também é comprimido, mas sem perdas.'],
+        [
+          'O JPEG usa um algoritmo mais moderno que comprime sem alterar nada',
+          'O JPEG descarta detalhes; é o PNG que não altera os dados.',
+        ],
+        [
+          'O PNG guarda todos os pixels sem nenhuma compressão',
+          'O PNG é comprimido, mas sem perdas, por isso fica maior.',
+        ],
       ],
       'Descartar detalhes permite economizar muito mais, ao custo de não voltar ao original.',
     ),
@@ -141,12 +153,12 @@ export const f14 = montar({
       'Quando o texto quase não tem letras repetidas em sequência',
       [
         [
-          'Quando o texto é muito longo',
-          'O tamanho não é o problema; o que importa são as repetições.',
+          'Quando o texto é muito longo, pois não há como reduzi-lo',
+          'O tamanho não importa; o que conta é a repetição em sequência.',
         ],
         [
-          'Quando o texto tem só letras maiúsculas',
-          'O caso das letras não importa: o que conta é a repetição.',
+          'Quando o texto tem só letras maiúsculas, que o RLE não consegue ler',
+          'Maiúsculas não atrapalham; o que importa é a repetição.',
         ],
       ],
       'Sem repetições, a contagem acrescentada só aumenta o tamanho.',

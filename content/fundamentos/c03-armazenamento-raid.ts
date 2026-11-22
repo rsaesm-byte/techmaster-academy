@@ -11,8 +11,14 @@ export const f13 = montar({
     'Um servidor tem dois discos espelhados (RAID 1) e um deles quebra. O que acontece com os dados?',
     'Continuam disponíveis no outro disco',
     [
-      ['Ficam perdidos para sempre', 'O espelhamento guarda uma cópia completa em cada disco.'],
-      ['Ficam pela metade', 'Cada disco tem tudo: nada se perde com a falha de um.'],
+      [
+        'Ficam perdidos, pois o espelho só copia os dados e não os protege',
+        'No RAID 1 o outro disco tem uma cópia completa.',
+      ],
+      [
+        'Ficam só pela metade, porque cada disco guardava metade dos dados',
+        'Isso descreve o RAID 0; no RAID 1 cada disco tem tudo.',
+      ],
     ],
     'No RAID 1, cada dado é gravado nos dois discos. Se um falha, o outro mantém tudo.',
   ),
@@ -103,10 +109,13 @@ export const f13 = montar({
       'Porque ele não protege contra apagar sem querer, vírus ou desastres: copia o erro para todos os discos',
       [
         [
-          'Porque RAID é muito lento para guardar dados',
-          'A velocidade não é o ponto: o problema é a proteção.',
+          'Porque o RAID deixa a gravação lenta demais para ser confiável',
+          'O motivo não é velocidade: RAID não protege contra erros humanos.',
         ],
-        ['Porque RAID só funciona com SSD', 'Funciona com HD e SSD; o limite é outro.'],
+        [
+          'Porque o RAID só funciona com SSD e não protege os HDs',
+          'RAID funciona com HD e SSD; o limite é a proteção contra erro.',
+        ],
       ],
       'RAID protege de falha física de disco. Já um arquivo apagado é apagado em todos os discos.',
     ),
@@ -146,10 +155,13 @@ export const f13 = montar({
       'O que diz a regra de backup 3-2-1?',
       '3 cópias, em 2 tipos de mídia, com 1 cópia fora do local',
       [
-        ['3 discos, 2 senhas e 1 computador', 'A regra fala de cópias, mídias e local.'],
         [
-          '3 backups por dia, 2 por semana e 1 por mês',
-          'A regra não trata de frequência, e sim de cópias e locais.',
+          '3 discos, 2 senhas de proteção e 1 computador dedicado ao backup',
+          'Não há relação com discos ou senhas: são cópias e mídias.',
+        ],
+        [
+          '3 backups diários, 2 semanais e 1 mensal, para cobrir cada período',
+          'A regra trata de cópias e locais, não de frequência.',
         ],
       ],
       'Assim, uma única falha (disco, roubo, incêndio) não elimina todas as cópias.',

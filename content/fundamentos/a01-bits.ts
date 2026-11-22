@@ -139,7 +139,10 @@ export const f01 = montar({
       'Estoura e o resultado volta a ser 0',
       [
         ['Vira 256 normalmente', 'Não existe o 9º bit para guardar o 256.'],
-        ['O computador trava', 'Normalmente nada trava: o resultado só fica errado (estouro).'],
+        [
+          'O resultado vira -1, porque o número passa para negativo',
+          'Sem sinal não há negativos: o valor volta a 0.',
+        ],
       ],
       'O resultado precisaria de 9 bits. O que passa do limite se perde e sobra 00000000.',
       2,

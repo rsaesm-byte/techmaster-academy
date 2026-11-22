@@ -113,10 +113,13 @@ export const f08 = montar({
       'Não: as redes são 192.168.1.0 e 192.168.2.0, diferentes',
       [
         [
-          'Sim, só o último número é igual',
-          'Com /24, os 3 primeiros bytes definem a rede, e o terceiro é diferente.',
+          'Sim, porque os dois terminam em .10, o que identifica o mesmo equipamento',
+          'Com /24 o que decide é o terceiro número, que é diferente.',
         ],
-        ['Sim, ambos são IPs privados', 'Ser privado não basta: a rede é definida pelo prefixo.'],
+        [
+          'Sim, porque ambos são IPs privados e privados sempre ficam na mesma rede',
+          'Ser privado não define a rede: os prefixos são diferentes.',
+        ],
       ],
       'Para trocar dados, precisariam passar pelo roteador.',
       2,
@@ -137,10 +140,13 @@ export const f08 = montar({
       'Para que serve a máscara de sub-rede?',
       'Para separar a parte do endereço que identifica a rede da que identifica o equipamento',
       [
-        ['Para esconder o endereço IP', 'Ela não esconde nada: só indica onde termina a rede.'],
         [
-          'Para acelerar a internet',
-          'Não afeta a velocidade, apenas a organização do endereçamento.',
+          'Para esconder o endereço IP do equipamento de quem está fora da rede',
+          'A máscara não esconde nada: só divide rede e equipamento.',
+        ],
+        [
+          'Para aumentar a velocidade da conexão entre os equipamentos da rede',
+          'A máscara não muda a velocidade; ela organiza o endereço.',
         ],
       ],
       'Os bits 1 da máscara marcam a rede; os 0, o equipamento.',

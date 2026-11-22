@@ -86,10 +86,13 @@ export const f09 = montar({
       'Para traduzir nomes de sites em endereços IP',
       [
         [
-          'Para criptografar a conexão',
-          'Quem criptografa é o TLS (HTTPS). O DNS só resolve nomes.',
+          'Para proteger a conexão com o site, embaralhando os dados trocados',
+          'Criptografar é função do TLS (HTTPS), não do DNS.',
         ],
-        ['Para guardar as páginas do site', 'As páginas ficam no servidor web, não no DNS.'],
+        [
+          'Para guardar uma cópia das páginas do site e entregá-las mais rápido',
+          'Guardar páginas é papel de cache e do servidor, não do DNS.',
+        ],
       ],
       'O DNS funciona como uma lista telefônica: dado o nome, devolve o IP.',
     ),
@@ -124,8 +127,14 @@ export const f09 = montar({
       'O que a letra S de HTTPS acrescenta?',
       'Criptografia da conexão (TLS), para ninguém no caminho ler os dados',
       [
-        ['Mais velocidade ao site', 'A criptografia não acelera; seu objetivo é a segurança.'],
-        ['Um servidor DNS próprio', 'O DNS continua sendo outra etapa, independente do HTTPS.'],
+        [
+          'Mais velocidade ao carregar a página, por usar uma conexão otimizada',
+          'O S traz segurança; a velocidade não é o objetivo.',
+        ],
+        [
+          'Um servidor DNS exclusivo para cuidar do domínio do site',
+          'O S não tem relação com DNS; trata de segurança.',
+        ],
       ],
       'HTTPS usa TLS para autenticar o servidor e criptografar o tráfego.',
       2,
@@ -157,10 +166,13 @@ export const f09 = montar({
       'Você corrigiu o IP no DNS, mas alguns usuários ainda veem o site antigo. Qual é uma causa provável?',
       'O cache do DNS ainda guarda a resposta antiga por algum tempo (TTL)',
       [
-        ['O HTTP só funciona uma vez por dia', 'O HTTP não tem essa limitação.'],
         [
-          'O IP não pode mudar',
-          'IPs podem mudar; a propagação é que leva tempo por causa do cache.',
+          'O protocolo HTTP só atualiza o conteúdo do site uma vez por dia',
+          'O HTTP não tem esse limite; o atraso vem do cache.',
+        ],
+        [
+          'Depois de definido, o IP de um site não pode mais ser alterado',
+          'IPs podem mudar; o DNS guarda o antigo por algum tempo (TTL).',
         ],
       ],
       'Respostas DNS ficam em cache pelo tempo definido (TTL). Só depois o novo endereço é consultado.',

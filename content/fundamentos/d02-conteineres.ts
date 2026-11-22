@@ -43,7 +43,7 @@ export const f17 = montar({
   tecnica: {
     titulo: 'Dockerfile e comandos',
     texto:
-      '**Dockerfile mínimo:**\n```\nFROM node:20\nCOPY . /app\nCMD ["node", "/app/index.js"]\n```\n**Comandos:** `docker build -t meuapp .`, `docker run meuapp`, `docker ps` (lista rodando), `docker stop`.\n**VM x contêiner:** VM isola mais, contêiner é mais leve e rápido.',
+      '**Dockerfile mínimo:**\n```\nFROM node:22\nCOPY . /app\nCMD ["node", "/app/index.js"]\n```\n**Comandos:** `docker build -t meuapp .`, `docker run meuapp`, `docker ps` (lista rodando), `docker stop`.\n**VM x contêiner:** VM isola mais, contêiner é mais leve e rápido.',
   },
   diagrama: {
     titulo: 'Da receita ao contêiner',
@@ -90,7 +90,7 @@ export const f17 = montar({
   indep: [
     completar(
       'Complete o Dockerfile para partir de uma imagem Node e iniciar o app.',
-      '___ node:20\nCOPY . /app\n___ ["node", "/app/index.js"]',
+      '___ node:22\nCOPY . /app\n___ ["node", "/app/index.js"]',
       [
         { aceitas: ['FROM'], feedback: 'FROM define a imagem base.' },
         { aceitas: ['CMD'], feedback: 'CMD define o comando de início.' },
@@ -131,8 +131,14 @@ export const f17 = montar({
       'O que são namespaces e cgroups?',
       'Recursos do kernel que isolam e limitam os contêineres',
       [
-        ['Tipos de imagem', 'São recursos do kernel.'],
-        ['Comandos do Docker', 'Não são comandos; são mecanismos do kernel.'],
+        [
+          'Formatos de arquivo usados para guardar imagens de contêiner',
+          'Namespaces e cgroups fazem parte do kernel, não são formatos.',
+        ],
+        [
+          'Comandos usados no Docker para criar e parar os contêineres',
+          'São recursos do kernel Linux, e não comandos do Docker.',
+        ],
       ],
       'Namespaces isolam; cgroups limitam CPU e memória.',
       1,

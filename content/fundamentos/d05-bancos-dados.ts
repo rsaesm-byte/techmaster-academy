@@ -10,8 +10,14 @@ export const f20 = montar({
     'Por que usar um banco de dados em vez de um arquivo de texto?',
     'Para guardar, buscar e proteger muitos dados com rapidez e organização',
     [
-      ['Porque arquivos não guardam texto', 'Guardam, mas com buscas e controle limitados.'],
-      ['Porque o banco dispensa backup', 'Backup continua essencial.'],
+      [
+        'Porque arquivos de texto não conseguem guardar os dados dos usuários',
+        'Arquivos guardam texto; o banco organiza e protege melhor.',
+      ],
+      [
+        'Porque o banco guarda tudo com segurança e dispensa qualquer backup',
+        'Banco também precisa de backup.',
+      ],
     ],
     'Bancos organizam dados em estruturas, permitem consultas rápidas e controle de acesso.',
   ),
@@ -129,8 +135,14 @@ export const f20 = montar({
       'O que acontece com DELETE FROM clientes; (sem WHERE)?',
       'Todas as linhas da tabela são apagadas',
       [
-        ['Nada, o comando exige WHERE', 'O comando é válido e apaga tudo.'],
-        ['Só a primeira linha é apagada', 'Sem WHERE, todas as linhas são afetadas.'],
+        [
+          'Nada acontece, pois o comando só roda quando tem WHERE',
+          'O comando roda e apaga tudo; falta de WHERE é o erro.',
+        ],
+        [
+          'Só a primeira linha da tabela é apagada, como uma proteção',
+          'Sem WHERE, todas as linhas são afetadas.',
+        ],
       ],
       'Sempre confira o WHERE antes de UPDATE e DELETE.',
     ),

@@ -4,6 +4,14 @@ Formato inspirado em [Keep a Changelog](https://keepachangelog.com/pt-BR/).
 
 ## 2026-11-21
 
+### Corrigido
+
+- **Passada de leitura 1 — Escola A (Fundamentos):** 49 questões de múltipla
+  escolha tinham a resposta certa claramente mais longa e distratores pouco
+  plausíveis; os distratores foram reescritos (resposta mais longa que todas as
+  erradas caiu de 66% para 34% das questões). Dockerfile de exemplo atualizado
+  de Node 20 (fora de suporte) para Node 22.
+
 ### Adicionado
 
 - **Escola E — UX/UI Design**, módulo 1 "Design centrado no usuário" (5 aulas):

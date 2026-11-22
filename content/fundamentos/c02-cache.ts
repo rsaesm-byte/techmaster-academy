@@ -12,10 +12,13 @@ export const f12 = montar({
     'Porque memória rápida é cara e pequena; por isso há níveis, dos mais rápidos e pequenos aos mais lentos e grandes',
     [
       [
-        'Porque ninguém conseguiu fabricar memória rápida',
-        'Ela existe (a cache e os registradores), mas custa caro e ocupa muito espaço.',
+        'Porque a tecnologia de memória rápida ainda não foi inventada',
+        'Ela existe (registradores e cache), mas é cara e pequena.',
       ],
-      ['Porque memória rápida não guarda dados', 'Guarda, mas em pequena quantidade.'],
+      [
+        'Porque memória rápida perde os dados e não serve para guardar nada',
+        'Registradores e cache guardam dados; o que se perde ao desligar é a RAM.',
+      ],
     ],
     'Há um compromisso entre velocidade, tamanho e preço. A hierarquia de memória combina vários níveis para ter o melhor dos dois mundos.',
   ),
@@ -90,8 +93,14 @@ export const f12 = montar({
       'Qual destas memórias é a mais rápida?',
       'Registradores',
       [
-        ['RAM', 'A RAM é mais lenta que a cache e os registradores.'],
-        ['SSD', 'O SSD é muito mais lento que a RAM.'],
+        [
+          'A RAM, que fica ligada direto na placa-mãe e responde na hora',
+          'A RAM é mais lenta que os registradores.',
+        ],
+        [
+          'O SSD, que não tem peças móveis e responde instantaneamente',
+          'O SSD é bem mais lento que os registradores.',
+        ],
       ],
       'Quanto mais perto da CPU, mais rápida (e menor) é a memória.',
     ),
@@ -139,8 +148,14 @@ export const f12 = montar({
       'Qual é a ideia por trás da cache?',
       'O que foi usado há pouco provavelmente será usado de novo (localidade)',
       [
-        ['Guardar tudo, para nunca faltar espaço', 'A cache é pequena: guarda só uma parte.'],
-        ['Substituir a RAM', 'A cache complementa a RAM, não a substitui.'],
+        [
+          'Guardar uma cópia de tudo o que existe, para nunca precisar buscar longe',
+          'A cache é pequena e guarda só o usado recentemente.',
+        ],
+        [
+          'Substituir a RAM, ficando maior e mais rápida que ela',
+          'A cache complementa a RAM; é bem menor.',
+        ],
       ],
       'Programas repetem laços e dados; por isso, guardar o recente por perto dá grande ganho.',
     ),
@@ -148,8 +163,14 @@ export const f12 = montar({
       'O que a política LRU remove quando a cache está cheia?',
       'O item que está há mais tempo sem ser usado',
       [
-        ['O item que chegou por último', 'Esse é o mais recente: ele é o menos provável de sair.'],
-        ['Sempre o item maior', 'O tamanho não entra na regra do LRU.'],
+        [
+          'O item que entrou na cache mais recentemente, por ser o mais novo',
+          'Isso seria o oposto do LRU; ele remove o menos usado.',
+        ],
+        [
+          'Sempre o item que ocupa mais espaço, para liberar mais lugar',
+          'O LRU olha para o uso recente, não para o tamanho.',
+        ],
       ],
       'LRU = Least Recently Used: menos recentemente usado.',
       2,

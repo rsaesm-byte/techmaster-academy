@@ -100,8 +100,14 @@ export const f18 = montar({
       'O que é elasticidade?',
       'Aumentar ou reduzir recursos conforme a demanda',
       [
-        ['Pagar sempre o mesmo valor', 'Na nuvem paga-se pelo uso.'],
-        ['Ter servidores em muitos países', 'Isso é alcance global, não elasticidade.'],
+        [
+          'Pagar sempre um valor fixo, independente do uso do serviço',
+          'Elasticidade é ajustar recursos; o custo acompanha o uso.',
+        ],
+        [
+          'Ter servidores espalhados em vários países para atender melhor',
+          'Isso é distribuição geográfica, não elasticidade.',
+        ],
       ],
       'Elasticidade evita pagar por capacidade parada.',
     ),
@@ -125,8 +131,14 @@ export const f18 = montar({
       'Qual é um risco da nuvem?',
       'Dependência do provedor e custos que crescem sem controle',
       [
-        ['Impossibilidade de escalar', 'Escalar é a grande vantagem.'],
-        ['Falta de opções de regiões', 'Há muitas regiões.'],
+        [
+          'Impossibilidade de aumentar os recursos quando o sistema cresce',
+          'Escalar é um ponto forte da nuvem.',
+        ],
+        [
+          'Falta de regiões disponíveis para colocar os serviços perto do usuário',
+          'Os provedores têm muitas regiões; o risco é custo e dependência.',
+        ],
       ],
       'Acompanhar custos e planejar a saída é parte da boa prática.',
       1,

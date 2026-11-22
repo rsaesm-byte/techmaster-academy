@@ -12,12 +12,12 @@ export const f03 = montar({
     'Com circuitos chamados portas lógicas, que recebem bits e devolvem um bit',
     [
       [
-        'Um programinha pequeno dentro de cada chip decide',
-        'Até esse programa roda sobre circuitos: portas lógicas.',
+        'Um pequeno programa gravado em cada chip lê os bits e escolhe o resultado',
+        'A decisão acontece em circuitos físicos, sem programa.',
       ],
       [
-        'Ele adivinha pelo contexto',
-        'Computadores não adivinham: seguem regras exatas, feitas de circuitos.',
+        'Ele compara os números com uma lista de respostas prontas guardada na memória',
+        'Não há lista: portas lógicas calculam o resultado.',
       ],
     ],
     'Portas lógicas são circuitos minúsculos que aplicam regras simples a bits. Bilhões delas formam um processador.',

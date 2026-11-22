@@ -12,12 +12,12 @@ export const f06 = montar({
     'O sistema operacional reveza a CPU entre os programas, em fatias de tempo muito curtas',
     [
       [
-        'Cada programa tem uma CPU exclusiva',
-        'Um computador comum tem poucos núcleos, bem menos que programas abertos.',
+        'Cada programa recebe um núcleo só dele, por isso nada disputa a CPU',
+        'Com poucos núcleos não dá para dar um a cada programa.',
       ],
       [
-        'Só um programa roda de verdade; os outros ficam congelados',
-        'Todos avançam: o revezamento é tão rápido que parece simultâneo.',
+        'Só o programa da tela ativa roda; os outros ficam pausados até você voltar',
+        'Programas em segundo plano continuam sendo atendidos em fatias.',
       ],
     ],
     'O sistema operacional distribui a CPU em fatias de milissegundos, dando a impressão de que tudo roda ao mesmo tempo.',

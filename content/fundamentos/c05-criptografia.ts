@@ -11,8 +11,14 @@ export const f15 = montar({
     'Você envia uma mensagem por uma rede aberta e não quer que ninguém no caminho a entenda. O que fazer?',
     'Criptografar: embaralhar a mensagem com uma chave, de modo que só quem tem a chave a desembaralhe',
     [
-      ['Escrever tudo em letras maiúsculas', 'Isso não esconde nada: qualquer um lê.'],
-      ['Mandar mais devagar', 'A velocidade não impede a leitura por quem intercepta.'],
+      [
+        'Escrever tudo em maiúsculas e sem espaços, para ficar ilegível',
+        'Só muda a aparência; qualquer pessoa ainda lê a mensagem.',
+      ],
+      [
+        'Enviar a mensagem aos poucos, em partes, para dificultar a leitura',
+        'Enviar devagar não protege o conteúdo; é preciso cifrar.',
+      ],
     ],
     'Criptografia transforma o texto original em algo ilegível. Só quem conhece a chave consegue reverter.',
   ),
@@ -81,8 +87,14 @@ export const f15 = montar({
       'O que é a "chave" na criptografia?',
       'A informação secreta que permite cifrar e decifrar',
       [
-        ['O nome do programa usado', 'O programa pode ser público; o segredo é a chave.'],
-        ['A velocidade da conexão', 'A velocidade não tem relação com a chave.'],
+        [
+          'O nome do programa de criptografia que as duas pessoas usam',
+          'A chave é um segredo, não o nome do programa.',
+        ],
+        [
+          'A velocidade da conexão segura entre o emissor e o destinatário',
+          'A chave não mede velocidade: é o segredo da cifra.',
+        ],
       ],
       'Sem a chave, o texto cifrado é inútil para quem o intercepta.',
     ),
@@ -93,12 +105,12 @@ export const f15 = montar({
       'Existem só 25 chaves possíveis, e é rápido testar todas',
       [
         [
-          'Porque usa letras maiúsculas',
-          'O problema não está nas letras, e sim no número de chaves.',
+          'Porque usa só letras maiúsculas, o que torna a leitura óbvia',
+          'O ponto fraco são as poucas chaves, não o tipo de letra.',
         ],
         [
-          'Porque o algoritmo é secreto',
-          'O algoritmo é conhecido; o ponto fraco é o tamanho do espaço de chaves.',
+          'Porque o algoritmo é secreto e qualquer um acaba descobrindo',
+          'O algoritmo é público; a fraqueza é o número pequeno de chaves.',
         ],
       ],
       'A força bruta testa todas as 25 chaves em segundos.',
@@ -122,12 +134,12 @@ export const f15 = montar({
     'Cada bit dobra o número de chaves: o número fica tão grande que é impossível testar todas',
     [
       [
-        'Porque 128 é maior que 25',
-        'A questão é o número de possibilidades: 2¹²⁸ é astronômico, não só "maior".',
+        'Porque o número 128 é bem maior que o 25 e dificulta a conta',
+        'Não é o 128 em si, mas o fato de cada bit dobrar as chaves.',
       ],
       [
-        'Porque a chave é secreta e o César não precisa de chave',
-        'O César também tem uma chave; o problema é a quantidade de chaves possíveis.',
+        'Porque a chave de 128 bits é secreta e a cifra de César dispensa chave',
+        'O César também tem chave (o deslocamento); ela só é fácil de testar.',
       ],
     ],
     '2¹²⁸ ≈ 3,4 × 10³⁸ chaves. Mesmo testando bilhões por segundo, levaria mais tempo que a idade do universo.',
@@ -149,12 +161,12 @@ export const f15 = montar({
       'Usar bibliotecas e padrões revisados por especialistas, e não inventar a própria cifra',
       [
         [
-          'Esconder o algoritmo para ninguém conhecer',
-          'A segurança deve depender da chave, não do segredo do método.',
+          'Manter o algoritmo em segredo, para que ninguém consiga analisá-lo',
+          'Segurança que depende de segredo do algoritmo é frágil; use padrões abertos.',
         ],
         [
-          'Usar sempre a chave 3, que é a mais segura',
-          'Chaves fixas e fracas são justamente um risco.',
+          'Usar sempre uma chave fixa e conhecida, como a 3, para não esquecê-la',
+          'Chaves fixas e curtas são fáceis de quebrar.',
         ],
       ],
       'Algoritmos conhecidos e testados por anos são muito mais confiáveis do que invenções próprias.',

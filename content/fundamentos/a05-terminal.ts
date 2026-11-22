@@ -136,8 +136,14 @@ export const f05 = montar({
       'Qual é a diferença entre `>` e `>>` ao usar echo com um arquivo?',
       '> sobrescreve o arquivo; >> acrescenta ao final',
       [
-        ['São idênticos', 'Têm efeitos diferentes: um apaga o que havia, o outro acrescenta.'],
-        ['> acrescenta e >> sobrescreve', 'É o contrário: o ">" simples sobrescreve.'],
+        [
+          'Os dois escrevem no arquivo da mesma forma; só muda o nome',
+          'Eles diferem: um apaga o conteúdo e o outro acrescenta.',
+        ],
+        [
+          '> acrescenta no fim do arquivo e >> sobrescreve o que havia antes',
+          'É o contrário: > sobrescreve e >> acrescenta.',
+        ],
       ],
       'Com > o conteúdo antigo é substituído. Com >> o novo texto é adicionado depois do que já existia.',
       2,

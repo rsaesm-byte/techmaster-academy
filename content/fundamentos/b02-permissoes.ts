@@ -12,12 +12,12 @@ export const f07 = montar({
     'Para proteger dados e o sistema: cada arquivo define quem pode ler, alterar ou executar',
     [
       [
-        'Porque o computador não aguenta muita gente ao mesmo tempo',
-        'O limite não é desempenho, e sim segurança e privacidade.',
+        'Porque cada arquivo só aguenta um usuário por vez e os outros precisam esperar',
+        'Permissões tratam de quem pode, não de capacidade de uso.',
       ],
       [
-        'Porque arquivos só podem ser abertos uma vez',
-        'Podem ser abertos muitas vezes; o que se controla é QUEM pode.',
+        'Porque depois de aberto por um usuário o arquivo é apagado do disco',
+        'Abrir um arquivo não o consome nem o apaga.',
       ],
     ],
     'Permissões separam o que cada pessoa pode fazer. É a base da privacidade e da segurança em qualquer sistema.',
@@ -107,10 +107,13 @@ export const f07 = montar({
       'Porque qualquer usuário poderia ler, alterar e executar o arquivo',
       [
         [
-          'Porque o comando não existe',
-          'O comando existe, e é por isso que é perigoso usá-lo sem necessidade.',
+          'Porque o comando chmod só funciona em arquivos de texto e falha nos demais',
+          'O chmod existe e serve para qualquer arquivo; o risco é de segurança.',
         ],
-        ['Porque deixa o computador lento', 'O desempenho não muda; o risco é de segurança.'],
+        [
+          'Porque o computador processa permissões demais e perde desempenho',
+          'As permissões não afetam o desempenho; o problema é a exposição.',
+        ],
       ],
       'Permissões demais violam o princípio do menor privilégio e facilitam danos acidentais ou ataques.',
       1,

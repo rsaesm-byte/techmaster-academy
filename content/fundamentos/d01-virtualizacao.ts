@@ -77,8 +77,14 @@ export const f16 = montar({
       'O que o hipervisor faz?',
       'Cria e gerencia as VMs repartindo os recursos do hardware',
       [
-        ['Escreve os programas das VMs', 'Ele gerencia recursos; não programa.'],
-        ['Conecta a máquina à internet', 'Esse é o papel da rede.'],
+        [
+          'Escreve e instala os programas que vão rodar dentro de cada VM',
+          'Ele reparte os recursos; não cria programas.',
+        ],
+        [
+          'Conecta as VMs à internet e a controla como um roteador virtual',
+          'A conexão é feita por redes virtuais; o papel central dele é repartir recursos.',
+        ],
       ],
       'É a camada que isola e reparte CPU, memória e disco.',
     ),
@@ -95,8 +101,14 @@ export const f16 = montar({
       'Qual hipervisor roda diretamente sobre o hardware?',
       'Tipo 1 (bare-metal)',
       [
-        ['Tipo 2', 'O tipo 2 roda sobre um sistema operacional.'],
-        ['Nenhum deles', 'O tipo 1 é justamente esse.'],
+        [
+          'Tipo 2, que se instala sobre o sistema operacional e tem acesso direto ao hardware',
+          'O tipo 2 roda sobre um sistema operacional.',
+        ],
+        [
+          'Nenhum dos dois, pois o hipervisor sempre depende de um sistema operacional',
+          'O tipo 1 roda direto no hardware.',
+        ],
       ],
       'Servidores de datacenter usam o tipo 1 para maior desempenho.',
     ),
@@ -121,8 +133,14 @@ export const f16 = montar({
       'Qual é uma desvantagem das VMs?',
       'Cada uma carrega um sistema operacional completo, usando mais memória e disco',
       [
-        ['Elas não podem ser copiadas', 'Podem, e com facilidade.'],
-        ['Elas só rodam um programa', 'Rodam o que o sistema suportar.'],
+        [
+          'Elas não podem ser copiadas nem movidas entre servidores',
+          'VMs podem ser copiadas com snapshots e clones.',
+        ],
+        [
+          'Elas só conseguem executar um programa por vez, como num aparelho simples',
+          'Uma VM roda um sistema completo com vários programas.',
+        ],
       ],
       'Por isso surgiram os contêineres, mais leves.',
     ),
@@ -130,8 +148,14 @@ export const f16 = montar({
       'Por que virtualizar economiza dinheiro?',
       'Aproveita melhor o hardware, usando menos servidores físicos',
       [
-        ['Porque as VMs são grátis', 'O custo é menor, mas não zero.'],
-        ['Porque dispensa energia elétrica', 'Servidores ainda consomem energia.'],
+        [
+          'Porque as VMs não precisam de licença nem de hardware para existir',
+          'VMs usam hardware; a economia vem de dividir o servidor.',
+        ],
+        [
+          'Porque as VMs funcionam sem gastar energia elétrica',
+          'VMs gastam energia; a economia vem do uso de menos servidores.',
+        ],
       ],
       'Mais cargas por máquina significam menos máquinas.',
       1,

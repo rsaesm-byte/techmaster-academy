@@ -11,8 +11,14 @@ export const f11 = montar({
     'Sua internet é de 100 Mbps. Qual é, no máximo, a velocidade de download em megabytes por segundo (MB/s)?',
     'Cerca de 12,5 MB/s',
     [
-      ['100 MB/s', 'Mbps é megaBITS por segundo, não megabytes. Cada byte tem 8 bits.'],
-      ['800 MB/s', 'A conta é ao contrário: dividimos por 8 para passar de bits para bytes.'],
+      [
+        '100 MB/s, pois megabits e megabytes são a mesma unidade',
+        'b minúsculo é bit e B maiúsculo é byte: 8 bits = 1 byte.',
+      ],
+      [
+        '800 MB/s, multiplicando os 100 Mbps por 8 bits de cada byte',
+        'É o contrário: divide-se por 8, não se multiplica.',
+      ],
     ],
     '100 megabits por segundo ÷ 8 bits por byte = 12,5 megabytes por segundo.',
     1,
@@ -101,10 +107,13 @@ export const f11 = montar({
       'O fabricante conta de 1000 em 1000 e o sistema conta de 1024 em 1024',
       [
         [
-          'O restante é reservado para vírus',
-          'Não há reserva para isso: a diferença é só de unidade.',
+          'O restante é reservado pelo antivírus e pelo sistema para proteger o disco',
+          'A diferença vem da contagem 1000 contra 1024, não de reserva.',
         ],
-        ['O disco vem com defeito', 'Não é defeito: os mesmos bytes são contados com outra base.'],
+        [
+          'O disco vem com setores defeituosos de fábrica, que somem da contagem',
+          'Isso é normal em todos os discos e não indica defeito.',
+        ],
       ],
       '500 × 10⁹ bytes ÷ 2³⁰ ≈ 465,7 GiB, mostrado como "466 GB".',
       1,
@@ -131,8 +140,14 @@ export const f11 = montar({
       'O que cresce com o tamanho do disco: a diferença entre base 1000 e base 1024?',
       'Sim: cerca de 2,4% em KB, 7,4% em GB e 10% em TB',
       [
-        ['Não, é sempre igual', 'A diferença se acumula a cada nível de unidade (1,024^n).'],
-        ['Diminui, até desaparecer em TB', 'Pelo contrário: aumenta em cada nível.'],
+        [
+          'Não: a diferença é sempre de 2,4%, qualquer que seja o tamanho',
+          'A diferença acumula a cada nível: 2,4%, 7,4%, 10%...',
+        ],
+        [
+          'Diminui conforme o disco cresce, até sumir em unidades como o TB',
+          'A diferença só aumenta com o tamanho.',
+        ],
       ],
       'Cada nível multiplica o desvio: 1,024, 1,024², 1,024³ e assim por diante.',
       2,

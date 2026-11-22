@@ -12,12 +12,12 @@ export const f02 = montar({
     'Cada letra tem um número combinado numa tabela (A = 65)',
     [
       [
-        'Guarda uma foto da letra',
-        'Isso só vale para imagens; no texto, a letra é um código numérico.',
+        'Guarda a imagem do desenho da letra, pixel por pixel, e a compara depois',
+        'O que se guarda é um número da tabela, não uma imagem.',
       ],
       [
-        'Guarda a posição dela no teclado',
-        'O teclado só envia um código; o que é guardado é o número da tabela de caracteres.',
+        'Guarda o número da tecla pressionada, que muda de teclado para teclado',
+        'Teclados diferentes gerariam textos diferentes; a tabela é combinada.',
       ],
     ],
     'Existe uma tabela combinada em que cada caractere tem um número. Esse número é guardado em binário.',
@@ -148,8 +148,14 @@ export const f02 = montar({
       'Um texto tem 10 caracteres, e alguns têm acento. Quantos bytes ele ocupa em UTF-8?',
       '10 ou mais, dependendo dos caracteres',
       [
-        ['Sempre exatamente 10', 'Só se todos os caracteres usarem 1 byte; acentos usam 2.'],
-        ['Sempre 80', 'Isso seria 8 bytes por caractere, o que não acontece em UTF-8.'],
+        [
+          'Sempre 10, pois cada caractere ocupa exatamente 1 byte em qualquer texto',
+          'Acentos e emojis usam 2 a 4 bytes em UTF-8.',
+        ],
+        [
+          'Sempre 80, pois cada caractere ocupa 8 bytes no computador',
+          'Um byte tem 8 bits; o caractere simples ocupa 1 byte.',
+        ],
       ],
       'Letras simples usam 1 byte e acentuadas, 2 ou mais. Logo o total é no mínimo 10 bytes.',
       2,

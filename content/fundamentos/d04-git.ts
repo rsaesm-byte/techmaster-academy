@@ -10,8 +10,14 @@ export const f19 = montar({
     'Para que serve o Git?',
     'Registrar o histórico de mudanças de um projeto e permitir voltar no tempo',
     [
-      ['Hospedar sites automaticamente', 'Isso é papel de serviços como o GitHub Pages.'],
-      ['Compilar programas', 'Compilar é outra etapa.'],
+      [
+        'Hospedar o site e publicar automaticamente cada alteração feita',
+        'Isso é função de serviços de hospedagem; o Git guarda o histórico.',
+      ],
+      [
+        'Compilar os programas e gerar os arquivos executáveis do projeto',
+        'Compilar é papel do compilador; o Git versiona.',
+      ],
     ],
     'Git guarda versões do projeto, quem mudou o quê e quando.',
   ),
@@ -124,8 +130,14 @@ export const f19 = montar({
       'Qual é a diferença entre Git e GitHub?',
       'Git é a ferramenta de versionamento; GitHub é um site que hospeda repositórios Git',
       [
-        ['São o mesmo produto', 'Um é ferramenta, outro é serviço.'],
-        ['GitHub é um editor de código', 'Ele hospeda repositórios.'],
+        [
+          'Os dois são o mesmo produto, com nomes diferentes em cada empresa',
+          'Git é a ferramenta; GitHub é um serviço que a usa.',
+        ],
+        [
+          'O GitHub é um editor de código com o Git embutido para programar',
+          'GitHub hospeda repositórios; editores são outro tipo de programa.',
+        ],
       ],
       'Existem outros serviços, como GitLab e Bitbucket.',
     ),
@@ -133,8 +145,14 @@ export const f19 = montar({
       'Para que serve uma branch?',
       'Trabalhar em uma mudança sem afetar a linha principal',
       [
-        ['Apagar o histórico', 'O histórico é preservado.'],
-        ['Criar um novo repositório', 'Ela vive dentro do mesmo repositório.'],
+        [
+          'Apagar o histórico antigo do projeto para recomeçar do zero',
+          'A branch não apaga nada: cria uma linha paralela.',
+        ],
+        [
+          'Criar um novo repositório separado, com histórico próprio',
+          'A branch fica no mesmo repositório.',
+        ],
       ],
       'Quando pronta, a branch é juntada com merge.',
       1,

@@ -12,12 +12,12 @@ export const f04 = montar({
     'Na memória (RAM); a CPU busca de lá o que precisa, pouco a pouco',
     [
       [
-        'Dentro da CPU, que guarda tudo de uma vez',
-        'A CPU tem só algumas dezenas de registradores: pouquíssimo espaço.',
+        'Dentro da CPU, nos registradores, que guardam o programa inteiro',
+        'Os registradores são poucos e minúsculos; o programa fica na RAM.',
       ],
       [
-        'Só no disco (HD ou SSD), sem ir a lugar nenhum',
-        'O disco guarda o programa, mas é lento: ele é carregado na RAM para rodar.',
+        'Só no disco (HD ou SSD), e a CPU lê dele direto a cada instrução',
+        'O disco é lento demais; o programa é carregado na RAM.',
       ],
     ],
     'O programa é carregado do disco para a RAM. A CPU lê instruções e dados da RAM e trabalha em registradores, que são minúsculos e muito rápidos.',
@@ -92,10 +92,13 @@ export const f04 = montar({
       'O que o PC (contador de programa) guarda?',
       'O endereço da próxima instrução a executar',
       [
-        ['O resultado da última soma', 'Resultados ficam nos registradores, não no PC.'],
         [
-          'Quantos programas estão abertos',
-          'O PC só controla a posição dentro do programa em execução.',
+          'O valor do último resultado calculado pela CPU, para reutilizar',
+          'O PC guarda o endereço da próxima instrução, não resultados.',
+        ],
+        [
+          'A quantidade de instruções que o programa já executou',
+          'O PC aponta a próxima instrução; não conta nada.',
         ],
       ],
       'O PC aponta a próxima instrução. Instruções de desvio (JMP, JNZ) mudam o PC.',
@@ -145,7 +148,10 @@ export const f04 = montar({
       'Num registrador de 8 bits com valor 255, o que acontece ao executar ADD com 1?',
       'Estoura: o resultado volta a ser 0',
       [
-        ['Vira 256 normalmente', 'O registrador tem só 8 bits: o 256 não cabe.'],
+        [
+          'Passa a valer 256, porque o computador cria um 9º bit sozinho',
+          'Em 8 bits não existe o 9º bit: o 256 não cabe.',
+        ],
         [
           'A CPU para com erro e apaga a memória',
           'Nada é apagado: o resultado só fica "dando a volta".',

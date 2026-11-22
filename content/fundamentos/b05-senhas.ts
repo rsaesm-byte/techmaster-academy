@@ -12,12 +12,12 @@ export const f10 = montar({
     'Uma frase longa e aleatória, como "cafe-ponte-nuvem-tigre-87"',
     [
       [
-        '"Senha@123", porque tem símbolo e número',
-        'É um padrão muito comum, que está em listas de senhas vazadas.',
+        '"Senha@123", porque mistura maiúscula, número e símbolo',
+        'Padrões comuns como esse são testados logo no início.',
       ],
       [
-        '"Ricardo1990", porque é fácil de lembrar',
-        'Nome e ano de nascimento são os primeiros palpites de um atacante.',
+        '"Ricardo1990", porque tem nome, números e é longa o bastante',
+        'Nome e ano de nascimento são os palpites mais usados.',
       ],
     ],
     'Comprimento e imprevisibilidade importam mais que trocar letras por símbolos de um jeito previsível.',
@@ -125,8 +125,14 @@ export const f10 = montar({
       'Para que serve a verificação em duas etapas (2FA)?',
       'Proteger a conta mesmo que a senha seja descoberta',
       [
-        ['Deixar a senha mais curta', 'Não tem relação com o tamanho da senha.'],
-        ['Substituir o gerenciador de senhas', 'São defesas complementares.'],
+        [
+          'Permitir uma senha mais curta, já que o segundo fator compensa',
+          'Senha forte continua necessária; o 2FA é uma camada extra.',
+        ],
+        [
+          'Dispensar o gerenciador de senhas, pois o segundo fator guarda as senhas',
+          'O 2FA não guarda senhas; ele confirma que é você.',
+        ],
       ],
       'O segundo fator (app, chave ou código) é outra barreira: só a senha não basta para entrar.',
       2,
@@ -148,12 +154,12 @@ export const f10 = montar({
       'Comprimento × log₂(quantidade de símbolos possíveis)',
       [
         [
-          'Comprimento + número de símbolos',
-          'A soma não representa o espaço de busca, que cresce por multiplicação.',
+          'Comprimento somado ao número de símbolos possíveis',
+          'A conta é multiplicativa: comprimento × log₂(símbolos).',
         ],
         [
-          'Só o número de símbolos especiais',
-          'Todos os tipos de caractere contam, e o comprimento pesa muito.',
+          'Apenas a quantidade de símbolos especiais usados na senha',
+          'Importam o comprimento e o conjunto de todos os símbolos.',
         ],
       ],
       'Cada posição multiplica as possibilidades por N; em bits, isso vira L × log₂(N).',
@@ -163,12 +169,12 @@ export const f10 = montar({
       'Porque é um padrão previsível, testado logo no início por atacantes',
       [
         [
-          'Porque tem poucas letras',
-          'O problema não é a quantidade de letras e sim a previsibilidade.',
+          'Porque tem poucas letras e o atacante as adivinha em poucas tentativas',
+          'O problema é o padrão previsível, não a quantidade de letras.',
         ],
         [
-          'Porque símbolos não são permitidos em senhas',
-          'São permitidos; só não adiantam se o padrão for comum.',
+          'Porque símbolos são proibidos pela maioria dos sistemas de login',
+          'Símbolos são permitidos; o ruim é usá-los de forma previsível.',
         ],
       ],
       'Ataques de dicionário testam variações comuns de palavras primeiro. Aleatoriedade vale mais que aparência complexa.',
